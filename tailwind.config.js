@@ -37,8 +37,10 @@ module.exports = {
 				'linear-gradient(90deg, #B04BFF 0%, #BD4BF3 33.47%, #DF4BD2 95.21%, #E24BCF 100%);',
 			purpleFadeBg:
 				'linear-gradient(180deg, #B04BFF 0%, rgba(189, 75, 243, 0.4) 58.33%, rgba(223, 75, 210, 0) 95.21%, rgba(226, 75, 207, 0) 100%);',
-			radial:
-				'radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #0E0A30;',
+			blueBg2:
+				'radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%) , #0E0A30;',
+			primaryRadialBg:
+				'radial-gradient(20.52% 48.75% at 21.11% 50%, rgba(31, 24, 91, 0.86) 0%, rgba(14, 10, 48, 0) 100%), #0E0A30;',
 		},
 		screens: {
 			sm: '576px',
