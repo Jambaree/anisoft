@@ -1,8 +1,8 @@
-import getAllPostsData from "./getAllPostsData";
+import { getData } from "@jambaree/next-wordpress";
 import Image from "next/image";
 
 export default async function DefaultPostArchiveTemplate({ uri }) {
-  const posts = await getAllPostsData();
+  const { posts } = await getData({ uri, query });
 
   return (
     <div className="relative bg-gray-50 px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
@@ -87,3 +87,37 @@ export default async function DefaultPostArchiveTemplate({ uri }) {
     </div>
   );
 }
+
+const query = `
+  query PostsQuery {
+    posts {
+      nodes {
+        title
+        id
+        uri
+        slug
+        status
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        categories {
+          nodes {
+            slug
+            uri
+          }
+        }
+        date
+        content
+        author {
+          node {
+            email
+            avatar {
+              url
+            }
+          }
+        }
+      }
+    }
+  }`;
