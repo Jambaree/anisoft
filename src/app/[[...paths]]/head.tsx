@@ -10,7 +10,7 @@ export default async function Head(props: { params: { paths: string[] } }) {
 
   const yoastData = await getYoastData({
     uri,
-    name: seedData?.name || seedData?.contentTypeName,
+    name: seedData?.name || seedData?.contentTypeName || "page",
   });
 
   return <YoastSEO ogUrl={uri} seo={yoastData?.seo} />;
