@@ -1,134 +1,24 @@
 import Image from "next/image";
-import Edges from "./Edges";
+import Link from "next/link";
 
-const menuItems = {
-  nodes: [
-    {
-      name: "Solutions & Products",
-      link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
-    },
-    {
-      name: "Services & Support",
-      link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
-    },
-    {
-      name: "About Us",
-      link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
-    },
-    {
-      name: "Contact Us",
-      link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
-    },
-  ],
-};
-console.log(menuItems);
+import MenuItems from "./headerMenu/MenuItems";
+import Edges from "./Edges";
+import Logo from "./logo";
+
 export default function Header() {
   return (
-    <Edges size="lg">
-      <div className="flex flex-row justify-between ">
-        <Image
-          src="/anisoft-logo.svg"
-          alt="logo"
-          width="271"
-          height="41"
-        ></Image>
+    <>
+      <div className="bg-white h-[72px] "></div>
+      <div className=" fixed bg-white w-full border-b-[1px] border-b-[#0E0A30] top-0 z-10">
+        <Edges size="lg">
+          <div className="flex flex-row justify-between items-center">
+            <Link href="/">
+              <Logo />
+            </Link>
+            <MenuItems />
+          </div>
+        </Edges>
       </div>
-    </Edges>
+    </>
   );
 }

@@ -3,65 +3,69 @@
 @tailwind utilities;
 
 @layer base {
-	html {
-		@apply font-mukta font-light text-base leading-relaxed;
-	}
+  h1 {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 120%;
+  }
+  h2 {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+  }
+  h3 {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+  }
+  h4 {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+  }
 
-	h1 {
-		font-family: var(--font-maven);
-		font-style: normal;
-		font-weight: 400;
-		font-size: 48px;
-		line-height: 120%;
-	}
-	h2 {
-		font-family: var(--font-maven);
-		font-style: normal;
-		font-weight: 400;
-		font-size: 40px;
-		line-height: 120%;
-	}
-	h3 {
-		font-family: var(--font-maven);
-		font-style: normal;
-		font-weight: 400;
-		font-size: 25px;
-		line-height: 120%;
-	}
-	h4 {
-		font-family: var(--font-maven);
-		font-style: normal;
-		font-weight: 400;
-		font-size: 20px;
-		line-height: 120%;
-	}
+  p {
+    font-family: var(--font-mukta);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 150%;
+  }
+  .hero {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+  }
+  .p-details {
+    font-family: var(--font-mukta);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .p-footer {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+  }
 
-	p {
-		font-family: var(--font-mukta);
-		font-style: normal;
-		font-weight: 300;
-		font-size: 18px;
-		line-height: 150%;
-	}
-	.hero {
-		font-family: var(--font-maven);
-		font-style: normal;
-		font-weight: 400;
-		font-size: 60px;
-		line-height: 120%;
-	}
-	.p-details {
-		font-family: var(--font-mukta);
-		font-style: normal;
-		font-weight: 300;
-		font-size: 16px;
-		line-height: 150%;
-	}
-	.p-footer {
-		font-family: var(--font-maven);
-		font-style: normal;
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 150%;
-	}
+  .nav {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
 }
