@@ -4,7 +4,7 @@ import Link from "next/link";
 import MenuItems from "./headerMenu/MenuItems";
 // @ts-ignore
 import Edges from "./Edges";
-import Logo from "./logo";
+import Logo from "./logos/logo";
 
 export default function Header() {
   return (
