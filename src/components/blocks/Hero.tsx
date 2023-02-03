@@ -7,8 +7,8 @@ export default function Hero({ data }) {
 		<div className='primaryRadialBg '>
 			<div className='flex w-full h-full flex-wrap text-white'>
 				<div>
-					<h1 className='heroHeadline'>{headline}</h1>
-					<p>{subHeadline}</p>
+					<h1 className='heroHeadline max-w-[985px] '>{headline}</h1>
+					<p className='max-w-[575px]'>{subHeadline}</p>
 					<Link
 						className='text-white'
 						href={button1?.url}
