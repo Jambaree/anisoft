@@ -43,10 +43,10 @@
 		font-size: 18px;
 		line-height: 150%;
 	}
-	.hero {
+	.heroHeadline {
 		font-family: var(--font-maven);
 		font-style: normal;
-		font-weight: 400;
+		font-weight: 400 !important;
 		font-size: 60px;
 		line-height: 120%;
 	}
@@ -63,5 +63,14 @@
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 150%;
+	}
+	.primaryRadialBg {
+		background: radial-gradient(
+					20.52% 48.75% at 21.11% 50%,
+					rgba(31, 24, 91, 0.86) 0%,
+					rgba(14, 10, 48, 0) 100%
+				)
+				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+			#0e0a30;
 	}
 }

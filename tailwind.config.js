@@ -27,20 +27,8 @@ module.exports = {
 			lightBlue: '#18354B',
 			darkPurple: '#0E0A30',
 			lightGreen: '#00AC4D',
-			greenBg:
-				'linear-gradient(180deg, #119D5E 0%, rgba(37, 229, 142, 0) 100%);',
 			lightGreyBg: '#F4F4F4',
 			black: '#000000',
-			blueBg:
-				'linear-gradient(90deg, #3CFFFE 9.76%, #3CE6FE 23.42%, #3CCBFE 42.3%, #3CB7FE 61.35%, #3CABFE 80.53%, #3CA7FE 100%);',
-			purpleBg:
-				'linear-gradient(90deg, #B04BFF 0%, #BD4BF3 33.47%, #DF4BD2 95.21%, #E24BCF 100%);',
-			purpleFadeBg:
-				'linear-gradient(180deg, #B04BFF 0%, rgba(189, 75, 243, 0.4) 58.33%, rgba(223, 75, 210, 0) 95.21%, rgba(226, 75, 207, 0) 100%);',
-			blueBg2:
-				'radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%) , #0E0A30;',
-			primaryRadialBg:
-				'radial-gradient(20.52% 48.75% at 21.11% 50%, rgba(31, 24, 91, 0.86) 0%, rgba(14, 10, 48, 0) 100%), #0E0A30;',
 		},
 		screens: {
 			sm: '576px',
