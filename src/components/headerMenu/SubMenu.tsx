@@ -6,7 +6,7 @@ const SubMenu = ({ childItems }) => {
   const [hoverIndex, setHoveredIndex] = useState(-1);
 
   return (
-    <div className="absolute bg-white z-0 border-b-[1px] border-b-[#0E0A30] border-x-[1px] border-t-none w-[274px]">
+    <div className="absolute bg-white z-10 border-b-[1px] border-b-[#0E0A30] border-x-[1px] border-t-none w-[274px]">
       <div className=" flex flex-col">
         {childItems?.nodes?.map((item, index) => {
           return (

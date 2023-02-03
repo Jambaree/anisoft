@@ -134,10 +134,7 @@ const MenuItems = () => {
           onMouseLeave={() => setHoverIndex(-1)}
         >
           <div className="relative flex flex-col">
-            <li
-              className="nav text-lightBlue px-[16px] py-[31px] z-10"
-              key={index}
-            >
+            <li className="nav text-lightBlue px-[16px] py-[31px]" key={index}>
               <Link href={item?.link}>{item?.name}</Link>
             </li>
           </div>
