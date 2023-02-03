@@ -8,19 +8,21 @@ export default function Hero({ data }) {
 			<div className='flex w-full h-full flex-wrap text-white'>
 				<div>
 					<h1 className='heroHeadline max-w-[985px] '>{headline}</h1>
-					<p className='max-w-[575px]'>{subHeadline}</p>
-					<Link
-						className='text-white'
-						href={button1?.url}
-					>
-						{button1?.title}
-					</Link>
-					<Link
-						className='text-white'
-						href={button2?.url}
-					>
-						{button2?.title}
-					</Link>
+					<p className='max-w-[575px] pt-[40px]'>{subHeadline}</p>
+					<div className='pt-[50px] flex wrap gap-[10px]'>
+						<Link
+							className='text-white'
+							href={button1?.url}
+						>
+							{button1?.title}
+						</Link>
+						<Link
+							className='text-white'
+							href={button2?.url}
+						>
+							{button2?.title}
+						</Link>
+					</div>
 				</div>
 				<div>
 					<Image
