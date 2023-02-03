@@ -68,4 +68,14 @@
     font-size: 16px;
     line-height: 150%;
   }
+
+  .footerRadial {
+    background: radial-gradient(
+          20.52% 48.75% at 21.11% 50%,
+          rgba(31, 24, 91, 0.86) 0%,
+          rgba(14, 10, 48, 0) 100%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+      #0e0a30;
+  }
 }

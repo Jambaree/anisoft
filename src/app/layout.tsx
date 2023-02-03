@@ -2,7 +2,7 @@ import { Mukta, Maven_Pro } from "@next/font/google";
 
 import "./globals.css";
 import Header from "../components/header";
-
+import Footer from "../components/footer";
 const mukta = Mukta({
   variable: "--font-mukta",
   subsets: ["latin"],
@@ -25,6 +25,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
