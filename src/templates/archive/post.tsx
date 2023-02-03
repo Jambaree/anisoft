@@ -20,7 +20,7 @@ export default async function DefaultPostArchiveTemplate({ uri }) {
           </p>
         </div>
         <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-          {posts?.map((post, index) => (
+          {posts?.nodes?.map((post, index) => (
             <div
               key={index}
               className="flex flex-col overflow-hidden rounded-lg shadow-lg"
