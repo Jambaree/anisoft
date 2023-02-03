@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-	html {
-		@apply font-mukta font-light text-base leading-relaxed;
-	}
-
 	h1 {
 		font-family: var(--font-maven);
 		font-style: normal;
@@ -34,6 +30,35 @@
 		font-weight: 400;
 		font-size: 20px;
 		line-height: 120%;
+	}
+
+	p {
+		font-family: var(--font-mukta);
+		font-style: normal;
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 150%;
+	}
+	.hero {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 60px;
+		line-height: 120%;
+	}
+	.p-details {
+		font-family: var(--font-mukta);
+		font-style: normal;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 150%;
+	}
+	.p-footer {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 150%;
 	}
 
 	p {
@@ -72,5 +97,12 @@
 				)
 				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
 			#0e0a30;
+	}
+	.nav {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 150%;
 	}
 }
