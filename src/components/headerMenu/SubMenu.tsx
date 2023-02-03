@@ -21,9 +21,9 @@ const SubMenu = ({ childItems }) => {
               <div className="relative w-fit text-[16px] font-maven">
                 <motion.div
                   className="bg-lightGreen  h-[14%] -top-1 left-0 absolute nav"
-                  initial={{ width: "7%" }}
+                  initial={{ width: "15px" }}
                   animate={{
-                    width: hoverIndex === index ? "63%" : "7%",
+                    width: hoverIndex === index ? "63%" : "15px",
                   }}
                   transition={{ duration: 0.3 }}
                 ></motion.div>
