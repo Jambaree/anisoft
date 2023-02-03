@@ -10,7 +10,7 @@ const mukta = Mukta({
 });
 
 const maven = Maven_Pro({
-	variable: '--font-karla',
+	variable: '--font-maven',
 	subsets: ['latin'],
 	weight: ['400', '500', '700'],
 });
