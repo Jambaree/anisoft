@@ -1,6 +1,4 @@
-import { YoastSEO } from "@jambaree/next-wordpress";
-
-import { getSeedData } from "@jambaree/next-wordpress";
+import { YoastSEO, getYoastData, getSeedData } from "@jambaree/next-wordpress";
 
 export default async function Head(props: { params: { paths: string[] } }) {
   const {
@@ -10,5 +8,10 @@ export default async function Head(props: { params: { paths: string[] } }) {
   const uri = paths?.join?.("/") || "/";
   const seedData = await getSeedData({ uri });
 
-  return <YoastSEO ogUrl={uri} seo={seedData?.seo} />;
+  const yoastData = await getYoastData({
+    uri,
+    name: seedData?.name || seedData?.contentTypeName,
+  });
+
+  return <YoastSEO ogUrl={uri} seo={yoastData?.seo} />;
 }

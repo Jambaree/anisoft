@@ -30,9 +30,9 @@
   integrity sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==
 
 "@headlessui/react@^1.7.7":
-  version "1.7.8"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.8.tgz#d7b4a95d50f9a386f7d1259d5ff8a6d7eb552ef0"
-  integrity sha512-zcwb0kd7L05hxmoAMIioEaOn235Dg0fUO+iGbLPgLVSjzl/l39V6DTpC2Df49PE5aG5/f5q0PZ9ZHZ78ENNV+A==
+  version "1.7.9"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.9.tgz#fcb4cf50afbb2161cf7ea8e2301805ec05c24e49"
+  integrity sha512-Bobh/+mDciu8kEE2hvdukFYjbfaG4MEkK/6TjWOgqcODLKYpRhWPKPE+dCcCSz/YrwjFVrEAMOiWtfk6sW20/w==
   dependencies:
     client-only "^0.0.1"
 
@@ -60,10 +60,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@jambaree/next-wordpress@0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@jambaree/next-wordpress/-/next-wordpress-0.1.2.tgz#af4c9de6d0edf64c48be276fe6608d1f52f3bd2d"
-  integrity sha512-OEAap4bS7SGZLN2v5CHAePE+qzhTJeSY6bSf3WZsolJ6UKobZeH3cF/KtA4nnRrEmi5tFg4llywKUR2iXemCrA==
+"@jambaree/next-wordpress@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@jambaree/next-wordpress/-/next-wordpress-0.1.7.tgz#b8b7ba12d5012f2164c4f42a37b5534cc8dcd3a7"
+  integrity sha512-/zpmXAx0zhaduI9g888vs0lMSjsXd7QdlbCp6Jvq3Y29vmgtp9gmkxvypAjYLB1u6jwvWg+J3a6hwYl5aYiU8Q==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/react" "^18.0.27"
@@ -710,9 +710,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 electron-to-chromium@^1.4.284:
-  version "1.4.284"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.284.tgz#61046d1e4cab3a25238f6bf7413795270f125592"
-  integrity sha512-M8WEXFuKXMYMVr45fo8mq0wUrrJHheiKZf6BArTKk9ZBYCKJEOU5H8cdWgDT+qCVZf7Na4lVUaZsA+h6uA9+PA==
+  version "1.4.286"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.286.tgz#0e039de59135f44ab9a8ec9025e53a9135eba11f"
+  integrity sha512-Vp3CVhmYpgf4iXNKAucoQUDcCrBQX3XLBtwgFqP9BUXuucgvAV9zWp1kYU7LL9j4++s9O+12cb3wMtN4SJy6UQ==
 
 emoji-regex@^9.2.2:
   version "9.2.2"
