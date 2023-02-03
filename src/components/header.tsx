@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import MenuItems from "./headerMenu/MenuItems";
+// @ts-ignore
 import Edges from "./Edges";
 import Logo from "./logo";
 
