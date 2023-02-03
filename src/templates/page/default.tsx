@@ -1,7 +1,7 @@
 import getPageData from './getPageData';
 import { notFound } from 'next/navigation';
 import Hero from '../../components/blocks/Hero';
-import data from '../../components/blocks/data';
+import data from '../../components/blocks/data.json';
 
 export default async function DefaultPageTemplate({ uri }) {
 	const pageData = await getPageData({ uri });
