@@ -1,5 +1,5 @@
 import React from "react";
-import MenuItems from "./footerMenu/MenuItems";
+import FooterMenuItems from "./footerMenu/FooterMenuItems";
 import Edges from "./Edges";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,19 +27,30 @@ const socialLinks = [
   },
 ];
 
+const copyrightLinks = [
+  {
+    name: "Privacy Policy",
+    url: "/",
+  },
+  {
+    name: "Terms of Service",
+    url: "/",
+  },
+];
+
 const Footer = () => {
   return (
     <div className="w-full footerRadial">
       <Edges size="lg">
-        <div className="flex flex-col">
-          <div className="flex flex-row justify-between">
+        <div className="flex flex-col pt-[80px] px-[64px]">
+          <div className="flex flex-row justify-between pb-[100px]">
             <div>
-              <div className="mb-5">
+              <div className="mb-[32px]">
                 <Link href="/">
                   <InvertedLogo />
                 </Link>
               </div>
-              <div className="flex flex-col mb-[27px]">
+              <div className="flex flex-col mb-[27px] p-footer">
                 <p className="text-white">{socialInfo.phone}</p>
                 <p className="text-white">{socialInfo.email}</p>
               </div>
@@ -57,11 +68,20 @@ const Footer = () => {
               </div>
             </div>
             <div className="max-w-[384px]">
-              <MenuItems />
+              <FooterMenuItems />
             </div>
           </div>
-          <div className="bg-white w-full h-[1px]"></div>
-          <div className=" text-white">Copyright</div>
+          <div className="bg-white w-full h-[1px] mb-[32px]"></div>
+          <div className=" text-white mb-[43px] flex flex-row justify-between p-footer">
+            <div>2023 Anisoft Group Inc. All right reserved.</div>
+            <div>
+              {copyrightLinks.map((link, index) => (
+                <Link href={link?.url} className="ml-[24px] ">
+                  {link?.name}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </Edges>
     </div>

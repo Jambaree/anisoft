@@ -48,9 +48,9 @@ const menuItems = {
 
 const FooterMenuItems = () => {
   return (
-    <ul className="flex flex-row flex-wrap">
+    <ul className="flex flex-col flex-wrap max-h-[245px]">
       {menuItems.nodes.map((item, index) => (
-        <div key={index} className="relative max-w-[180px] w-full">
+        <div key={index} className="relative  w-full">
           <div className="relative flex flex-col">
             <li className="nav text-white z-0" key={index}>
               <Link href={item?.link}>{item?.name}</Link>

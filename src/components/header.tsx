@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import MenuItems from "./headerMenu/MenuItems";
+import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
 // @ts-ignore
 import Edges from "./Edges";
 import Logo from "./logos/logo";
@@ -15,7 +15,7 @@ export default function Header() {
             <Link href="/">
               <Logo />
             </Link>
-            <MenuItems />
+            <HeaderMenuItems />
           </div>
         </Edges>
       </div>
