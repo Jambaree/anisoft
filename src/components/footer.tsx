@@ -76,7 +76,7 @@ const Footer = () => {
             <div>2023 Anisoft Group Inc. All right reserved.</div>
             <div>
               {copyrightLinks.map((link, index) => (
-                <Link href={link?.url} className="ml-[24px] ">
+                <Link key={index} href={link?.url} className="ml-[24px] ">
                   {link?.name}
                 </Link>
               ))}
