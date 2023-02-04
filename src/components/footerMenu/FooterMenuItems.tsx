@@ -46,13 +46,13 @@ const menuItems = {
   ],
 };
 
-const FooterMenuItems = () => {
+const MenuItems = () => {
   return (
-    <ul className="flex flex-col flex-wrap max-h-[245px]">
+    <ul className="flex flex-row flex-wrap">
       {menuItems.nodes.map((item, index) => (
-        <div key={index} className="relative  w-full">
+        <div key={index} className="relative max-w-[180px] w-full">
           <div className="relative flex flex-col">
-            <li className="nav text-white z-0" key={index}>
+            <li className="nav text-white z-0 mb-[12px]" key={index}>
               <Link href={item?.link}>{item?.name}</Link>
             </li>
           </div>
@@ -62,4 +62,4 @@ const FooterMenuItems = () => {
   );
 };
 
-export default FooterMenuItems;
+export default MenuItems;
