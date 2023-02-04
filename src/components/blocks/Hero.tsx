@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Button from '../Button';
 import Edges from '../Edges';
 import { motion } from 'framer-motion';
-import {  staggerContainer, textVariant } from '../../utils/motion';
+import { staggerContainer, textVariant } from '../../utils/motion';
 
 export default function Hero({ data }) {
 	const { headline, subHeadline, button1, button2, image } = data;
@@ -12,7 +12,7 @@ export default function Hero({ data }) {
 		<div className='primaryRadialBg py-[100px] md:py-[150px]'>
 			<Edges size='lg'>
 				<motion.div
-					variants={staggerContainer}
+					variants={staggerContainer()}
 					initial='hidden'
 					whileInView='show'
 					viewport={{ once: false, amount: 0.25 }}
