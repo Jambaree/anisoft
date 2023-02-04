@@ -1,20 +1,40 @@
+'use client';
+
 import Image from 'next/image';
-import Link from 'next/link';
 import Button from '../Button';
 import Edges from '../Edges';
+import { motion } from 'framer-motion';
+import {  staggerContainer, textVariant } from '../../utils/motion';
 
 export default function Hero({ data }) {
 	const { headline, subHeadline, button1, button2, image } = data;
 	return (
 		<div className='primaryRadialBg py-[100px] md:py-[150px]'>
 			<Edges size='lg'>
-				<div className='flex w-full h-full flex-wrap text-white items-center justify-center'>
+				<motion.div
+					variants={staggerContainer}
+					initial='hidden'
+					whileInView='show'
+					viewport={{ once: false, amount: 0.25 }}
+					className='flex w-full h-full flex-wrap text-white items-center justify-center'
+				>
 					<div>
-						<h1 className='heroHeadline max-w-[985px] text-[40px]  sm:text-[60px]'>
+						<motion.h1
+							variants={textVariant(0.6)}
+							className='heroHeadline max-w-[985px] text-[40px]  sm:text-[60px]'
+						>
 							{headline}
-						</h1>
-						<p className='max-w-[575px] pt-[40px]'>{subHeadline}</p>
-						<div className='pt-[50px] flex wrap gap-[10px]'>
+						</motion.h1>
+						<motion.p
+							variants={textVariant(0.8)}
+							className='max-w-[575px] pt-[40px]'
+						>
+							{subHeadline}
+						</motion.p>
+						<motion.div
+							variants={textVariant(1)}
+							className='pt-[50px] flex wrap gap-[10px]'
+						>
 							<Button
 								variant='large'
 								href={button1?.url}
@@ -30,9 +50,12 @@ export default function Hero({ data }) {
 							>
 								{button2?.title}
 							</Button>
-						</div>
+						</motion.div>
 					</div>
-					<div className='flex items-center justify-center '>
+					<motion.div
+						variants={textVariant(0.8)}
+						className='flex items-center justify-center '
+					>
 						<Image
 							className='p-[50px]'
 							src={image?.sourceUrl}
@@ -41,8 +64,8 @@ export default function Hero({ data }) {
 							width={350}
 							height={350}
 						/>
-					</div>
-				</div>
+					</motion.div>
+				</motion.div>
 			</Edges>
 		</div>
 	);

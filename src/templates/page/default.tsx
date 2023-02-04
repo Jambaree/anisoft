@@ -12,7 +12,6 @@ export default async function DefaultPageTemplate({ uri }) {
 
 	return (
 		<>
-			<h1>Default Page Template for {title}</h1>
 			<Hero data={data.hero} />
 		</>
 	);
