@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Button from '../Button';
 import Edges from '../Edges';
 
 export default function Hero({ data }) {
@@ -14,18 +15,21 @@ export default function Hero({ data }) {
 						</h1>
 						<p className='max-w-[575px] pt-[40px]'>{subHeadline}</p>
 						<div className='pt-[50px] flex wrap gap-[10px]'>
-							<Link
-								className='buttonNormal'
+							<Button
+								variant='large'
 								href={button1?.url}
+								reverse={true}
 							>
 								{button1?.title}
-							</Link>
-							<Link
-								className='buttonCTA'
+							</Button>
+							<Button
+								variant='basicWhite'
 								href={button2?.url}
+								reverse={true}
+								className='heroButton'
 							>
 								{button2?.title}
-							</Link>
+							</Button>
 						</div>
 					</div>
 					<div className='flex items-center justify-center '>
