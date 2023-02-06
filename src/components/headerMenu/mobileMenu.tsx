@@ -56,16 +56,18 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
             variants={sideVariants}
             className="fixed top-0 z-50 h-full w-full bg-white"
           >
-            <Image
-              src="/close.svg"
-              alt="close-icon"
-              className="ml-auto w-fit cursor-pointer w-[30px] mt-[35px] mr-[35px]"
-              width="30"
-              height="30"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            />
+            <div className="w-[30px] h-[30px] ml-auto relative  mt-[35px] mr-[35px]">
+              <Image
+                src="/close.svg"
+                alt="close-icon"
+                className=" cursor-pointer "
+                width="30"
+                height="30"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              />
+            </div>
 
             <Edges
               size="sm"
