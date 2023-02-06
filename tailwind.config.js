@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     screens: {
       sm: "576px",
-      md: "960px",
+      md: "1110px",
       lg: "1440px",
     },
     fontFamily: {
@@ -46,7 +46,7 @@ module.exports = {
       purpleFadeBg:
         "linear-gradient(180deg, #B04BFF 0%, rgba(189, 75, 243, 0.4) 58.33%, rgba(223, 75, 210, 0) 95.21%, rgba(226, 75, 207, 0) 100%);",
       radial:
-        "radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #0E0A30;",
+        "radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%), #0E0A30;",
     },
   },
   plugins: [],

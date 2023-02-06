@@ -6,7 +6,7 @@ const Logo = () => {
 
   return (
     <div
-      className="w-[271px] h-[41px] z-10"
+      className="w-[200px] sm:w-[271px] sm:h-[41px] z-10"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
