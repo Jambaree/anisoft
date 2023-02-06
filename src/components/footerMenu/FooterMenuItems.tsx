@@ -48,7 +48,7 @@ const menuItems = {
 
 const MenuItems = () => {
   return (
-    <ul className="flex flex-row flex-wrap">
+    <ul className="flex flex-col sm:flex-row flex-wrap">
       {menuItems.nodes.map((item, index) => (
         <div key={index} className="relative max-w-[180px] w-full">
           <div className="relative flex flex-col">
