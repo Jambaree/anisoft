@@ -9,10 +9,12 @@ function Anisoft({ data }) {
 
 	return (
 		<div className='primaryRadialBg pb-[100px] pl-[100px]'>
-			<div className='bg-white py-[100px] md:py-[150px]'>
+			<div className='bg-white pb-[50px] md:pb-[80px]'>
 				<Edges size='lg'>
-					<div className='flex w-full h-full flex-wrap text-darkPurple items-center justify-between'>
-						<div className='max-w-[500px]'>
+					<div className='flex w-full h-full flex-wrap text-darkPurple items-start justify-evenly'>
+						<div className='max-w-[500px] pt-[50px] md:pt-[70px]'>
+							{tag && <p className='max-w-[575px] pt-[40px]'>{tag}</p>}
+
 							{headline && (
 								<FadeInUp className='delay-100'>
 									<h1 className='heroHeadline max-w-[985px] text-[32px]  sm:text-[48px]'>
@@ -20,9 +22,8 @@ function Anisoft({ data }) {
 									</h1>
 								</FadeInUp>
 							)}
-							{tag && <p className='max-w-[575px] pt-[40px]'>{tag}</p>}
 						</div>
-						<div className='max-w-[500px] flex flex-col'>
+						<div className='max-w-[500px] flex flex-col pt-[50px] md:pt-[150px]'>
 							{text && <span>{text}</span>}
 							<div className='pt-[50px] flex wrap gap-[30px] flex-wrap-reverse w-auto mr-[50px]'>
 								{button?.url && (
