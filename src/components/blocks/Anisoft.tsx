@@ -1,14 +1,22 @@
 import Image from 'next/image';
 import Button from '../Button';
 import Edges from '../Edges';
-import Tilt from 'react-parallax-tilt';
 import FadeInUp from '../FadeInUp';
 
 function Anisoft({ data }) {
 	const { headline, tag, button, text } = data;
 
 	return (
-		<div className='primaryRadialBg pb-[100px] pl-[100px]'>
+		<div className='relative primaryRadialBg pb-[100px] pl-[50px] md:pl-[100px]'>
+			<div className='absolute left-[10px] md:left-[15px] top-0 w-[40px] md:w-[100px] h-auto flex'>
+				<Image
+					src='/anisoft-module.svg'
+					alt='anisoft'
+					width='200'
+					height='100'
+					className='max-h-[472px]'
+				/>
+			</div>
 			<div className='bg-white pb-[50px] md:pb-[80px]'>
 				<Edges size='lg'>
 					<div className='flex w-full h-full flex-wrap text-darkPurple items-start justify-evenly'>
