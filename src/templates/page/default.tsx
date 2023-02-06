@@ -16,3 +16,13 @@ export default async function DefaultPageTemplate({ uri }) {
 		</>
 	);
 }
+const query = `
+  query PageQuery($uri: ID!) {
+    page(id: $uri, idType: URI) {
+      __typename
+      id
+      title
+      uri
+      slug
+    }
+  }`;
