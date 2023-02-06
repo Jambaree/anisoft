@@ -17,7 +17,7 @@ export default function Hero({ data }) {
 					initial='hidden'
 					whileInView='show'
 					viewport={{ once: false, amount: 0.25 }}
-					className='flex w-full h-full flex-wrap text-white items-center justify-center'
+					className='flex w-full h-full flex-wrap-reverse text-white items-center justify-center'
 				>
 					<div>
 						<motion.h1
@@ -58,7 +58,7 @@ export default function Hero({ data }) {
 						className='flex items-center justify-center '
 					>
 						<Tilt>
-							<div className='relative w-[350px] h-[350px]'>
+							<div className='relative w-[350px] h-[350px] cursor-pointer'>
 								<Image
 									className='p-[50px]'
 									src={image?.sourceUrl}
