@@ -24,7 +24,7 @@ function Anisoft({ data }) {
 							{tag && <p className='max-w-[575px] pt-[40px]'>{tag}</p>}
 
 							{headline && (
-								<FadeInUp className='delay-100'>
+								<FadeInUp className='delay-200'>
 									<h1 className='heroHeadline max-w-[985px] text-[32px]  sm:text-[48px]'>
 										{headline}
 									</h1>
