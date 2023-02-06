@@ -1,0 +1,20 @@
+{
+	"hero": {
+		"headline": "Data and Compute Infrastructure serving Western Canada",
+		"subHeadline": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.",
+		"button1": {
+			"title": "Learn More",
+			"url": "/about",
+			"target": "_self"
+		},
+		"button2": {
+			"title": "Buton CTA 2",
+			"url": "/cta",
+			"target": "_self"
+		},
+		"image": {
+			"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/heroImage.png",
+			"altText": "placeholder image"
+		}
+	}
+}
