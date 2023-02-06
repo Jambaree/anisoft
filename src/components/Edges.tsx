@@ -25,7 +25,7 @@ const Edges: React.FC<IEdgesProps> = (props) => {
           : "max-w-screen-lg",
 
         "mx-auto",
-        "w-full",
+        "w-[calc(100%-32px)]",
 
         className
       )}
