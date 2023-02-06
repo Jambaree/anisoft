@@ -41,7 +41,6 @@ export default function Hero({ data }) {
               <Button
                 variant="basicWhite"
                 href={button2?.url}
-                reverse={true}
                 className="heroButton"
               >
                 {button2?.title}

@@ -98,6 +98,14 @@
         /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
       #0e0a30;
   }
+  .secondaryRadialBg {
+    background: radial-gradient(
+        74.46% 294.38% at 55.17% 49.79%,
+        #1f185b 0%,
+        rgba(14, 10, 48, 0) 100%
+      )
+      #0e0a30;
+  }
 
   .nav {
     font-family: var(--font-maven);
