@@ -17,7 +17,7 @@ function Anisoft({ data }) {
 					className='max-h-[472px]'
 				/>
 			</div>
-			<div className='bg-white pb-[50px] md:pb-[80px]'>
+			<div className='bg-white pb-[50px] md:pb-[80px] min-h-[472px] overflow-hidden'>
 				<Edges size='lg'>
 					<div className='flex w-full h-full flex-wrap text-darkPurple items-start justify-evenly'>
 						<div className='max-w-[500px] pt-[50px] md:pt-[70px]'>
