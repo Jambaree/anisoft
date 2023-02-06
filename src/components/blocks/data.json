@@ -8,7 +8,7 @@
 			"target": "_self"
 		},
 		"button2": {
-			"title": "Buton CTA 2",
+			"title": "Buton CTA",
 			"url": "/cta",
 			"target": "_self"
 		},
