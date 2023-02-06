@@ -5,6 +5,7 @@ import Button from '../Button';
 import Edges from '../Edges';
 import { motion } from 'framer-motion';
 import { staggerContainer, textVariant } from '../../utils/motion';
+import Tilt from 'react-parallax-tilt';
 
 export default function Hero({ data }) {
 	const { headline, subHeadline, button1, button2, image } = data;
@@ -56,14 +57,17 @@ export default function Hero({ data }) {
 						variants={textVariant(0.8)}
 						className='flex items-center justify-center '
 					>
-						<Image
-							className='p-[50px]'
-							src={image?.sourceUrl}
-							// src={heroImage}
-							alt={image?.altText}
-							width={350}
-							height={350}
-						/>
+						<Tilt>
+							<div className='relative w-[350px] h-[350px]'>
+								<Image
+									className='p-[50px]'
+									src={image?.sourceUrl}
+									// src={heroImage}
+									alt={image?.altText}
+									fill
+								/>
+							</div>
+						</Tilt>
 					</motion.div>
 				</motion.div>
 			</Edges>
