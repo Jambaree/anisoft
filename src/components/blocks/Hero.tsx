@@ -13,15 +13,15 @@ export default function Hero({ data }) {
       <Edges size="lg">
         <div className="flex w-full h-full flex-wrap-reverse text-white items-center justify-center">
           <div>
-            <FadeInUp>
+            <FadeInUp className="delay-100">
               <h1 className="heroHeadline max-w-[985px] text-[40px]  sm:text-[60px]">
                 {headline}
               </h1>
             </FadeInUp>
-            <FadeInUp>
+            <FadeInUp className="delay-300">
               <p className="max-w-[575px] pt-[40px]">{subHeadline}</p>
             </FadeInUp>
-            <FadeInUp>
+            <FadeInUp className="delay-500">
               <div className="pt-[50px] flex wrap gap-[30px] flex-wrap-reverse w-auto mr-[50px]">
                 <Button variant="large" href={button1?.url} reverse={true}>
                   {button1?.title}
