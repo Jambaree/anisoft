@@ -1,14 +1,14 @@
-import getPageData from './getPageData';
 import { notFound } from 'next/navigation';
 import Hero from '../../components/blocks/Hero';
 import data from '../../components/blocks/data.json';
+import { getData } from '@jambaree/next-wordpress';
 
 export default async function DefaultPageTemplate({ uri }) {
-	const pageData = await getPageData({ uri });
-	if (!pageData) {
+   const { page } = await getData({ uri, query });
+	if (!page) {
 		notFound();
 	}
-	const { title } = pageData;
+	const { title } = page;
 
 	return (
 		<>
