@@ -34,7 +34,7 @@ export default function Hero({ data }) {
 						</motion.p>
 						<motion.div
 							variants={textVariant(1)}
-							className='pt-[50px] flex wrap gap-[10px]'
+							className='pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]'
 						>
 							<Button
 								variant='large'
@@ -47,7 +47,7 @@ export default function Hero({ data }) {
 								variant='basicWhite'
 								href={button2?.url}
 								reverse={true}
-								className='heroButton'
+								className='heroButton '
 							>
 								{button2?.title}
 							</Button>
