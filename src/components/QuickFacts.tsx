@@ -30,11 +30,11 @@ const quickData = {
 
 const handleDelay = (index) => {
   if (index === 0) {
-    return 100;
-  } else if (index === 1) {
-    return 300;
-  } else if (index === 2) {
     return 500;
+  } else if (index === 1) {
+    return 700;
+  } else if (index === 2) {
+    return 1000;
   }
 };
 const QuickFacts = () => {
@@ -61,16 +61,17 @@ const QuickFacts = () => {
                         alt=""
                         width="35"
                         height="35"
-                        className="mb-[27px] z-10"
+                        className="mb-[27px] z-10 w-auto"
                       />
-                      <FadeInUp className="delay-500 absolute top-[2px] left-[7px] z-20">
+                      <FadeInUp className="delay-1000 absolute top-[2px] left-[7px] z-20">
                         <Image
                           src={`/inverted-${fact?.icon}.svg`}
                           alt=""
                           width="34"
                           height="34"
+                          className="w-auto"
                         />
-                        <div className="text-[#FF0000] top-[14px] absolute left-[15px] text-[18px] font-thin z-30">
+                        <div className="text-[#FF0000] top-[14px] absolute left-[15px] text-[18px] font-thin z-30 ">
                           FPO
                         </div>
                       </FadeInUp>
