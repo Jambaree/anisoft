@@ -7,7 +7,7 @@ import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
 import Edges from "./Edges";
 import Logo from "./logos/logo";
 import Image from "next/image";
-import MobileMenu from "./headerMenu/MobileMenu";
+import MobileMenu from "./headerMenu/mobileMenu";
 
 const menuItems = {
   nodes: [
