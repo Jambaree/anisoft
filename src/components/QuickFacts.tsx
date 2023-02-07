@@ -53,7 +53,7 @@ const QuickFacts = () => {
           <div className=" flex flex-col md:flex-row">
             {quickData?.facts?.map((fact, index) => {
               return (
-                <FadeInUp className={`delay-${handleDelay(index)}`}>
+                <FadeInUp className={`delay-${handleDelay(index)}`} key={index}>
                   <div className="flex flex-col text-white mr-[32px] mb-[25px] md:mb-0">
                     <div className="relative">
                       <Image
