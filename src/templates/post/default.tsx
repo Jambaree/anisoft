@@ -1,8 +1,10 @@
-import QuickFacts from "../../components/QuickFacts";
+// import QuickFacts from "../../components/QuickFacts";
+import ContactQuickFacts from "../../components/ContactQuickFacts";
 export default function DefaultPostTemplate({ uri }) {
   return (
     <div>
-      <QuickFacts />
+      <ContactQuickFacts />
+      {/* <QuickFacts /> */}
     </div>
   );
 }
