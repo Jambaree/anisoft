@@ -69,11 +69,12 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
                         <Link
                           onClick={() => setSubMenuIsOpen(!subMenuIsOpen)}
                           href={item.link}
-                          className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between "
+                          className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between ml-[15px]"
                         >
                           {item.name}
                           {item?.childItems && (
                             <Image
+                              className="mr-[14px]"
                               src="/mobile-chevron-right.svg"
                               alt="chevron-right"
                               width="6"
@@ -91,7 +92,7 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
                   </div>
                 ))}
                 {!subMenuIsOpen && (
-                  <Button variant="medium" href="/">
+                  <Button variant="medium" href="/" className="ml-[15px]">
                     Get Started
                   </Button>
                 )}
