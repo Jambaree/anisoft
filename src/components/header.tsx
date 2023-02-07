@@ -7,7 +7,7 @@ import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
 import Edges from "./Edges";
 import Logo from "./logos/logo";
 import Image from "next/image";
-import MobileMenu from "./headerMenu/mobileMenu";
+import MobileMenu from "./headerMenu/MobileMenu";
 
 const menuItems = {
   nodes: [
@@ -42,86 +42,14 @@ const menuItems = {
     {
       name: "Services & Support",
       link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
     },
     {
       name: "About Us",
       link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
     },
     {
       name: "Contact Us",
       link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
     },
   ],
 };
@@ -136,15 +64,15 @@ export default function Header() {
   return (
     <>
       <div className="bg-white h-[72px] "></div>
-      <div className=" fixed bg-white w-full border-b-[1px] border-b-[#0E0A30] top-0 z-50">
+      <div className="fixed bg-white w-full border-b-[1px] border-b-[#0E0A30] top-0 z-50">
         <Edges size="lg">
-          <div className="flex flex-row justify-between items-center ">
+          <div className="flex flex-row justify-between items-center relative">
             <Link href="/" className="my-[31px]">
               <Logo />
             </Link>
             <HeaderMenuItems menuItems={menuItems} />
             <div className="md:hidden flex">
-              {!isOpen && (
+              {!isOpen ? (
                 <button
                   className="w-[30px] h-[30px] relative"
                   onClick={() => {
@@ -158,13 +86,27 @@ export default function Header() {
                     height="30"
                   />
                 </button>
+              ) : (
+                <button className="w-[30px] h-[30px] ml-auto relative">
+                  <Image
+                    src="/close.svg"
+                    alt="close-icon"
+                    className=" cursor-pointer "
+                    width="18"
+                    height="18"
+                    onClick={() => {
+                      setIsOpen(!isOpen);
+                    }}
+                  />
+                </button>
               )}
             </div>
           </div>
         </Edges>
       </div>
-
-      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} menu={menuItems} />
+      <div className="md:hidden flex">
+        <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} menu={menuItems} />
+      </div>
     </>
   );
 }
