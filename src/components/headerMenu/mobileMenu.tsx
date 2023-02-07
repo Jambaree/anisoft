@@ -70,7 +70,7 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
             </div>
 
             <Edges
-              size="sm"
+              size="lg"
               className="align-center my-auto flex h-full w-full flex-col items-center justify-center font-normal text-white md:items-end"
             >
               <motion.div
@@ -83,7 +83,7 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
                       <Link
                         onClick={() => setIsOpen(!isOpen)}
                         href={item.link}
-                        className="font-mukta text-darkPurple mb-2 text-2xl  text-[45px] leading-[54px]"
+                        className="font-mukta text-darkPurple leading-[54px]"
                       >
                         {item.name}
                       </Link>
