@@ -30,11 +30,11 @@ const quickData = {
 
 const handleDelay = (index) => {
   if (index === 0) {
-    return 500;
+    return 200;
   } else if (index === 1) {
-    return 700;
+    return 300;
   } else if (index === 2) {
-    return 1000;
+    return 500;
   }
 };
 const QuickFacts = () => {
@@ -43,10 +43,10 @@ const QuickFacts = () => {
       <Edges size="lg">
         <div className="flex flex-col">
           <div className="flex flex-col text-white mb-[122px]">
-            <FadeInUp>
+            <FadeInUp className="delay-75">
               <h1>{quickData?.text1}</h1>
             </FadeInUp>
-            <FadeInUp className="delay-300">
+            <FadeInUp className="delay-150">
               <h1>{quickData?.text2}</h1>
             </FadeInUp>
           </div>
