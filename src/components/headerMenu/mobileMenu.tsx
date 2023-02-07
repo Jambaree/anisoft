@@ -63,9 +63,9 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
             <Edges size="lg">
               <motion.div variants={itemVariants} className="mt-[60px]">
                 {menu?.nodes?.map((item, index) => (
-                  <div>
+                  <div key={index}>
                     {!subMenuIsOpen && (
-                      <div key={index} className=" flex flex-col text-left">
+                      <div className=" flex flex-col text-left">
                         <Link
                           onClick={() => setSubMenuIsOpen(!subMenuIsOpen)}
                           href={item.link}
