@@ -24,11 +24,11 @@ function ProductsList({ products }) {
 						<div
 							onMouseEnter={() => setActiveProduct(index)}
 							key={product?.id}
-							className={` hidden md:block md:border-r-[1px] pr-[100px]  cursor-pointer py-[35px]
+							className={`relative before:content[""] before:absolute  before:right-0 before:top-0    before:h-full before-h-full hidden md:block  pr-[100px]  cursor-pointer py-[35px]
 								${
 									activeProduct === index
-										? 'md:border-r-lightGreen md:border-r-4'
-										: 'md:border-r-[#ADADAD] md:border-r-[1px]'
+										? 'md:before:bg-lightGreen before:w-[3px] before:translate-x-[1px]'
+										: 'md:before:bg-[#ADADAD] before:w-[1px] '
 								} transition-all ease-in-out`}
 						>
 							{product?.title && (
