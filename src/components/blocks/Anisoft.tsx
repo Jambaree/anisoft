@@ -32,7 +32,7 @@ function Anisoft({ data }) {
 							)}
 						</div>
 						<div className='max-w-[500px] flex flex-col pt-[50px] md:pt-[150px]'>
-							{text && <span>{text}</span>}
+							{text && <p>{text}</p>}
 							<div className='pt-[50px] flex wrap gap-[30px] flex-wrap-reverse w-auto mr-[50px]'>
 								{button?.url && (
 									<Button
