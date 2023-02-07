@@ -46,39 +46,37 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
             initial="closed"
             animate="open"
             variants={sideVariants}
-            className="fixed z-30 h-full w-ful"
+            className="fixed z-30"
           >
-            <Edges size="lg">
-              <motion.div variants={itemVariants}>
-                {menu?.nodes?.map((item, index) => (
-                  <div key={index} className="flex flex-col text-left">
-                    {index <= 0 && (
-                      <button
-                        className="flex flex-row mb-[35px] items-center w-screen"
-                        onClick={() => setIsOpen(!isOpen)}
-                      >
-                        <Image
-                          src="/mobile-chevron-left.svg"
-                          width="6"
-                          height="10"
-                          alt="chevron-left"
-                          className="mr-[11px]"
-                        />
-                        <div className="text-[16px] leading-[24px] font-mukta font-semibold">
-                          BACK
-                        </div>
-                      </button>
-                    )}
-                    <Link
-                      href={item.link}
-                      className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between "
+            <motion.div variants={itemVariants}>
+              {menu?.nodes?.map((item, index) => (
+                <div key={index} className="flex flex-col text-left ml-[15px]">
+                  {index <= 0 && (
+                    <button
+                      className="flex flex-row mb-[35px] items-center w-screen"
+                      onClick={() => setIsOpen(!isOpen)}
                     >
-                      {item.name}
-                    </Link>
-                  </div>
-                ))}
-              </motion.div>
-            </Edges>
+                      <Image
+                        src="/mobile-chevron-left.svg"
+                        width="6"
+                        height="10"
+                        alt="chevron-left"
+                        className="mr-[11px]"
+                      />
+                      <div className="text-[16px] leading-[24px] font-mukta font-semibold">
+                        BACK
+                      </div>
+                    </button>
+                  )}
+                  <Link
+                    href={item.link}
+                    className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between "
+                  >
+                    {item.name}
+                  </Link>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
         </motion.aside>
       )}
