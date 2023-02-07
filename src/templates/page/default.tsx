@@ -3,9 +3,10 @@ import Hero from '../../components/blocks/Hero';
 import data from '../../components/blocks/data.json';
 import { getData } from '@jambaree/next-wordpress';
 import Anisoft from '../../components/blocks/Anisoft';
+import ProductsSlider from '../../components/blocks/ProductsSlider';
 
 export default async function DefaultPageTemplate({ uri }) {
-   const { page } = await getData({ uri, query });
+	const { page } = await getData({ uri, query });
 	if (!page) {
 		notFound();
 	}
@@ -14,7 +15,8 @@ export default async function DefaultPageTemplate({ uri }) {
 	return (
 		<>
 			<Hero data={data.hero} />
-      <Anisoft data={data.anisoft} />
+			<Anisoft data={data.anisoft} />
+			<ProductsSlider data={data.productsSlider} />
 		</>
 	);
 }

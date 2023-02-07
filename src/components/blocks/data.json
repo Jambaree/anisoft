@@ -26,5 +26,76 @@
 			"target": "_self"
 		},
 		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.Sed elementum, sed dolor purus dolor dui. Ut dictum nulla pulvinar vulputate sit sagittis in eleifend dignissim. "
+	},
+	"productsSlider": {
+		"tag": "SOLUTIONS & PRODUCTS",
+		"headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		"products": [
+			{
+				"id": "1",
+				"title": "Data Management",
+				"image": {
+					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-1o5MZblCP50-unsplash.jpg",
+					"altText": "placeholder image"
+				},
+				"button": {
+					"title": "Learn More",
+					"url": "/about",
+					"target": "_self"
+				}
+			},
+			{
+				"id": "2",
+				"title": "High Performance Solutions",
+				"image": {
+					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-LXI5kqCdEcE-unsplash-scaled.jpg",
+					"altText": "placeholder image"
+				},
+				"button": {
+					"title": "Learn More",
+					"url": "/about",
+					"target": "_self"
+				}
+			},
+			{
+				"id": "3",
+				"title": "Networking Technology",
+				"image": {
+					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-1o5MZblCP50-unsplash.jpg",
+					"altText": "placeholder image"
+				},
+				"button": {
+					"title": "Learn More",
+					"url": "/about",
+					"target": "_self"
+				}
+			},
+			{
+				"id": "4",
+				"title": "Enterprise Servers",
+				"image": {
+					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-LXI5kqCdEcE-unsplash-scaled.jpg",
+					"altText": "placeholder image"
+				},
+				"button": {
+					"title": "Learn More",
+					"url": "/about",
+					"target": "_self"
+				}
+			},
+			{
+				"id": "5",
+				"title": "Security & data Protection",
+				"image": {
+					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-1o5MZblCP50-unsplash.jpg",
+					"altText": "placeholder image"
+				},
+				"button": {
+					"title": "Learn More",
+					"url": "/about",
+					"target": "_self"
+				}
+			}
+		]
 	}
 }
