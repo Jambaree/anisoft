@@ -1,30 +1,43 @@
 {
-	"hero": {
-		"headline": "Data and Compute Infrastructure serving Western Canada",
-		"subHeadline": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.",
-		"button1": {
-			"title": "Learn More",
-			"url": "/about",
-			"target": "_self"
-		},
-		"button2": {
-			"title": "Buton CTA",
-			"url": "/cta",
-			"target": "_self"
-		},
-		"image": {
-			"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/heroImage.png",
-			"altText": "placeholder image"
-		}
-	},
-	"anisoft": {
-		"tag": "WHY WORK WITH US",
-		"headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-		"button": {
-			"title": "Learn More",
-			"url": "/about",
-			"target": "_self"
-		},
-		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.Sed elementum, sed dolor purus dolor dui. Ut dictum nulla pulvinar vulputate sit sagittis in eleifend dignissim. "
-	}
+  "hero": {
+    "headline": "Data and Compute Infrastructure serving Western Canada",
+    "subHeadline": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.",
+    "button1": {
+      "title": "Learn More",
+      "url": "/about",
+      "target": "_self"
+    },
+    "button2": {
+      "title": "Buton CTA",
+      "url": "/cta",
+      "target": "_self"
+    },
+    "image": {
+      "sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/heroImage.png",
+      "altText": "placeholder image"
+    }
+  },
+  "anisoft": {
+    "tag": "WHY WORK WITH US",
+    "headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "button": {
+      "title": "Learn More",
+      "url": "/about",
+      "target": "_self"
+    },
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.Sed elementum, sed dolor purus dolor dui. Ut dictum nulla pulvinar vulputate sit sagittis in eleifend dignissim. "
+  },
+  "logoModule": {
+    "header": "Our Partnerships",
+    "logos": [
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" },
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" },
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" },
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" },
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" },
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" },
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" },
+      { "url": "/placeholderLogo.png", "alt": "logo-alt" }
+    ]
+  }
 }
