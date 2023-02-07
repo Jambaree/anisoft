@@ -2,6 +2,7 @@
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
+  important: true,
   mode: {
     jit: true, // uncomment this line to enable JIT mode
   },

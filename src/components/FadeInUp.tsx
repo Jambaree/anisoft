@@ -14,7 +14,7 @@ const FadeInUp = (props) => {
     <div
       ref={ref}
       className={classNames(
-        "transition-[opacity, transform] delay-100 duration-500",
+        "transition-[opacity, transform] duration-500",
         isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
         alwaysVisible && "opacity-100",
         className
