@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Button from '../Button';
 import Edges from '../Edges';
 import FadeInUp from '../FadeInUp';
-import ProductsSlide from '../ProductsSlide';
+import ProductsList from '../ProductsList';
 
 function ProductsSlider({ data }) {
 	const { headline, tag, products } = data;
@@ -19,9 +19,8 @@ function ProductsSlider({ data }) {
 								{headline}
 							</h1>
 						)}
-
-						<ProductsSlide products={products} />
 					</div>
+					<ProductsList products={products} />
 				</div>
 			</Edges>
 		</div>

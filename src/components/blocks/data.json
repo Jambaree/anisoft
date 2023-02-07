@@ -42,7 +42,8 @@
 					"title": "Learn More",
 					"url": "/about",
 					"target": "_self"
-				}
+				},
+				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
 			},
 			{
 				"id": "2",
@@ -55,7 +56,8 @@
 					"title": "Learn More",
 					"url": "/about",
 					"target": "_self"
-				}
+				},
+				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
 			},
 			{
 				"id": "3",
@@ -68,7 +70,8 @@
 					"title": "Learn More",
 					"url": "/about",
 					"target": "_self"
-				}
+				},
+				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
 			},
 			{
 				"id": "4",
@@ -81,7 +84,8 @@
 					"title": "Learn More",
 					"url": "/about",
 					"target": "_self"
-				}
+				},
+				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
 			},
 			{
 				"id": "5",
@@ -94,7 +98,8 @@
 					"title": "Learn More",
 					"url": "/about",
 					"target": "_self"
-				}
+				},
+				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
 			}
 		]
 	}
