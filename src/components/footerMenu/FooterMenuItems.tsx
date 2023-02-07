@@ -53,9 +53,6 @@ const half = Math.ceil(menuItems.nodes.length / 2);
 const firstHalfMenuItems = menuItems.nodes.slice(0, half);
 const secondHalfMenuitems = menuItems.nodes.slice(half, menuItems.nodes.length);
 
-console.log(firstHalfMenuItems);
-console.log(secondHalfMenuitems);
-
 const MenuItems = () => {
   return (
     <ul className="flex flex-row ">
