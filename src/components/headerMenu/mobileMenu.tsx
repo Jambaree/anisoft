@@ -1,10 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import Edges from "../Edges";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "../Button";
+import MobileSubMenu from "./MobileSubMenu";
 
 const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
   const sideVariants = {
@@ -38,6 +40,8 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
     },
   };
 
+  const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -54,42 +58,43 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
             animate="open"
             exit="closed"
             variants={sideVariants}
-            className="fixed top-0 z-50 h-full w-full bg-white"
+            className="fixed z-30 h-full w-full bg-white"
           >
-            <div className="w-[30px] h-[30px] ml-auto relative  mt-[35px] mr-[35px]">
-              <Image
-                src="/close.svg"
-                alt="close-icon"
-                className=" cursor-pointer "
-                width="30"
-                height="30"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-              />
-            </div>
-
-            <Edges
-              size="lg"
-              className="align-center my-auto flex h-full w-full flex-col items-center justify-center font-normal text-white md:items-end"
-            >
-              <motion.div
-                className="border-r-[1px]  pr-[33px]"
-                variants={itemVariants}
-              >
-                <div className="mb-[61px] ml-auto w-fit">
-                  {menu?.nodes?.map((item, index) => (
-                    <div key={index} className=" flex flex-col text-right">
-                      <Link
-                        onClick={() => setIsOpen(!isOpen)}
-                        href={item.link}
-                        className="font-mukta text-darkPurple leading-[54px]"
-                      >
-                        {item.name}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
+            <Edges size="lg">
+              <motion.div variants={itemVariants} className="mt-[60px]">
+                {menu?.nodes?.map((item, index) => (
+                  <div>
+                    {!subMenuIsOpen && (
+                      <div key={index} className=" flex flex-col text-left">
+                        <Link
+                          onClick={() => setSubMenuIsOpen(!subMenuIsOpen)}
+                          href={item.link}
+                          className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between "
+                        >
+                          {item.name}
+                          {item?.childItems && (
+                            <Image
+                              src="/mobile-chevron-right.svg"
+                              alt="chevron-right"
+                              width="6"
+                              height="10"
+                            />
+                          )}
+                        </Link>
+                      </div>
+                    )}
+                    <MobileSubMenu
+                      isOpen={subMenuIsOpen}
+                      setIsOpen={setSubMenuIsOpen}
+                      menu={item?.childItems}
+                    />
+                  </div>
+                ))}
+                {!subMenuIsOpen && (
+                  <Button variant="medium" href="/">
+                    Get Started
+                  </Button>
+                )}
               </motion.div>
             </Edges>
           </motion.div>
