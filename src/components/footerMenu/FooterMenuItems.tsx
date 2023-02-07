@@ -53,7 +53,9 @@ const MenuItems = () => {
         <div key={index} className="relative max-w-[180px] w-full">
           <div className="relative flex flex-col">
             <li className="nav text-white z-0 mb-[12px]" key={index}>
-              <Link href={item?.link}>{item?.name}</Link>
+              <Link className="mr-[12px]" href={item?.link}>
+                {item?.name}
+              </Link>
             </li>
           </div>
         </div>

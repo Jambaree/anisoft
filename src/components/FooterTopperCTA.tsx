@@ -14,8 +14,11 @@ const footerComponent = {
 const FooterTopperCTA = () => {
   return (
     <div className="relative">
-      <Edges size="lg">
-        <div className="flex flex-row flex-wrap justify-around secondaryRadialBg items-center absolute top-[35%] md:top-[50%] left-0 right-0 py-[42px]">
+      <div className="secondaryRadialBg  absolute top-[35%] md:top-[50%] left-0 right-0 py-[42px]">
+        <Edges
+          size="lg"
+          className="flex flex-row flex-wrap justify-between items-center"
+        >
           <div className="flex flex-col mb-[30px] md:mb-0">
             <FadeInUp className="delay-100">
               <h2 className="text-white">{footerComponent?.text1}</h2>
@@ -32,8 +35,8 @@ const FooterTopperCTA = () => {
           >
             {footerComponent?.button?.text}
           </Button>
-        </div>
-      </Edges>
+        </Edges>
+      </div>
       <Image
         src="/bigA.svg"
         alt="big-A"

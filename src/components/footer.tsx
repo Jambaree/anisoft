@@ -42,7 +42,7 @@ const Footer = () => {
   return (
     <div className="w-full primaryRadialBg">
       <Edges size="lg">
-        <div className="flex flex-col pt-[80px] px-[64px]">
+        <div className="flex flex-col pt-[80px]">
           <div className="flex flex-col md:flex-row md:justify-between pb-[100px]">
             <div>
               <div className="mb-[32px]">
@@ -72,11 +72,11 @@ const Footer = () => {
             </div>
           </div>
           <div className="bg-white w-full h-[1px] mb-[32px]"></div>
-          <div className=" text-white mb-[43px] flex flex-row justify-between p-footer">
+          <div className=" text-white mb-[43px] flex flex-col-reverse sm:flex-row flex-wrap-reverse justify-between p-footer">
             <div>2023 Anisoft Group Inc. All right reserved.</div>
-            <div>
+            <div className="flex flex-col sm:flex-row sm:mb-0 mb-[15px]">
               {copyrightLinks.map((link, index) => (
-                <Link key={index} href={link?.url} className="ml-[24px] ">
+                <Link key={index} href={link?.url} className="sm:ml-[24px] ">
                   {link?.name}
                 </Link>
               ))}
