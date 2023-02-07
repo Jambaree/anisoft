@@ -12,8 +12,13 @@ function ProductsList({ products }) {
 	}, []);
 
 	return (
-		<div className='flex items-center  w-full h-full pt-[60px] basis-full relative'>
-			<div className={`flex flex-col h-full`}>
+		<div className='flex flex-col items-center md:flex-row  w-full h-full pt-[60px] basis-full relative'>
+			<div
+				className={classNames(
+					'flex flex-col h-full transform transition-all duration-[1500ms] ease-in-out',
+					activeProduct === null && 'translate-x-[-200vw]'
+				)}
+			>
 				{products.map((product: any, index: number) => {
 					return (
 						<div
