@@ -5,23 +5,27 @@ import React from 'react';
 import Button from './Button';
 
 function ProductsList({ products }) {
-	const [activeProduct, setActiveProduct] = React.useState(0);
+	const [activeProduct, setActiveProduct] = React.useState(null);
+
+	React.useEffect(() => {
+		setActiveProduct(0);
+	}, []);
 
 	return (
 		<div className='flex items-center  w-full h-full pt-[60px] basis-full relative'>
-			<div className='flex flex-col h-full'>
+			<div className={`flex flex-col h-full`}>
 				{products.map((product: any, index: number) => {
 					return (
 						<div
 							onMouseEnter={() => setActiveProduct(index)}
 							key={product?.id}
-							className={`cursor-pointer py-[35px] ${
-								activeProduct === index
-									? 'border-r-lightGreen border-r-[3px]'
-									: 'border-r-[#ADADAD] border-r-[1px]'
-							} border-r-[#ADADAD] border-r-[1px] pr-[100px]`}
+							className={`border-r-[1px] pr-[100px]  cursor-pointer py-[35px]
+								${
+									activeProduct === index
+										? 'border-r-lightGreen border-r-[4px]'
+										: 'border-r-[#ADADAD] border-r-[1px]'
+								} transition-all ease-in-out`}
 						>
-							{/* {console.log(product.title)} */}
 							{product?.title && (
 								<h3 className='text-black'>{product.title}</h3>
 							)}
@@ -30,15 +34,18 @@ function ProductsList({ products }) {
 				})}
 			</div>
 
-			<div className='flex flex-col  ml-[100px] grow flex-auto  justify-center relative  self-stretch'>
+			<div className='flex flex-col  ml-[100px] grow flex-auto  justify-center relative  self-stretch z-0'>
 				{products.map((product: any, idx: number) => {
 					return (
 						<div
 							key={product?.id}
-							className={classNames(
-								activeProduct === idx ? 'block' : 'hidden',
-								'bg-darkPurple p-[20px] md:p-[50px] flex flex-col  top-0'
-							)}
+							className={`
+								${
+									activeProduct === idx
+										? ' z-10 transition-all duration-[1500ms] ease-in-out'
+										: 'translate-x-[200vw] z-[-1]'
+								}
+								bg-darkPurple p-[20px] md:p-[50px] flex flex-col  top-0 absolute right-0`}
 						>
 							<div className='flex flex-col md:flex-row justify-between w-full pb-[30px]'>
 								{product?.title && (
