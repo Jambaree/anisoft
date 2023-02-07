@@ -37,7 +37,7 @@
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
-    line-height: 150%;
+    line-height: 27px;
   }
   .hero {
     font-family: var(--font-maven);
@@ -105,6 +105,13 @@
         rgba(14, 10, 48, 0) 100%
       )
       #0e0a30;
+  }
+  .heroHeadline {
+    font-family: var(--font-maven);
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 60px;
+    line-height: 120%;
   }
 
   .nav {

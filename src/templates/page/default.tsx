@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Hero from '../../components/blocks/Hero';
 import data from '../../components/blocks/data.json';
 import { getData } from '@jambaree/next-wordpress';
+import Anisoft from '../../components/blocks/Anisoft';
 
 export default async function DefaultPageTemplate({ uri }) {
    const { page } = await getData({ uri, query });
@@ -13,6 +14,7 @@ export default async function DefaultPageTemplate({ uri }) {
 	return (
 		<>
 			<Hero data={data.hero} />
+      <Anisoft data={data.anisoft} />
 		</>
 	);
 }
