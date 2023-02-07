@@ -75,13 +75,14 @@ function ProductsList({ products }) {
 									<p className=' overflow-hiden text-white'>{product.text}</p>
 								)}
 							</div>
-							<div className='relative w-100 my-[50px] h-[220px]'>
+							<div className='relative w-100 my-[50px] h-[220px] bg-cover'>
 								{product?.image?.sourceUrl && (
 									<Image
-										className=''
+										className='bg-cover'
 										src={product.image.sourceUrl}
 										alt={product.image.altText}
 										fill
+										object-fit='cover'
 									/>
 								)}
 							</div>
