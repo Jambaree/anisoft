@@ -16,9 +16,11 @@ const LogoModule = ({ data }) => {
           {data?.logos?.map((logo, index) => {
             const isFirstHalf = index < half;
             return (
-              <FadeInUp className={isFirstHalf ? "delay-100" : "delay-300"}>
+              <FadeInUp
+                key={index}
+                className={isFirstHalf ? "delay-100" : "delay-300"}
+              >
                 <Image
-                  key={index}
                   src={logo?.url}
                   alt={logo?.alt}
                   width="195"
