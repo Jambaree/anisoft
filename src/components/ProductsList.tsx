@@ -39,7 +39,7 @@ function ProductsList({ products }) {
 				})}
 			</div>
 
-			<div className='flex flex-col md:ml-[100px] grow flex-auto  justify-center relative  self-stretch z-0 overflow-x-hidden'>
+			<div className='flex flex-col md:ml-[100px] grow flex-auto  justify-center relative  self-stretch z-0 overflow-x-hidden overflow-y-clip'>
 				{products.map((product: any, idx: number) => {
 					return (
 						<div
