@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 const FadeInUp = (props) => {
   const { children, alwaysVisible = false, playOnce = true, className } = props;
-
+  console.log(className);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: playOnce });
 
