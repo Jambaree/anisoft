@@ -109,6 +109,14 @@
 			)
 			#0e0a30;
 	}
+	.thirdRadialBg {
+		background: radial-gradient(
+				45.28% 309.17% at 72.33% 66.2%,
+				#292073 0%,
+				rgba(14, 10, 48, 0) 100%
+			),
+			#0e0a30;
+	}
 	.heroHeadline {
 		font-family: var(--font-maven);
 		font-style: normal;
