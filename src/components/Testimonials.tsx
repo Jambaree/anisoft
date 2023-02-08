@@ -115,15 +115,15 @@ export default function Testimonials() {
                         />
                       </div>
                       <div>
-                        <div className="mx-auto max-w-3xl text-center text-2xl font-medium leading-9 ">
-                          <p>&ldquo;{testimonial.description}&rdquo;</p>
+                        <div className="mx-auto max-w-3xl text-center text-2xl  leading-9 ">
+                          <h4 className="font-maven">
+                            &ldquo;{testimonial.description}&rdquo;
+                          </h4>
                         </div>
                         <div className="mt-8 mb-[51px]">
                           <div className="md:flex md:items-center md:justify-center">
                             <div className="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
-                              <div className="text-base font-medium ">
-                                {testimonial.name}
-                              </div>
+                              <p className="font-mukta  ">{testimonial.name}</p>
 
                               <svg
                                 className="mx-1 hidden h-5 w-5 text-indigo-600 md:block fill-lightGreen"
@@ -132,9 +132,9 @@ export default function Testimonials() {
                                 <path d="M11 0h3L9 20H6l5-20z" />
                               </svg>
 
-                              <div className="text-base font-medium text-gray-500">
+                              <p className="  font-mukta">
                                 {testimonial.title}
-                              </div>
+                              </p>
                             </div>
                           </div>
                         </div>
