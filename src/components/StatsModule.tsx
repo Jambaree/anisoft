@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from "react";
 import { animate } from "framer-motion";
 import Image from "next/image";
-import FadeInUp from "./FadeInUp";
 
 const metrics = {
   title: "We have been in business for over XX years and it shows",
@@ -37,7 +36,7 @@ const metrics = {
 };
 export default function StatsModule() {
   const Counter = ({ from, to }) => {
-    const ref = useRef();
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
       const controls = animate(from, to, {
