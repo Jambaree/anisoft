@@ -92,9 +92,10 @@ function ProductsList({ products }) {
 							{product?.button?.url && (
 								<div className='md:hidden block my-[20px] md:my-0'>
 									<Button
-										variant='large'
+										variant='full'
 										href={product.button.url}
 										reverse={true}
+										className='mt-[20px]'
 									>
 										{product.button.title}
 									</Button>
