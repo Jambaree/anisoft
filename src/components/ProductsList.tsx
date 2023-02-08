@@ -14,28 +14,29 @@ function ProductsList({ products }) {
 	}, []);
 
 	return (
-		<div className='flex flex-col items-center md:flex-row  w-full h-full pt-[60px] basis-full relative productCard'>
+		<div className='flex flex-col items-center md:flex-row  w-full h-full pt-[60px]'>
 			<SideIn
 				right={false}
-				className={classNames(
-					'flex flex-col h-full transform transition-all duration-[1500ms] ease-in-out'
-					// activeProduct === null && 'translate-x-[-100vw]'
-				)}
+				className={'flex flex-col w-full md:h-[550px]'}
 			>
 				{products.map((product: any, index: number) => {
 					return (
 						<div
-							onMouseEnter={() => setActiveProduct(index)}
 							key={product?.id}
-							className={`relative before:content[""] before:absolute  before:right-0 before:top-0    before:h-full before-h-full hidden md:block  pr-[100px]  cursor-pointer py-[35px]
-								${
-									activeProduct === index
-										? 'md:before:bg-lightGreen before:w-[3px] before:translate-x-[1px]'
-										: 'md:before:bg-[#ADADAD] before:w-[1px] '
-								} transition-all ease-in-out`}
+							className={classNames(
+								'md:min-w-[30%] relative before:content[""] before:absolute before:right-0 before:top-0 before:h-full before-h-full hidden md:block pr-[100px] cursor-pointer py-[35px] transition-all ease-in-out',
+								activeProduct === index
+									? 'md:before:bg-lightGreen before:w-[3px] before:translate-x-[1px]'
+									: 'md:before:bg-[#ADADAD] before:w-[1px] '
+							)}
 						>
 							{product?.title && (
-								<h3 className='text-black'>{product.title}</h3>
+								<h3
+									onMouseEnter={() => setActiveProduct(index)}
+									className='text-black'
+								>
+									{product.title}
+								</h3>
 							)}
 						</div>
 					);
@@ -43,10 +44,9 @@ function ProductsList({ products }) {
 			</SideIn>
 
 			<SideIn
-				className={classNames(
-					'bg-darkPurple flex flex-col md:ml-[100px] grow flex-auto  justify-center relative h-full transform transition-all duration-[1500ms] ease-in-out'
-					// activeProduct === null && 'translate-x-[100vw]'
-				)}
+				className={
+					'bg-white md:bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px]'
+				}
 			>
 				{products.map((product: any, idx: number) => {
 					return (
@@ -54,8 +54,8 @@ function ProductsList({ products }) {
 							playOnce={false}
 							key={product?.id}
 							className={`
-								${activeProduct === idx ? 'block' : ' mb-[30px] md:mb-0 hidden '}
-								  p-[20px] md:p-[50px] flex flex-col h-full`}
+								${activeProduct === idx ? 'block' : ' mb-[30px] md:mb-0 block md:hidden '}
+								  p-[20px] md:p-[50px] flex flex-col h-full bg-darkPurple md:bg-none`}
 						>
 							<div className='flex flex-col md:flex-row justify-between w-full pb-[30px]'>
 								{product?.title && (
@@ -75,12 +75,10 @@ function ProductsList({ products }) {
 									</div>
 								)}
 							</div>
-							<div className='w-full  md:max-h-[55px]'>
-								{product?.text && (
-									<p className=' overflow-hiden text-white'>{product.text}</p>
-								)}
+							<div className='w-full'>
+								{product?.text && <p className='text-white'>{product.text}</p>}
 							</div>
-							<div className='relative w-100 my-[50px] h-[220px] bg-cover'>
+							<div className='relative w-100 mt-[30px] h-[220px] bg-cover'>
 								{product?.image?.sourceUrl && (
 									<Image
 										className='bg-cover'
