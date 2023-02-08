@@ -6,6 +6,7 @@ import Anisoft from '../../components/blocks/Anisoft';
 import ProductsSlider from '../../components/blocks/ProductsSlider';
 import LogoModule from '../../components/blocks/LogoModule';
 import PageHeader from '../../components/blocks/PageHeader';
+import InfoCallout from '../../components/blocks/InfoCallout';
 
 export default async function DefaultPageTemplate({ uri }) {
 	const { page } = await getData({ uri, query });
@@ -21,6 +22,7 @@ export default async function DefaultPageTemplate({ uri }) {
 			<Anisoft data={data.anisoft} />
 			<ProductsSlider data={data.productsSlider} />
 			<LogoModule data={data.logoModule} />
+			<InfoCallout/>
 		</>
 	);
 }
