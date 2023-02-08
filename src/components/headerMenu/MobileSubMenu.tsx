@@ -59,7 +59,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
                         width="6"
                         className="mr-[11px] w-[6px] h-[10px] fill-black"
                       />
-                      <div className="text-[16px] leading-[24px] font-mukta font-semibold">
+                      <div className="text-[1rem] leading-[24px] font-mukta font-semibold">
                         BACK
                       </div>
                     </button>

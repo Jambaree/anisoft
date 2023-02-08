@@ -71,12 +71,12 @@ const QuickFacts = () => {
                           height="34"
                           className="w-auto"
                         />
-                        <p className="text-[#FF0000] top-[14px] absolute left-[15px] text-[18px] font-thin z-30 ">
+                        <p className="text-[#FF0000] top-[14px] absolute left-[15px] text-[1.125rem] font-thin z-30 ">
                           FPO
                         </p>
                       </FadeInUp>
                     </div>
-                    <div className="mb-[21px] text-[22px] leading-[26.4px] font-maven">
+                    <div className="mb-[21px] text-[1.375rem] leading-[26.4px] font-maven">
                       {fact.title}
                     </div>
                     <p>{fact.description}</p>
