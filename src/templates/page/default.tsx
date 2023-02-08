@@ -17,8 +17,8 @@ export default async function DefaultPageTemplate({ uri }) {
 	return (
 		<>
 			<Hero data={data.hero} />
-			<PageHeader/>
 			<Anisoft data={data.anisoft} />
+			<PageHeader />
 			<ProductsSlider data={data.productsSlider} />
 			<LogoModule data={data.logoModule} />
 		</>
