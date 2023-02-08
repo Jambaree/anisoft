@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import classNames from "classnames";
 import { motion } from "framer-motion";
+import ChevronRight from "../../public/chevron-right.svg";
 
 interface IButtonProps {
   children: React.ReactNode;
@@ -53,26 +53,14 @@ const Button: React.FC<IButtonProps> = ({
 
       {variant.includes("basic") && (
         <motion.div
-          className="absolute -right-[20px]"
+          className="absolute"
           animate={{ right: isHovered ? "-32px" : "-20px" }}
           transition={{ duration: 0.3 }}
         >
           {variant === "basicWhite" ? (
-            <Image
-              src="/chevron-right-white.svg"
-              alt="chevron-right"
-              width="8"
-              height="13"
-              className=" pb-1"
-            />
+            <ChevronRight className="fill-white h-[13px] w-[8px]" />
           ) : (
-            <Image
-              src="/chevron-right.svg"
-              alt="chevron-right"
-              width="8"
-              height="13"
-              className=" pb-1"
-            />
+            <ChevronRight className=" fill-white h-[13px] w-[8px]" />
           )}
         </motion.div>
       )}
