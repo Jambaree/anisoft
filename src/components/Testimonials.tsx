@@ -150,7 +150,7 @@ export default function Testimonials() {
           />
         </div>
 
-        <div className="flex flex-row text-[50px] justify-center">
+        <div className="flex flex-row text-[3.125rem] justify-center">
           {testimonials.map((testimonial, index) => (
             <div
               onClick={() => handleSlideChange(index, "right")}

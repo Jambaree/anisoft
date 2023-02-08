@@ -18,7 +18,7 @@ const SubMenu = ({ childItems }) => {
                 setHoveredIndex(index);
               }}
             >
-              <div className="relative w-fit text-[16px] font-maven">
+              <div className="relative w-fit text-[1rem] font-maven">
                 <motion.div
                   className="bg-lightGreen  h-[14%] -top-1 left-0 absolute nav"
                   initial={{ width: "15px" }}
