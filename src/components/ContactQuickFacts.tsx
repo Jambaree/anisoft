@@ -37,14 +37,14 @@ const handleDelay = (index) => {
 };
 const QuickFacts = () => {
   return (
-    <div className=" pt-[112px] pb-[136px]">
+    <div className="pt-[112px] pb-[136px]">
       <Edges size="md">
         <div className="flex flex-col">
           <div className=" flex flex-col md:flex-row justify-between">
             {quickData?.facts?.map((fact, index) => {
               return (
                 <FadeInUp
-                  className={`delay-${handleDelay(index)} `}
+                  className={`delay-${handleDelay(index)} mb-[35px] sm:mb-0`}
                   key={index}
                 >
                   <div className="flex flex-col text-black mr-[32px] mb-[25px] md:mb-0 items-center justify-center text-center">
