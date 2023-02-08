@@ -45,7 +45,7 @@ function ProductsList({ products }) {
 
 			<SideIn
 				className={
-					'bg-white md:bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px]'
+					'bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px]'
 				}
 			>
 				{products.map((product: any, idx: number) => {
@@ -55,7 +55,7 @@ function ProductsList({ products }) {
 							key={product?.id}
 							className={`
 								${activeProduct === idx ? 'block' : ' mb-[30px] md:mb-0 block md:hidden '}
-								  p-[20px] md:p-[50px] flex flex-col h-full bg-darkPurple md:bg-none`}
+								  p-[20px] md:p-[50px] flex flex-col h-full`}
 						>
 							<div className='flex flex-col md:flex-row justify-between w-full pb-[30px]'>
 								{product?.title && (
