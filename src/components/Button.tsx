@@ -34,7 +34,7 @@ const Button: React.FC<IButtonProps> = ({
         variant === "large"
           ? "p  w-[199px] h-[48px] rounded-full border-[1px] flex items-center text-[18px] justify-center uppercase font-mukta leading-[150%] font-light pt-1"
           : variant === "medium"
-          ? "  ml-[16px] lg:mr-0 mr-[26px] rounded-full border-[1px] w-[145px] h-[35px] flex items-center justify-center uppercase font-maven text-[14px] "
+          ? "  lg:mr-0 mr-[26px] rounded-full border-[1px] w-[145px] h-[35px] flex items-center justify-center uppercase font-maven text-[14px] "
           : variant === "basicWhite"
           ? "text-white flex flex-row items-center justify-center font-mukta text-[18px] font-light pt-1"
           : "text-darkPurple flex flex-row items-center justify-center font-mukta text-[18px] font-light pt-1",

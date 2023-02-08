@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
+	important: true,
 	mode: {
 		jit: true, // uncomment this line to enable JIT mode
 	},
@@ -14,7 +15,7 @@ module.exports = {
 	theme: {
 		screens: {
 			sm: '576px',
-			md: '1110px',
+			md: '1230px',
 			lg: '1440px',
 		},
 		fontFamily: {
@@ -49,5 +50,5 @@ module.exports = {
 				'radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%), #0E0A30;',
 		},
 	},
-	plugins: [require('@tailwindcss/line-clamp')],
+	plugins: [],
 };
