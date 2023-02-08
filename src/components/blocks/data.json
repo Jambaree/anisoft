@@ -123,5 +123,20 @@
 	"pageHeader2": {
 		"title": "Contact Us",
 		"text": "<p>Thank you for your interest in AniSoft Group Inc. With offices across Canada, AniSoft is ideally situated to assist you with any of your technological requirements. We look forward to hearing from you.</p>"
+	},
+	"infoCallout": {
+		"tag": "SERVICES & SUPPORT",
+		"headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+		"button1": {
+			"title": "Learn More",
+			"url": "/about",
+			"target": "_self"
+		},
+		"button2": {
+			"title": "Buton CTA",
+			"url": "/cta",
+			"target": "_self"
+		},
+		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.<br/><br/>Sit turpis pretium eget maecenas. Vestibulum dolor mattis consectetur eget commodo vitae. Amet pellentesque sit pulvinar lorem mi a, euismod risus rhoncus. Elementum ullamcorper nec, habitasse vulputate. Eget dictum quis est sed egestas tellus, a lectus. Quam ullamcorper in fringilla arcu aliquet fames arcu.Lacinia eget faucibus urna, nam risus nec elementum cras porta. </p>"
 	}
 }
