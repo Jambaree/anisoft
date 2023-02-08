@@ -115,5 +115,9 @@
 			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
 			{ "url": "/placeholderLogo.png", "alt": "logo-alt" }
 		]
+	},
+	"pageHeader": {
+		"title": "Enterprise Servers",
+		"text": "<p>Today’s organizations are continuously challenged by the need to incorporate new technologies into their business. They also need to update their operating models in order to drive sustainable growth, and address new regulations while meeting the demands of all their stakeholders. <br/> <br/>  That’s why business leaders are in constant pursuit of IT solutions that will give them an edge in the market such as IBM Power Systems and Lenovo servers.</p>"
 	}
 }

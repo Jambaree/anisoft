@@ -1,33 +1,25 @@
-'use client';
-import React from 'react';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import BreadCrumbs from '../BreadCrumbs';
+import Edges from '../Edges';
 
-const PageHeader = () => {
-	const pathname = usePathname();
-	const paths = pathname.split('/').filter(Boolean);
+const PageHeader = ({ data }) => {
+	const { title, text } = data;
 
 	return (
-		<nav className='flex items-center justify-between py-2 font-medium text-sm text-gray-500'>
-			<div className='flex items-center'>
-				<Link
-					className='text-gray-700 hover:text-gray-900'
-					href={`/`}
-				>
-					<span className='p-details'>Home</span>
-				</Link>
-				{paths.map((path, index) => (
-					<Link
-						className='text-gray-700 hover:text-gray-900'
-						key={index}
-						href={`/${paths.slice(0, index + 1).join('/')}`}
-					>
-						<span className='mx-2 text-gray-400'>/</span>
-						<span className='p-details'>{path}</span>
-					</Link>
-				))}
-			</div>
-		</nav>
+		<div className=' py-[90px]'>
+			<Edges size='lg'>
+				<div className='flex flex-wrap md:justify-between'>
+					<div className='flex flex-col md:w-[30%]'>
+						<BreadCrumbs />
+						{title && (
+							<h1 className='heroHeadline mb-[30px] md:mb-0'>{title}</h1>
+						)}
+					</div>
+					<div className='md:w-[70%]'>
+						{text && <div dangerouslySetInnerHTML={{ __html: text }} />}
+					</div>
+				</div>
+			</Edges>
+		</div>
 	);
 };
 
