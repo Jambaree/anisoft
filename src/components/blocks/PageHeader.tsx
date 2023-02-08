@@ -1,5 +1,6 @@
 import BreadCrumbs from '../BreadCrumbs';
 import Edges from '../Edges';
+import SideIn from '../SideIn';
 
 const PageHeader = ({ data }) => {
 	const { title, text } = data;
@@ -8,15 +9,18 @@ const PageHeader = ({ data }) => {
 		<div className=' py-[90px]'>
 			<Edges size='lg'>
 				<div className='flex flex-wrap md:justify-between'>
-					<div className='flex flex-col md:w-[30%]'>
+					<SideIn
+						right={false}
+						className='flex flex-col md:w-[30%]'
+					>
 						<BreadCrumbs />
 						{title && (
 							<h1 className='heroHeadline mb-[30px] md:mb-0'>{title}</h1>
 						)}
-					</div>
-					<div className='md:w-[70%]'>
+					</SideIn>
+					<SideIn className='md:w-[70%]'>
 						{text && <div dangerouslySetInnerHTML={{ __html: text }} />}
-					</div>
+					</SideIn>
 				</div>
 			</Edges>
 		</div>
