@@ -1,4 +1,5 @@
 'use client';
+
 import Breadcrumbs from 'nextjs-breadcrumbs';
 
 function PageHeader() {
