@@ -17,14 +17,14 @@ function ProductsList({ products }) {
 		<div className='flex flex-col items-center md:flex-row  w-full h-full pt-[60px]'>
 			<SideIn
 				right={false}
-				className={'flex flex-col w-full md:h-[550px]'}
+				className={'flex flex-col w-full md:h-[550px] justify-evenly '}
 			>
 				{products.map((product: any, index: number) => {
 					return (
 						<div
 							key={product?.id}
 							className={classNames(
-								'md:min-w-[30%] relative before:content[""] before:absolute before:right-0 before:top-0 before:h-full before-h-full hidden md:block pr-[100px] cursor-pointer py-[35px] transition-all ease-in-out',
+								' h-full md:min-w-[30%] relative before:content[""] before:absolute before:right-0 before:top-0 before:h-full before-h-full hidden md:flex items-center pr-[100px] cursor-pointer  transition-all ease-in-out overflow-hidden',
 								activeProduct === index
 									? 'md:before:bg-lightGreen before:w-[3px] before:translate-x-[1px]'
 									: 'md:before:bg-[#ADADAD] before:w-[1px] '
@@ -33,7 +33,7 @@ function ProductsList({ products }) {
 							{product?.title && (
 								<h3
 									onMouseEnter={() => setActiveProduct(index)}
-									className='text-black'
+									className='text-black align-middle '
 								>
 									{product.title}
 								</h3>
@@ -78,7 +78,7 @@ function ProductsList({ products }) {
 							<div className='w-full'>
 								{product?.text && <p className='text-white'>{product.text}</p>}
 							</div>
-							<div className='relative w-100 mt-[30px] h-[220px] bg-cover'>
+							<div className='relative w-full mt-[30px] h-full bg-cover'>
 								{product?.image?.sourceUrl && (
 									<Image
 										className='bg-cover'
