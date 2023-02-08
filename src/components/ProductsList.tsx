@@ -77,7 +77,7 @@ function ProductsList({ products }) {
 							<div className='w-full'>
 								{product?.text && <p className='text-white'>{product.text}</p>}
 							</div>
-							<div className='relative w-full mt-[30px] h-full bg-cover min-h-[220px]'>
+							<div className='relative w-full mt-[30px] h-full bg-cover min-h-[220px] md:min-h-fit'>
 								{product?.image?.sourceUrl && (
 									<Image
 										className='bg-cover'
