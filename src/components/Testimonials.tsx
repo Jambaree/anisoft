@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Dot from "../../public/dot.svg";
 import ChevronRight from "../../public/chevron-right.svg";
@@ -66,6 +66,14 @@ export default function Testimonials() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [dragDirection, setDragDirection] = useState(0);
   const controls = useDragControls();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleSlideChange(activeSlide + 1, "right");
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [activeSlide]);
+
   return (
     <section className="py-12 md:py-20 lg:py-24 primaryRadialBg flex justify-center">
       <Edges size="md" className="relative w-full">
