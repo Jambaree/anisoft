@@ -23,20 +23,16 @@ function ProductsList({ products }) {
 					return (
 						<div
 							key={product?.id}
+							onMouseEnter={() => setActiveProduct(index)}
 							className={classNames(
-								' h-full md:min-w-[30%] relative before:content[""] before:absolute before:right-0 before:top-0 before:h-full before-h-full hidden md:flex items-center pr-[100px] cursor-pointer  transition-all ease-in-out overflow-hidden',
+								' h-full md:min-w-[30%] relative before:content[""] before:absolute before:top-0 before:h-full before-h-full hidden md:flex items-center pr-[100px] cursor-pointer  transition-all ease-in-out overflow-hidden',
 								activeProduct === index
-									? 'md:before:bg-lightGreen before:w-[3px] before:translate-x-[1px]'
-									: 'md:before:bg-[#ADADAD] before:w-[1px] '
+									? 'md:before:bg-lightGreen before:w-[4px] before:right-[2.5px] '
+									: 'md:before:bg-[#ADADAD] before:w-[1px] before:right-[4px] '
 							)}
 						>
 							{product?.title && (
-								<h3
-									onMouseEnter={() => setActiveProduct(index)}
-									className='text-black align-middle '
-								>
-									{product.title}
-								</h3>
+								<h3 className='text-black align-middle '>{product.title}</h3>
 							)}
 						</div>
 					);
@@ -45,7 +41,7 @@ function ProductsList({ products }) {
 
 			<SideIn
 				className={
-					'bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px]'
+					'bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px] overflow-hidden'
 				}
 			>
 				{products.map((product: any, idx: number) => {

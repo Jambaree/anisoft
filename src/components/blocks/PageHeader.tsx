@@ -18,7 +18,7 @@ const PageHeader = ({ data }) => {
 							<h1 className='heroHeadline mb-[30px] md:mb-0'>{title}</h1>
 						)}
 					</SideIn>
-					<SideIn className='md:w-[70%]'>
+					<SideIn className='md:w-[70%] py-2'>
 						{text && <div dangerouslySetInnerHTML={{ __html: text }} />}
 					</SideIn>
 				</div>

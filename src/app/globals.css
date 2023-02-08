@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body{
+    overflow-x: hidden !important;
+  }
   h1 {
     font-family: var(--font-maven);
     font-style: normal;

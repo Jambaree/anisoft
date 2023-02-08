@@ -20,12 +20,12 @@ const SideIn = (props) => {
 		<div
 			ref={ref}
 			className={classNames(
-				'transition-[opacity, transform] delay-100 duration-[1500ms] ease-in-out',
+				'overflow-x-hidden  transition-[opacity, transform] delay-100 duration-[1500ms] ease-in-out',
 				isInView
-					? 'translate-x-0 opacity-100'
+					? 'overflow-x-hidden translate-x-0 opacity-100'
 					: right
-					? 'translate-x-full opacity-0'
-					: 'translate-x-[-100%] opacity-0',
+					? 'overflow-x-hidden translate-x-full opacity-0'
+					: 'overflow-x-hidden translate-x-[-100%] opacity-0',
 				alwaysVisible && 'opacity-100',
 				className
 			)}
