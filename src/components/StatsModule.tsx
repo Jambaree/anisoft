@@ -51,7 +51,7 @@ export default function StatsModule() {
     return <div ref={ref}>0</div>;
   };
   return (
-    <div className="relative primaryRadialBg">
+    <div className="relative primaryRadialBg pb-[115px] md:pb-0">
       <div className="absolute bottom-0 h-80 w-full md:inset-0 md:h-full">
         <div className="h-full w-full md:grid md:grid-cols-2">
           <div className="h-full md:relative md:col-start-2">
