@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import React from 'react';
 import Button from './Button';
+import FadeInUp from './FadeInUp';
+import SideIn from './SideIn';
 
 function ProductsList({ products }) {
 	const [activeProduct, setActiveProduct] = React.useState(null);
@@ -13,10 +15,11 @@ function ProductsList({ products }) {
 
 	return (
 		<div className='flex flex-col items-center md:flex-row  w-full h-full pt-[60px] basis-full relative productCard'>
-			<div
+			<SideIn
+				right={false}
 				className={classNames(
-					'flex flex-col h-full transform transition-all duration-[1500ms] ease-in-out',
-					activeProduct === null && 'translate-x-[-100vw]'
+					'flex flex-col h-full transform transition-all duration-[1500ms] ease-in-out'
+					// activeProduct === null && 'translate-x-[-100vw]'
 				)}
 			>
 				{products.map((product: any, index: number) => {
@@ -37,20 +40,22 @@ function ProductsList({ products }) {
 						</div>
 					);
 				})}
-			</div>
+			</SideIn>
 
-			<div className='flex flex-col md:ml-[100px] grow flex-auto  justify-center relative  self-stretch z-0 overflow-x-hidden overflow-y-clip'>
+			<SideIn
+				className={classNames(
+					'bg-darkPurple flex flex-col md:ml-[100px] grow flex-auto  justify-center relative h-full transform transition-all duration-[1500ms] ease-in-out'
+					// activeProduct === null && 'translate-x-[100vw]'
+				)}
+			>
 				{products.map((product: any, idx: number) => {
 					return (
-						<div
+						<FadeInUp
+							playOnce={false}
 							key={product?.id}
 							className={`
-								${
-									activeProduct === idx
-										? ' z-10 transition-all duration-[1500ms] ease-in-out'
-										: 'translate-x-0 mb-[30px] md:mb-0 md:block md:translate-x-[100vw] md:z-[-1] md:opacity-0 md:transition-none '
-								}
-								productCard bg-darkPurple p-[20px] md:p-[50px] flex flex-col  top-0 relative md:absolute right-0`}
+								${activeProduct === idx ? 'block' : ' mb-[30px] md:mb-0 hidden '}
+								  p-[20px] md:p-[50px] flex flex-col h-full`}
 						>
 							<div className='flex flex-col md:flex-row justify-between w-full pb-[30px]'>
 								{product?.title && (
@@ -98,10 +103,10 @@ function ProductsList({ products }) {
 									</Button>
 								</div>
 							)}
-						</div>
+						</FadeInUp>
 					);
 				})}
-			</div>
+			</SideIn>
 		</div>
 	);
 }
