@@ -2,13 +2,21 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import classNames from 'classnames';
 
-function BreadCrumbs() {
+function BreadCrumbs(props) {
+	const { className } = props;
+
 	const pathname = usePathname();
 	const paths = pathname.split('/').filter(Boolean);
 
 	return (
-		<nav className='flex items-center justify-between py-2 font-medium text-sm text-gray-500'>
+		<nav
+			className={classNames(
+				'flex items-center justify-between py-2 font-medium text-sm text-gray-500',
+				className
+			)}
+		>
 			<div className='flex items-center'>
 				<Link
 					className='text-gray-700 hover:text-gray-900'
