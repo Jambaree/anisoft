@@ -50,7 +50,7 @@ const QuickFacts = () => {
               <h1>{quickData?.text2}</h1>
             </FadeInUp>
           </div>
-          <div className=" flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row">
             {quickData?.facts?.map((fact, index) => {
               return (
                 <FadeInUp className={`delay-${handleDelay(index)}`} key={index}>
