@@ -11,7 +11,7 @@ export default function Hero({ data }) {
 	return (
 		<div className='primaryRadialBg py-[100px] md:py-[150px]'>
 			<Edges size='lg'>
-				<div className='flex w-full h-full flex-wrap-reverse text-white items-center justify-center'>
+				<div className='flex w-full h-full flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center'>
 					<div>
 						{headline && (
 							<FadeInUp className='delay-100'>
@@ -55,7 +55,7 @@ export default function Hero({ data }) {
 								<Tilt>
 									<div className='relative w-[350px] h-[350px] cursor-pointer'>
 										<Image
-											className='p-[50px]'
+											className='pb-[30px] cmd:pb-0'
 											src={image?.sourceUrl}
 											// src={heroImage}
 											alt={image?.altText}
