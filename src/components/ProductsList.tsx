@@ -55,7 +55,7 @@ function ProductsList({ products }) {
 							key={product?.id}
 							className={`
 								${activeProduct === idx ? 'block' : ' mb-[30px] md:mb-0 block md:hidden '}
-								  p-[20px] md:p-[50px] flex flex-col h-full`}
+								  p-[20px] md:p-[50px] flex flex-col h-full border-b-[10px] border-b-white md:border-b-0`}
 						>
 							<div className='flex flex-col md:flex-row justify-between w-full pb-[30px]'>
 								{product?.title && (
