@@ -51,7 +51,10 @@ function ProductsList({ products }) {
 							key={product?.id}
 							className={`
 								${activeProduct === idx ? 'block' : ' mb-[30px] md:mb-0 block md:hidden '}
-								  p-[20px] md:p-[50px] flex flex-col h-full border-b-[10px] border-b-white md:border-b-0`}
+								  p-[20px] md:p-[50px] flex flex-col h-full ${
+										products.length !== idx + 1 &&
+										'border-b-white border-b-[10px] '
+									} md:border-b-0`}
 						>
 							<div className='flex flex-col md:flex-row justify-between w-full pb-[30px]'>
 								{product?.title && (
@@ -74,7 +77,7 @@ function ProductsList({ products }) {
 							<div className='w-full'>
 								{product?.text && <p className='text-white'>{product.text}</p>}
 							</div>
-							<div className='relative w-full mt-[30px] h-full bg-cover'>
+							<div className='relative w-full mt-[30px] h-full bg-cover min-h-[220px]'>
 								{product?.image?.sourceUrl && (
 									<Image
 										className='bg-cover'
