@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import Edges from "../Edges";
 
 import Image from "next/image";
+import classNames from "classnames";
 
 import CardsNavBar from "./CardsNavBar";
 import { motion, AnimatePresence } from "framer-motion";
@@ -75,7 +76,7 @@ const ServiceCards = () => {
       <CardsNavBar services={services} activeIndex={activeIndex} />
 
       <Edges size="lg">
-        <div className="flex">
+        <div className="flex ">
           <div>
             {services.map((service, index) => (
               <InView
@@ -87,17 +88,32 @@ const ServiceCards = () => {
                 }}
               >
                 {({ ref, inView }) => (
-                  <div key={index} className="flex relative md:mr-[80px]">
+                  <div key={index} className="flex md:mr-[80px] relative ">
+                    <div
+                      className={classNames(
+                        index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
+                        "absolute w-screen top-0 bottom-0 left-[100%]  z-10"
+                      )}
+                    ></div>
+                    <div
+                      className={classNames(
+                        index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
+                        "absolute w-screen top-0 bottom-0 right-[100%] z-10"
+                      )}
+                    ></div>
                     <div
                       className="absolute -top-[160px]"
                       id={service.name}
                     ></div>
 
                     <div
-                      className=" py-[50px] sm:py-[50px] md:py-[221px]"
+                      className={classNames(
+                        index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
+                        "py-[50px] sm:py-[50px] md:py-[221px] z-30"
+                      )}
                       ref={ref}
                     >
-                      <div className="flex flex-col justify-center">
+                      <div className="flex flex-col justify-center ">
                         <h1 className="mb-[24px]">{service?.name}</h1>
                         <p className="mb-[32px]">{service?.description}</p>
 
@@ -139,7 +155,7 @@ const ServiceCards = () => {
             ))}
           </div>
           <AnimatePresence>
-            <motion.div className="hidden md:block ml-auto sticky top-[calc(50%-20rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] ">
+            <motion.div className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-20rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] ">
               <Image
                 src={services[activeIndex]?.image}
                 alt="service-image"
