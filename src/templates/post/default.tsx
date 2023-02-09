@@ -1,12 +1,9 @@
-import QuickFacts from "../../components/QuickFacts";
-import ContactQuickFacts from "../../components/ContactQuickFacts";
-import StatsModule from "../../components/StatsModule";
+// import QuickFacts from "../../components/QuickFacts";
+import Testimonials from "../../components/Testimonials";
 export default function DefaultPostTemplate({ uri }) {
   return (
     <div>
-      <StatsModule />
-      <ContactQuickFacts />
-      <QuickFacts />
+      <Testimonials />
     </div>
   );
 }
