@@ -3,132 +3,140 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-size: 14px; /* 14px = 1rem */
-  }
-  @media screen and (min-width: 1366px) {
-    html {
-      font-size: 16px; /* 16px = 1rem */
-    }
-  }
+	html {
+		font-size: 14px; /* 14px = 1rem */
+	}
+	@media screen and (min-width: 1366px) {
+		html {
+			font-size: 16px; /* 16px = 1rem */
+		}
+	}
 
-  @media screen and (min-width: 1920px) {
-    html {
-      font-size: 18px; /* 18px = 1rem */
-    }
-  }
+	@media screen and (min-width: 1920px) {
+		html {
+			font-size: 18px; /* 18px = 1rem */
+		}
+	}
 
-  @media screen and (min-width: 2560px) {
-    html {
-      font-size: 25px; /* 25px = 1rem */
-    }
-  }
+	@media screen and (min-width: 2560px) {
+		html {
+			font-size: 25px; /* 25px = 1rem */
+		}
+	}
 
-  @media screen and (min-width: 3840px) {
-    html {
-      font-size: 36px; /* 36px = 1rem */
-    }
-  }
+	@media screen and (min-width: 3840px) {
+		html {
+			font-size: 36px; /* 36px = 1rem */
+		}
+	}
 
-  body {
-    overflow-x: hidden !important;
-  }
-  h1 {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3rem;
-    line-height: 120%;
-  }
-  h2 {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2.5rem;
-    line-height: 120%;
-  }
-  h3 {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.563rem;
-    line-height: 120%;
-  }
-  h4 {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.25rem;
-    line-height: 120%;
-  }
+	body {
+		overflow-x: hidden !important;
+	}
+	h1 {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 3rem;
+		line-height: 120%;
+	}
+	h2 {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 2.5rem;
+		line-height: 120%;
+	}
+	h3 {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1.563rem;
+		line-height: 120%;
+	}
+	h4 {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1.25rem;
+		line-height: 120%;
+	}
 
-  p {
-    font-family: var(--font-mukta);
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.125rem;
-    line-height: 27px;
-  }
-  .hero {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3.75rem;
-    line-height: 120%;
-  }
-  .p-details {
-    font-family: var(--font-mukta);
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1rem;
-    line-height: 150%;
-  }
-  .p-footer {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 150%;
-  }
+	p {
+		font-family: var(--font-mukta);
+		font-style: normal;
+		font-weight: 300;
+		font-size: 1.125rem;
+		line-height: 27px;
+	}
+	.hero {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 3.75rem;
+		line-height: 120%;
+	}
+	.p-details {
+		font-family: var(--font-mukta);
+		font-style: normal;
+		font-weight: 300;
+		font-size: 1rem;
+		line-height: 150%;
+	}
+	.p-footer {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 0.875rem;
+		line-height: 150%;
+	}
 
-  p {
-    font-family: var(--font-mukta);
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.125rem;
-    line-height: 150%;
-  }
-  .heroHeadline {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400 !important;
-    font-size: 3.75rem;
-    line-height: 120%;
-  }
+	p {
+		font-family: var(--font-mukta);
+		font-style: normal;
+		font-weight: 300;
+		font-size: 1.125rem;
+		line-height: 150%;
+	}
+	.heroHeadline {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400 !important;
+		font-size: 3.75rem;
+		line-height: 120%;
+	}
 
-  .primaryRadialBg {
-    background: radial-gradient(
-          20.52% 48.75% at 21.11% 50%,
-          rgba(31, 24, 91, 0.86) 0%,
-          rgba(14, 10, 48, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-      #0e0a30;
-  }
-  .secondaryRadialBg {
-    background: radial-gradient(
-        74.46% 294.38% at 55.17% 49.79%,
-        #1f185b 0%,
-        rgba(14, 10, 48, 0) 100%
-      )
-      #0e0a30;
-  }
+	.primaryRadialBg {
+		background: radial-gradient(
+					20.52% 48.75% at 21.11% 50%,
+					rgba(31, 24, 91, 0.86) 0%,
+					rgba(14, 10, 48, 0) 100%
+				)
+				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+			#0e0a30;
+	}
+	.secondaryRadialBg {
+		background: radial-gradient(
+				74.46% 294.38% at 55.17% 49.79%,
+				#1f185b 0%,
+				rgba(14, 10, 48, 0) 100%
+			)
+			#0e0a30;
+	}
+	.thirdRadialBg {
+		background: radial-gradient(
+				45.28% 309.17% at 72.33% 66.2%,
+				#292073 0%,
+				rgba(14, 10, 48, 0) 100%
+			),
+			#0e0a30;
+	}
 
-  .nav {
-    font-family: var(--font-maven);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 150%;
-  }
+	.nav {
+		font-family: var(--font-maven);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1rem;
+		line-height: 150%;
+	}
 }
