@@ -4,6 +4,7 @@
 
 @layer base {
   html {
+    @apply scroll-smooth;
     font-size: 14px; /* 14px = 1rem */
   }
   @media screen and (min-width: 1366px) {
