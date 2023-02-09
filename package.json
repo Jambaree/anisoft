@@ -26,12 +26,12 @@
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "html-react-parser": "^3.0.8",
-    "next": "^13.1.6-canary.2",
+    "next": "^13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-parallax-tilt": "^1.7.99",
-    "sharp": "^0.31.3",
     "reactstrap": "^9.1.5",
+    "sharp": "^0.31.3",
     "typescript": "4.9.4"
   },
   "devDependencies": {

@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
-      <body>
+      <body id="top">
         <Header />
 
         {children}
