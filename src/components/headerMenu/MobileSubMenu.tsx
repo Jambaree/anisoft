@@ -45,7 +45,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
             initial="closed"
             animate="open"
             variants={sideVariants}
-            className="fixed z-30"
+            className="fixed z-50"
           >
             <motion.div variants={itemVariants}>
               {menu?.nodes?.map((item, index) => (

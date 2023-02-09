@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import ChevronUp from "../../../public/chevron-up.svg";
 
-const CardsNavBar = ({ services }) => {
+const CardsNavBar = ({ services, activeIndex }) => {
   const refArray = useRef([]);
   const [activeNav, setActiveNav] = useState(-1);
 
@@ -13,11 +13,16 @@ const CardsNavBar = ({ services }) => {
   const [buttonHeight, setHeight] = useState(0);
   const [buttonLeft, setLeft] = useState(0);
 
-  const handleNav = (index) => {
-    setWidth(refArray.current[index].offsetWidth);
-    setHeight(refArray.current[index].offsetHeight);
-    setLeft(refArray.current[index].offsetLeft);
-    setActiveNav(index);
+  const handleScrollNav = () => {
+    setWidth(refArray.current[activeIndex].offsetWidth);
+    setHeight(refArray.current[activeIndex].offsetHeight);
+    setLeft(refArray.current[activeIndex].offsetLeft);
+
+    if (window.scrollY === 0) {
+      setActiveNav(-1);
+    } else {
+      setActiveNav(activeIndex);
+    }
   };
 
   const handleResize = () => {
@@ -32,10 +37,12 @@ const CardsNavBar = ({ services }) => {
         window.addEventListener("resize", handleResize);
       }
     }
-  }, [activeNav]);
+
+    window.addEventListener("scroll", handleScrollNav);
+  }, [activeNav, activeIndex]);
 
   return (
-    <div className="w-full bg-darkPurple sticky top-[100px] z-[999999999]">
+    <div className="md:block hidden w-full bg-darkPurple sticky top-[100px] z-40">
       <Edges
         size="lg"
         className="flex flex-row items-center justify-between py-[22px]"
@@ -62,7 +69,6 @@ const CardsNavBar = ({ services }) => {
           {services.map((service, index) => {
             return (
               <a
-                onClick={() => handleNav(index)}
                 href={`#${service.name}`}
                 key={index}
                 ref={(ref) => {

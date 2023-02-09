@@ -1,9 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState, useRef } from "react";
 import Edges from "../Edges";
 
 import Image from "next/image";
 
 import CardsNavBar from "./CardsNavBar";
+import { motion, AnimatePresence } from "framer-motion";
+import { InView } from "react-intersection-observer";
+import MobileCardsNavBar from "./MobileCardsNavBar";
 
 const services = [
   {
@@ -21,7 +25,7 @@ const services = [
   },
   {
     name: "Solution Design",
-    image: "/stats-background-image.png",
+    image: "/placeHolderImage3.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
     points: [
@@ -43,7 +47,7 @@ const services = [
   },
   {
     name: "Other Other Test",
-    image: "/stats-background-image.png",
+    image: "/placeHolderImage3.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
     points: [
@@ -55,39 +59,96 @@ const services = [
 ];
 
 const ServiceCards = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleInView = (inView, index) => {
+    if (inView) {
+      setActiveIndex(index);
+    }
+  };
+  const imageRef = useRef(null);
+
   return (
-    <div className="relative">
-      <CardsNavBar services={services} />
+    <div>
+      <MobileCardsNavBar services={services} activeIndex={activeIndex} />
+
+      <CardsNavBar services={services} activeIndex={activeIndex} />
+
       <Edges size="lg">
-        <div className="flex flex-col relative">
-          {services.map((service, index) => (
-            <div key={index} className="relative">
-              <div className="absolute -top-[160px]" id={service.name}></div>
-              <div className="flex flex-row py-[112px]  flex-wrap md:flex-nowrap">
-                <div className="flex flex-col justify-center">
-                  <h1 className="mb-[24px]">{service?.name}</h1>
-                  <p className="mb-[32px]">{service?.description}</p>
-                  {service?.points.map((point, index) => (
+        <div className="flex">
+          <div>
+            {services.map((service, index) => (
+              <InView
+                key={index}
+                threshold={1}
+                className="relative"
+                onChange={(inView) => {
+                  handleInView(inView, index);
+                }}
+              >
+                {({ ref, inView }) => (
+                  <div key={index} className="flex relative md:mr-[80px]">
                     <div
-                      key={index}
-                      className="flex flex-row items-center mb-[16px]"
+                      className="absolute -top-[160px]"
+                      id={service.name}
+                    ></div>
+
+                    <div
+                      className=" py-[50px] sm:py-[50px] md:py-[221px]"
+                      ref={ref}
                     >
-                      <div className="w-[18px] h-[4px] bg-lightGreen mr-[16px]" />
-                      <p>{point?.text}</p>
+                      <div className="flex flex-col justify-center">
+                        <h1 className="mb-[24px]">{service?.name}</h1>
+                        <p className="mb-[32px]">{service?.description}</p>
+
+                        {service?.points.map((point, index) => (
+                          <div
+                            key={index}
+                            className="flex flex-row items-center mb-[16px]"
+                          >
+                            <div className="w-[18px] h-[4px] bg-lightGreen mr-[16px]" />
+                            <p>{point?.text}</p>
+                          </div>
+                        ))}
+                        <AnimatePresence>
+                          {inView ? (
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.5 }}
+                              className="md:hidden block relative  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px] "
+                            >
+                              <Image
+                                src={service?.image}
+                                alt="service-image"
+                                ref={imageRef}
+                                fill
+                                className="object-cover"
+                              ></Image>
+                            </motion.div>
+                          ) : (
+                            <div className="md:hidden block h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px]"></div>
+                          )}
+                        </AnimatePresence>
+                      </div>
                     </div>
-                  ))}
-                </div>
-                <div className="relative h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] md:ml-[80px]">
-                  <Image
-                    src={service?.image}
-                    alt="service-image"
-                    fill
-                    className="object-cover"
-                  ></Image>
-                </div>
-              </div>
-            </div>
-          ))}
+                  </div>
+                )}
+              </InView>
+            ))}
+          </div>
+          <AnimatePresence>
+            <motion.div className="hidden md:block ml-auto sticky top-[calc(50%-20rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] ">
+              <Image
+                src={services[activeIndex]?.image}
+                alt="service-image"
+                ref={imageRef}
+                fill
+                className="object-cover"
+              ></Image>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </Edges>
     </div>
