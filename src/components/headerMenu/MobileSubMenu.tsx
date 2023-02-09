@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 
-import Edges from "../Edges";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import ChevronLeft from "../../../public/chevron-left.svg";
 
 const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
   const sideVariants = {
@@ -56,14 +55,11 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
                       className="flex flex-row mb-[35px] items-center w-screen"
                       onClick={() => setIsOpen(!isOpen)}
                     >
-                      <Image
-                        src="/mobile-chevron-left.svg"
+                      <ChevronLeft
                         width="6"
-                        height="10"
-                        alt="chevron-left"
-                        className="mr-[11px]"
+                        className="mr-[11px] w-[6px] h-[10px] fill-black"
                       />
-                      <div className="text-[16px] leading-[24px] font-mukta font-semibold">
+                      <div className="text-[1rem] leading-[24px] font-mukta font-semibold">
                         BACK
                       </div>
                     </button>
