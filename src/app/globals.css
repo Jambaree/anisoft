@@ -19,18 +19,6 @@
     }
   }
 
-  @media screen and (min-width: 2560px) {
-    html {
-      font-size: 25px; /* 25px = 1rem */
-    }
-  }
-
-  @media screen and (min-width: 3840px) {
-    html {
-      font-size: 36px; /* 36px = 1rem */
-    }
-  }
-
   body {
     overflow-x: hidden !important;
   }

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Edges from "../Edges";
-import classNames from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
 
 import ChevronUp from "../../../public/chevron-up.svg";
@@ -14,18 +13,12 @@ const CardsNavBar = ({ services }) => {
   const [buttonHeight, setHeight] = useState(0);
   const [buttonLeft, setLeft] = useState(0);
 
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
   const handleNav = (index) => {
     setWidth(refArray.current[index].offsetWidth);
     setHeight(refArray.current[index].offsetHeight);
     setLeft(refArray.current[index].offsetLeft);
     setActiveNav(index);
   };
-  console.log({ buttonLeft: buttonLeft });
 
   const handleResize = () => {
     setWidth(refArray.current[activeNav].offsetWidth);
@@ -35,7 +28,9 @@ const CardsNavBar = ({ services }) => {
 
   useEffect(() => {
     if (activeNav >= 0) {
-      window.addEventListener("resize", handleResize);
+      if (typeof window !== "undefined") {
+        window.addEventListener("resize", handleResize);
+      }
     }
   }, [activeNav]);
 
