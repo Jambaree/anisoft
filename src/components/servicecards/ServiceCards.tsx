@@ -119,13 +119,12 @@ const ServiceCards = () => {
                     ></div>
 
                     <div
-                      ref={ref}
                       className={classNames(
                         // index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
                         "py-[50px] sm:py-[50px]  z-30"
                       )}
                     >
-                      <div className="flex flex-col justify-center ">
+                      <div className="flex flex-col justify-center " ref={ref}>
                         <h1 className="mb-[24px]">{service?.name}</h1>
                         <p className="mb-[32px]">{service?.description}</p>
 
@@ -150,10 +149,6 @@ const ServiceCards = () => {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="absolute -top-[100px]"
-                      id={service.name}
-                    ></div>
                   </div>
                 )}
               </InView>
@@ -166,7 +161,7 @@ const ServiceCards = () => {
               animate={controls}
               exit={{ opacity: 0 }}
               transition={{ ease: "easeOut", duration: 1 }}
-              className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-24rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] "
+              className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-14rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] md:mt-[112px] "
             >
               <Image
                 key={activeIndex}
