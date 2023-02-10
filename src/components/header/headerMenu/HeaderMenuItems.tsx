@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Button from "../Button";
+import Button from "../../Button";
 import SubMenu from "./SubMenu";
 
 const MenuItems = ({ menuItems }) => {

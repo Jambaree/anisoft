@@ -6,8 +6,13 @@ import Edges from "../Edges";
 import Tilt from "react-parallax-tilt";
 import FadeInUp from "../FadeInUp";
 
-export default function Hero({ data }) {
-  const { headline, subHeadline, button1, button2, image } = data;
+export default function Hero({
+  headline,
+  subHeadline,
+  button1,
+  button2,
+  image,
+}) {
   return (
     <div className="primaryRadialBg py-[100px] md:py-[150px]">
       <Edges size="lg">

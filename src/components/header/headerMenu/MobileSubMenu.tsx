@@ -3,7 +3,7 @@ import React from "react";
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import ChevronLeft from "../../../public/chevron-left.svg";
+import ChevronLeft from "../../../../public/chevron-left.svg";
 
 const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
   const sideVariants = {

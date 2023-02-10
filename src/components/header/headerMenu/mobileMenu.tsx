@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
 
-import Edges from "../Edges";
-import Image from "next/image";
+import Edges from "../../Edges";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "../Button";
+import Button from "../../Button";
 import MobileSubMenu from "./MobileSubMenu";
-import ChevonRight from "../../../public/chevron-right.svg";
+import ChevonRight from "../../../../public/chevron-right.svg";
 
 const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
   const sideVariants = {

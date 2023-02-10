@@ -1,7 +1,7 @@
 import { Mukta, Maven_Pro } from "@next/font/google";
 
 import "./globals.css";
-import Header from "../components/header";
+import Header from "../components/header/header";
 import Footer from "../components/footer";
 import FooterTopperCTA from "../components/FooterTopperCTA";
 
@@ -28,7 +28,7 @@ export default function RootLayout({
         <Header />
 
         {children}
-        <FooterTopperCTA />
+
         <Footer />
       </body>
     </html>
