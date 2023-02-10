@@ -192,5 +192,31 @@
 				"latitude": "53.60016181349912"
 			}
 		]
+	},
+	"textInfo": {
+		"tag": "Careers at Anisoft",
+		"headline": "Pride in our employees",
+		"button1": {
+			"title": "APPLY NOW",
+			"url": "/apply",
+			"target": "_self"
+		},
+		"button2": {
+			"title": "Buton CTA",
+			"url": "/cta",
+			"target": "_self"
+		},
+		"text": "<p>AniSoft is proud of its long-term relationships with clients, partners and most of all, its employees. Our success is built on teamwork, expertise and commitment. A career with AniSoft is about empowering you to achieve success for you and our clients. We are seeking people who meet challenges head on and share their excitement and experiences with those around them.<br/>Consider AniSoft for your next career move if you want to:</p><br> <ul><li>Work with a team of talented professionals</li><li>Be part of a company that values its employees</li><li>Have the opportunity to grow and develop your career</li><li>Work in a fast-paced, dynamic environment</li></ul>"
+	},
+	"textInfo2": {
+		"tag": "Careers at Anisoft",
+		"headline": "Pride in our employees",
+		"button1": {
+			"title": "APPLY NOW",
+			"url": "/apply",
+			"target": "_self"
+		},
+
+		"text": "<p>AniSoft is proud of its long-term relationships with clients, partners and most of all, its employees. Our success is built on teamwork, expertise and commitment. A career with AniSoft is about empowering you to achieve success for you and our clients. We are seeking people who meet challenges head on and share their excitement and experiences with those around them.<br/>Consider AniSoft for your next career move if you want to:</p><br> <ul><li>Work with a team of talented professionals</li><li>Be part of a company that values its employees</li><li>Have the opportunity to grow and develop your career</li><li>Work in a fast-paced, dynamic environment</li></ul><p>As we continue to grow, we are always looking for highly motivated individuals to join our fast paced team. AniSoft has immediate openings for Account Executives and technical professionals in our BC, Alberta and Saskatchewan locations. If one of these positions is of interest to you or you feel that you have skills that would complement our dynamic organization, please send your resume to Careers.<br/>All communications will be held in the strictest confidence. We appreciate all expressed interest; however only those candidates selected for interview will be contacted.</p>"
 	}
 }

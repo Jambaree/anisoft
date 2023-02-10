@@ -150,3 +150,21 @@
 .mapboxgl-ctrl-compass {
 	display: none !important;
 }
+.ql-container {
+	border: none !important;
+}
+
+.ql-editor {
+	font-family: var(--font-mukta);
+	font-style: normal;
+	font-weight: 300;
+	font-size: 1.125rem;
+	line-height: 27px;
+}
+
+.ql-editor > * {
+	padding-bottom: 15px !important;
+}
+.ql-editor > Ul >li {
+	padding-bottom: 15px !important;
+}
