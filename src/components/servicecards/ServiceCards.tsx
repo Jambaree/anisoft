@@ -1,12 +1,12 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Edges from "../Edges";
 
 import Image from "next/image";
 import classNames from "classnames";
 
 import CardsNavBar from "./CardsNavBar";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import MobileCardsNavBar from "./MobileCardsNavBar";
 
@@ -60,14 +60,23 @@ const services = [
 ];
 
 const ServiceCards = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const controls = useAnimationControls();
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [currentImage, setCurrentImage] = useState(services[0].image);
   const handleInView = (inView, index) => {
     if (inView) {
       setActiveIndex(index);
+      setCurrentImage(services[index].image);
     }
   };
   const imageRef = useRef(null);
+
+  useEffect(() => {
+    controls.set({ opacity: 0 });
+
+    controls.start({ opacity: 1 });
+  }, [activeIndex]);
 
   return (
     <div>
@@ -82,13 +91,16 @@ const ServiceCards = () => {
               <InView
                 key={index}
                 threshold={1}
-                className="relative"
+                className="relative "
                 onChange={(inView) => {
                   handleInView(inView, index);
                 }}
               >
                 {({ ref, inView }) => (
-                  <div key={index} className="flex md:mr-[80px] relative ">
+                  <div
+                    key={index}
+                    className="flex md:mr-[80px] relative md:my-[221px] "
+                  >
                     {/* <div
                       className={classNames(
                         index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
@@ -110,7 +122,7 @@ const ServiceCards = () => {
                       ref={ref}
                       className={classNames(
                         // index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
-                        "py-[50px] sm:py-[50px] md:py-[221px] z-30"
+                        "py-[50px] sm:py-[50px]  z-30"
                       )}
                     >
                       <div className="flex flex-col justify-center ">
@@ -126,23 +138,16 @@ const ServiceCards = () => {
                             <p>{point?.text}</p>
                           </div>
                         ))}
-                        <AnimatePresence>
-                          <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="md:hidden block relative  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px] "
-                          >
-                            <Image
-                              src={service?.image}
-                              alt="service-image"
-                              ref={imageRef}
-                              fill
-                              className="object-cover"
-                            ></Image>
-                          </motion.div>
-                        </AnimatePresence>
+
+                        <div className="md:hidden block relative  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px]">
+                          <Image
+                            src={service?.image}
+                            alt="service-image"
+                            ref={imageRef}
+                            fill
+                            className="object-cover"
+                          ></Image>
+                        </div>
                       </div>
                     </div>
                     <div
@@ -155,15 +160,24 @@ const ServiceCards = () => {
             ))}
           </div>
 
-          <div className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-20rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] ">
-            <Image
-              src={services[activeIndex]?.image}
-              alt="service-image"
-              ref={imageRef}
-              fill
-              className="object-cover"
-            ></Image>
-          </div>
+          {currentImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={controls}
+              exit={{ opacity: 0 }}
+              transition={{ ease: "easeOut", duration: 1 }}
+              className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-24rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] "
+            >
+              <Image
+                key={activeIndex}
+                src={currentImage}
+                alt="service-image"
+                ref={imageRef}
+                fill
+                className="object-cover "
+              ></Image>
+            </motion.div>
+          )}
         </div>
       </Edges>
     </div>
