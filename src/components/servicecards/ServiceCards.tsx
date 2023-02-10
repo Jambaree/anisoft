@@ -89,7 +89,7 @@ const ServiceCards = () => {
               >
                 {({ ref, inView }) => (
                   <div key={index} className="flex md:mr-[80px] relative ">
-                    <div
+                    {/* <div
                       className={classNames(
                         index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
                         "absolute w-screen top-0 bottom-0 left-[100%]  z-10"
@@ -100,18 +100,18 @@ const ServiceCards = () => {
                         index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
                         "absolute w-screen top-0 bottom-0 right-[100%] z-10"
                       )}
-                    ></div>
+                    ></div> */}
                     <div
                       className="absolute -top-[160px]"
                       id={service.name}
                     ></div>
 
                     <div
+                      ref={ref}
                       className={classNames(
-                        index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
+                        // index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
                         "py-[50px] sm:py-[50px] md:py-[221px] z-30"
                       )}
-                      ref={ref}
                     >
                       <div className="flex flex-col justify-center ">
                         <h1 className="mb-[24px]">{service?.name}</h1>
@@ -127,44 +127,43 @@ const ServiceCards = () => {
                           </div>
                         ))}
                         <AnimatePresence>
-                          {inView ? (
-                            <motion.div
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              exit={{ opacity: 0 }}
-                              transition={{ duration: 0.5 }}
-                              className="md:hidden block relative  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px] "
-                            >
-                              <Image
-                                src={service?.image}
-                                alt="service-image"
-                                ref={imageRef}
-                                fill
-                                className="object-cover"
-                              ></Image>
-                            </motion.div>
-                          ) : (
-                            <div className="md:hidden block h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px]"></div>
-                          )}
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="md:hidden block relative  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px] "
+                          >
+                            <Image
+                              src={service?.image}
+                              alt="service-image"
+                              ref={imageRef}
+                              fill
+                              className="object-cover"
+                            ></Image>
+                          </motion.div>
                         </AnimatePresence>
                       </div>
                     </div>
+                    <div
+                      className="absolute -top-[100px]"
+                      id={service.name}
+                    ></div>
                   </div>
                 )}
               </InView>
             ))}
           </div>
-          <AnimatePresence>
-            <motion.div className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-20rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] ">
-              <Image
-                src={services[activeIndex]?.image}
-                alt="service-image"
-                ref={imageRef}
-                fill
-                className="object-cover"
-              ></Image>
-            </motion.div>
-          </AnimatePresence>
+
+          <div className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-20rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[112px] ">
+            <Image
+              src={services[activeIndex]?.image}
+              alt="service-image"
+              ref={imageRef}
+              fill
+              className="object-cover"
+            ></Image>
+          </div>
         </div>
       </Edges>
     </div>
