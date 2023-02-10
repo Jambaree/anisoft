@@ -18,7 +18,7 @@ const MobileCardsSubMenu = ({ isOpen, setIsOpen, menu, activeIndex }) => {
             <div>
               {menu?.map(
                 (item, index) =>
-                  index !== 0 && (
+                  index !== activeIndex && (
                     <div
                       key={index}
                       className="flex flex-col text-left ml-[30px] relative"
