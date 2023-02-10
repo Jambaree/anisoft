@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 const Contact = ({ data }) => {
 	const mapRef = useRef<MapRef>();
-	const [selectedCity, setSelectedCity] = useState(null);
+	const [selectedCity, setSelectedCity] = useState(-1);
 	const onSelectCity = useCallback(
 		(longitude, latitude, zoom: number, index) => {
 			setSelectedCity(index);
@@ -32,20 +32,22 @@ const Contact = ({ data }) => {
 							{headline && (
 								<h2 className='text-black  pr-[30px]  '>{headline}</h2>
 							)}
-							<p
-								role='button'
-								className='md:ml-auto my-auto pr-[30px]  hover:underline'
-								onClick={() => {
-									onSelectCity(
-										initialView.longitude,
-										initialView.latitude,
-										initialView.zoom,
-										-1
-									);
-								}}
-							>
-								View All Locations
-							</p>
+							{selectedCity >= 0 && (
+								<p
+									role='button'
+									className='md:ml-auto my-auto pr-[30px]  hover:underline'
+									onClick={() => {
+										onSelectCity(
+											initialView.longitude,
+											initialView.latitude,
+											initialView.zoom,
+											-1
+										);
+									}}
+								>
+									View All Locations
+								</p>
+							)}
 						</div>
 						{text && (
 							<p className='text-black max-w-[300px] mb-[30px]'>{text}</p>
