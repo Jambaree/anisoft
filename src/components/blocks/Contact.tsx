@@ -28,12 +28,13 @@ const Contact = ({ data }) => {
 				{tag && <p className='text-black font-[16px] pb-[20px]'>{tag}</p>}
 				<div className='w-full h-full flex flex-col md:flex-row md:gap-0 gap-[30px]'>
 					<div className='w-full md:w-[40%] flex flex-col '>
-						<div className='flex justify-between items-center flex-wrap pb-[30px]'>
+						<div className='flex justify-between items-center flex-wrap pb-[30px] gap-[20px]'>
 							{headline && (
 								<h2 className='text-black  pr-[30px]  '>{headline}</h2>
 							)}
-							<button
-								className='ml-auto pr-[30px] h-full'
+							<p
+								role='button'
+								className='md:ml-auto my-auto pr-[30px]  hover:underline'
 								onClick={() => {
 									onSelectCity(
 										initialView.longitude,
@@ -44,7 +45,7 @@ const Contact = ({ data }) => {
 								}}
 							>
 								View All Locations
-							</button>
+							</p>
 						</div>
 						{text && (
 							<p className='text-black max-w-[300px] mb-[30px]'>{text}</p>
