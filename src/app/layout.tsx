@@ -32,10 +32,10 @@ export default async function RootLayout({
     location: "HEADER_MENU",
     slug: "header-menu",
   });
-  const productMenuItems = await getMenuItems({
-    location: "PRODUCT_FOOTER_MENU",
-    slug: "product-footer-menu",
-  });
+  // const productMenuItems = await getMenuItems({
+  //   location: "PRODUCT_FOOTER_MENU",
+  //   slug: "product-footer-menu",
+  // });
   const footerMenuItems = await getMenuItems({
     location: "FOOTER_MENU",
     slug: "footer-menu",
@@ -51,7 +51,7 @@ export default async function RootLayout({
         <Footer
           data={footer}
           menuItems={footerMenuItems}
-          productMenuItems={productMenuItems}
+          // productMenuItems={productMenuItems}
         />
       </body>
     </html>

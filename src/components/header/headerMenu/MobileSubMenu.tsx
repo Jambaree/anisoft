@@ -36,7 +36,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
       opacity: 1,
     },
   };
-  console.log({ openedMenu: openedMenu, menuIndex: menuIndex });
+
   return (
     <AnimatePresence>
       {isOpen && openedMenu === menuIndex && (

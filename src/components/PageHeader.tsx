@@ -1,9 +1,10 @@
 import BreadCrumbs from "./BreadCrumbs";
 import Edges from "./Edges";
 import SideIn from "./SideIn";
+import parse from "html-react-parser";
 
 const PageHeader = ({ data }) => {
-  const { title, text } = data;
+  const { title, content } = data;
 
   return (
     <div className=" py-[90px]">
@@ -16,7 +17,7 @@ const PageHeader = ({ data }) => {
             )}
           </SideIn>
           <SideIn className="md:w-[70%] py-2">
-            {text && <div dangerouslySetInnerHTML={{ __html: text }} />}
+            {content && <div>{parse(content)}</div>}
           </SideIn>
         </div>
       </Edges>
