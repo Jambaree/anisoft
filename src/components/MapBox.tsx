@@ -31,7 +31,7 @@ const Mapbox = (props: any) => {
 								onSelectCity(location.longitude, location.latitude, 11, index);
 							}}
 						>
-							<MarkerIcon />
+							<MarkerIcon className='translate-y-[-25px]' />
 						</Marker>
 					))}
 
