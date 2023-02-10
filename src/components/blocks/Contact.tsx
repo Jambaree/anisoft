@@ -18,7 +18,7 @@ const Contact = ({ data }) => {
 		});
 	}, []);
 
-	const { headline, tag, text, locations } = data;
+	const { headline, tag, text, locations, initialView } = data;
 	return (
 		<div className='bg-white py-[50px] md:py-[90px] h-full '>
 			<Edges size='lg'>
@@ -64,6 +64,7 @@ const Contact = ({ data }) => {
 							onSelectCity={onSelectCity}
 							mapRef={mapRef}
 							locations={locations}
+							initialView={initialView}
 						/>
 					</div>
 				</div>

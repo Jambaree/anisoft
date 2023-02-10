@@ -143,6 +143,11 @@
 		"tag": "Locations",
 		"headline": "Our Offices",
 		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+		"initialView": {
+			"longitude": "-106.11014797030543",
+			"latitude": "49.741015932602835",
+			"zoom": 2
+		},
 		"locations": [
 			{
 				"title": "Whiterock, BC",

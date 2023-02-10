@@ -2,16 +2,16 @@ import Map, { Marker, NavigationControl } from 'react-map-gl';
 import MarkerIcon from '../../public/marker.svg';
 
 const Mapbox = (props: any) => {
-	const { locations, onSelectCity, mapRef } = props;
+	const { locations, onSelectCity, mapRef, initialView } = props;
 
 	return (
 		<>
 			<Map
 				ref={mapRef}
 				initialViewState={{
-					latitude: 49.741015932602835,
-					longitude: -106.11014797030543,
-					zoom: 2,
+					latitude: initialView.latitude,
+					longitude: initialView.longitude,
+					zoom: initialView.zoom,
 				}}
 				mapStyle='mapbox://styles/mapbox/light-v9'
 				style={{
