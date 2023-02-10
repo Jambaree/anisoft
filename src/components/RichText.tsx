@@ -1,11 +1,15 @@
 'use client';
-import ReactQuill from 'react-quill';
+import dynamic from 'next/dynamic';
+const QuillNoSSRWrapper = dynamic(import('react-quill'), {
+	ssr: false,
+	loading: () => <p>Loading ...</p>,
+});
 import 'react-quill/dist/quill.snow.css';
 
 const RichText = ({ content }) => {
 	return (
 		<div className='rich-text'>
-			<ReactQuill
+			<QuillNoSSRWrapper
 				value={content}
 				readOnly={true}
 				modules={{
