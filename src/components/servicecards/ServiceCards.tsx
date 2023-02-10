@@ -72,10 +72,16 @@ const ServiceCards = () => {
   };
   const imageRef = useRef(null);
 
-  useEffect(() => {
-    controls.set({ opacity: 0 });
+  const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
+  const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
-    controls.start({ opacity: 1 });
+  useEffect(() => {
+    controls.set({
+      WebkitMaskImage: hiddenMask,
+      maskImage: hiddenMask,
+    });
+
+    controls.start({ WebkitMaskImage: visibleMask, maskImage: visibleMask });
   }, [activeIndex]);
 
   return (
@@ -145,10 +151,10 @@ const ServiceCards = () => {
 
           {currentImage && (
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ WebkitMaskImage: visibleMask, maskImage: visibleMask }}
               animate={controls}
-              exit={{ opacity: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+              exit={{ WebkitMaskImage: visibleMask, maskImage: visibleMask }}
+              transition={{ ease: "easeInOut", duration: 0.5 }}
               className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-14rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] md:mt-[112px] "
             >
               <Image
