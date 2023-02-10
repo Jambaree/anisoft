@@ -162,9 +162,19 @@
 	line-height: 27px;
 }
 
-.ql-editor > * {
+.richText > * {
 	padding-bottom: 15px !important;
+	list-style: inside !important;
+	font-family: var(--font-mukta);
+	font-style: normal;
+	font-weight: 300;
+	font-size: 1.125rem;
+	line-height: 27px;
 }
-.ql-editor > Ul >li {
+.richText > ul > li {
+	padding-bottom: 15px !important;
+	padding-left: 15px !important;
+}
+.richText > * {
 	padding-bottom: 15px !important;
 }

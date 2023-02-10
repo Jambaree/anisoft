@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import Edges from '../Edges';
 import FadeInUp from '../FadeInUp';
-import RichText from '../RichText';
+import RichTextComponents from '../RichTextComponents';
 
 function TextInfo({ data }) {
 	const { headline, tag, button1, button2, text } = data;
@@ -25,12 +25,12 @@ function TextInfo({ data }) {
 							</FadeInUp>
 						)}
 					</div>
-					<div className='w-full md:w-2/3'>
+					<div className='w-full md:w-[60%]'>
 						{text && (
 							<FadeInUp className='flex items-center justify-center '>
 								<div>
-									<div className='relative  cursor-pointer'>
-										<RichText content={text} />
+									<div className='relative cursor-pointer'>
+										<RichTextComponents html={text} />
 									</div>
 								</div>
 							</FadeInUp>
