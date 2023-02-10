@@ -74,7 +74,7 @@ const Contact = ({ data }) => {
 											<h3 className='text-black'>{location.title}</h3>
 											<p className='text-black'>{location.address}</p>
 											<a
-												className='hover:underline'
+												className='phoneLink hover:underline'
 												href={`tel:${location.phone}`}
 											>
 												Tel: {location.phone}

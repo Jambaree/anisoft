@@ -69,6 +69,7 @@
 		font-size: 1.125rem;
 		line-height: 27px;
 	}
+
 	.hero {
 		font-family: var(--font-maven);
 		font-style: normal;
@@ -90,13 +91,12 @@
 		font-size: 0.875rem;
 		line-height: 150%;
 	}
-
-	p {
+	.phoneLink {
 		font-family: var(--font-mukta);
 		font-style: normal;
 		font-weight: 300;
 		font-size: 1.125rem;
-		line-height: 150%;
+		line-height: 27px;
 	}
 	.heroHeadline {
 		font-family: var(--font-maven);
