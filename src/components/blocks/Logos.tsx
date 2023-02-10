@@ -3,17 +3,17 @@ import Edges from "../Edges";
 import Image from "next/image";
 import FadeInUp from "../FadeInUp";
 
-const LogoModule = ({ data }) => {
-  const half = Math.ceil(data.logos.length / 2);
+const LogoModule = ({ header, logos }) => {
+  const half = Math.ceil(logos.length / 2);
 
   return (
     <Edges size="md">
       <div className="flex flex-col justify-center items-center py-[115px]">
         <FadeInUp>
-          <h1 className="mb-[48px]">{data?.header}</h1>
+          <h1 className="mb-[48px]">{header}</h1>
         </FadeInUp>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 grid-rows-2 gap-[24px] gap-y-[48px]">
-          {data?.logos?.map((logo, index) => {
+          {logos?.map((logo, index) => {
             const isFirstHalf = index < half;
             return (
               <FadeInUp

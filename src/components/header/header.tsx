@@ -4,8 +4,8 @@ import Link from "next/link";
 
 import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
 // @ts-ignore
-import Edges from "./Edges";
-import Logo from "./logos/logo";
+import Edges from "../Edges";
+import Logo from "../logos/logo";
 import Image from "next/image";
 import MobileMenu from "./headerMenu/mobileMenu";
 

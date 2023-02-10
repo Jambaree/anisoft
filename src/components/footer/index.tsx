@@ -1,9 +1,9 @@
 import React from "react";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
-import Edges from "./Edges";
+import Edges from "../Edges";
 import Image from "next/image";
 import Link from "next/link";
-import InvertedLogo from "./logos/invertedlogo";
+import InvertedLogo from "../logos/invertedlogo";
 
 const socialInfo = {
   phone: "123-456-7890",
