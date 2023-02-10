@@ -9,14 +9,17 @@ import classNames from 'classnames';
 const Contact = ({ data }) => {
 	const mapRef = useRef<MapRef>();
 	const [selectedCity, setSelectedCity] = useState(null);
-	const onSelectCity = useCallback((longitude, latitude, index) => {
-		setSelectedCity(index);
-		mapRef.current?.flyTo({
-			center: [longitude, latitude],
-			zoom: 11,
-			duration: 4000,
-		});
-	}, []);
+	const onSelectCity = useCallback(
+		(longitude, latitude, zoom: number, index) => {
+			setSelectedCity(index);
+			mapRef.current?.flyTo({
+				center: [longitude, latitude],
+				zoom: zoom,
+				duration: 4000,
+			});
+		},
+		[]
+	);
 
 	const { headline, tag, text, locations, initialView } = data;
 	return (
@@ -25,7 +28,24 @@ const Contact = ({ data }) => {
 				{tag && <p className='text-black font-[16px] pb-[20px]'>{tag}</p>}
 				<div className='w-full h-full flex flex-col md:flex-row md:gap-0 gap-[30px]'>
 					<div className='w-full md:w-[40%] flex flex-col '>
-						{headline && <h2 className='text-black pb-[30px] '>{headline}</h2>}
+						<div className='flex justify-between items-center flex-wrap pb-[30px]'>
+							{headline && (
+								<h2 className='text-black  pr-[30px]  '>{headline}</h2>
+							)}
+							<button
+								className='ml-auto pr-[30px] h-full'
+								onClick={() => {
+									onSelectCity(
+										initialView.longitude,
+										initialView.latitude,
+										initialView.zoom,
+										-1
+									);
+								}}
+							>
+								View All Locations
+							</button>
+						</div>
 						{text && (
 							<p className='text-black max-w-[300px] mb-[30px]'>{text}</p>
 						)}
@@ -38,6 +58,7 @@ const Contact = ({ data }) => {
 												onSelectCity(
 													location.longitude,
 													location.latitude,
+													11,
 													index
 												);
 											}}

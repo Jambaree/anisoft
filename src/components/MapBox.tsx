@@ -28,7 +28,7 @@ const Mapbox = (props: any) => {
 							longitude={location.longitude}
 							latitude={location.latitude}
 							onClick={() => {
-								onSelectCity(location.longitude, location.latitude, index);
+								onSelectCity(location.longitude, location.latitude, 11, index);
 							}}
 						>
 							<MarkerIcon />
