@@ -101,20 +101,8 @@ const ServiceCards = () => {
                     key={index}
                     className="flex md:mr-[80px] relative md:my-[221px] "
                   >
-                    {/* <div
-                      className={classNames(
-                        index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
-                        "absolute w-screen top-0 bottom-0 left-[100%]  z-10"
-                      )}
-                    ></div>
                     <div
-                      className={classNames(
-                        index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
-                        "absolute w-screen top-0 bottom-0 right-[100%] z-10"
-                      )}
-                    ></div> */}
-                    <div
-                      className="absolute -top-[160px]"
+                      className="absolute -top-[20%] md:-top-[100%]"
                       id={service.name}
                     ></div>
 
