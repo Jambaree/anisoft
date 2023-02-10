@@ -19,8 +19,7 @@ function ProductsList({ products }) {
         right={false}
         className={"flex flex-col w-full md:h-[550px] justify-evenly "}
       >
-        {products.map((product: any, index: number) => {
-          console.log(product);
+        {products.map(({ product }: any, index: number) => {
           return (
             <div
               key={index}
@@ -32,10 +31,8 @@ function ProductsList({ products }) {
                   : "md:before:bg-[#ADADAD] before:w-[1px] before:right-[4px] "
               )}
             >
-              {product?.product?.title && (
-                <h3 className="text-black align-middle ">
-                  {product.product.title}
-                </h3>
+              {product?.title && (
+                <h3 className="text-black align-middle ">{product.title}</h3>
               )}
             </div>
           );
@@ -47,7 +44,7 @@ function ProductsList({ products }) {
           "bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px] overflow-hidden"
         }
       >
-        {products.map((product: any, idx: number) => {
+        {products.map(({ product, buttonText, text }: any, idx: number) => {
           return (
             <FadeInUp
               playOnce={false}
@@ -60,28 +57,24 @@ function ProductsList({ products }) {
                   } md:border-b-0`}
             >
               <div className="flex flex-col md:flex-row justify-between w-full pb-[30px]">
-                {product?.product?.title && (
+                {product?.title && (
                   <h2 className="text-white pr-[20px] py-[30px] md:py-0 ">
-                    {product.product.title}
+                    {product.title}
                   </h2>
                 )}
-                {product?.product?.uri && (
+                {product?.uri && (
                   <div className="md:block hidden">
-                    <Button
-                      variant="large"
-                      href={product.product?.uri}
-                      reverse={true}
-                    >
-                      {product?.button}
+                    <Button variant="large" href={product?.uri} reverse={true}>
+                      {buttonText}
                     </Button>
                   </div>
                 )}
               </div>
               <div className="w-full">
-                {product?.text && <p className="text-white">{product.text}</p>}
+                {text && <p className="text-white">{text}</p>}
               </div>
               <div className="relative w-full mt-[30px] h-full bg-cover min-h-[220px] md:min-h-fit">
-                {product?.product?.image?.sourceUrl && (
+                {product?.image?.sourceUrl && (
                   <Image
                     className="bg-cover"
                     src={product.image.sourceUrl}
@@ -92,15 +85,15 @@ function ProductsList({ products }) {
                 )}
               </div>
 
-              {product?.product?.uri && (
+              {product?.uri && (
                 <div className="md:hidden block my-[20px] md:my-0">
                   <Button
                     variant="full"
-                    href={product.product.uri}
+                    href={product.uri}
                     reverse={true}
                     className="mt-[20px]"
                   >
-                    {product?.button}
+                    {buttonText}
                   </Button>
                 </div>
               )}

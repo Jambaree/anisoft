@@ -13,21 +13,23 @@ const LogoModule = ({ header, logos }) => {
           <h1 className="mb-[48px]">{header}</h1>
         </FadeInUp>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 grid-rows-2 gap-[24px] gap-y-[48px]">
-          {logos?.map((logo, index) => {
+          {logos?.map(({ logo }, index) => {
             const isFirstHalf = index < half;
             return (
-              <FadeInUp
-                key={index}
-                className={isFirstHalf ? "delay-100" : "delay-300"}
-              >
-                <Image
-                  src={logo?.url}
-                  alt={logo?.alt}
-                  width="195"
-                  height="85"
-                  className=" object-contain"
-                />
-              </FadeInUp>
+              logo?.sourceUrl && (
+                <FadeInUp
+                  key={index}
+                  className={isFirstHalf ? "delay-100" : "delay-300"}
+                >
+                  <Image
+                    src={logo?.sourceUrl}
+                    alt={logo?.altText || "logo-image"}
+                    width="195"
+                    height="85"
+                    className=" object-contain"
+                  />
+                </FadeInUp>
+              )
             );
           })}
         </div>

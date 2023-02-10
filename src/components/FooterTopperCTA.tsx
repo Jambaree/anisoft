@@ -5,7 +5,6 @@ import Edges from "./Edges";
 import FadeInUp from "./FadeInUp";
 
 const FooterTopperCTA = ({ data }) => {
-  console.log(data);
   const { button, text1, text2 } = data;
   return (
     <div className="relative">

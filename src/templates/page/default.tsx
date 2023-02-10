@@ -73,6 +73,7 @@ const query = `
 				}
 				image {
 				  sourceUrl
+				  altText
 				}
 				subHeadline
 			  }
@@ -96,6 +97,7 @@ const query = `
 				logos {
 				  logo {
 					sourceUrl
+					altText
 				  }
 				}
 			  }
@@ -104,7 +106,7 @@ const query = `
 				headline
 				products {
 				  text
-				  button 
+				  buttonText
 				  product {
 					... on Post {
 					  id
@@ -113,6 +115,7 @@ const query = `
 					  featuredImage {
 						node {
 						  sourceUrl
+						  altText
 						}
 					  }
 					}
@@ -136,6 +139,7 @@ const query = `
 				  title
 				  image {
 					sourceUrl
+					altText
 				  }
 				}
 			  }
