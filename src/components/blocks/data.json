@@ -138,5 +138,59 @@
 			"target": "_self"
 		},
 		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.<br/><br/>Sit turpis pretium eget maecenas. Vestibulum dolor mattis consectetur eget commodo vitae. Amet pellentesque sit pulvinar lorem mi a, euismod risus rhoncus. Elementum ullamcorper nec, habitasse vulputate. Eget dictum quis est sed egestas tellus, a lectus. Quam ullamcorper in fringilla arcu aliquet fames arcu.Lacinia eget faucibus urna, nam risus nec elementum cras porta. </p>"
+	},
+	"contact": {
+		"tag": "Locations",
+		"headline": "Our Offices",
+		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+		"initialView": {
+			"longitude": "-106.11014797030543",
+			"latitude": "49.741015932602835",
+			"zoom": 2
+		},
+		"locations": [
+			{
+				"title": "Whiterock, BC",
+				"address": "Suite 71557, 1463 Johnston RoadWhite Rock, BC V4B 5J5",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-122.80159064160131",
+				"latitude": "49.02883726238798"
+			},
+			{
+				"title": "Calgary, AB",
+				"address": "Suite 359, 440 – 10816 Macleod Trail SE, Calgary, AB, T2J 5N8",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-114.06965800122835",
+				"latitude": "50.95631415311668"
+			},
+			{
+				"title": "Edmonton, AB",
+				"address": "Suite 69038, 13040 137th Avenue, Edmonton, AB, T6V 1G7",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-113.5463192723266",
+				"latitude": "53.60016181349912"
+			},
+			{
+				"title": "Whiterock, BC",
+				"address": "Suite 71557, 1463 Johnston RoadWhite Rock, BC V4B 5J5",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-122.80159064160131",
+				"latitude": "49.02883726238798"
+			},
+			{
+				"title": "Calgary, AB",
+				"address": "Suite 359, 440 – 10816 Macleod Trail SE, Calgary, AB, T2J 5N8",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-114.06965800122835",
+				"latitude": "50.95631415311668"
+			},
+			{
+				"title": "Edmonton, AB",
+				"address": "Suite 69038, 13040 137th Avenue, Edmonton, AB, T6V 1G7",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-113.5463192723266",
+				"latitude": "53.60016181349912"
+			}
+		]
 	}
 }

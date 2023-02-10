@@ -8,6 +8,7 @@ import LogoModule from '../../components/blocks/LogoModule';
 import PageHeader from '../../components/blocks/PageHeader';
 import PageHeader2 from '../../components/blocks/PageHeader2';
 import InfoCallout from '../../components/blocks/InfoCallout';
+import Contact from '../../components/blocks/Contact';
 
 export default async function DefaultPageTemplate({ uri }) {
 	const { page } = await getData({ uri, query });
@@ -18,6 +19,7 @@ export default async function DefaultPageTemplate({ uri }) {
 
 	return (
 		<>
+			<Contact data={data.contact} />
 			<PageHeader2 data={data.pageHeader2} />
 			<PageHeader data={data.pageHeader} />
 			<Hero data={data.hero} />
