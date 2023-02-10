@@ -164,6 +164,27 @@
 				"phone": "(604) 538 - 9684",
 				"longitude": "-113.5463192723266",
 				"latitude": "53.60016181349912"
+			},
+			{
+				"title": "Whiterock, BC",
+				"address": "Suite 71557, 1463 Johnston RoadWhite Rock, BC V4B 5J5",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-122.80159064160131",
+				"latitude": "49.02883726238798"
+			},
+			{
+				"title": "Calgary, AB",
+				"address": "Suite 359, 440 – 10816 Macleod Trail SE, Calgary, AB, T2J 5N8",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-114.06965800122835",
+				"latitude": "50.95631415311668"
+			},
+			{
+				"title": "Edmonton, AB",
+				"address": "Suite 69038, 13040 137th Avenue, Edmonton, AB, T6V 1G7",
+				"phone": "(604) 538 - 9684",
+				"longitude": "-113.5463192723266",
+				"latitude": "53.60016181349912"
 			}
 		]
 	}
