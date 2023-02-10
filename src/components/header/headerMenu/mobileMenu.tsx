@@ -8,7 +8,7 @@ import Button from "../../Button";
 import MobileSubMenu from "./MobileSubMenu";
 import ChevonRight from "../../../../public/chevron-right.svg";
 
-const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
+const MobileMenu = ({ isOpen, menu }) => {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -41,6 +41,16 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
   };
 
   const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
+  const [openedMenu, setOpenedMenu] = useState(-1);
+
+  const handleSubMenu = (subMenuIsOpen, childItems, index) => {
+    if (childItems.length <= 0) {
+      setSubMenuIsOpen(false);
+    } else {
+      setOpenedMenu(index);
+      setSubMenuIsOpen(!subMenuIsOpen);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -62,23 +72,33 @@ const MobileMenu = ({ isOpen, setIsOpen, menu }) => {
           >
             <Edges size="lg">
               <motion.div variants={itemVariants} className="mt-[60px]">
-                {menu?.nodes?.map((item, index) => (
+                {menu?.map((item, index) => (
                   <div key={index}>
                     {!subMenuIsOpen && (
                       <div className=" flex flex-col text-left">
                         <Link
-                          onClick={() => setSubMenuIsOpen(!subMenuIsOpen)}
-                          href={item.link}
+                          onClick={() => {
+                            handleSubMenu(
+                              subMenuIsOpen,
+                              item?.childItems?.nodes,
+                              index
+                            );
+                          }}
+                          href={item?.url}
                           className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between ml-[15px]"
                         >
-                          {item.name}
-                          {item?.childItems && (
+                          {item.label}
+
+                          {item?.childItems?.nodes.length > 0 && (
                             <ChevonRight className="mr-[14px] w-[6px] h-[10px] fill-black" />
                           )}
                         </Link>
                       </div>
                     )}
+
                     <MobileSubMenu
+                      menuIndex={index}
+                      openedMenu={openedMenu}
                       isOpen={subMenuIsOpen}
                       setIsOpen={setSubMenuIsOpen}
                       menu={item?.childItems}
