@@ -47,7 +47,7 @@ const CardsNavBar = ({ services, activeIndex }) => {
       <div className="flex flex-row relative">
         {services.map((service, index) => {
           return (
-            index === 0 && (
+            index === activeIndex && (
               <a
                 onMouseOver={() => {
                   setIsOpen(true);
