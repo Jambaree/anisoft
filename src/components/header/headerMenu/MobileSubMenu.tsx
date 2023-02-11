@@ -3,9 +3,9 @@ import React from "react";
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import ChevronLeft from "../../../public/chevron-left.svg";
+import ChevronLeft from "../../../../public/chevron-left.svg";
 
-const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
+const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -39,7 +39,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen && openedMenu === menuIndex && (
         <motion.aside initial={{ width: 0 }} animate={{ width: "100%" }}>
           <motion.div
             initial="closed"
@@ -65,10 +65,10 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu }) => {
                     </button>
                   )}
                   <Link
-                    href={item.link}
+                    href={item.url}
                     className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between "
                   >
-                    {item.name}
+                    {item.label}
                   </Link>
                 </div>
               ))}
