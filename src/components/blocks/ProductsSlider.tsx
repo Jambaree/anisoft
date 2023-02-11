@@ -1,12 +1,7 @@
-import Image from "next/image";
-import Button from "../Button";
 import Edges from "../Edges";
-import FadeInUp from "../FadeInUp";
 import ProductsList from "../ProductsList";
 
-function ProductsSlider({ data }) {
-  const { headline, tag, products } = data;
-
+function ProductsSlider({ headline, tag, products }) {
   return (
     <div className="bg-white py-[50px] md:py-[75px]">
       <Edges size="lg">

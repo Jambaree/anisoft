@@ -1,196 +1,79 @@
 {
-	"hero": {
-		"headline": "Data and Compute Infrastructure serving Western Canada",
-		"subHeadline": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.",
-		"button1": {
-			"title": "Learn More",
-			"url": "/about",
-			"target": "_self"
-		},
-		"button2": {
-			"title": "Buton CTA",
-			"url": "/cta",
-			"target": "_self"
-		},
-		"image": {
-			"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/heroImage.png",
-			"altText": "placeholder image"
-		}
-	},
-	"anisoft": {
-		"tag": "WHY WORK WITH US",
-		"headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-		"button": {
-			"title": "Learn More",
-			"url": "/about",
-			"target": "_self"
-		},
-		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.Sed elementum, sed dolor purus dolor dui. Ut dictum nulla pulvinar vulputate sit sagittis in eleifend dignissim. "
-	},
-	"productsSlider": {
-		"tag": "SOLUTIONS & PRODUCTS",
-		"headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-		"products": [
-			{
-				"id": "1",
-				"title": "Data Management",
-				"image": {
-					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-1o5MZblCP50-unsplash.jpg",
-					"altText": "placeholder image"
-				},
-				"button": {
-					"title": "Learn More",
-					"url": "/about",
-					"target": "_self"
-				},
-				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
-			},
-			{
-				"id": "2",
-				"title": "High Performance Solutions",
-				"image": {
-					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-LXI5kqCdEcE-unsplash-scaled.jpg",
-					"altText": "placeholder image"
-				},
-				"button": {
-					"title": "Learn More",
-					"url": "/about",
-					"target": "_self"
-				},
-				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
-			},
-			{
-				"id": "3",
-				"title": "Networking Technology",
-				"image": {
-					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-1o5MZblCP50-unsplash.jpg",
-					"altText": "placeholder image"
-				},
-				"button": {
-					"title": "Learn More",
-					"url": "/about",
-					"target": "_self"
-				},
-				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
-			},
-			{
-				"id": "4",
-				"title": "Enterprise Servers",
-				"image": {
-					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-LXI5kqCdEcE-unsplash-scaled.jpg",
-					"altText": "placeholder image"
-				},
-				"button": {
-					"title": "Learn More",
-					"url": "/about",
-					"target": "_self"
-				},
-				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
-			},
-			{
-				"id": "5",
-				"title": "Security & data Protection",
-				"image": {
-					"sourceUrl": "https://anisoft.wpengine.com/wp-content/uploads/2023/02/dell-1o5MZblCP50-unsplash.jpg",
-					"altText": "placeholder image"
-				},
-				"button": {
-					"title": "Learn More",
-					"url": "/about",
-					"target": "_self"
-				},
-				"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis, quis viverra ornare. Duis cursus, mi quis arius enim in eros elementum tristique. Duis cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elemen."
-			}
-		]
-	},
-	"logoModule": {
-		"header": "Our Partnerships",
-		"logos": [
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" },
-			{ "url": "/placeholderLogo.png", "alt": "logo-alt" }
-		]
-	},
-	"pageHeader": {
-		"title": "Enterprise Servers",
-		"text": "<p>Today’s organizations are continuously challenged by the need to incorporate new technologies into their business. They also need to update their operating models in order to drive sustainable growth, and address new regulations while meeting the demands of all their stakeholders. <br/> <br/>  That’s why business leaders are in constant pursuit of IT solutions that will give them an edge in the market such as IBM Power Systems and Lenovo servers.</p>"
-	},
-	"pageHeader2": {
-		"title": "Contact Us",
-		"text": "<p>Thank you for your interest in AniSoft Group Inc. With offices across Canada, AniSoft is ideally situated to assist you with any of your technological requirements. We look forward to hearing from you.</p>"
-	},
-	"infoCallout": {
-		"tag": "SERVICES & SUPPORT",
-		"headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-		"button1": {
-			"title": "Learn More",
-			"url": "/about",
-			"target": "_self"
-		},
-		"button2": {
-			"title": "Buton CTA",
-			"url": "/cta",
-			"target": "_self"
-		},
-		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.<br/><br/>Sit turpis pretium eget maecenas. Vestibulum dolor mattis consectetur eget commodo vitae. Amet pellentesque sit pulvinar lorem mi a, euismod risus rhoncus. Elementum ullamcorper nec, habitasse vulputate. Eget dictum quis est sed egestas tellus, a lectus. Quam ullamcorper in fringilla arcu aliquet fames arcu.Lacinia eget faucibus urna, nam risus nec elementum cras porta. </p>"
-	},
-	"contact": {
-		"tag": "Locations",
-		"headline": "Our Offices",
-		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-		"initialView": {
-			"longitude": "-106.11014797030543",
-			"latitude": "49.741015932602835",
-			"zoom": 2
-		},
-		"locations": [
-			{
-				"title": "Whiterock, BC",
-				"address": "Suite 71557, 1463 Johnston RoadWhite Rock, BC V4B 5J5",
-				"phone": "(604) 538 - 9684",
-				"longitude": "-122.80159064160131",
-				"latitude": "49.02883726238798"
-			},
-			{
-				"title": "Calgary, AB",
-				"address": "Suite 359, 440 – 10816 Macleod Trail SE, Calgary, AB, T2J 5N8",
-				"phone": "(604) 538 - 9684",
-				"longitude": "-114.06965800122835",
-				"latitude": "50.95631415311668"
-			},
-			{
-				"title": "Edmonton, AB",
-				"address": "Suite 69038, 13040 137th Avenue, Edmonton, AB, T6V 1G7",
-				"phone": "(604) 538 - 9684",
-				"longitude": "-113.5463192723266",
-				"latitude": "53.60016181349912"
-			},
-			{
-				"title": "Whiterock, BC",
-				"address": "Suite 71557, 1463 Johnston RoadWhite Rock, BC V4B 5J5",
-				"phone": "(604) 538 - 9684",
-				"longitude": "-122.80159064160131",
-				"latitude": "49.02883726238798"
-			},
-			{
-				"title": "Calgary, AB",
-				"address": "Suite 359, 440 – 10816 Macleod Trail SE, Calgary, AB, T2J 5N8",
-				"phone": "(604) 538 - 9684",
-				"longitude": "-114.06965800122835",
-				"latitude": "50.95631415311668"
-			},
-			{
-				"title": "Edmonton, AB",
-				"address": "Suite 69038, 13040 137th Avenue, Edmonton, AB, T6V 1G7",
-				"phone": "(604) 538 - 9684",
-				"longitude": "-113.5463192723266",
-				"latitude": "53.60016181349912"
-			}
-		]
-	}
+  "pageHeader": {
+    "title": "Enterprise Servers",
+    "text": "<p>Today’s organizations are continuously challenged by the need to incorporate new technologies into their business. They also need to update their operating models in order to drive sustainable growth, and address new regulations while meeting the demands of all their stakeholders. <br/> <br/>  That’s why business leaders are in constant pursuit of IT solutions that will give them an edge in the market such as IBM Power Systems and Lenovo servers.</p>"
+  },
+  "pageHeader2": {
+    "title": "Contact Us",
+    "text": "<p>Thank you for your interest in AniSoft Group Inc. With offices across Canada, AniSoft is ideally situated to assist you with any of your technological requirements. We look forward to hearing from you.</p>"
+  },
+  "infoCallout": {
+    "tag": "SERVICES & SUPPORT",
+    "headline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    "button1": {
+      "title": "Learn More",
+      "url": "/about",
+      "target": "_self"
+    },
+    "button2": {
+      "title": "Buton CTA",
+      "url": "/cta",
+      "target": "_self"
+    },
+    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.<br/><br/>Sit turpis pretium eget maecenas. Vestibulum dolor mattis consectetur eget commodo vitae. Amet pellentesque sit pulvinar lorem mi a, euismod risus rhoncus. Elementum ullamcorper nec, habitasse vulputate. Eget dictum quis est sed egestas tellus, a lectus. Quam ullamcorper in fringilla arcu aliquet fames arcu.Lacinia eget faucibus urna, nam risus nec elementum cras porta. </p>"
+  },
+  "contact": {
+    "tag": "Locations",
+    "headline": "Our Offices",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    "initialView": {
+      "longitude": "-106.11014797030543",
+      "latitude": "49.741015932602835",
+      "zoom": 2
+    },
+    "locations": [
+      {
+        "title": "Whiterock, BC",
+        "address": "Suite 71557, 1463 Johnston RoadWhite Rock, BC V4B 5J5",
+        "phone": "(604) 538 - 9684",
+        "longitude": "-122.80159064160131",
+        "latitude": "49.02883726238798"
+      },
+      {
+        "title": "Calgary, AB",
+        "address": "Suite 359, 440 – 10816 Macleod Trail SE, Calgary, AB, T2J 5N8",
+        "phone": "(604) 538 - 9684",
+        "longitude": "-114.06965800122835",
+        "latitude": "50.95631415311668"
+      },
+      {
+        "title": "Edmonton, AB",
+        "address": "Suite 69038, 13040 137th Avenue, Edmonton, AB, T6V 1G7",
+        "phone": "(604) 538 - 9684",
+        "longitude": "-113.5463192723266",
+        "latitude": "53.60016181349912"
+      },
+      {
+        "title": "Whiterock, BC",
+        "address": "Suite 71557, 1463 Johnston RoadWhite Rock, BC V4B 5J5",
+        "phone": "(604) 538 - 9684",
+        "longitude": "-122.80159064160131",
+        "latitude": "49.02883726238798"
+      },
+      {
+        "title": "Calgary, AB",
+        "address": "Suite 359, 440 – 10816 Macleod Trail SE, Calgary, AB, T2J 5N8",
+        "phone": "(604) 538 - 9684",
+        "longitude": "-114.06965800122835",
+        "latitude": "50.95631415311668"
+      },
+      {
+        "title": "Edmonton, AB",
+        "address": "Suite 69038, 13040 137th Avenue, Edmonton, AB, T6V 1G7",
+        "phone": "(604) 538 - 9684",
+        "longitude": "-113.5463192723266",
+        "latitude": "53.60016181349912"
+      }
+    ]
+  }
 }

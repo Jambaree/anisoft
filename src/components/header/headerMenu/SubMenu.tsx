@@ -12,7 +12,7 @@ const SubMenu = ({ childItems }) => {
           return (
             <Link
               key={index}
-              href="/"
+              href={item?.url}
               className=" pl-[28px] whitespace-nowrap py-[25px]"
               onMouseEnter={() => {
                 setHoveredIndex(index);
@@ -27,7 +27,7 @@ const SubMenu = ({ childItems }) => {
                   }}
                   transition={{ duration: 0.3 }}
                 ></motion.div>
-                {item?.name}
+                {item?.label}
               </div>
             </Link>
           );
