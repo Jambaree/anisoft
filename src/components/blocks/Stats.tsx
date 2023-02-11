@@ -3,38 +3,7 @@ import React, { useRef, useEffect } from "react";
 import { animate } from "framer-motion";
 import Image from "next/image";
 
-const metrics = {
-  title: "We have been in business for over XX years and it shows",
-  description:
-    "Rhoncus sagittis risus arcu erat lectus bibendum. Ut in adipiscing quis in viverra tristique sem. Ornare feugiat viverra eleifend fusce orci in quis amet. Sit in et vitae tortor, massa. Dapibus laoreet amet lacus nibh integer quis. Eu vulputate diam sit tellus quis at.",
-  stats: [
-    {
-      id: 1,
-      stat: "8K+",
-
-      rest: "Clients served",
-    },
-    {
-      id: 2,
-      stat: "25K+",
-
-      rest: "IBM Certifications & Awards",
-    },
-    {
-      id: 3,
-      stat: "98%",
-
-      rest: "Year on year growth",
-    },
-    {
-      id: 4,
-      stat: "12M+",
-
-      rest: "Issues resolved lacus nibh integer quis.",
-    },
-  ],
-};
-export default function StatsModule() {
+export default function StatsModule({ title, description, stats }) {
   const Counter = ({ from, to }) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -74,10 +43,10 @@ export default function StatsModule() {
 
       <div className="mx-auto max-w-4xl px-6 lg:max-w-7xl lg:px-8 md:grid md:grid-flow-col-dense md:grid-cols-2 md:gap-x-8">
         <div className="relative pt-[96px] pb-64 sm:pt-24 sm:pb-64 md:col-start-1 md:pb-[108px]">
-          <h2 className="text-white">{metrics?.title}</h2>
-          <p className="mt-5 text-lg text-white">{metrics?.description}</p>
+          <h2 className="text-white">{title}</h2>
+          <p className="mt-5 text-lg text-white">{description}</p>
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
-            {metrics?.stats.map((item) => {
+            {stats.map((item) => {
               const num = item?.stat.match(/\d+/g);
               const letr = item?.stat.match(/[a-zA-Z!@#\$%\^\&*]+/g);
 
