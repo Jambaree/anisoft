@@ -1,12 +1,11 @@
 import React from "react";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
-import { getData } from "@jambaree/next-wordpress";
+import { useMenuItems } from "@jambaree/next-wordpress";
 import Edges from "../Edges";
 import Link from "next/link";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
-import useMenuItems from "../../components/useMenuItems";
 import getFooterData from "./getFooterData";
 
 export default async function Footer() {
