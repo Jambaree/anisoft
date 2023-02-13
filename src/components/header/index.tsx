@@ -17,7 +17,6 @@ export default function Header({ data, menuItems }) {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
   }, [isOpen]);
-
   return (
     <>
       <div className="bg-white h-[100px] "></div>

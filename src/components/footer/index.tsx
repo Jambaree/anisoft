@@ -5,10 +5,13 @@ import Link from "next/link";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
+import useMenuItems from "../../components/useMenuItems";
 
-const Footer = ({ data, menuItems }) => {
+export default async function Footer({ data }) {
   const { contactInformation, copyrightText, link1, link2 } = data;
-
+  const menuItems = await useMenuItems({
+    name: "footer",
+  });
   return (
     <div className="w-full primaryRadialBg">
       <Edges size="lg">
@@ -53,6 +56,4 @@ const Footer = ({ data, menuItems }) => {
       </Edges>
     </div>
   );
-};
-
-export default Footer;
+}
