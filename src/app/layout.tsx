@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { getData } from "@jambaree/next-wordpress";
+import useMenuItems from "../components/header/headerMenu/useMenuItems";
 
 const mukta = Mukta({
   variable: "--font-mukta",
@@ -28,10 +29,12 @@ export default async function RootLayout({
       options: { footer, header },
     },
   } = await getData({ uri: "", query });
-  // const headerMenuItems = await getMenuItems({
-  //   location: "HEADER_MENU",
-  //   slug: "header-menu",
-  // });
+  const headerMenuItems = await useMenuItems({
+    location: "HEADER_MENU",
+    slug: "header-menu",
+  });
+
+  console.log(headerMenuItems);
   // const productMenuItems = await getMenuItems({
   //   location: "PRODUCT_FOOTER_MENU",
   //   slug: "product-footer-menu",
@@ -41,28 +44,18 @@ export default async function RootLayout({
   //   slug: "footer-menu",
   // });
 
-  const headerMenuItems = [
-    {
-      id: "1",
-      label: "Home",
-      url: "/",
-      parentId: "0",
-      order: 0,
-      childItems: {
-        nodes: [],
-      },
-    },
-  ];
   const footerMenuItems = [
     {
       id: "1",
-      label: "Home",
-      url: "/",
-      parentId: "0",
-      order: 0,
-      childItems: {
-        nodes: [],
-      },
+      label: "About",
+      url: "/about",
+      childItems: [
+        {
+          id: "2",
+          label: "About",
+          url: "/about",
+        },
+      ],
     },
   ];
 
