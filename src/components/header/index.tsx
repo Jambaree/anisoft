@@ -17,6 +17,16 @@ export default function Header({ data, menuItems }) {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
   }, [isOpen]);
+
+  // const productMenuItems = await getMenuItems({
+  //   location: "PRODUCT_FOOTER_MENU",
+  //   slug: "product-footer-menu",
+  // });
+  // const footerMenuItems = await getMenuItems({
+  //   location: "FOOTER_MENU",
+  //   slug: "footer-menu",
+  // });
+
   return (
     <>
       <div className="bg-white h-[100px] "></div>
