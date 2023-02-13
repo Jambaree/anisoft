@@ -7,7 +7,7 @@ import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
 
 const Footer = ({ data, menuItems }) => {
-  // const { contactInformation, copyrightText, link1, link2 } = data;
+  const { contactInformation, copyrightText, link1, link2 } = data;
 
   return (
     <div className="w-full primaryRadialBg">
@@ -21,16 +21,16 @@ const Footer = ({ data, menuItems }) => {
                 </Link>
               </div>
               <div className="flex flex-col mb-[27px] p-footer">
-                {/* <p className="text-white">{contactInformation?.phone}</p>
-                <p className="text-white">{contactInformation?.email}</p> */}
+                <p className="text-white">{contactInformation?.phone}</p>
+                <p className="text-white">{contactInformation?.email}</p>
               </div>
               <div className="flex flex-row">
-                {/* {contactInformation?.socials.map((link, index) => (
+                {contactInformation?.socials.map((link, index) => (
                   <a key={index} href={link?.url || "/"} className="mr-[22px]">
                     {link.icon === "facebook" && <Facebook />}
                     {link.icon === "linkedin" && <Linkedin />}
                   </a>
-                ))} */}
+                ))}
               </div>
             </div>
             <div className="max-w-[384px] mt-[30px] md:mt-0">
@@ -39,14 +39,14 @@ const Footer = ({ data, menuItems }) => {
           </div>
           <div className="bg-white w-full h-[1px] mb-[32px]"></div>
           <div className=" text-white mb-[43px] flex flex-col-reverse sm:flex-row flex-wrap-reverse justify-between p-footer">
-            {/* <div>{copyrightText}</div> */}
+            <div>{copyrightText}</div>
             <div className="flex flex-col sm:flex-row sm:mb-0 mb-[15px]">
-              {/* <Link href={link1?.url || "/"} className="sm:ml-[24px] ">
+              <Link href={link1?.url || "/"} className="sm:ml-[24px] ">
                 {link1?.title}
               </Link>
               <Link href={link2?.url || "/"} className="sm:ml-[24px] ">
                 {link2?.title}
-              </Link> */}
+              </Link>
             </div>
           </div>
         </div>
