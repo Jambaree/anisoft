@@ -6,12 +6,17 @@ import Edges from "../Edges";
 import Tilt from "react-parallax-tilt";
 import FadeInUp from "../FadeInUp";
 
-export default function Hero({ data }) {
-  const { headline, subHeadline, button1, button2, image } = data;
+export default function Hero({
+  headline,
+  subHeadline,
+  button1,
+  button2,
+  image,
+}) {
   return (
     <div className="primaryRadialBg py-[100px] md:py-[150px]">
       <Edges size="lg">
-        <div className="flex w-full h-full flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center">
+        <div className="flex w-full h-auto flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center">
           <div>
             {headline && (
               <FadeInUp className="delay-100">

@@ -1,9 +1,14 @@
 import { Mukta, Maven_Pro } from "@next/font/google";
-
+import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import FooterTopperCTA from "../components/FooterTopperCTA";
+
+import {
+  useMenuItems,
+  getYoastData,
+  getSeedData,
+} from "@jambaree/next-wordpress";
 
 const mukta = Mukta({
   variable: "--font-mukta",
@@ -17,20 +22,45 @@ const maven = Maven_Pro({
   weight: ["400", "500", "700"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // temporary fix with getData, must use ` uri: "" ` for it to not break
+  // const {
+  //   themeOptions: {
+  //     options: { header },
+  //   },
+  // } = await getData({ uri: "", query });
+
+  const headerMenuItems = await useMenuItems({
+    name: "header",
+  });
+
   return (
     <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
       <body id="top">
-        <Header />
+        <Header menuItems={headerMenuItems} />
 
         {children}
-        <FooterTopperCTA />
-        <Footer />
+        {/* @ts-expect-error Server Component */}
+        <Footer
+
+        // productMenuItems={productMenuItems}
+        />
       </body>
     </html>
   );
 }
+
+// const query = `
+//   query MenuQuery {
+//     themeOptions {
+//       options {
+//         header {
+//           buttonText
+//         }
+//       }
+//     }
+//   }`;
