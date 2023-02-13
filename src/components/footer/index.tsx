@@ -1,14 +1,26 @@
 import React from "react";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
+import { useMenuItems } from "@jambaree/next-wordpress";
 import Edges from "../Edges";
 import Link from "next/link";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
+import getFooterData from "./getFooterData";
 
-const Footer = ({ data, menuItems }) => {
-  const { contactInformation, copyrightText, link1, link2 } = data;
+export default async function Footer() {
+  const data = await getFooterData();
 
+  const {
+    themeOptions: {
+      options: {
+        footer: { contactInformation, copyrightText, link1, link2 },
+      },
+    },
+  } = data;
+  const menuItems = await useMenuItems({
+    name: "footer",
+  });
   return (
     <div className="w-full primaryRadialBg">
       <Edges size="lg">
@@ -53,6 +65,4 @@ const Footer = ({ data, menuItems }) => {
       </Edges>
     </div>
   );
-};
-
-export default Footer;
+}
