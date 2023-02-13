@@ -23,67 +23,67 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // temporary fix with getData, must use ` uri: "" ` for it to not break
-  const {
-    themeOptions: {
-      options: { footer, header },
-    },
-  } = await getData({ uri: "", query });
-  const headerMenuItems = await getMenuItems({
-    location: "HEADER_MENU",
-    slug: "header-menu",
-  });
+  // const {
+  //   themeOptions: {
+  //     options: { footer, header },
+  //   },
+  // } = await getData({ uri: "", query });
+  // const headerMenuItems = await getMenuItems({
+  //   location: "HEADER_MENU",
+  //   slug: "header-menu",
+  // });
   // const productMenuItems = await getMenuItems({
   //   location: "PRODUCT_FOOTER_MENU",
   //   slug: "product-footer-menu",
   // });
-  const footerMenuItems = await getMenuItems({
-    location: "FOOTER_MENU",
-    slug: "footer-menu",
-  });
+  // const footerMenuItems = await getMenuItems({
+  //   location: "FOOTER_MENU",
+  //   slug: "footer-menu",
+  // });
 
   return (
     <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
       <body>
-        <Header data={header} menuItems={headerMenuItems} />
+        {/* <Header data={header} menuItems={headerMenuItems} /> */}
 
         {children}
 
-        <Footer
+        {/* <Footer
           data={footer}
           menuItems={footerMenuItems}
-          // productMenuItems={productMenuItems}
-        />
+          productMenuItems={productMenuItems}
+        /> */}
       </body>
     </html>
   );
 }
 
-const query = `
-  query MenuQuery {
-    themeOptions {
-      options {
-        footer {
-          link2 {
-            title
-            url
-          }
-          link1 {
-            title
-            url
-          }
-          copyrightText
-          contactInformation {
-            email
-            phoneNumber
-            socials {
-              icon
-              url
-            }
-          }
-        }
-        header {
-          buttonText
-        }
-      }
-    }
-  }`;
+// const query = `
+//   query MenuQuery {
+//     themeOptions {
+//       options {
+//         footer {
+//           link2 {
+//             title
+//             url
+//           }
+//           link1 {
+//             title
+//             url
+//           }
+//           copyrightText
+//           contactInformation {
+//             email
+//             phoneNumber
+//             socials {
+//               icon
+//               url
+//             }
+//           }
+//         }
+//         header {
+//           buttonText
+//         }
+//       }
+//     }
+//   }`;
