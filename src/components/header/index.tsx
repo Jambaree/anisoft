@@ -9,7 +9,7 @@ import Logo from "../logos/logo";
 import Image from "next/image";
 import MobileMenu from "./headerMenu/mobileMenu";
 
-export default function Header({ data, menuItems }) {
+export default function Header({ menuItems }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Header({ data, menuItems }) {
             <Link href="/" className="my-[31px]">
               <Logo />
             </Link>
-            <HeaderMenuItems menuItems={menuItems} data={data} />
+            <HeaderMenuItems menuItems={menuItems} />
             <div className="md:hidden flex">
               {!isOpen ? (
                 <button
