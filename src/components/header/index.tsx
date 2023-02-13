@@ -4,56 +4,12 @@ import Link from "next/link";
 
 import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
 // @ts-ignore
-import Edges from "./Edges";
-import Logo from "./logos/logo";
+import Edges from "../Edges";
+import Logo from "../logos/logo";
 import Image from "next/image";
 import MobileMenu from "./headerMenu/mobileMenu";
 
-const menuItems = {
-  nodes: [
-    {
-      name: "Solutions & Products",
-      link: "/",
-      childItems: {
-        nodes: [
-          {
-            name: "Data Management",
-            link: "/",
-          },
-          {
-            name: "Security & Data Protection",
-            link: "/",
-          },
-          {
-            name: "Enterprise Servers",
-            link: "/",
-          },
-          {
-            name: "Networking Technology",
-            link: "/",
-          },
-          {
-            name: "High Performance Solutions",
-            link: "/",
-          },
-        ],
-      },
-    },
-    {
-      name: "Services & Support",
-      link: "/",
-    },
-    {
-      name: "About Us",
-      link: "/",
-    },
-    {
-      name: "Contact Us",
-      link: "/",
-    },
-  ],
-};
-export default function Header() {
+export default function Header({ menuItems }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -105,7 +61,7 @@ export default function Header() {
         </Edges>
       </div>
       <div className="md:hidden flex">
-        <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} menu={menuItems} />
+        <MobileMenu isOpen={isOpen} menu={menuItems} />
       </div>
     </>
   );

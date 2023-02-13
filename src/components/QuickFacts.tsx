@@ -37,27 +37,28 @@ const handleDelay = (index) => {
     return 500;
   }
 };
-const QuickFacts = () => {
+const QuickFacts = ({ data }) => {
+  const { facts, text1, text2 } = data;
   return (
     <div className="primaryRadialBg pt-[112px] pb-[136px]">
       <Edges size="lg">
         <div className="flex flex-col">
           <div className="flex flex-col text-white mb-[122px]">
             <FadeInUp className="delay-75">
-              <h1>{quickData?.text1}</h1>
+              <h1>{text1}</h1>
             </FadeInUp>
             <FadeInUp className="delay-150">
-              <h1>{quickData?.text2}</h1>
+              <h1>{text2}</h1>
             </FadeInUp>
           </div>
           <div className="flex flex-col md:flex-row">
-            {quickData?.facts?.map((fact, index) => {
+            {facts?.map((fact, index) => {
               return (
                 <FadeInUp className={`delay-${handleDelay(index)}`} key={index}>
                   <div className="flex flex-col text-white mr-[32px] mb-[25px] md:mb-0">
                     <div className="relative">
                       <Image
-                        src={`/${fact?.icon}.svg`}
+                        src={`/${fact?.factIcon}.svg`}
                         alt=""
                         width="35"
                         height="35"
@@ -65,7 +66,7 @@ const QuickFacts = () => {
                       />
                       <FadeInUp className="delay-1000 absolute top-[2px] left-[7px] z-20">
                         <Image
-                          src={`/inverted-${fact?.icon}.svg`}
+                          src={`/inverted-${fact?.factIcon}.svg`}
                           alt=""
                           width="34"
                           height="34"

@@ -3,9 +3,7 @@ import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
 
-function Anisoft({ data }) {
-  const { headline, tag, button, text } = data;
-
+function Anisoft({ headline, tag, button, text }) {
   return (
     <div className="relative primaryRadialBg pb-[100px] pl-[50px] md:pl-[100px]">
       <div className="absolute left-[10px] md:left-[15px] top-0 w-[40px] md:w-[100px] h-auto flex">
@@ -19,7 +17,7 @@ function Anisoft({ data }) {
       </div>
       <div className="bg-white pb-[50px] md:pb-[80px] min-h-[472px] overflow-hidden">
         <Edges size="lg">
-          <div className="flex w-full h-full flex-wrap text-darkPurple items-start justify-evenly">
+          <div className="flex w-full h-auto flex-wrap text-darkPurple items-start justify-evenly">
             <div className="max-w-[500px] pt-[50px] md:pt-[70px]">
               {tag && <p className="max-w-[575px] pt-[40px]">{tag}</p>}
 

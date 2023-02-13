@@ -23,7 +23,7 @@ const Button: React.FC<IButtonProps> = ({
   const [isHovered, setHovered] = useState(false);
   return (
     <Link
-      href={href}
+      href={href || "/"}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={classNames(

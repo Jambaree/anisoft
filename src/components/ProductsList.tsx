@@ -14,15 +14,15 @@ function ProductsList({ products }) {
 	}, []);
 
 	return (
-		<div className='flex flex-col items-center md:flex-row  w-full h-full pt-[60px]'>
+		<div className='flex flex-col items-center md:flex-row  w-full h-auto pt-[60px]'>
 			<SideIn
 				right={false}
 				className={'flex flex-col w-full md:h-[550px] justify-evenly '}
 			>
-				{products.map((product: any, index: number) => {
+				{products.map(({ product }: any, index: number) => {
 					return (
 						<div
-							key={product?.id}
+							key={index}
 							onMouseEnter={() => setActiveProduct(index)}
 							className={classNames(
 								' h-full md:min-w-[30%] relative before:content[""] before:absolute before:top-0 before:h-full before-h-full hidden md:flex items-center pr-[100px] cursor-pointer  transition-all ease-in-out overflow-hidden',
@@ -44,11 +44,12 @@ function ProductsList({ products }) {
 					'bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px] overflow-hidden'
 				}
 			>
-				{products.map((product: any, idx: number) => {
+				{products.map(({ product, buttonText, text }: any, idx: number) => {
+					const image = product.featuredImage?.node;
 					return (
 						<FadeInUp
 							playOnce={false}
-							key={product?.id}
+							key={idx}
 							className={`
 								${activeProduct === idx ? 'block' : ' mb-[30px] md:mb-0 block md:hidden '}
 								  p-[20px] md:p-[50px] flex flex-col h-full ${
@@ -62,42 +63,42 @@ function ProductsList({ products }) {
 										{product.title}
 									</h2>
 								)}
-								{product?.button?.url && (
+								{product?.uri && (
 									<div className='md:block hidden'>
 										<Button
 											variant='large'
-											href={product.button.url}
+											href={product?.uri}
 											reverse={true}
 										>
-											{product.button.title}
+											{buttonText}
 										</Button>
 									</div>
 								)}
 							</div>
 							<div className='w-full'>
-								{product?.text && <p className='text-white'>{product.text}</p>}
+								{text && <p className='text-white'>{text}</p>}
 							</div>
 							<div className='relative w-full mt-[30px] h-full bg-cover min-h-[220px] md:min-h-fit'>
-								{product?.image?.sourceUrl && (
+								{image?.sourceUrl && (
 									<Image
 										className='bg-cover'
-										src={product.image.sourceUrl}
-										alt={product.image.altText}
+										src={image.sourceUrl}
+										alt={image.altText}
 										fill
 										object-fit='cover'
 									/>
 								)}
 							</div>
 
-							{product?.button?.url && (
+							{product?.uri && (
 								<div className='md:hidden block my-[20px] md:my-0'>
 									<Button
 										variant='full'
-										href={product.button.url}
+										href={product.uri}
 										reverse={true}
 										className='mt-[20px]'
 									>
-										{product.button.title}
+										{buttonText}
 									</Button>
 								</div>
 							)}
