@@ -7,9 +7,10 @@ import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
 import useMenuItems from "../../components/useMenuItems";
+import getFooterData from "./getFooterData";
 
 export default async function Footer() {
-  const data = await getData({ uri: "", query });
+  const data = await getFooterData();
 
   const {
     themeOptions: {
@@ -66,31 +67,3 @@ export default async function Footer() {
     </div>
   );
 }
-
-const query = `
-  query MenuQuery {
-    themeOptions {
-      options {
-        footer {
-          link2 {
-            title
-            url
-          }
-          link1 {
-            title
-            url
-          }
-          copyrightText
-          contactInformation {
-            email
-            phoneNumber
-            socials {
-              icon
-              url
-            }
-          }
-        }
-
-      }
-    }
-  }`;
