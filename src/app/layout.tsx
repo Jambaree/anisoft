@@ -26,7 +26,7 @@ export default async function RootLayout({
   // temporary fix with getData, must use ` uri: "" ` for it to not break
   const {
     themeOptions: {
-      options: { footer, header },
+      options: { header },
     },
   } = await getData({ uri: "", query });
 
@@ -42,9 +42,8 @@ export default async function RootLayout({
         {children}
         {/* @ts-expect-error Server Component */}
         <Footer
-          data={footer}
 
-          // productMenuItems={productMenuItems}
+        // productMenuItems={productMenuItems}
         />
       </body>
     </html>
@@ -55,25 +54,6 @@ const query = `
   query MenuQuery {
     themeOptions {
       options {
-        footer {
-          link2 {
-            title
-            url
-          }
-          link1 {
-            title
-            url
-          }
-          copyrightText
-          contactInformation {
-            email
-            phoneNumber
-            socials {
-              icon
-              url
-            }
-          }
-        }
         header {
           buttonText
         }
