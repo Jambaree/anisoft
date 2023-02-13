@@ -33,6 +33,9 @@ export default async function RootLayout({
   const headerMenuItems = await useMenuItems({
     name: "header",
   });
+  const footerMenuItems = await useMenuItems({
+    name: "footer",
+  });
 
   // const productMenuItems = await getMenuItems({
   //   location: "PRODUCT_FOOTER_MENU",
@@ -42,21 +45,6 @@ export default async function RootLayout({
   //   location: "FOOTER_MENU",
   //   slug: "footer-menu",
   // });
-
-  const footerMenuItems = [
-    {
-      id: "1",
-      label: "About",
-      url: "/about",
-      childItems: [
-        {
-          id: "2",
-          label: "About",
-          url: "/about",
-        },
-      ],
-    },
-  ];
 
   return (
     <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
