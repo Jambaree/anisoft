@@ -17,7 +17,7 @@ function Anisoft({ headline, tag, button, text }) {
       </div>
       <div className="bg-white pb-[50px] md:pb-[80px] min-h-[472px] overflow-hidden">
         <Edges size="lg">
-          <div className="flex w-full h-full flex-wrap text-darkPurple items-start justify-evenly">
+          <div className="flex w-full h-auto flex-wrap text-darkPurple items-start justify-evenly">
             <div className="max-w-[500px] pt-[50px] md:pt-[70px]">
               {tag && <p className="max-w-[575px] pt-[40px]">{tag}</p>}
 
