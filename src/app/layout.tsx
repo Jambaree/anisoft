@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { getData } from "@jambaree/next-wordpress";
-import useMenuItems from "../components/useMenuItems";
+// import useMenuItems from "../components/useMenuItems";
 
 const mukta = Mukta({
   variable: "--font-mukta",
@@ -30,9 +30,32 @@ export default async function RootLayout({
     },
   } = await getData({ uri: "", query });
 
-  const headerMenuItems = await useMenuItems({
-    name: "header",
-  });
+  // const headerMenuItems = await useMenuItems({
+  //   name: "header",
+  // });
+
+  const headerMenuItems = [
+    {
+      id: "1",
+      label: "Home",
+      url: "/",
+    },
+    {
+      id: "2",
+      label: "About",
+      url: "/about",
+    },
+    {
+      id: "3",
+      label: "Services",
+      url: "/services",
+    },
+    {
+      id: "4",
+      label: "Contact",
+      url: "/contact",
+    },
+  ];
 
   return (
     <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
