@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../../Button";
 import MobileSubMenu from "./MobileSubMenu";
-import ChevonRight from "../../../public/chevron-left.svg";
+import ChevonRight from "../../../../public/chevron-left.svg";
 
 const MobileMenu = ({ isOpen, menu }) => {
   const sideVariants = {
@@ -87,8 +87,9 @@ const MobileMenu = ({ isOpen, menu }) => {
                           href={item?.url || "/"}
                           className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between ml-[15px]"
                         >
-                          {item.name}
-                          {item?.childItems && (
+                          {item.label}
+
+                          {item?.childItems?.nodes.length > 0 && (
                             <ChevonRight
                               width="6"
                               className="mr-[11px] w-[6px] h-[10px] fill-black rotate-180"

@@ -1,7 +1,7 @@
 import React from "react";
 import { getData } from "@jambaree/next-wordpress";
 import PageHeader from "../../components/PageHeader";
-// import Services from "../../components/"
+import ServiceCards from "../../components/servicecards";
 
 export default async function ServicePageTemplate({ uri }) {
   const { page } = await getData({ uri, query });
@@ -9,6 +9,8 @@ export default async function ServicePageTemplate({ uri }) {
   return (
     <div>
       <PageHeader data={page} />
+      <ServiceCards />
+      sss
     </div>
   );
 }

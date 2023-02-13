@@ -73,7 +73,7 @@ const ServiceCards = () => {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    controls.set({ opacity: 0 });
+    controls.set({ opacity: 0.9 });
 
     controls.start({ opacity: 1 });
   }, [activeIndex]);
@@ -145,10 +145,10 @@ const ServiceCards = () => {
 
           {currentImage && (
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0.9 }}
               animate={controls}
-              exit={{ opacity: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+              exit={{ opacity: 0.9 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-14rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] md:mt-[112px] "
             >
               <Image
