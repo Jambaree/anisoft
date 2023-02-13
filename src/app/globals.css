@@ -50,7 +50,7 @@
     font-size: 1.25rem;
     line-height: 120%;
   }
-  <<<<<<< HEAD ======= p {
+  p {
     font-family: var(--font-mukta);
     font-style: normal;
     font-weight: 300;
@@ -93,7 +93,7 @@
     font-size: 3.75rem;
     line-height: 120%;
   }
-  >>>>>>>main .primaryRadialBg {
+  .primaryRadialBg {
     background: radial-gradient(
           20.52% 48.75% at 21.11% 50%,
           rgba(31, 24, 91, 0.86) 0%,
