@@ -36,8 +36,7 @@ const query = `
 	  template {
 
 		templateName
-		... on DefaultTemplate {
-			
+		... on DefaultTemplate {	
 			footerTopperCta {
 				button {
 				  title
