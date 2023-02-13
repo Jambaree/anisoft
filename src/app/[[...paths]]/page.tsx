@@ -16,12 +16,14 @@ export default async function PageTemplate(props: {
 
   return (
     <>
-      {/* THIS IS BEING USED - current issue with app directory*/}
+      {/* current issue with app directory*/}
       {/* @ts-expect-error Server Component */}
       <WordpressTemplate paths={paths} templates={templates} />{" "}
     </>
   );
 }
+
+// remvoed from package and added manually here
 
 export async function generateStaticParams() {
   const nodePaths = await getAllContentNodePaths();
@@ -32,6 +34,8 @@ export async function generateStaticParams() {
     };
   });
 }
+
+// temporary metaData to replace YoastSEO
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const uri = params?.paths?.join?.("/") || "/";
