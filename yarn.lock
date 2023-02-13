@@ -1056,10 +1056,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@jambaree/next-wordpress@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@jambaree/next-wordpress/-/next-wordpress-0.1.9.tgz#ece17cf1cbbfb6d8fbac2078007e6a20ed9b6b8d"
-  integrity sha512-OvnkH5/zjUzbRm2EXyEBGfwH/gxpPZOz3vOfzpL+hIiQ8PEvRn/DKEWkz8tXifintxkJLBrSpOGEMekoWIGflQ==
+"@jambaree/next-wordpress@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@jambaree/next-wordpress/-/next-wordpress-0.2.1.tgz#0d1aa39b9f8a5a724ee5f77e5e7d05cb64a8306f"
+  integrity sha512-gmsdSyhSC92H/H4oEUuwJ51O4uKV0Dr/x7rs8I+tmd3G2t9bb2qOm+II/dw3C6erGkIq6F/IP7jsxE1Zt5sEDg==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/react" "^18.0.27"
