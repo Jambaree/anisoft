@@ -2,13 +2,13 @@ import React from "react";
 import Link from "next/link";
 
 const MenuItems = ({ menuItems }) => {
-  const half = Math.ceil(menuItems.length / 2);
-  const firstHalfMenuItems = menuItems.slice(0, half);
-  const secondHalfMenuitems = menuItems.slice(half, menuItems.length);
+  // const half = Math.ceil(menuItems.length / 2);
+  // const firstHalfMenuItems = menuItems.slice(0, half);
+  // const secondHalfMenuitems = menuItems.slice(half, menuItems.length);
 
   return (
     <ul className="flex flex-row ">
-      <div>
+      {/* <div>
         {firstHalfMenuItems.map((item, index) => (
           <div key={index} className="relative max-w-[180px] w-full">
             <li className="nav text-white z-0 mb-[12px]" key={index}>
@@ -25,7 +25,7 @@ const MenuItems = ({ menuItems }) => {
             </li>
           </div>
         ))}
-      </div>
+      </div> */}
     </ul>
   );
 };

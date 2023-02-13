@@ -10,7 +10,7 @@ const MenuItems = ({ menuItems, data }) => {
   return (
     <>
       <ul className="flex-row justify-between  items-center hidden md:flex">
-        {menuItems.map((item, index) => (
+        {/* {menuItems.map((item, index) => (
           <div
             key={index}
             className="relative"
@@ -27,14 +27,14 @@ const MenuItems = ({ menuItems, data }) => {
             </div>
             {hoverIndex === index && <SubMenu childItems={item?.childItems} />}
           </div>
-        ))}
-        {data?.buttonText && (
+        ))} */}
+        {/* {data?.buttonText && (
           <div className="ml-[16px] mr-[26px] lg:mr-0">
             <Button variant="medium" href="/">
               {data?.buttonText}
             </Button>
           </div>
-        )}
+        )} */}
       </ul>
     </>
   );
