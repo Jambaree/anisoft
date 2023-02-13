@@ -5,7 +5,7 @@ function ProductsSlider({ headline, tag, products }) {
   return (
     <div className="bg-white py-[50px] md:py-[75px]">
       <Edges size="lg">
-        <div className="flex w-full h-full  text-darkPurple flex-col">
+        <div className="flex w-full h-auto  text-darkPurple flex-col">
           <div className="max-w-[900px] pb-[60px]">
             {tag && <p className="max-w-[575px] pt-[40px]">{tag}</p>}
 
