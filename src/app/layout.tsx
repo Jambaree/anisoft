@@ -1,10 +1,14 @@
 import { Mukta, Maven_Pro } from "@next/font/google";
-
+import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-import { useMenuItems } from "@jambaree/next-wordpress";
+import {
+  useMenuItems,
+  getYoastData,
+  getSeedData,
+} from "@jambaree/next-wordpress";
 
 const mukta = Mukta({
   variable: "--font-mukta",
