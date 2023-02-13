@@ -1,5 +1,6 @@
 import React from "react";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
+import { getData } from "@jambaree/next-wordpress";
 import Edges from "../Edges";
 import Link from "next/link";
 import InvertedLogo from "../logos/invertedlogo";
@@ -7,8 +8,16 @@ import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
 import useMenuItems from "../../components/useMenuItems";
 
-export default async function Footer({ data }) {
-  const { contactInformation, copyrightText, link1, link2 } = data;
+export default async function Footer() {
+  const data = await getData({ uri: "", query });
+
+  const {
+    themeOptions: {
+      options: {
+        footer: { contactInformation, copyrightText, link1, link2 },
+      },
+    },
+  } = data;
   const menuItems = await useMenuItems({
     name: "footer",
   });
@@ -57,3 +66,31 @@ export default async function Footer({ data }) {
     </div>
   );
 }
+
+const query = `
+  query MenuQuery {
+    themeOptions {
+      options {
+        footer {
+          link2 {
+            title
+            url
+          }
+          link1 {
+            title
+            url
+          }
+          copyrightText
+          contactInformation {
+            email
+            phoneNumber
+            socials {
+              icon
+              url
+            }
+          }
+        }
+
+      }
+    }
+  }`;

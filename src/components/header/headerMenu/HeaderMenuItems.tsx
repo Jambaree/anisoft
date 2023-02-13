@@ -31,7 +31,7 @@ const MenuItems = ({ menuItems, data }) => {
         {data?.buttonText && (
           <div className="ml-[16px] mr-[26px] lg:mr-0">
             <Button variant="medium" href="/">
-              {data?.buttonText}
+              {data?.buttonText || "Get Started"}
             </Button>
           </div>
         )}
