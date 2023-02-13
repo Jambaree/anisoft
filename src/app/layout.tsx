@@ -24,11 +24,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // temporary fix with getData, must use ` uri: "" ` for it to not break
-  const {
-    themeOptions: {
-      options: { header },
-    },
-  } = await getData({ uri: "", query });
+  // const {
+  //   themeOptions: {
+  //     options: { header },
+  //   },
+  // } = await getData({ uri: "", query });
 
   // const headerMenuItems = await useMenuItems({
   //   name: "header",
@@ -60,7 +60,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
       <body>
-        <Header data={header} menuItems={headerMenuItems} />
+        <Header menuItems={headerMenuItems} />
 
         {children}
         {/* @ts-expect-error Server Component */}
@@ -73,13 +73,13 @@ export default async function RootLayout({
   );
 }
 
-const query = `
-  query MenuQuery {
-    themeOptions {
-      options {
-        header {
-          buttonText
-        }
-      }
-    }
-  }`;
+// const query = `
+//   query MenuQuery {
+//     themeOptions {
+//       options {
+//         header {
+//           buttonText
+//         }
+//       }
+//     }
+//   }`;

@@ -40,9 +40,7 @@ const GET_MENU_ITEMS = gql`
 
 const useMenuItems = async ({ name }: UseMenuItemsProps) => {
   const data = await request({
-    url:
-      process.env.NEXT_PUBLIC_WP_URL ||
-      "https://nextwordpress.wpengine.com/graphql",
+    url: process.env.NEXT_PUBLIC_WP_URL,
     variables: {
       name,
     },
