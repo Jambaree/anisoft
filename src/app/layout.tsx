@@ -59,7 +59,7 @@ export default async function RootLayout({
 }
 
 const query = `
-  query PageQuery {
+  query MenuQuery {
     themeOptions {
       options {
         footer {
