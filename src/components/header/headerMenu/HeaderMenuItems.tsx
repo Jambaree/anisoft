@@ -10,7 +10,7 @@ const MenuItems = ({ menuItems, data }) => {
   return (
     <>
       <ul className="flex-row justify-between  items-center hidden md:flex">
-        {menuItems.map((item, index) => (
+        {menuItems?.map((item, index) => (
           <div
             key={index}
             className="relative"
