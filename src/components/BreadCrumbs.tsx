@@ -25,7 +25,7 @@ function BreadCrumbs(props) {
           <Link
             className="text-gray-700 hover:text-gray-900"
             key={index}
-            href={`/${paths.slice(0, index + 1).join("/")}`}
+            href={`/${paths.slice(0, index + 1).join("/")}` || "/"}
           >
             <span className="mx-2 text-gray-400">/</span>
             <span className="p-details">

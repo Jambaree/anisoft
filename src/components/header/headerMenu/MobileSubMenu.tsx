@@ -65,7 +65,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
                     </button>
                   )}
                   <Link
-                    href={item.url}
+                    href={item?.url || "/"}
                     className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between "
                   >
                     {item.label}

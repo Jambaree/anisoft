@@ -84,7 +84,7 @@ const MobileMenu = ({ isOpen, menu }) => {
                               index
                             );
                           }}
-                          href={item?.url}
+                          href={item?.url || "/"}
                           className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between ml-[15px]"
                         >
                           {item.label}
