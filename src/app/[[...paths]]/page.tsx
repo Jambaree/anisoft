@@ -2,6 +2,7 @@ import {
   WordpressTemplate,
   getSeedData,
   getYoastData,
+  getAllContentNodePaths,
 } from "@jambaree/next-wordpress";
 import type { Metadata } from "next";
 import templates from "../../templates";
@@ -20,6 +21,16 @@ export default async function PageTemplate(props: {
       <WordpressTemplate paths={paths} templates={templates} />{" "}
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const nodePaths = await getAllContentNodePaths();
+
+  return nodePaths.map((node) => {
+    return {
+      paths: [node.uri || "/"],
+    };
+  });
 }
 
 export async function generateMetadata({ params }): Promise<Metadata> {
