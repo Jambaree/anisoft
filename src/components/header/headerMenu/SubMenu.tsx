@@ -12,7 +12,7 @@ const SubMenu = ({ childItems }) => {
           return (
             <Link
               key={index}
-              href={item?.url}
+              href={item?.url || "/"}
               className=" pl-[28px] whitespace-nowrap py-[25px]"
               onMouseEnter={() => {
                 setHoveredIndex(index);

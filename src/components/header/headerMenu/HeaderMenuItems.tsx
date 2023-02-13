@@ -22,7 +22,7 @@ const MenuItems = ({ menuItems, data }) => {
                 className="nav text-lightBlue px-[16px] py-[40px]"
                 key={index}
               >
-                <Link href={item?.url}>{item?.label}</Link>
+                <Link href={item?.url || "/"}>{item?.label}</Link>
               </li>
             </div>
             {hoverIndex === index && <SubMenu childItems={item?.childItems} />}

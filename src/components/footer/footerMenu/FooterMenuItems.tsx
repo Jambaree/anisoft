@@ -12,7 +12,7 @@ const MenuItems = ({ menuItems }) => {
         {firstHalfMenuItems.map((item, index) => (
           <div key={index} className="relative max-w-[180px] w-full">
             <li className="nav text-white z-0 mb-[12px]" key={index}>
-              <Link href={item?.url}>{item?.label}</Link>
+              <Link href={item?.url || "/"}>{item?.label}</Link>
             </li>
           </div>
         ))}
@@ -21,7 +21,7 @@ const MenuItems = ({ menuItems }) => {
         {secondHalfMenuitems.map((item, index) => (
           <div key={index} className="relative max-w-[180px] w-full">
             <li className="nav text-white z-0 mb-[12px]" key={index}>
-              <Link href={item?.url}>{item?.label}</Link>
+              <Link href={item?.url || "/"}>{item?.label}</Link>
             </li>
           </div>
         ))}
