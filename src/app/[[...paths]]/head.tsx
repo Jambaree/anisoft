@@ -16,10 +16,10 @@ export default async function Head(props: { params: { paths: string[] } }) {
   return (
     <head>
       {/* <YoastSEO ogUrl={uri} seo={yoastData?.seo} /> */}
-      <link
+      {/* <link
         href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
         rel="stylesheet"
-      />
+      /> */}
     </head>
   );
 }
