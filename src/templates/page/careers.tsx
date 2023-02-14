@@ -1,7 +1,30 @@
 import React from "react";
+import { getData } from "@jambaree/next-wordpress";
+import { notFound } from "next/navigation";
+import PageHeader2 from "../../components/PageHeader2";
 
-const CareersPageTemplate = () => {
-  return <div></div>;
-};
+export default async function CareersPagetemplate({ uri }) {
+  const { page } = await getData({ uri, query });
+  if (!page) {
+    notFound();
+  }
 
-export default CareersPageTemplate;
+  const { title, content } = page;
+  return (
+    <div>
+      <PageHeader2 text={content} title={title} />
+    </div>
+  );
+}
+
+const query = `
+  query CareerPageQuery($uri: ID!) {
+    page(id: $uri, idType: URI) {
+      __typename
+      id
+      title
+      uri
+      slug
+      content
+    }
+  }`;
