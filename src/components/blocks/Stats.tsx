@@ -4,7 +4,6 @@ import { animate } from "framer-motion";
 import Image from "next/image";
 
 export default function StatsModule({ title, description, stats }) {
-  console.log(title, description, stats);
   const Counter = ({ from, to }) => {
     const ref = useRef<HTMLDivElement>(null);
 
