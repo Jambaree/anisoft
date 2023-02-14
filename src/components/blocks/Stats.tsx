@@ -29,6 +29,9 @@ export default function StatsModule({ title, description, stats }) {
               className="h-full w-full object-cover md:absolute md:inset-0 md:pl-[15%]"
               src="/stats-background-image.png"
               alt="People working on laptops"
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
             />
             <p className="absolute bottom-[10%] md:top-[10%] left-[10%] md:left-[25%] text-[#FF0000]">
               FPO
