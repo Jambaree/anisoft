@@ -7,6 +7,8 @@ import { gql, request } from 'graphql-request';
 
 import Input from './fields/input/Input';
 import Textarea from './fields/textarea/Textarea';
+import Radio from './fields/radio/Radio';
+import Upload from './fields/upload/Upload';
 import Button from '../Button';
 import Error from './alert/error';
 import Success from './alert/success';
@@ -42,7 +44,7 @@ export default function Form({ form }) {
 		// isError,
 		// isSuccess,
 		error,
-	} = useMutation((variables:any) => {
+	} = useMutation((variables: any) => {
 		return request({
 			url: process.env.NEXT_PUBLIC_WP_URL,
 			variables,
@@ -108,7 +110,7 @@ export default function Form({ form }) {
 						disabled={isLoading}
 						type='submit'
 						variant='large'
-            className='ml-auto'
+						className='ml-auto'
 					>
 						{isLoading ? (
 							<span className='flex items-center'>
@@ -166,6 +168,10 @@ const FormField = forwardRef(({ field, error, ...rest }, ref) => {
 			return <Input {...inputProps} />;
 		case 'PHONE':
 			return <Input {...inputProps} />;
+		case 'RADIO':
+			return <Radio {...inputProps} />;
+		case 'FILEUPLOAD':
+			return <Upload {...inputProps} />;
 		default:
 			return <Input {...inputProps} />;
 	}

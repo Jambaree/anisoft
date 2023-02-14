@@ -54,6 +54,33 @@ const formQueryDocument = gql`
 						isRequired
 						size
 					}
+					... on RadioField {
+						id
+						choices {
+							value
+							text
+							isSelected
+							isOtherChoice
+						}
+						label
+						type
+						value
+						visibility
+					}
+					... on FileUploadField {
+						id
+						label
+						type
+						value
+						isRequired
+						visibility
+						fileUploadValues {
+							url
+							filename
+							baseUrl
+							basePath
+						}
+					}
 				}
 			}
 			formId
