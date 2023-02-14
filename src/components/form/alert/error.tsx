@@ -8,8 +8,8 @@ export default function Error({ errors }) {
           {/* <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" /> */}
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">Error</h3>
-          <div className="mt-2 text-sm text-red-700">
+          <h3 className=" font-medium text-red-800">Error</h3>
+          <div className="mt-2  text-red-700">
             <ul role="list" className="list-disc space-y-1 pl-5">
               {errors?.map?.((error, index) => {
                 return <li key={error.id}>{error.message}</li>;

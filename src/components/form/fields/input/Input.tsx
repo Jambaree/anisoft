@@ -46,14 +46,13 @@ const Input = forwardRef(
 		}: InputProps,
 		ref: React.Ref<HTMLInputElement>
 	) => {
-
 		return (
 			<div className={className}>
 				{label && (
 					<label
 						htmlFor={id || name}
 						className={clsx(
-							'block text-sm font-medium text-[#a5a5a5] uppercase tracking-wide',
+							'block text-[16px] text-black  tracking-wide',
 							labelClassName
 						)}
 					>
@@ -62,19 +61,19 @@ const Input = forwardRef(
 					</label>
 				)}
 
-				<div className='mt-1 relative rounded-md shadow-sm'>
+				<div className='mt-1 relative '>
 					<input
 						ref={ref}
 						id={id}
 						name={name}
 						type={type}
 						className={clsx(
-							'appearance-none block w-full px-3 py-2 border border-gray-300 text-black',
-							'rounded-md shadow-sm placeholder-gray-400 focus:outline-none',
-							'focus:ring-light focus:border-light sm:text-sm',
+							'appearance-none block w-full px-3 py-5 border-b-[1px] border-l-[1px] text-black',
+							' shadow-sm placeholder-gray-400 focus:outline-none',
+							'focus:ring-light focus:border-light ',
 							disabled && 'opacity-50',
 							error &&
-								'block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md',
+								'block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500  rounded-md',
 							inputClassName
 						)}
 						placeholder={placeholder}
@@ -100,7 +99,7 @@ const Input = forwardRef(
 				{error && (
 					<div>
 						<span
-							className='mt-2 text-sm text-red-600'
+							className='mt-2  text-red-600'
 							id={`${id}-error`}
 						>
 							{error.message || 'This field is required'}
@@ -111,7 +110,7 @@ const Input = forwardRef(
 				{description && (
 					<div>
 						<span
-							className='mt-2 text-sm text-gray-500'
+							className='mt-2  text-gray-500'
 							id={`${id}-description`}
 						>
 							{description}

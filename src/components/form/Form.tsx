@@ -9,6 +9,7 @@ import Textarea from './fields/textarea/Textarea';
 import Button from '../Button';
 import Error from './alert/error';
 import Success from './alert/success';
+import classNames from 'classnames';
 
 const submitFormQueryDocument = gql`
 	mutation submitForm($formId: ID!, $fieldValues: [FormFieldValuesInput]!) {
@@ -79,7 +80,7 @@ export default function Form({ form }) {
 			{!isSuccess && (
 				<form
 					onSubmit={handleSubmit(onSubmit)}
-					className=''
+					className='flex flex-wrap justify-between items-center '
 				>
 					{fields?.map?.((field, index) => {
 						const inputId = `${field.type}_${field.id}`;
@@ -88,7 +89,10 @@ export default function Form({ form }) {
 						return (
 							<div
 								key={field.id}
-								className='mb-2'
+								className={classNames(
+									'mb-[50px]',
+									`${field.size === 'MEDIUM' ? 'w-full md:w-[48%]' : 'w-full '}`
+								)}
 							>
 								<FormField
 									field={field}
@@ -103,6 +107,7 @@ export default function Form({ form }) {
 						disabled={isLoading}
 						type='submit'
 						variant='large'
+            className='ml-auto'
 					>
 						{isLoading ? (
 							<span className='flex items-center'>
@@ -138,6 +143,7 @@ export default function Form({ form }) {
 	);
 }
 const FormField = forwardRef(({ field, error, ...rest }, ref) => {
+	console.log(field);
 	const inputProps = {
 		...field,
 		required: !!field.isRequired,
@@ -157,6 +163,8 @@ const FormField = forwardRef(({ field, error, ...rest }, ref) => {
 				/>
 			);
 		case 'TEXT':
+			return <Input {...inputProps} />;
+		case 'PHONE':
 			return <Input {...inputProps} />;
 		default:
 			return <Input {...inputProps} />;

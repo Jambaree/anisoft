@@ -35,14 +35,22 @@ const formQueryDocument = gql`
 					... on TextField {
 						label
 						isRequired
+						size
 					}
 					... on EmailField {
 						label
 						isRequired
+						size
 					}
 					... on TextAreaField {
 						label
 						isRequired
+						size
+					}
+					... on PhoneField {
+						label
+						isRequired
+						size
 					}
 				}
 			}

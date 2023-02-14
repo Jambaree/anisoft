@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { getData, FlexibleContent } from '@jambaree/next-wordpress';
 import FooterTopperCTA from '../../components/FooterTopperCTA';
 import * as blocks from '../../components/blocks';
-import GravityForm from '../../components/form/GravityForm';
 
 export default async function DefaultPageTemplate({ uri }) {
 	const { page } = await getData({ uri, query });
@@ -21,7 +20,6 @@ export default async function DefaultPageTemplate({ uri }) {
 
 	return (
 		<div>
-			<GravityForm formId={'1'} />
 			<FlexibleContent
 				blocks={blocks}
 				rows={modules}

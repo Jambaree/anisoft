@@ -13,7 +13,7 @@ function BreadCrumbs(props) {
   return (
     <nav
       className={classNames(
-        "flex items-center justify-between py-2 font-medium text-sm text-gray-500",
+        "flex items-center justify-between py-2 font-medium  text-gray-500",
         className
       )}
     >
