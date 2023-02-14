@@ -6,18 +6,9 @@ import Link from "next/link";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
-import getFooterData from "./getFooterData";
 
-export default async function Footer() {
-  const data = await getFooterData();
-
-  const {
-    themeOptions: {
-      options: {
-        footer: { contactInformation, copyrightText, link1, link2 },
-      },
-    },
-  } = data;
+export default async function Footer({ data }) {
+  const { contactInformation, copyrightText, link1, link2 } = data;
   const menuItems = await useMenuItems({
     name: "footer",
   });
