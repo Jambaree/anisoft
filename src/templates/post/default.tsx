@@ -1,4 +1,3 @@
-// import QuickFacts from "../../components/QuickFacts";
 import { getData } from "@jambaree/next-wordpress";
 import FooterTopperCTA from "../../components/FooterTopperCTA";
 import QuickFacts from "../../components/QuickFacts";
