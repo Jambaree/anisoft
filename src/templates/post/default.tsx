@@ -1,8 +1,8 @@
-// import QuickFacts from "../../components/QuickFacts";
 import { getData } from "@jambaree/next-wordpress";
 import FooterTopperCTA from "../../components/FooterTopperCTA";
 import QuickFacts from "../../components/QuickFacts";
 import PageHeader from "../../components/PageHeader";
+import TextInfo from "../../components/blocks/TextInfo";
 
 export default async function DefaultPostTemplate({ uri }) {
   const { post } = await getData({ uri, query });
@@ -11,6 +11,7 @@ export default async function DefaultPostTemplate({ uri }) {
     <div>
       <PageHeader data={post} />
       <QuickFacts data={post?.quickFacts} />
+      <TextInfo {...post?.textInfo} />
       <FooterTopperCTA data={post?.template?.footerTopperCta} />
     </div>
   );
@@ -31,6 +32,21 @@ const query = `
           title
         }
       }
+      textInfo {
+				tag
+				headline
+				button1 {
+					title
+					url
+					target
+				}
+				button2 {
+					title
+					url
+					target
+				}
+				text
+			}
       template {
         ... on DefaultTemplate {
           templateName

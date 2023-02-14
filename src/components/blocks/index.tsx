@@ -4,6 +4,7 @@ import InfoCallout from "./InfoCallout";
 import Logos from "./Logos";
 import ProductsSlider from "./ProductsSlider";
 import Stats from "./Stats";
+import TextInfo from "./TextInfo";
 import Testimonials from "./Testimonials";
 
 export {
@@ -13,5 +14,6 @@ export {
   Logos,
   ProductsSlider,
   Stats,
+  TextInfo,
   Testimonials,
 };

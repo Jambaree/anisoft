@@ -7,7 +7,7 @@ import FadeInUp from "./FadeInUp";
 const FooterTopperCTA = ({ data }) => {
   const { button, text1, text2 } = data;
   return (
-    <div className="relative">
+    <div className="relative bg-lightGreyBg">
       <div className="secondaryRadialBg  absolute top-[35%] md:top-[50%] left-0 right-0 py-[42px]">
         <Edges
           size="md"
