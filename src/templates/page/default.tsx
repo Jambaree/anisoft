@@ -1,29 +1,33 @@
-import { notFound } from "next/navigation";
+import { notFound } from 'next/navigation';
 
-import { getData, FlexibleContent } from "@jambaree/next-wordpress";
-import FooterTopperCTA from "../../components/FooterTopperCTA";
-import * as blocks from "../../components/blocks";
+import { getData, FlexibleContent } from '@jambaree/next-wordpress';
+import FooterTopperCTA from '../../components/FooterTopperCTA';
+import * as blocks from '../../components/blocks';
 
 export default async function DefaultPageTemplate({ uri }) {
-  const { page } = await getData({ uri, query });
-  if (!page) {
-    notFound();
-  }
+	const { page } = await getData({ uri, query });
+	if (!page) {
+		notFound();
+	}
 
-  const {
-    title,
-    template: {
-      footerTopperCta,
-      acf: { modules },
-    },
-  } = page;
+	const {
+		title,
+		template: {
+			footerTopperCta,
+			acf: { modules },
+		},
+	} = page;
 
-  return (
-    <div>
-      <FlexibleContent blocks={blocks} rows={modules} data={{ title, uri }} />
-      <FooterTopperCTA data={footerTopperCta} />
-    </div>
-  );
+	return (
+		<div>
+			<FlexibleContent
+				blocks={blocks}
+				rows={modules}
+				data={{ title, uri }}
+			/>
+			<FooterTopperCTA data={footerTopperCta} />
+		</div>
+	);
 }
 const query = `
   query PageQuery($uri: ID!) {
