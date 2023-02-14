@@ -127,6 +127,7 @@ const query = `
 				fieldGroupName
 				stats {
 				  stat
+				  label
 				}
 				title
 			  }
