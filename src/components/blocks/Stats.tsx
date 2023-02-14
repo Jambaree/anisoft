@@ -46,18 +46,18 @@ export default function StatsModule({ title, description, stats }) {
           <h2 className="text-white">{title}</h2>
           <p className="mt-5 text-lg text-white">{description}</p>
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
-            {stats.map((item) => {
-              const num = item?.stat.match(/\d+/g);
-              const letr = item?.stat.match(/[a-zA-Z!@#\$%\^\&*]+/g);
+            {stats?.map((item) => {
+              const num = item?.stat?.match(/\d+/g);
+              const letr = item?.stat?.match(/[a-zA-Z!@#\$%\^\&*]+/g);
 
               return (
                 <div key={item.id}>
                   <h2 className=" text-white flex flex-row">
-                    <Counter from={0} to={parseInt(num[0])} />
+                    {num && <Counter from={0} to={parseInt(num[0])} />}
                     {letr}
                   </h2>
 
-                  <p className="mt-1 block  text-white">{item.rest}</p>
+                  <p className="mt-1 block  text-white">{item.label}</p>
                 </div>
               );
             })}
