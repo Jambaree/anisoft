@@ -27,7 +27,7 @@ export default function StatsModule({ title, description, stats }) {
             <Image
               fill
               className="h-full w-full object-cover md:absolute md:inset-0 md:pl-[15%]"
-              src="/stats-background-image.png"
+              src={stats?.image?.sourceUrl}
               alt="People working on laptops"
               sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
@@ -49,12 +49,12 @@ export default function StatsModule({ title, description, stats }) {
           <h2 className="text-white">{title}</h2>
           <p className="mt-5 text-lg text-white">{description}</p>
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
-            {stats?.map((item) => {
+            {stats?.map((item, index) => {
               const num = item?.stat?.match(/\d+/g);
               const letr = item?.stat?.match(/[a-zA-Z!@#\$%\^\&*]+/g);
 
               return (
-                <div key={item.id}>
+                <div key={index}>
                   <h2 className=" text-white flex flex-row">
                     {num && <Counter from={0} to={parseInt(num[0])} />}
                     {letr}
