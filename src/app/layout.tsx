@@ -5,6 +5,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 
 import { useMenuItems, getData } from "@jambaree/next-wordpress";
+import Providers from "../components/Providers";
 
 const mukta = Mukta({
   variable: "--font-mukta",
@@ -35,27 +36,35 @@ export default async function RootLayout({
   });
 
   return (
-    <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
-          rel="stylesheet"
-        />
-      </head>
-      <body id="top">
-        <Header data={header} menuItems={headerMenuItems} />
-
-        {children}
-        {/* @ts-expect-error Server Component */}
-        <Footer
-          data={footer}
-          // productMenuItems={productMenuItems}
-        />
-      </body>
-    </html>
-  );
+		<html
+			lang='en'
+			className={`${maven.variable} ${mukta.variable}`}
+		>
+			<head>
+				<meta charSet='utf-8' />
+				<meta
+					name='viewport'
+					content='width=device-width, initial-scale=1'
+				/>
+				<link
+					href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css'
+					rel='stylesheet'
+				/>
+			</head>
+			<body id='top'>
+				<Header
+					data={header}
+					menuItems={headerMenuItems}
+				/>
+				<Providers>{children}</Providers>{' '}
+				{/* @ts-expect-error Server Component */}
+				<Footer
+					data={footer}
+					// productMenuItems={productMenuItems}
+				/>
+			</body>
+		</html>
+	);
 }
 
 const query = `
