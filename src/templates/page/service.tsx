@@ -6,10 +6,14 @@ import ServiceCards from "../../components/servicecards";
 export default async function ServicePageTemplate({ uri }) {
   const { page } = await getData({ uri, query });
 
+  const {
+    template: { services },
+  } = page;
+
   return (
     <div>
       <PageHeader data={page} />
-      <ServiceCards />
+      <ServiceCards {...services} />
     </div>
   );
 }

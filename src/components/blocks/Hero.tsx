@@ -60,6 +60,10 @@ export default function Hero({
                       src={image?.sourceUrl}
                       // src={heroImage}
                       alt={image?.altText}
+                      priority
+                      sizes="(max-width: 768px) 100vw,
+                      (max-width: 1200px) 50vw,
+                      33vw"
                       fill
                     />
                   </div>
