@@ -135,6 +135,21 @@ const query = `
 				}
 				title
 			  }
+			  ... on DefaultTemplate_Acf_Modules_TextInfo {
+				tag
+				headline
+				button1 {
+					title
+					url
+					target
+				}
+				button2 {
+					title
+					url
+					target
+				}
+				text
+			  }
 			  ... on DefaultTemplate_Acf_Modules_Testimonials {
 				fieldGroupName
 				testimonials {
