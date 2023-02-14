@@ -14,9 +14,9 @@ interface InputProps {
 	type?: string;
 	name?: string;
 	value?: string;
-	fileUploadValues?: any;
 	placeholder?: string;
 	hiddenLabel?: boolean;
+	fileUploadValues?: any;
 	//   fullWidth?: boolean
 	disabled?: boolean;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -40,9 +40,9 @@ const Upload = forwardRef(
 			error,
 			className,
 			inputClassName,
-			fileUploadValues,
 			labelClassName,
 			description,
+			fileUploadValues,
 			onChange,
 			disabled,
 			...rest
@@ -69,20 +69,15 @@ const Upload = forwardRef(
 						type={'file'}
 						className={clsx(
 							'appearance-none block w-full px-3 py-2  text-black  ',
-							'  ',
+
 							disabled && 'opacity-50',
 							error &&
 								'block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500  rounded-md',
 							inputClassName
 						)}
-						placeholder={placeholder}
-						defaultValue={defaultValue}
-						aria-describedby={
-							error ? `${id}-error` : description && `${id}-description`
-						}
 						required={required}
 						disabled={disabled}
-						onChange={onChange}
+						fileUploadValues={fileUploadValues}
 						{...rest}
 					/>
 
