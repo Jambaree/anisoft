@@ -1,14 +1,10 @@
 import { Mukta, Maven_Pro } from "@next/font/google";
-import type { Metadata } from "next";
+
 import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-import {
-  useMenuItems,
-  getYoastData,
-  getSeedData,
-} from "@jambaree/next-wordpress";
+import { useMenuItems, getData } from "@jambaree/next-wordpress";
 
 const mukta = Mukta({
   variable: "--font-mukta",
@@ -28,53 +24,66 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // temporary fix with getData, must use ` uri: "" ` for it to not break
-  // const {
-  //   themeOptions: {
-  //     options: { header },
-  //   },
-  // } = await getData({ uri: "", query });
+  const {
+    themeOptions: {
+      options: { footer, header },
+    },
+  } = await getData({ uri: "", query });
 
   const headerMenuItems = await useMenuItems({
     name: "header",
   });
 
   return (
-		<html
-			lang='en'
-			className={`${maven.variable} ${mukta.variable}`}
-		>
-			<head>
-				<meta charSet='utf-8' />
-				<meta
-					name='viewport'
-					content='width=device-width, initial-scale=1'
-				/>
-				<link
-					href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css'
-					rel='stylesheet'
-				/>
-			</head>
-			<body>
-				<Header menuItems={headerMenuItems} />
+    <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
+          rel="stylesheet"
+        />
+      </head>
+      <body id="top">
+        <Header data={header} menuItems={headerMenuItems} />
 
-				{children}
-				{/* @ts-expect-error Server Component */}
-				<Footer
-
-				// productMenuItems={productMenuItems}
-				/>
-			</body>
-		</html>
-	);
+        {children}
+        {/* @ts-expect-error Server Component */}
+        <Footer
+          data={footer}
+          // productMenuItems={productMenuItems}
+        />
+      </body>
+    </html>
+  );
 }
 
-// const query = `
-//   query MenuQuery {
-//     themeOptions {
-//       options {
-//         header {
-//           buttonText
-//         }
-//       }
-//     }
-//   }`;
+const query = `
+  query MenuQuery {
+    themeOptions {
+      options {
+        header {
+          buttonText
+        }
+        footer {
+          link2 {
+            title
+            url
+          }
+          link1 {
+            title
+            url
+          }
+          copyrightText
+          contactInformation {
+            email
+            phoneNumber
+            socials {
+              icon
+              url
+            }
+          }
+        }
+      }
+    }
+  }`;
