@@ -19,7 +19,7 @@ const MenuItems = ({ menuItems, data }) => {
           >
             <div className="relative flex flex-col">
               <li
-                className="nav text-lightBlue px-[16px] py-[40px]"
+                className="nav text-lightBlue px-[16px] py-[40px] no-underline"
                 key={index}
               >
                 <Link href={item?.url || "/"}>{item?.label}</Link>
