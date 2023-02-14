@@ -8,7 +8,7 @@ const FooterTopperCTA = ({ data }) => {
   const { button, text1, text2 } = data;
   return (
     <div className="relative bg-lightGreyBg">
-      <div className="secondaryRadialBg  absolute top-[35%] md:top-[50%] left-0 right-0 py-[42px]">
+      <div className="secondaryRadialBg  relative sm:absolute top-[35%] md:top-[50%] left-0 right-0 py-[42px]">
         <Edges
           size="md"
           className="flex flex-row flex-wrap justify-between items-center"
@@ -36,8 +36,7 @@ const FooterTopperCTA = ({ data }) => {
         alt="big-A"
         width="516"
         height="596"
-        className="ml-auto h-auto w-auto"
-        priority
+        className="ml-auto"
       ></Image>
     </div>
   );
