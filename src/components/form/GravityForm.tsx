@@ -14,7 +14,9 @@ export default function GravityForm({ formId }: GravityFormProps) {
 	return (
 		<div className='my-[65px]'>
 			<Edges size='md'>
+				<div className='max-w-[620px] mx-auto'>
 				<Form form={form} />
+				</div>
 			</Edges>
 		</div>
 	);
