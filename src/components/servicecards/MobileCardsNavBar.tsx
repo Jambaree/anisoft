@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import Edges from "../Edges";
-import { motion, AnimatePresence } from "framer-motion";
 
 import ChevronUp from "../../../public/chevron-up.svg";
 import MobileCardsSubMenu from "./MobileCardsSubMenu";
@@ -43,7 +41,7 @@ const CardsNavBar = ({ services, activeIndex }) => {
   }, [activeNav, activeIndex]);
 
   return (
-    <div className=" md:hidden w-full bg-darkPurple sticky top-[100px] z-[999999999] flex flex-row items-center justify-between py-[22px] px-[30px]">
+    <div className=" md:hidden w-full bg-darkPurple sticky top-[100px] z-40 flex flex-row items-center justify-between py-[22px] px-[30px]">
       <div className="flex flex-row relative">
         {services.map((service, index) => {
           return (

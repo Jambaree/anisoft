@@ -70,6 +70,7 @@ const ServiceCards = () => {
       setCurrentImage(services[index].image);
     }
   };
+  const windowHeight = typeof window !== "undefined" && window.innerHeight;
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -90,7 +91,7 @@ const ServiceCards = () => {
             {services.map((service, index) => (
               <InView
                 key={index}
-                threshold={1}
+                threshold={windowHeight < 960 ? 0.2 : 1}
                 className="relative "
                 onChange={(inView) => {
                   handleInView(inView, index);

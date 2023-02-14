@@ -10,7 +10,6 @@ export default async function ServicePageTemplate({ uri }) {
     <div>
       <PageHeader data={page} />
       <ServiceCards />
-      sss
     </div>
   );
 }
