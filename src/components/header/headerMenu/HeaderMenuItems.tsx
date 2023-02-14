@@ -19,20 +19,23 @@ const MenuItems = ({ menuItems, data }) => {
           >
             <div className="relative flex flex-col">
               <li
-                className="nav text-lightBlue px-[16px] py-[40px]"
+                className="nav text-lightBlue px-[16px] py-[40px] "
                 key={index}
               >
                 <Link href={item?.url || "/"}>{item?.label}</Link>
               </li>
             </div>
-            {hoverIndex === index && <SubMenu childItems={item?.childItems} />}
+
+            {hoverIndex === index && item?.childItems?.nodes.length > 0 && (
+              <SubMenu childItems={item?.childItems} />
+            )}
           </div>
         ))}
 
-        {data?.buttonText && (
+        {data?.button && (
           <div className="ml-[16px] mr-[26px] lg:mr-0">
-            <Button variant="medium" href="/">
-              {data?.buttonText}
+            <Button variant="medium" href={data?.button?.url}>
+              {data?.button?.title}
             </Button>
           </div>
         )}

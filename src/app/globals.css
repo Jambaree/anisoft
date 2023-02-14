@@ -4,6 +4,7 @@
 
 @layer base {
   html {
+    @apply scroll-smooth;
     font-size: 14px; /* 14px = 1rem */
   }
   @media screen and (min-width: 1366px) {
@@ -49,7 +50,6 @@
     font-size: 1.25rem;
     line-height: 120%;
   }
-
   p {
     font-family: var(--font-mukta);
     font-style: normal;
@@ -93,7 +93,6 @@
     font-size: 3.75rem;
     line-height: 120%;
   }
-
   .primaryRadialBg {
     background: radial-gradient(
           20.52% 48.75% at 21.11% 50%,
