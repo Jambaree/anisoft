@@ -24,7 +24,7 @@ export default async function Footer({ data }) {
                 </Link>
               </div>
               <div className="flex flex-col mb-[27px] p-footer">
-                <p className="text-white">{contactInformation.phone}</p>
+                <p className="text-white">{contactInformation.phoneNumber}</p>
                 <p className="text-white">{contactInformation.email}</p>
               </div>
               <div className="flex flex-row">
