@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Dot from "../../public/dot.svg";
-import ChevronRight from "../../public/chevron-right.svg";
-import ChevronLeft from "../../public/chevron-left.svg";
-import Edges from "../components/Edges";
+import Dot from "../../../public/dot.svg";
+import ChevronRight from "../../../public/chevron-right.svg";
+import ChevronLeft from "../../../public/chevron-left.svg";
+import Edges from "../Edges";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 
 const testimonials = [
