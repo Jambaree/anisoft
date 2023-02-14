@@ -51,10 +51,7 @@ const Input = forwardRef(
 				{label && (
 					<label
 						htmlFor={id || name}
-						className={clsx(
-							'block text-[16px] text-black  tracking-wide',
-							labelClassName
-						)}
+						className={clsx('p-details', labelClassName)}
 					>
 						{label}
 						{required && <span className='text-red-500'> *</span>}
@@ -68,9 +65,9 @@ const Input = forwardRef(
 						name={name}
 						type={type}
 						className={clsx(
-							'appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black',
+							'appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black active:border-lightGreen ',
 							' shadow-sm placeholder-gray-400 focus:outline-none',
-							'focus:ring-light focus:border-light ',
+							' focus:border-lightGreen ',
 							disabled && 'opacity-50',
 							error &&
 								'block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500  rounded-md',
