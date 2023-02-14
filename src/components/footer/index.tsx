@@ -12,6 +12,7 @@ export default async function Footer({ data }) {
   const menuItems = await useMenuItems({
     name: "footer",
   });
+
   return (
     <div className="w-full primaryRadialBg">
       <Edges size="lg">

@@ -36,7 +36,8 @@ const FooterTopperCTA = ({ data }) => {
         alt="big-A"
         width="516"
         height="596"
-        className="ml-auto"
+        className="ml-auto h-auto w-auto"
+        priority
       ></Image>
     </div>
   );
