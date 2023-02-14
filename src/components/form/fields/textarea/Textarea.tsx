@@ -24,9 +24,12 @@ interface InputProps {
   required?: boolean;
   description?: string;
   defaultValue?: string;
+  displayName?: string;
+  Textarea?: any;
 }
 
 const Textarea = forwardRef(
+  
   (
     {
       id,
@@ -43,9 +46,11 @@ const Textarea = forwardRef(
       description,
       disabled,
       ...rest
+      
     }: InputProps,
     ref: React.Ref<HTMLTextAreaElement>
   ) => {
+    
     return (
       <div className={className}>
         {label && (
@@ -119,5 +124,6 @@ const Textarea = forwardRef(
     );
   }
 );
+Textarea.displayName = 'Textarea';
 
 export default Textarea;

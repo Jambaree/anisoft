@@ -1,62 +1,69 @@
-"use client";
-import { use } from "react";
-import { gql, request } from "graphql-request";
-import Form from "./Form";
+'use client';
+import { use } from 'react';
+import { gql, request } from 'graphql-request';
+import Form from './Form';
+import Edges from '../Edges';
 
 type GravityFormProps = {
-  formId: string;
+	formId: string;
 };
 
 export default function GravityForm({ formId }: GravityFormProps) {
-  const form = use(getForm({ formId }));
+	const form = use(getForm({ formId }));
 
-  return <Form form={form} />;
+	return (
+		<div className='my-[65px]'>
+			<Edges size='md'>
+				<Form form={form} />
+			</Edges>
+		</div>
+	);
 }
 
 const formQueryDocument = gql`
-  query getForm($formId: ID!) {
-    gfForm(id: $formId, idType: DATABASE_ID) {
-      id
-      databaseId
-      title
-      formFields {
-        nodes {
-          id
-          type
-          displayOnly
-          visibility
-          ... on TextField {
-            label
-            isRequired
-          }
-          ... on EmailField {
-            label
-            isRequired
-          }
-          ... on TextAreaField {
-            label
-            isRequired
-          }
-        }
-      }
-      formId
-      description
-    }
-  }
+	query getForm($formId: ID!) {
+		gfForm(id: $formId, idType: DATABASE_ID) {
+			id
+			databaseId
+			title
+			formFields {
+				nodes {
+					id
+					type
+					displayOnly
+					visibility
+					... on TextField {
+						label
+						isRequired
+					}
+					... on EmailField {
+						label
+						isRequired
+					}
+					... on TextAreaField {
+						label
+						isRequired
+					}
+				}
+			}
+			formId
+			description
+		}
+	}
 `;
 
 async function getForm({ formId }: { formId: string }) {
-  if (!process.env.NEXT_PUBLIC_WP_URL) {
-    throw new Error("Missing NEXT_PUBLIC_WP_URL environment variable");
-  }
+	if (!process.env.NEXT_PUBLIC_WP_URL) {
+		throw new Error('Missing NEXT_PUBLIC_WP_URL environment variable');
+	}
 
-  const res = await request({
-    url: process.env.NEXT_PUBLIC_WP_URL,
-    variables: {
-      formId,
-    },
-    document: formQueryDocument,
-  });
+	const res = await request({
+		url: process.env.NEXT_PUBLIC_WP_URL,
+		variables: {
+			formId,
+		},
+		document: formQueryDocument,
+	});
 
-  return res?.gfForm;
+	return res?.gfForm;
 }
