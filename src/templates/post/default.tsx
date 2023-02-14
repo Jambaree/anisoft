@@ -10,7 +10,7 @@ export default async function DefaultPostTemplate({ uri }) {
   return (
     <div>
       <PageHeader data={post} />
-      <QuickFacts data={post?.template?.quickFacts} />
+      <QuickFacts data={post?.quickFacts} />
       <FooterTopperCTA data={post?.template?.footerTopperCta} />
     </div>
   );
@@ -22,6 +22,15 @@ const query = `
       id
       title
       content
+      quickFacts {
+        text1
+        text2
+        facts {
+          description
+          factIcon
+          title
+        }
+      }
       template {
         ... on DefaultTemplate {
           templateName
@@ -33,15 +42,7 @@ const query = `
               url
             }
           }
-          quickFacts {
-            text1
-            text2
-            facts {
-              description
-              factIcon
-              title
-            }
-          }
+
         }
       }
     }
