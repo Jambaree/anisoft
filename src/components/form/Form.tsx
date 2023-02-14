@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 import { forwardRef } from 'react';
 import { useForm } from 'react-hook-form';
@@ -41,7 +42,7 @@ export default function Form({ form }) {
 		// isError,
 		// isSuccess,
 		error,
-	} = useMutation((variables) => {
+	} = useMutation((variables:any) => {
 		return request({
 			url: process.env.NEXT_PUBLIC_WP_URL,
 			variables,
@@ -143,7 +144,6 @@ export default function Form({ form }) {
 	);
 }
 const FormField = forwardRef(({ field, error, ...rest }, ref) => {
-	console.log(field);
 	const inputProps = {
 		...field,
 		required: !!field.isRequired,
