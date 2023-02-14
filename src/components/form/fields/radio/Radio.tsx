@@ -62,7 +62,7 @@ const Radio = forwardRef(
 				)}
 
 				{choices && choices.length > 0 && (
-					<div className='mt-1 relative'>
+					<div className='mt-1 relative '>
 						{choices.map((option) => (
 							<label
 								key={option.value}
@@ -74,12 +74,12 @@ const Radio = forwardRef(
 									id={`${id}-${option.value}`}
 									name={name}
 									value={option.value}
-									className='form-radio h-4 w-4 text-lightGreen border-lightGreen focus:ring-lightGreen'
+									className='form-radio h-4 w-4  '
 									defaultChecked={option.isSelected}
 									disabled={disabled}
 									onChange={onChange}
 								/>
-								<span className='ml-2 text-gray-700'>{option.text}</span>
+								<span className='ml-2 text-black'>{option.text}</span>
 							</label>
 						))}
 						{error && (
