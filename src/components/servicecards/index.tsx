@@ -57,7 +57,7 @@ const ServiceCards = ({ services }) => {
                     className="flex md:mr-[80px] relative md:my-[221px] "
                   >
                     <div
-                      className="absolute -top-[20%] md:-top-[100%]"
+                      className="absolute -top-[50%] md:-top-[70%] h-full"
                       id={service.name}
                     ></div>
 
