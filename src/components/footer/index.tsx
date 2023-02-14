@@ -12,6 +12,7 @@ export default async function Footer({ data }) {
   const menuItems = await useMenuItems({
     name: "footer",
   });
+
   return (
     <div className="w-full primaryRadialBg">
       <Edges size="lg">
@@ -24,8 +25,8 @@ export default async function Footer({ data }) {
                 </Link>
               </div>
               <div className="flex flex-col mb-[27px] p-footer">
-                <p className="text-white">{contactInformation.phone}</p>
-                <p className="text-white">{contactInformation.email}</p>
+                <p className="text-white">{contactInformation?.phoneNumber}</p>
+                <p className="text-white">{contactInformation?.email}</p>
               </div>
               <div className="flex flex-row">
                 {contactInformation?.socials.map((link, index) => (

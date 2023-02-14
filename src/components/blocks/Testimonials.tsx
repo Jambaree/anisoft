@@ -1,56 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Dot from "../../public/dot.svg";
-import ChevronRight from "../../public/chevron-right.svg";
-import ChevronLeft from "../../public/chevron-left.svg";
-import Edges from "../components/Edges";
+import Dot from "../../../public/dot.svg";
+import ChevronRight from "../../../public/chevron-right.svg";
+import ChevronLeft from "../../../public/chevron-left.svg";
+import Edges from "../Edges";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 
-const testimonials = [
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Judith Black",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Bobby boy",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Cats and Dogs",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Best worker",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Yippie boy",
-    title: "CEO, Workcation",
-  },
-];
-
-export default function Testimonials() {
+export default function Testimonials({ testimonials }) {
   const [animateDirection, setAnimateDirection] = useState("right");
   const handleSlideChange = (activeSlide, direction) => {
     setAnimateDirection(direction);
