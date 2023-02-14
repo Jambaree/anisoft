@@ -7,50 +7,7 @@ import ChevronLeft from "../../../public/chevron-left.svg";
 import Edges from "../Edges";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 
-const testimonials = [
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Judith Black",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Bobby boy",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Cats and Dogs",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Best worker",
-    title: "CEO, Workcation",
-  },
-  {
-    image:
-      "https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.",
-    name: "Yippie boy",
-    title: "CEO, Workcation",
-  },
-];
-
-export default function Testimonials() {
+export default function Testimonials({ testimonials }) {
   const [animateDirection, setAnimateDirection] = useState("right");
   const handleSlideChange = (activeSlide, direction) => {
     setAnimateDirection(direction);
@@ -116,7 +73,7 @@ export default function Testimonials() {
                       <div className="h-[61px] w-[91px] mx-auto mb-[40px]">
                         <Image
                           className="object-cover "
-                          src="/placeholderLogo2.png"
+                          src={testimonial?.image?.sourceUrl}
                           height="61"
                           width="91"
                           alt="Workcation"
@@ -125,13 +82,15 @@ export default function Testimonials() {
                       <div>
                         <div className="mx-auto max-w-3xl text-center text-2xl  leading-9 ">
                           <h4 className="font-maven">
-                            &ldquo;{testimonial.description}&rdquo;
+                            &ldquo;{testimonial?.description}&rdquo;
                           </h4>
                         </div>
                         <div className="mt-8 mb-[51px]">
                           <div className="md:flex md:items-center md:justify-center">
                             <div className="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
-                              <p className="font-mukta  ">{testimonial.name}</p>
+                              <p className="font-mukta  ">
+                                {testimonial?.name}
+                              </p>
 
                               <svg
                                 className="mx-1 hidden h-5 w-5 text-indigo-600 md:block fill-lightGreen"
@@ -141,7 +100,7 @@ export default function Testimonials() {
                               </svg>
 
                               <p className="  font-mukta">
-                                {testimonial.title}
+                                {testimonial?.title}
                               </p>
                             </div>
                           </div>
