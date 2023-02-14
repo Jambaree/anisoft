@@ -18,6 +18,7 @@ export default async function QuotePageTemplate({ uri }) {
   return (
     <div>
       <PageHeader2 text={content} title={title} />
+      {/* @ts-expect-error Server Component */}
       <GravityForm formId={form?.formId} />
     </div>
   );

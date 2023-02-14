@@ -36,35 +36,26 @@ export default async function RootLayout({
   });
 
   return (
-		<html
-			lang='en'
-			className={`${maven.variable} ${mukta.variable}`}
-		>
-			<head>
-				<meta charSet='utf-8' />
-				<meta
-					name='viewport'
-					content='width=device-width, initial-scale=1'
-				/>
-				<link
-					href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css'
-					rel='stylesheet'
-				/>
-			</head>
-			<body id='top'>
-				<Header
-					data={header}
-					menuItems={headerMenuItems}
-				/>
-				<Providers>{children}</Providers>{' '}
-				{/* @ts-expect-error Server Component */}
-				<Footer
-					data={footer}
-					// productMenuItems={productMenuItems}
-				/>
-			</body>
-		</html>
-	);
+    <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
+          rel="stylesheet"
+        />
+      </head>
+      <body id="top">
+        <Header data={header} menuItems={headerMenuItems} />
+        <Providers>{children}</Providers>{" "}
+        {/* @ts-expect-error Server Component */}
+        <Footer
+          data={footer}
+          // productMenuItems={productMenuItems}
+        />
+      </body>
+    </html>
+  );
 }
 
 const query = `
@@ -72,7 +63,10 @@ const query = `
     themeOptions {
       options {
         header {
-          buttonText
+          button {
+            title
+            url
+          }
         }
         footer {
           link2 {
