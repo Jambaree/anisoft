@@ -27,7 +27,7 @@ export default function Header({ menuItems, data }) {
               <Logo />
             </Link>
             <HeaderMenuItems menuItems={menuItems} data={data} />
-            <div className="md:hidden flex">
+            <div className="md:hidden flex ml-[10px] md:ml-0">
               {!isOpen ? (
                 <button
                   className="w-[30px] h-[30px] relative"
@@ -43,7 +43,7 @@ export default function Header({ menuItems, data }) {
                   />
                 </button>
               ) : (
-                <button className="w-[30px] h-[30px] ml-auto relative">
+                <button className="w-[30px] h-[30px] relative ml-[10px] md:ml-0">
                   <Image
                     src="/close.svg"
                     alt="close-icon"

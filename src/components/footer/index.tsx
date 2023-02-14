@@ -17,7 +17,7 @@ export default async function Footer({ data }) {
     <div className="w-full primaryRadialBg">
       <Edges size="lg">
         <div className="flex flex-col pt-[80px]">
-          <div className="flex flex-col md:flex-row md:justify-between pb-[100px]">
+          <div className="flex flex-col md:flex-row md:justify-between pb-[100px] ">
             <div>
               <div className="mb-[32px]">
                 <Link href="/">
