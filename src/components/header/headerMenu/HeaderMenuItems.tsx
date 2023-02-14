@@ -32,7 +32,7 @@ const MenuItems = ({ menuItems, data }) => {
         {data?.button && (
           <div className="ml-[16px] mr-[26px] lg:mr-0">
             <Button variant="medium" href={data?.button?.url}>
-              {data?.button?.label}
+              {data?.button?.title}
             </Button>
           </div>
         )}
