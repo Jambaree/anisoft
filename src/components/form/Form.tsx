@@ -57,7 +57,7 @@ export default function Form({ form }) {
 
     // return res;
   });
-  console.log(form);
+
   const onSubmit = (formValues: any) => {
     const formattedData = formatData(formValues);
 
