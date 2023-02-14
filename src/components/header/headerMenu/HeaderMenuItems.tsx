@@ -29,10 +29,10 @@ const MenuItems = ({ menuItems, data }) => {
           </div>
         ))}
 
-        {data?.buttonText && (
+        {data?.button && (
           <div className="ml-[16px] mr-[26px] lg:mr-0">
-            <Button variant="medium" href="/">
-              {data?.buttonText}
+            <Button variant="medium" href={data?.button?.url}>
+              {data?.button?.label}
             </Button>
           </div>
         )}
