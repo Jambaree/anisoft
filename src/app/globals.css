@@ -137,3 +137,31 @@
 .mapboxgl-ctrl-compass {
   display: none !important;
 }
+.ql-container {
+	border: none !important;
+}
+
+.ql-editor {
+	font-family: var(--font-mukta);
+	font-style: normal;
+	font-weight: 300;
+	font-size: 1.125rem;
+	line-height: 27px;
+}
+
+.richText > * {
+	padding-bottom: 15px !important;
+	list-style: inside !important;
+	font-family: var(--font-mukta);
+	font-style: normal;
+	font-weight: 300;
+	font-size: 1.125rem;
+	line-height: 27px;
+}
+.richText > ul > li {
+	padding-bottom: 15px !important;
+	padding-left: 15px !important;
+}
+.richText > * {
+	padding-bottom: 15px !important;
+}
