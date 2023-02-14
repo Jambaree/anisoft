@@ -39,19 +39,33 @@ export default async function RootLayout({
   });
 
   return (
-    <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
-      <body>
-        <Header menuItems={headerMenuItems} />
+		<html
+			lang='en'
+			className={`${maven.variable} ${mukta.variable}`}
+		>
+			<head>
+				<meta charSet='utf-8' />
+				<meta
+					name='viewport'
+					content='width=device-width, initial-scale=1'
+				/>
+				<link
+					href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css'
+					rel='stylesheet'
+				/>
+			</head>
+			<body>
+				<Header menuItems={headerMenuItems} />
 
-        {children}
-        {/* @ts-expect-error Server Component */}
-        <Footer
+				{children}
+				{/* @ts-expect-error Server Component */}
+				<Footer
 
-        // productMenuItems={productMenuItems}
-        />
-      </body>
-    </html>
-  );
+				// productMenuItems={productMenuItems}
+				/>
+			</body>
+		</html>
+	);
 }
 
 // const query = `
