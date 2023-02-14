@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import ChevronUp from "../../../public/chevron-up.svg";
 
-const CardsNavBar = ({ services, activeIndex, handleScrollToTop }) => {
+const CardsNavBar = ({ services, activeIndex }) => {
   const refArray = useRef([]);
   const [activeNav, setActiveNav] = useState(-1);
 
