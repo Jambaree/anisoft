@@ -86,7 +86,7 @@ const MobileMenu = ({ isOpen, menu }) => {
                                 index
                               );
                             }}
-                            className="cursor-pointer nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px]"
+                            className="cursor-pointer nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px] items-center"
                           >
                             {item.label}
 
