@@ -77,28 +77,39 @@ const MobileMenu = ({ isOpen, menu }) => {
                   <div key={index}>
                     {!subMenuIsOpen && (
                       <div className=" flex flex-col text-left">
-                        <Link
-                          onClick={() => {
-                            handleSubMenu(
-                              subMenuIsOpen,
-                              item?.childItems?.nodes,
-                              index
-                            );
-                          }}
-                          href={
-                            item?.childItems?.nodes > 0 ? "#" : item?.url || "/"
-                          }
-                          className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between ml-[15px]"
-                        >
-                          {item.label}
+                        {item?.childItems?.nodes?.length > 0 ? (
+                          <div
+                            onClick={() => {
+                              handleSubMenu(
+                                subMenuIsOpen,
+                                item?.childItems?.nodes,
+                                index
+                              );
+                            }}
+                            className="cursor-pointer nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px]"
+                          >
+                            {item.label}
 
-                          {item?.childItems?.nodes.length > 0 && (
                             <ChevonRight
                               width="6"
                               className="mr-[11px] w-[6px] h-[10px] fill-black rotate-180"
                             />
-                          )}
-                        </Link>
+                          </div>
+                        ) : (
+                          <Link
+                            onClick={() => {
+                              handleSubMenu(
+                                subMenuIsOpen,
+                                item?.childItems?.nodes,
+                                index
+                              );
+                            }}
+                            href={item?.url || "/"}
+                            className="nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px]"
+                          >
+                            {item.label}
+                          </Link>
+                        )}
                       </div>
                     )}
 
