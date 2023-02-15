@@ -64,7 +64,7 @@ const Button: React.FC<IButtonProps> = ({
 					{variant === 'basicWhite' ? (
 						<ChevronRight className='fill-white h-[13px] w-[8px]' />
 					) : (
-						<ChevronRight className=' fill-white h-[13px] w-[8px]' />
+						<ChevronRight className=' fill-black h-[13px] w-[8px]' />
 					)}
 				</motion.div>
 			)}
