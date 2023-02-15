@@ -24,6 +24,7 @@ const ServiceCards = ({ services }) => {
       setCurrentImage(services[index].image?.sourceUrl);
     }
   };
+
   const windowHeight = typeof window !== "undefined" && window.innerHeight;
   const imageRef = useRef(null);
 
@@ -54,13 +55,8 @@ const ServiceCards = ({ services }) => {
                 {({ ref, inView }) => (
                   <div
                     key={index}
-                    className="flex md:mr-[80px] relative md:my-[221px] "
+                    className="flex md:mr-[80px] relative md:my-[235px] "
                   >
-                    <div
-                      className="absolute -top-[50%] md:-top-[70%] h-full"
-                      id={service.name}
-                    ></div>
-
                     <div
                       className={classNames(
                         // index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
@@ -69,6 +65,10 @@ const ServiceCards = ({ services }) => {
                     >
                       <div className="flex flex-col justify-center " ref={ref}>
                         <h1 className="mb-[24px]">{service?.name}</h1>
+                        <div
+                          className="block h-[30vh] -mt-[30vh] md:h-[50vh] md:-mt-[50vh] invisible"
+                          id={service.name}
+                        ></div>
                         <div className="mb-[32px]">
                           {parse(service?.description)}
                         </div>
