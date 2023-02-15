@@ -39,7 +39,7 @@ const CardsNavBar = ({ services, activeIndex }) => {
     }
 
     window.addEventListener("scroll", handleScrollNav);
-  }, [activeNav, activeIndex]);
+  }, [activeNav, activeIndex, handleResize, handleResize]);
 
   return (
     <div className="md:block hidden w-full bg-darkPurple sticky top-[100px] z-40">
@@ -84,10 +84,7 @@ const CardsNavBar = ({ services, activeIndex }) => {
           })}
         </div>
         <a href="#top">
-          <p
-            className="text-white flex flex-row items-center"
-            onClick={() => setActiveNav(-1)}
-          >
+          <p className="text-white flex flex-row items-center">
             <ChevronUp className="mr-[10px]" />
             Return to top
           </p>
