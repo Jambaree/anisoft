@@ -7,7 +7,7 @@ const PageHeader = ({ data }) => {
   const { title, content } = data;
 
   return (
-    <div className=" py-[90px] overflow-x-auto">
+    <div className=" py-[90px] overflow-x-hidden">
       <Edges size="lg">
         <div className="flex flex-wrap md:justify-between">
           <SideIn right={false} className="flex flex-col md:w-[30%]">
