@@ -1,6 +1,7 @@
 import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
+import parse from "html-react-parser";
 
 function InfoCallout({ headline, tag, button1, button2, text }) {
   return (
@@ -45,9 +46,7 @@ function InfoCallout({ headline, tag, button1, button2, text }) {
             {text && (
               <FadeInUp className="flex items-center justify-center ">
                 <div>
-                  <div className="relative  cursor-pointer">
-                    <div dangerouslySetInnerHTML={{ __html: text }} />
-                  </div>
+                  <p className="relative">{parse(text)}</p>
                 </div>
               </FadeInUp>
             )}
