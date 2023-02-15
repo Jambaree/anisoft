@@ -16,9 +16,7 @@ function InfoCallout({ headline, tag, button1, button2, text }) {
             )}
             {headline && (
               <FadeInUp className="delay-100">
-                <h1 className="heroHeadline max-w-[985px] text-[40px]  sm:text-[60px]">
-                  {headline}
-                </h1>
+                <h1 className=" max-w-[985px] text-[48px] ">{headline}</h1>
               </FadeInUp>
             )}
 
