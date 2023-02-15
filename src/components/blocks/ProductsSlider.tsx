@@ -3,7 +3,7 @@ import ProductsList from "../ProductsList";
 
 function ProductsSlider({ headline, tag, products }) {
   return (
-    <div className="bg-white py-[50px] md:py-[75px] overflow-x-auto">
+    <div className="bg-white py-[50px] md:py-[75px] overflow-x-hidden">
       <Edges size="lg">
         <div className="flex w-full h-auto  text-darkPurple flex-col">
           <div className="max-w-[900px] pb-[60px]">
