@@ -46,6 +46,7 @@ const MobileMenu = ({ isOpen, menu }) => {
   const handleSubMenu = (subMenuIsOpen, childItems, index) => {
     if (childItems.length <= 0) {
       setSubMenuIsOpen(false);
+      subMenuIsOpen(false);
     } else {
       setOpenedMenu(index);
       setSubMenuIsOpen(!subMenuIsOpen);
@@ -84,7 +85,9 @@ const MobileMenu = ({ isOpen, menu }) => {
                               index
                             );
                           }}
-                          href={item?.url || "/"}
+                          href={
+                            item?.childItems?.nodes > 0 ? "#" : item?.url || "/"
+                          }
                           className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between ml-[15px]"
                         >
                           {item.label}

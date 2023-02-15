@@ -31,7 +31,7 @@ function Anisoft({ headline, tag, button, text }) {
             </div>
             <div className="max-w-[500px] flex flex-col pt-[50px] md:pt-[150px]">
               {text && <p>{text}</p>}
-              <div className="pt-[50px] flex wrap gap-[30px] flex-wrap-reverse w-auto mr-[50px]">
+              <div className="pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]">
                 {button?.url && (
                   <Button variant="large" href={button?.url}>
                     {button?.title}
