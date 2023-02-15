@@ -13,6 +13,10 @@ export default async function Footer({ data }) {
     name: "footer",
   });
 
+  const productMenuItems = await useMenuItems({
+    name: "SingleProduct",
+  });
+
   return (
     <div className="w-full primaryRadialBg">
       <Edges size="lg">
@@ -38,7 +42,10 @@ export default async function Footer({ data }) {
               </div>
             </div>
             <div className="max-w-[384px] mt-[30px] md:mt-0">
-              <FooterMenuItems menuItems={menuItems} />
+              <FooterMenuItems
+                menuItems={menuItems}
+                productMenuItems={productMenuItems}
+              />
             </div>
           </div>
           <div className="bg-white w-full h-[1px] mb-[32px]"></div>
