@@ -11,14 +11,14 @@ const MenuItems = ({ menuItems, data }) => {
     <>
       <ul className="flex-row justify-between  items-center hidden md:flex">
         {menuItems?.map((item, index) => (
-          <div
+          <li
             key={index}
             className="relative"
             onMouseEnter={() => setHoverIndex(index)}
             onMouseLeave={() => setHoverIndex(-1)}
           >
             <div className="relative flex flex-col">
-              <li
+              <div
                 className="nav text-lightBlue px-[16px] py-[40px] "
                 key={index}
               >
@@ -27,13 +27,13 @@ const MenuItems = ({ menuItems, data }) => {
                 ) : (
                   <Link href={item?.url || "/"}>{item?.label}</Link>
                 )}
-              </li>
+              </div>
             </div>
 
             {hoverIndex === index && item?.childItems?.nodes.length > 0 && (
               <SubMenu childItems={item?.childItems} />
             )}
-          </div>
+          </li>
         ))}
 
         {data?.button && (

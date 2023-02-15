@@ -23,7 +23,7 @@ export default function Header({ menuItems, data }) {
       <div className="fixed bg-white w-full border-b-[1px] border-b-[#0E0A30] top-0 z-50">
         <Edges size="lg">
           <div className="flex flex-row justify-between items-center relative">
-            <Link href="/" className="my-[31px]">
+            <Link href="/" className="my-[31px]" aria-label="logo-home-link">
               <Logo />
             </Link>
             <HeaderMenuItems menuItems={menuItems} data={data} />

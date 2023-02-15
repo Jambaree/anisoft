@@ -24,7 +24,7 @@ export default async function Footer({ data }) {
           <div className="flex flex-col md:flex-row md:justify-between pb-[100px] ">
             <div>
               <div className="mb-[32px]">
-                <Link href="/">
+                <Link href="/" aria-label="logo-home-link">
                   <InvertedLogo />
                 </Link>
               </div>
@@ -34,7 +34,12 @@ export default async function Footer({ data }) {
               </div>
               <div className="flex flex-row">
                 {contactInformation?.socials.map((link, index) => (
-                  <a key={index} href={link?.url || "/"} className="mr-[22px]">
+                  <a
+                    aria-label="social link"
+                    key={index}
+                    href={link?.url || "/"}
+                    className="mr-[22px]"
+                  >
                     {link.icon === "facebook" && <Facebook />}
                     {link.icon === "linkedin" && <Linkedin />}
                   </a>
