@@ -22,7 +22,11 @@ const MenuItems = ({ menuItems, data }) => {
                 className="nav text-lightBlue px-[16px] py-[40px] "
                 key={index}
               >
-                <Link href={item?.url || "/"}>{item?.label}</Link>
+                {item?.childItems?.nodes.length > 0 ? (
+                  <div className="cursor-pointer">{item?.label}</div>
+                ) : (
+                  <Link href={item?.url || "/"}>{item?.label}</Link>
+                )}
               </li>
             </div>
 
