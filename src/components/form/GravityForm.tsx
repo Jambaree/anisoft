@@ -24,68 +24,69 @@ const GravityForm: React.FC<GravityFormProps> = async ({
 };
 export default GravityForm;
 
-const query = `query getForm($formId: ID!) {
-		gfForm(id: $formId, idType: DATABASE_ID) {
-			id
-			databaseId
-			title
-			formFields {
-				nodes {
-					id
-					type
-					displayOnly
-					visibility
-					... on TextField {
-						label
-						isRequired
-						size
-					}
-					... on EmailField {
-						label
-						isRequired
-						size
-					}
-					... on TextAreaField {
-						label
-						isRequired
-						size
-					}
-					... on PhoneField {
-						label
-						isRequired
-						size
-					}
-					... on RadioField {
-						id
-						choices {
-							value
-							text
-							isSelected
-							isOtherChoice
-						}
-						label
-						type
-						value
-						visibility
-					}
-					... on FileUploadField {
-						id
-						label
-						type
-						value
-						isRequired
-						visibility
-						fileUploadValues {
-							url
-							filename
-							baseUrl
-							basePath
-						}
-					}
-				}
-			}
-			formId
-			description
-		}
-	}
+const query = /* GraphQL */ `
+  query getForm($formId: ID!) {
+    gfForm(id: $formId, idType: DATABASE_ID) {
+      id
+      databaseId
+      title
+      formFields {
+        nodes {
+          id
+          type
+          displayOnly
+          visibility
+          ... on TextField {
+            label
+            isRequired
+            size
+          }
+          ... on EmailField {
+            label
+            isRequired
+            size
+          }
+          ... on TextAreaField {
+            label
+            isRequired
+            size
+          }
+          ... on PhoneField {
+            label
+            isRequired
+            size
+          }
+          ... on RadioField {
+            id
+            choices {
+              value
+              text
+              isSelected
+              isOtherChoice
+            }
+            label
+            type
+            value
+            visibility
+          }
+          ... on FileUploadField {
+            id
+            label
+            type
+            value
+            isRequired
+            visibility
+            fileUploadValues {
+              url
+              filename
+              baseUrl
+              basePath
+            }
+          }
+        }
+      }
+      formId
+      description
+    }
+  }
 `;
