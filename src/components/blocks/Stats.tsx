@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 import { animate } from "framer-motion";
 import Image from "next/image";
 
-export default function StatsModule({ title, description, stats }) {
+export default function StatsModule({ title, description, stats, image }) {
   const Counter = ({ from, to }) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -19,6 +19,7 @@ export default function StatsModule({ title, description, stats }) {
 
     return <div ref={ref}>0</div>;
   };
+
   return (
     <div className="relative primaryRadialBg pb-[115px] md:pb-0">
       <div className="absolute bottom-0 h-80 w-full md:inset-0 md:h-full">
@@ -27,7 +28,7 @@ export default function StatsModule({ title, description, stats }) {
             <Image
               fill
               className="h-full w-full object-cover md:absolute md:inset-0 md:pl-[15%]"
-              src={stats?.image?.sourceUrl}
+              src={image?.sourceUrl}
               alt="People working on laptops"
               sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
