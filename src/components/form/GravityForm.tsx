@@ -1,23 +1,28 @@
-import Form from "./Form";
-import Edges from "../Edges";
-import { getData } from "@jambaree/next-wordpress";
+// @ts-nocheck
+
+import Form from './Form';
+import Edges from '../Edges';
+import { getData } from '@jambaree/next-wordpress';
 
 type GravityFormProps = {
-  formId: string;
+	formId: string;
 };
 
-export default async function GravityForm({ formId }: GravityFormProps) {
-  const form = await getData({ uri: "", query, variables: { formId } });
-  return (
-    <div className="my-[65px]">
-      <Edges size="md">
-        <div className="max-w-[620px] mx-auto">
-          <Form form={form?.gfForm} />
-        </div>
-      </Edges>
-    </div>
-  );
-}
+const GravityForm: React.FC<GravityFormProps> = async ({
+	formId,
+}: GravityFormProps) => {
+	const form = await getData({ uri: '', query, variables: { formId } });
+	return (
+		<div className='my-[65px]'>
+			<Edges size='md'>
+				<div className='max-w-[620px] mx-auto'>
+					<Form form={form?.gfForm} />
+				</div>
+			</Edges>
+		</div>
+	);
+};
+export default GravityForm;
 
 const query = `query getForm($formId: ID!) {
 		gfForm(id: $formId, idType: DATABASE_ID) {
@@ -49,6 +54,33 @@ const query = `query getForm($formId: ID!) {
 						label
 						isRequired
 						size
+					}
+					... on RadioField {
+						id
+						choices {
+							value
+							text
+							isSelected
+							isOtherChoice
+						}
+						label
+						type
+						value
+						visibility
+					}
+					... on FileUploadField {
+						id
+						label
+						type
+						value
+						isRequired
+						visibility
+						fileUploadValues {
+							url
+							filename
+							baseUrl
+							basePath
+						}
 					}
 				}
 			}
