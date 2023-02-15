@@ -31,7 +31,7 @@ export default function Hero({
               </FadeInUp>
             )}
             <FadeInUp className="delay-500">
-              <div className="pt-[50px] flex wrap gap-[30px] flex-wrap-reverse w-auto mr-[50px]">
+              <div className="pt-[50px] flex gap-[30px] flex-wrap w-auto mr-[50px]">
                 {button1?.url && (
                   <Button variant="large" href={button1?.url} reverse={true}>
                     {button1?.title}
