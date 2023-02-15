@@ -36,6 +36,7 @@ export default function Header({ menuItems, data }) {
                   }}
                 >
                   <Image
+                    priority
                     src="/hamburger.svg"
                     alt="hamburger-menu"
                     width="30"
