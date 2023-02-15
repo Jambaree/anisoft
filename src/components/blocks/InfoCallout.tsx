@@ -23,7 +23,7 @@ function InfoCallout({ headline, tag, button1, button2, text }) {
             )}
 
             <FadeInUp className="delay-500">
-              <div className="pt-[50px] flex wrap gap-[30px] flex-wrap-reverse w-auto mr-[50px]">
+              <div className="pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]">
                 {button1?.url && (
                   <Button variant="large" href={button1?.url} reverse={true}>
                     {button1?.title}
@@ -46,7 +46,7 @@ function InfoCallout({ headline, tag, button1, button2, text }) {
             {text && (
               <FadeInUp className="flex items-center justify-center ">
                 <div>
-                  <p className="relative">{parse(text)}</p>
+                  <div className="relative">{parse(text)}</div>
                 </div>
               </FadeInUp>
             )}

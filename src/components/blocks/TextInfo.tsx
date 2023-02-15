@@ -34,7 +34,7 @@ function TextInfo({ headline, tag, button1, button2, text }) {
               </FadeInUp>
             )}
             <FadeInUp className="delay-500">
-              <div className="pt-[50px] flex wrap gap-[30px] flex-wrap-reverse w-auto mr-[50px]">
+              <div className="pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]">
                 {button1?.url && (
                   <Button variant="large" href={button1?.url}>
                     {button1?.title}
