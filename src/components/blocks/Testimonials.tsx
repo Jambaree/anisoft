@@ -36,7 +36,7 @@ export default function Testimonials({ testimonials }) {
       <Edges size="md" className="relative w-full">
         <div className="flex flex-row justify-between">
           <ChevronLeft
-            className="fill-lightGreen min-w-[12px] w-[12px] h-[20px] relative my-auto cursor-pointer "
+            className="fill-lightGreen min-w-[12px] w-[12px] h-[20px] relative my-auto cursor-pointer ml-[25px]"
             onClick={() => handleSlideChange(activeSlide - 1, "left")}
           />
           <AnimatePresence initial={false} mode="wait">
@@ -113,7 +113,7 @@ export default function Testimonials({ testimonials }) {
           </AnimatePresence>
           <ChevronRight
             onClick={() => handleSlideChange(activeSlide + 1, "right")}
-            className="fill-lightGreen min-w-[12px] w-[12px] h-[20px] relative my-auto cursor-pointer"
+            className="fill-lightGreen min-w-[12px] w-[12px] h-[20px] relative my-auto cursor-pointer mr-[25px]"
           />
         </div>
 
