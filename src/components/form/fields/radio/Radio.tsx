@@ -79,7 +79,7 @@ const Radio = forwardRef(
 									disabled={disabled}
 									onChange={onChange}
 								/>
-								<span className='ml-2 text-black'>{option.text}</span>
+								<span className='ml-2 p-details'>{option.text}</span>
 							</label>
 						))}
 						{error && (
