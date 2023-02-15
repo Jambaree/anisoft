@@ -25,7 +25,7 @@ export default async function ContactPageTemplate({ uri }) {
   );
 }
 
-const query = `
+const query = /* GraphQL */ `
   query ContactPageQuery($uri: ID!) {
     page(id: $uri, idType: URI) {
       __typename
@@ -34,8 +34,8 @@ const query = `
       uri
       slug
       content
-           template {
-            ... on Template_Contact {
+      template {
+        ... on Template_Contact {
           templateName
           contactQuickFacts {
             fieldGroupName
@@ -63,4 +63,5 @@ const query = `
         }
       }
     }
-  }`;
+  }
+`;
