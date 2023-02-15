@@ -24,12 +24,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // temporary fix with getData, must use ` uri: "" ` for it to not break
   const {
     themeOptions: {
       options: { footer, header },
     },
-  } = await getData({ uri: "", query });
+  } = await getData({ query });
 
   const headerMenuItems = await useMenuItems({
     name: "header",
@@ -47,7 +46,7 @@ export default async function RootLayout({
       </head>
       <body id="top">
         <Header data={header} menuItems={headerMenuItems} />
-        <Providers>{children}</Providers>{" "}
+        <Providers>{children}</Providers>
         {/* @ts-expect-error Server Component */}
         <Footer
           data={footer}

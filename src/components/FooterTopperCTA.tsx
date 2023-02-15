@@ -8,7 +8,7 @@ const FooterTopperCTA = ({ data }) => {
   const { button, text1, text2 } = data;
   return (
     <div className="relative bg-lightGreyBg">
-      <div className="secondaryRadialBg  relative sm:absolute top-[35%] md:top-[50%] left-0 right-0 py-[42px]">
+      <div className="secondaryRadialBg absolute top-[15%] bottom-[25%] sm:bottom-[50%] sm:top-[50%] left-0 right-0 py-[15px] md:py-[42px] h-fit">
         <Edges
           size="md"
           className="flex flex-row flex-wrap justify-between items-center"

@@ -1,26 +1,26 @@
 // @ts-nocheck
 
-import Form from './Form';
-import Edges from '../Edges';
-import { getData } from '@jambaree/next-wordpress';
+import Form from "./Form";
+import Edges from "../Edges";
+import { getData } from "@jambaree/next-wordpress";
 
 type GravityFormProps = {
-	formId: string;
+  formId: string;
 };
 
 const GravityForm: React.FC<GravityFormProps> = async ({
-	formId,
+  formId,
 }: GravityFormProps) => {
-	const form = await getData({ uri: '', query, variables: { formId } });
-	return (
-		<div className='my-[65px]'>
-			<Edges size='md'>
-				<div className='max-w-[620px] mx-auto'>
-					<Form form={form?.gfForm} />
-				</div>
-			</Edges>
-		</div>
-	);
+  const form = await getData({ query, variables: { formId } });
+  return (
+    <div className="my-[65px]">
+      <Edges size="md">
+        <div className="max-w-[620px] mx-auto">
+          <Form form={form?.gfForm} />
+        </div>
+      </Edges>
+    </div>
+  );
 };
 export default GravityForm;
 

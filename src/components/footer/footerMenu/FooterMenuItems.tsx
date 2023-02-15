@@ -4,10 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MenuItems = ({ menuItems, productMenuItems }) => {
-  console.log(productMenuItems);
   const urlName = usePathname();
-
-  console.log(urlName);
 
   const correctMenuItems = urlName.includes("products")
     ? productMenuItems
