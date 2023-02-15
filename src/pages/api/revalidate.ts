@@ -11,7 +11,7 @@ export default async function Revalidation(
   res: NextApiResponse<Data>
 ) {
   const path: string[] = req.body.path;
-
+  console.log(`Revalidating: ${path}`);
   // todo: add secret to prevent unauthorized requestset to confirm this is a valid request
   //   if (req.query.secret !== process.env.MY_SECRET_TOKEN) {
   //     return res.status(401).json({ message: "Invalid token" });
