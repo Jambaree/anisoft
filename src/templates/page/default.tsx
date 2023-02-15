@@ -5,7 +5,7 @@ import FooterTopperCTA from "../../components/FooterTopperCTA";
 import * as blocks from "../../components/blocks";
 
 export default async function DefaultPageTemplate({ uri }) {
-  const { page } = await getData({ uri, query });
+  const { page } = await getData({ variables: { uri }, query });
   if (!page) {
     notFound();
   }
