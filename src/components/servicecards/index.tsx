@@ -66,7 +66,7 @@ const ServiceCards = ({ services }) => {
                       <div className="flex flex-col justify-center " ref={ref}>
                         <h1 className="mb-[24px]">{service?.name}</h1>
                         <div
-                          className="block h-[30vh] -mt-[30vh] md:h-[50vh] md:-mt-[50vh] invisible"
+                          className="block h-[45vh] -mt-[45vh] md:h-[50vh] md:-mt-[50vh] invisible"
                           id={service.name}
                         ></div>
                         <div className="mb-[32px]">
