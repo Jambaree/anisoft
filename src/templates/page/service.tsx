@@ -4,7 +4,7 @@ import PageHeader from "../../components/PageHeader";
 import ServiceCards from "../../components/servicecards";
 
 export default async function ServicePageTemplate({ uri }) {
-  const { page } = await getData({ uri, query });
+  const { page } = await getData({ variables: { uri }, query });
 
   const {
     template: { services },
