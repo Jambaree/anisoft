@@ -165,8 +165,13 @@
 .richText > * {
 	padding-bottom: 15px !important;
 }
-.uploadButton > button {
-	border: none !important;
+.uploadButton  {
+	/* border: none !important; */
+	font-family: var(--font-mukta) !important;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 150%;
 }
 input[type='radio'] {
 	accent-color: #459145 !important;

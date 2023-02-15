@@ -57,7 +57,7 @@ const Upload = forwardRef(
 						className={clsx('p-details', labelClassName)}
 					>
 						{label}
-						{required && <span className='text-red-500'> *</span>}
+						{required && <span className='p-details'> *</span>}
 					</label>
 				)}
 
