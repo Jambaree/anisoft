@@ -5,7 +5,7 @@ import PageHeader from "../../components/PageHeader";
 import TextInfo from "../../components/blocks/TextInfo";
 
 export default async function DefaultPostTemplate({ uri }) {
-  const { post } = await getData({ uri, query });
+  const { post } = await getData({ variables: { uri }, query });
 
   return (
     <div>
