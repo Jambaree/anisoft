@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { forwardRef } from "react";
-import { ExclamationCircleIcon } from "@heroicons/react/solid";
+import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 // import { InputProps } from "./InputTypes";
@@ -87,19 +87,19 @@ const Input = forwardRef(
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <ExclamationCircleIcon
                 className="h-5 w-5 text-red-500"
-                ariaHidden="true"
+                aria-hidden="true"
               />
             </div>
           )}
         </div>
 
-        {error && (
+        {/* {error && (
           <div>
             <span className="mt-2  text-red-600" id={`${id}-error`}>
               {error.message || "This field is required"}
             </span>
           </div>
-        )}
+        )} */}
 
         {description && (
           <div>

@@ -2,8 +2,8 @@ import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 export default function Success({ children }) {
   return (
-    <div className="rounded-md bg-green-50 p-4 my-[300px] ">
-      <div className="flex justify-center">
+    <div className="rounded-md bg-green-50 p-2 my-[300px] ">
+      <div className="flex justify-center items-center">
         <div className="flex-shrink-0">
           <CheckCircleIcon
             className="h-8 w-8 text-lightGreen"
@@ -12,7 +12,7 @@ export default function Success({ children }) {
         </div>
         <div className="ml-3 ">
           <p
-            className=" text-[20px] font-medium text-lightGreen word none break-all"
+            className=" text-[20px] font-medium text-lightGreen break-all"
             dangerouslySetInnerHTML={{ __html: children }}
           ></p>
         </div>
