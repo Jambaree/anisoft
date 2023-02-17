@@ -1,22 +1,22 @@
-import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/20/solid"
+import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 export default function Success({ children }) {
   return (
-		<div className='rounded-md bg-green-50 p-4 my-[300px] '>
-			<div className='flex'>
-				<div className='flex-shrink-0'>
-					<CheckCircleIcon
-						className='h-8 w-8 text-lightGreen'
-						aria-hidden='true'
-					/>
-				</div>
-				<div className='ml-3 '>
-					<p
-						className=' text-[20px] font-medium text-lightGreen word none break-all'
-						dangerouslySetInnerHTML={{ __html: children }}
-					></p>
-				</div>
-				{/* <div className="ml-auto pl-3">
+    <div className="rounded-md bg-green-50 p-4 my-[300px] ">
+      <div className="flex justify-center">
+        <div className="flex-shrink-0">
+          <CheckCircleIcon
+            className="h-8 w-8 text-lightGreen"
+            aria-hidden="true"
+          />
+        </div>
+        <div className="ml-3 ">
+          <p
+            className=" text-[20px] font-medium text-lightGreen word none break-all"
+            dangerouslySetInnerHTML={{ __html: children }}
+          ></p>
+        </div>
+        {/* <div className="ml-auto pl-3">
           <div className="-mx-1.5 -my-1.5">
             <button
               type="button"
@@ -27,7 +27,7 @@ export default function Success({ children }) {
             </button>
           </div>
         </div> */}
-			</div>
-		</div>
-	);
+      </div>
+    </div>
+  );
 }

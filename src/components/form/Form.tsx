@@ -30,80 +30,46 @@ import classNames from "classnames";
 // `;
 
 export default function Form({ form }) {
-  console.log({ form });
   const {
     register,
     handleSubmit,
-    watch,
-    setError,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm();
 
-  const {
-    mutate: submitForm,
-    data,
-    isLoading,
-    // isError,
-    // isSuccess,
-    error,
-  } = useMutation(({ formData, formJson }: any) => {
-    console.log({ formData, formJson });
-
-    console.log({ ["input_1"]: formData.get("input_1") });
-
+  const { mutate: submitForm, isLoading } = useMutation(({ formdata }: any) => {
     const request = fetch(
-      `${process.env.NEXT_PUBLIC_NEW_WP_URL}/wp-json/gf/v2/forms/${form.databaseId}/submissions`,
+      `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.formId}/submissions`,
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formJson),
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
-        // body: formData,
+        body: formdata,
       }
     );
 
     return request;
-
-    // return request({
-    //   url: process.env.NEXT_PUBLIC_WP_URL,
-    //   variables,
-    //   document: submitFormQueryDocument,
-    // });
-
-    // console.log({ res });
-
-    // if (res?.submitGfForm?.errors?.length) {
-    //   throw new Error(res.submitGfForm.errors[0].message);
-    // }
-
-    // return res;
   });
 
   const onSubmit = (formValues: any) => {
-    const { formData, formJson } = formatData(formValues);
+    const { formdata } = formatData(formValues);
 
-    submitForm({ formData, formJson });
+    submitForm({ formdata });
   };
 
   const fields = form?.formFields?.nodes;
 
-  const isError = !!data?.submitGfForm?.errors?.length;
-  const errorMessage = data?.submitGfForm?.errors?.[0]?.message;
-  const gfErrors = data?.submitGfForm?.errors;
+  // const isError = !!data?.submitGfForm?.errors?.length;
+  // const errorMessage = data?.submitGfForm?.errors?.[0]?.message;
+  // const gfErrors = data?.submitGfForm?.errors;
 
-  const isSuccess = !!data?.submitGfForm?.confirmation?.message;
-  const successMessage = data?.submitGfForm?.confirmation?.message;
+  // const isSuccess = !!data?.submitGfForm?.confirmation?.message;
+  // const successMessage = data?.submitGfForm?.confirmation?.message;
+
   return (
     <>
-      {isError && <Error errors={gfErrors}></Error>}
+      {/* {isError && <Error errors={gfErrors}></Error>} */}
 
-      {isSuccess && <Success>{successMessage}</Success>}
+      {isSubmitSuccessful && <Success>Form successfully submitted.</Success>}
 
-      {!isSuccess && (
+      {!isSubmitSuccessful && (
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-wrap justify-between items-center "
@@ -114,7 +80,7 @@ export default function Form({ form }) {
 
             return (
               <div
-                key={field.id}
+                key={index}
                 className={classNames(
                   "mb-[50px]",
                   `${field.size === "MEDIUM" ? "w-full md:w-[48%]" : "w-full "}`
@@ -197,79 +163,22 @@ const FormField = forwardRef(({ field, error, ...rest }, ref) => {
 FormField.displayName = "FormField";
 
 const formatData = (data) => {
-  const formData = new FormData();
-
-  const formJson = {};
+  const formdata = new FormData();
 
   Object.entries(data).map(([key, value]) => {
     const fieldType = key.split("_")[0];
     const fieldId = key.split("_")[1];
 
-    // const fieldData = {
-    //   id: Number(fieldId),
-    // };
-
     switch (fieldType) {
-      //   case "EMAIL":
-      //     fieldData.emailValues = { value };
-      //     break;
-
-      //   case "TEXT":
-      //     formData.append(`input_${fieldId}`, value.replace(/(<([^>]+)>)/gi, ""));
-
-      //     break;
+      case "FILEUPLOAD":
+        formdata.append(`input_${fieldId}`, value[0]);
+        break;
 
       default:
-        formJson[`input_${fieldId}`] = value;
-        formData.append(`input_${fieldId}`, value);
-
+        formdata.append(`input_${fieldId}`, value);
         break;
     }
-
-    // if (data.formData[formField]) {
-    //   if (o.type === "text") {
-    //     // Strip out HTML tags
-    //     data.formData[formField] = data.formData[formField].replace(
-    //       /(<([^>]+)>)/gi,
-    //       ""
-    //     );
-    //   }
-
-    //   if (o.type === "consent") {
-    //     data.formData[`${formField}_1`] = data.formData[formField]
-    //       ? "yes"
-    //       : "no";
-    //     delete data.formData[formField];
-    //   }
-
-    //   if (o.type === "checkbox") {
-    //     if (data.formData[formField] && data.formData[formField].length > 0) {
-    //       JSON.parse(o.choices).map((p, i) => {
-    //         if (data.formData[formField].includes(p.value)) {
-    //           data.formData[`${formField}_${i + 1}`] = p.value;
-    //         }
-
-    //         return data;
-    //       });
-
-    //       delete data.formData[formField];
-    //     }
-    //   }
-
-    //   if (o.type === "list") {
-    //     if (data.formData[formField].length > 0) {
-    //       let array = [];
-    //       // Loop trough entries of list field
-    //       // eslint-disable-next-line
-    //       data.formData[formField].map((p) => {
-    //         // loop trough columns of list field
-    //         return o.choices.map((q) => array.push(p[q.value]));
-    //       });
-    //       data.formData[formField] = array;
-    //     }
-    //   }
-    // }
   });
 
-  return { formData, formJson };
+  return { formdata };
 };
