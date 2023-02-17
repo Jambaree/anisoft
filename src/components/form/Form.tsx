@@ -1,97 +1,79 @@
 // @ts-nocheck
 "use client";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
-import { gql, request } from "graphql-request";
 
 import Input from "./fields/input/Input";
 import Textarea from "./fields/textarea/Textarea";
 import Radio from "./fields/radio/Radio";
 import Upload from "./fields/upload/Upload";
+
 import Button from "../Button";
 import Error from "./alert/error";
 import Success from "./alert/success";
 import classNames from "classnames";
 
-const submitFormQueryDocument = gql`
-  mutation submitForm($formId: ID!, $fieldValues: [FormFieldValuesInput]!) {
-    submitGfForm(input: { fieldValues: $fieldValues, id: $formId }) {
-      confirmation {
-        message
-      }
-      clientMutationId
-      errors {
-        id
-        message
-      }
-    }
-  }
-`;
-
 export default function Form({ form }) {
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm();
 
+  const [result, setResult] = useState();
+
   const {
     mutate: submitForm,
-    data,
     isLoading,
-    // isError,
-    // isSuccess,
-    error,
-  } = useMutation((variables: any) => {
-    return request({
-      url: process.env.NEXT_PUBLIC_WPGRAPHQL_URL,
-      variables,
-      document: submitFormQueryDocument,
-    });
+    isSuccess,
+    isError,
+  } = useMutation(({ formdata }: any) => {
+    const request = fetch(
+      `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.formId}/submissions`,
+      {
+        method: "POST",
+        body: formdata,
+      }
+    )
+      .then((response) => response.text())
+      .then((result) => setResult(JSON.parse(result)))
+      .catch((error) => console.log("error", error));
 
-    // console.log({ res });
-
-    // if (res?.submitGfForm?.errors?.length) {
-    //   throw new Error(res.submitGfForm.errors[0].message);
-    // }
-
-    // return res;
+    return request;
   });
 
   const onSubmit = (formValues: any) => {
-    const formattedData = formatData(formValues);
+    const { formdata } = formatData(formValues);
 
-    submitForm({ formId: form.databaseId, fieldValues: formattedData });
+    submitForm({ formdata });
   };
 
   const fields = form?.formFields?.nodes;
-
-  const isError = !!data?.submitGfForm?.errors?.length;
-  const errorMessage = data?.submitGfForm?.errors?.[0]?.message;
-  const gfErrors = data?.submitGfForm?.errors;
-
-  const isSuccess = !!data?.submitGfForm?.confirmation?.message;
-  const successMessage = data?.submitGfForm?.confirmation?.message;
+  console.log(result);
   return (
     <>
-      {isError && <Error errors={gfErrors}></Error>}
+      {result?.is_valid === false && (
+        <Error errors={result?.validation_messages}></Error>
+      )}
 
-      {isSuccess && <Success>{successMessage}</Success>}
+      {result?.is_valid === true && (
+        <Success>{result?.confirmation_message}</Success>
+      )}
 
-      {!isSuccess && (
+      {!result?.is_valid !== false && (
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-wrap justify-between items-center "
         >
           {fields?.map?.((field, index) => {
             const inputId = `${field.type}_${field.id}`;
-            const error = errors?.[inputId];
+            const error = result?.validation_messages[field.id];
 
             return (
               <div
-                key={field.id}
+                key={index}
                 className={classNames(
                   "mb-[50px]",
                   `${field.size === "MEDIUM" ? "w-full md:w-[48%]" : "w-full "}`
@@ -174,26 +156,22 @@ const FormField = forwardRef(({ field, error, ...rest }, ref) => {
 FormField.displayName = "FormField";
 
 const formatData = (data) => {
-  const formattedData = Object.entries(data).map(([key, value]) => {
+  const formdata = new FormData();
+
+  Object.entries(data).map(([key, value]) => {
     const fieldType = key.split("_")[0];
     const fieldId = key.split("_")[1];
 
-    const fieldData = {
-      id: Number(fieldId),
-    };
-
     switch (fieldType) {
-      case "EMAIL":
-        fieldData.emailValues = { value };
+      case "FILEUPLOAD":
+        formdata.append(`input_${fieldId}`, value[0]);
         break;
 
       default:
-        fieldData.value = value;
+        formdata.append(`input_${fieldId}`, value);
         break;
     }
-
-    return fieldData;
   });
 
-  return formattedData;
+  return { formdata };
 };
