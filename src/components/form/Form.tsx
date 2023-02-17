@@ -46,22 +46,19 @@ export default function Form({ form }) {
     // isError,
     // isSuccess,
     error,
-  } = useMutation(({ formData, formJson }: any) => {
-    console.log({ formData, formJson });
+  } = useMutation(({ formData }: any) => {
+    console.log({ formData });
 
     console.log({ ["input_1"]: formData.get("input_1") });
 
     const request = fetch(
-      `${process.env.NEXT_PUBLIC_NEW_WP_URL}/wp-json/gf/v2/forms/${form.databaseId}/submissions`,
+      `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.databaseId}/submissions`,
       {
         method: "POST",
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
         },
-        body: JSON.stringify(formJson),
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
         // body: formData,
       }
     );
@@ -199,8 +196,6 @@ FormField.displayName = "FormField";
 const formatData = (data) => {
   const formData = new FormData();
 
-  const formJson = {};
-
   Object.entries(data).map(([key, value]) => {
     const fieldType = key.split("_")[0];
     const fieldId = key.split("_")[1];
@@ -220,7 +215,7 @@ const formatData = (data) => {
       //     break;
 
       default:
-        formJson[`input_${fieldId}`] = value;
+        // formJson[`input_${fieldId}`] = value;
         formData.append(`input_${fieldId}`, value);
 
         break;
@@ -271,5 +266,5 @@ const formatData = (data) => {
     // }
   });
 
-  return { formData, formJson };
+  return { formData };
 };
