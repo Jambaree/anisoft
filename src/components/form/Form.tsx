@@ -1,49 +1,45 @@
 // @ts-nocheck
 "use client";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
-import { gql, request } from "graphql-request";
 
 import Input from "./fields/input/Input";
 import Textarea from "./fields/textarea/Textarea";
 import Radio from "./fields/radio/Radio";
 import Upload from "./fields/upload/Upload";
+
 import Button from "../Button";
 import Error from "./alert/error";
 import Success from "./alert/success";
 import classNames from "classnames";
 
-// const submitFormQueryDocument = gql`
-//   mutation submitForm($formId: ID!, $fieldValues: [FormFieldValuesInput]!) {
-//     submitGfForm(input: { fieldValues: $fieldValues, id: $formId }) {
-//       confirmation {
-//         message
-//       }
-//       clientMutationId
-//       errors {
-//         id
-//         message
-//       }
-//     }
-//   }
-// `;
-
 export default function Form({ form }) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+
+    formState: { errors },
   } = useForm();
 
-  const { mutate: submitForm, isLoading } = useMutation(({ formdata }: any) => {
+  const [result, setResult] = useState();
+
+  const {
+    mutate: submitForm,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useMutation(({ formdata }: any) => {
     const request = fetch(
       `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.formId}/submissions`,
       {
         method: "POST",
         body: formdata,
       }
-    );
+    )
+      .then((response) => response.text())
+      .then((result) => setResult(JSON.parse(result)))
+      .catch((error) => console.log("error", error));
 
     return request;
   });
@@ -55,28 +51,25 @@ export default function Form({ form }) {
   };
 
   const fields = form?.formFields?.nodes;
-
-  // const isError = !!data?.submitGfForm?.errors?.length;
-  // const errorMessage = data?.submitGfForm?.errors?.[0]?.message;
-  // const gfErrors = data?.submitGfForm?.errors;
-
-  // const isSuccess = !!data?.submitGfForm?.confirmation?.message;
-  // const successMessage = data?.submitGfForm?.confirmation?.message;
-
+  console.log(result);
   return (
     <>
-      {/* {isError && <Error errors={gfErrors}></Error>} */}
+      {result?.is_valid === false && (
+        <Error errors={result?.validation_messages}></Error>
+      )}
 
-      {isSubmitSuccessful && <Success>Form successfully submitted.</Success>}
+      {result?.is_valid === true && (
+        <Success>{result?.confirmation_message}</Success>
+      )}
 
-      {!isSubmitSuccessful && (
+      {!result?.is_valid !== false && (
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-wrap justify-between items-center "
         >
           {fields?.map?.((field, index) => {
             const inputId = `${field.type}_${field.id}`;
-            const error = errors?.[inputId];
+            const error = result?.validation_messages[field.id];
 
             return (
               <div
