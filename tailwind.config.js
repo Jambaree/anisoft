@@ -36,7 +36,7 @@ module.exports = {
       "red-600": "rgb(220 38 38)",
       "red-700": "rgb(185 28 28)",
       "red-800": "rgb(153 27 27)",
-      grey: " #7D7D7D;",
+      grey: " #7D7D7D",
       white: "#FFFFFF",
       lightBlue: "#18354B",
       darkPurple: "#0E0A30",
