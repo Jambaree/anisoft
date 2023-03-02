@@ -10,7 +10,7 @@ const SubMenu = ({ childItems }) => {
           return (
             <div key={index} className=" ">
               <div className="relative w-fit ">
-                <span className="text-[1rem] font-maven font-semibold uppercase">
+                <span className="text-[1rem] font-maven font-medium uppercase">
                   {item?.label}
                 </span>
 
