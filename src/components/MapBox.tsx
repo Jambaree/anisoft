@@ -9,8 +9,8 @@ const Mapbox = (props: any) => {
       <Map
         ref={mapRef}
         initialViewState={{
-          latitude: 56.1304,
-          longitude: -106.3468,
+          latitude: 54.500402,
+          longitude: -97.357024,
           zoom: 3,
         }}
         mapStyle="mapbox://styles/mapbox/light-v9"
