@@ -8,7 +8,7 @@ const SubMenuChild = ({ childItems }) => {
   const [hoverIndex, setHoveredIndex] = useState(-1);
 
   return (
-    <div className=" flex flex-col ">
+    <div className=" flex flex-col w-[330px]">
       {childItems?.nodes?.map((item, index) => {
         return (
           <Link
