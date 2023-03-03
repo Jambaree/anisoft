@@ -5,7 +5,7 @@ import FadeInUp from "../FadeInUp";
 import classNames from "classnames";
 import Link from "next/link";
 
-const LogoModule = ({ header, logos, link }) => {
+const LogoModule = ({ header, logos }) => {
   const half = Math.ceil(logos.length / 2);
 
   return (
@@ -15,8 +15,8 @@ const LogoModule = ({ header, logos, link }) => {
           <FadeInUp>
             <h1 className="mb-[48px]">{header}</h1>
           </FadeInUp>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 grid-rows-2 gap-[24px] gap-y-[48px]">
-            {logos?.map(({ logo }, index) => {
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 grid-rows-2 gap-[30px] gap-y-[48px]">
+            {logos?.map(({ logo, link }, index) => {
               const isFirstHalf = index < half;
               return (
                 logo?.sourceUrl && (
@@ -24,7 +24,10 @@ const LogoModule = ({ header, logos, link }) => {
                     key={index}
                     className={classNames(
                       isFirstHalf ? "delay-100" : "delay-300",
-                      "relative w-[170px] h-[45px]"
+                      "relative w-[170px] h-[45px] md:col-span-2",
+                      logos.length % 4 !== 0 &&
+                        index === logos.length - 3 &&
+                        "md:col-start-2"
                     )}
                   >
                     <Link href={link?.url || ""} target="_blank">
