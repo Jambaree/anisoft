@@ -13,14 +13,16 @@ export default function StatsModule({ title, description, stats, image }) {
 
     useEffect(() => {
       if (from && to) {
-        const controls = animate(start, end, {
-          duration: 3,
-          onUpdate(value) {
-            ref.current.textContent = value.toFixed() || 0;
-          },
-        });
-        return () => controls.stop();
+        setStart(from);
+        setEnd(to);
       }
+      const controls = animate(start, end, {
+        duration: 3,
+        onUpdate(value) {
+          ref.current.textContent = value.toFixed() || 0;
+        },
+      });
+      return () => controls.stop();
     }, [end, start]);
 
     return <div ref={ref}>0</div>;
