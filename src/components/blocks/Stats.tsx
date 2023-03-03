@@ -17,7 +17,7 @@ export default function StatsModule({ title, description, stats, image }) {
         setEnd(to);
       }
       const controls = animate(start, end, {
-        duration: 3,
+        duration: 5,
         onUpdate(value) {
           ref.current.textContent = value.toFixed() || 0;
         },

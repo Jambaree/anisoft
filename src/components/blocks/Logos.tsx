@@ -24,7 +24,7 @@ const LogoModule = ({ header, logos }) => {
                     key={index}
                     className={classNames(
                       isFirstHalf ? "delay-100" : "delay-300",
-                      "relative w-[170px] h-[45px] md:col-span-2",
+                      "relative w-[170px] min-h-[45px] max-h-[45px] h-[45px] md:col-span-2 min-w-[170px] max-w-[170px]",
                       logos.length % 4 !== 0 &&
                         index === logos.length - 3 &&
                         "md:col-start-2"
