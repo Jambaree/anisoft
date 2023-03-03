@@ -15,7 +15,6 @@ export default function StatsModule({ title, description, stats, image }) {
           ref.current.textContent = value.toFixed() || 0;
         },
       });
-      return () => controls.stop();
     }, [from, to]);
 
     return <div ref={ref}>0</div>;
