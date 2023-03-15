@@ -25,9 +25,9 @@ const LogoModule = ({ header, logos }) => {
                     className={classNames(
                       isFirstHalf ? "delay-100" : "delay-300",
                       "relative w-[170px] min-h-[45px] max-h-[45px] h-[45px] md:col-span-2 min-w-[170px] max-w-[170px]",
-                      logos.length % 5 !== 0 &&
-                        index === logos.length - 1 &&
-                        "md:col-start-5"
+                      // logos.length % 5 !== 0 &&
+                      //   index === 9 &&
+                      //   "md:col-start-5"
                     )}
                   >
                     <Link href={link?.url || ""} target="_blank">
