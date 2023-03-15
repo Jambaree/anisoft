@@ -64,7 +64,10 @@
 		font-size: 1.125rem;
 		line-height: 27px;
 	}
+span{
+			font-weight: 300 !important;
 
+}
 	.hero {
 		font-family: var(--font-maven);
 		font-style: normal;
