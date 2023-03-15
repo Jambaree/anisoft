@@ -40,7 +40,7 @@ const ServiceCards = ({ services }) => {
 
       <CardsNavBar services={services} activeIndex={activeIndex} />
 
-      <Edges size="lg">
+      <div className="max-w-screen-lg md:ml-auto mx-auto md:mx-0 w-[calc(100%-64px)] md:w-[calc(100%-128px)]">
         <div className="flex relative ">
           <div>
             {services.map((service, index) => (
@@ -129,7 +129,7 @@ const ServiceCards = ({ services }) => {
             </motion.div>
           )}
         </div>
-      </Edges>
+      </div>
     </div>
   );
 };
