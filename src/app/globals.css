@@ -57,6 +57,13 @@
 		font-size: 1.125rem;
 		line-height: 27px;
 	}
+	strong{
+		font-family: var(--font-mukta);
+		font-style: normal;
+		font-weight: 600;
+		font-size: 1.125rem;
+		line-height: 27px;
+	}
 
 	.hero {
 		font-family: var(--font-maven);

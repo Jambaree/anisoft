@@ -78,8 +78,9 @@ const ServiceCards = ({ services }) => {
                             key={index}
                             className="flex flex-row items-start mb-[16px]"
                           >
-                            <div className="w-[18px] h-[4px] bg-lightGreen mr-[16px] mt-[10px]" />
-                            <p>{point?.text}</p>
+                            <div className="w-[18px] max-h-[4px] max-w-[10px] h-[4px] bg-lightGreen mr-[16px] mt-[10px]" />
+                            {/* <p>{point?.text}</p> */}
+                           {parse(point?.text)} 
                           </div>
                         ))}
 
