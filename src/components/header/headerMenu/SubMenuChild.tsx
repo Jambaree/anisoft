@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import parse from "html-react-parser";
+import { getUrlPath } from "../../../utils/getUrlPath";
 
 const SubMenuChild = ({ childItems }) => {
   const [hoverIndex, setHoveredIndex] = useState(-1);
@@ -13,7 +14,7 @@ const SubMenuChild = ({ childItems }) => {
         return (
           <Link
             key={index}
-            href={item?.url || "/"}
+            href={getUrlPath(item?.url) || "/"}
             className=" py-[20px] flex-1"
             onMouseEnter={() => {
               setHoveredIndex(index);
