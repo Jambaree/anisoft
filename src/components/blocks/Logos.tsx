@@ -15,7 +15,7 @@ const LogoModule = ({ header, logos }) => {
           <FadeInUp>
             <h1 className="mb-[48px]">{header}</h1>
           </FadeInUp>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 grid-rows-2 gap-[30px] gap-y-[48px]">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-10 grid-rows-2 gap-[30px] gap-y-[48px]">
             {logos?.map(({ logo, link }, index) => {
               const isFirstHalf = index < half;
               return (
@@ -25,9 +25,9 @@ const LogoModule = ({ header, logos }) => {
                     className={classNames(
                       isFirstHalf ? "delay-100" : "delay-300",
                       "relative w-[170px] min-h-[45px] max-h-[45px] h-[45px] md:col-span-2 min-w-[170px] max-w-[170px]",
-                      logos.length % 4 !== 0 &&
-                        index === logos.length - 3 &&
-                        "md:col-start-2"
+                      logos.length % 5 !== 0 &&
+                        index === logos.length - 1 &&
+                        "md:col-start-5"
                     )}
                   >
                     <Link href={link?.url || ""} target="_blank">
