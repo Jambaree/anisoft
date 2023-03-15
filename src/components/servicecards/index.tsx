@@ -80,7 +80,7 @@ const ServiceCards = ({ services }) => {
                           >
                             <div className="w-[18px] max-h-[4px] max-w-[10px] h-[4px] bg-lightGreen mr-[16px] mt-[10px]" />
                             {/* <p>{point?.text}</p> */}
-                           {parse(point?.text)} 
+                            {parse(point?.text)}
                           </div>
                         ))}
 
@@ -130,6 +130,30 @@ const ServiceCards = ({ services }) => {
           )}
         </div>
       </Edges>
+      {currentImage && (
+        <motion.div
+          initial={{ opacity: 0.9 }}
+          animate={controls}
+          exit={{ opacity: 0.9 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-14rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] md:mt-[112px] "
+        >
+          <div className="relative h-full">
+            <Image
+              key={activeIndex}
+              src={currentImage}
+              alt="service-image"
+              ref={imageRef}
+              fill
+              priority
+              className="object-cover "
+              sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
+            ></Image>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };
