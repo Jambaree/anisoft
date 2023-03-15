@@ -76,9 +76,9 @@ const ServiceCards = ({ services }) => {
                         {service?.points.map((point, index) => (
                           <div
                             key={index}
-                            className="flex flex-row items-center mb-[16px]"
+                            className="flex flex-row items-start mb-[16px]"
                           >
-                            <div className="w-[18px] h-[4px] bg-lightGreen mr-[16px]" />
+                            <div className="w-[18px] h-[4px] bg-lightGreen mr-[16px] mt-[10px]" />
                             <p>{point?.text}</p>
                           </div>
                         ))}
