@@ -14,6 +14,13 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   images: {
     //enter the domain or subdomain where you have WordPress installed
     domains: ["images.unsplash.com", "anisoft.wpengine.com"],

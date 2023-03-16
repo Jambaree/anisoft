@@ -9,14 +9,14 @@ const PageHeader = ({ data }) => {
   return (
     <div className=" py-[90px] overflow-x-hidden">
       <Edges size="lg">
-        <div className="flex flex-wrap md:justify-between">
-          <SideIn right={false} className="flex flex-col md:w-[30%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-between gap-[30px]">
+          <SideIn right={false} className="flex flex-col ">
             <BreadCrumbs />
             {title && (
               <h1 className="heroHeadline mb-[30px] md:mb-0">{title}</h1>
             )}
           </SideIn>
-          <SideIn className="md:w-[70%] py-2">
+          <SideIn className=" py-2 mt-auto relative">
             {content && <div>{parse(content)}</div>}
           </SideIn>
         </div>
