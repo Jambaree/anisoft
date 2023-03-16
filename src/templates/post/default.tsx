@@ -13,7 +13,8 @@ export default async function DefaultPostTemplate({ uri }) {
   return (
     <div>
       <PageHeader data={post} />
-      <QuickFacts data={post?.quickFacts} />
+
+      {post?.quickFacts?.facts && <QuickFacts data={post?.quickFacts} />}
       <TextInfo {...post?.textInfo} />
       <FooterTopperCTA data={footerTopperCta} />
     </div>
