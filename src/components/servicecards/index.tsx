@@ -110,7 +110,7 @@ const ServiceCards = ({ services }) => {
               animate={controls}
               exit={{ opacity: 0.9 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="mb-[45px] z-30 hidden md:block ml-auto sticky top-[calc(50%-14rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] md:mt-[112px] "
+              className="mb-[45px] md:mb-0 z-30 hidden md:block ml-auto sticky top-[calc(50%-14rem)] items-start  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] md:mt-[112px] "
             >
               <div className="relative h-full">
                 <Image
