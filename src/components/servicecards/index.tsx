@@ -79,7 +79,7 @@ const ServiceCards = ({ services }) => {
                             className="flex flex-row items-center mb-[16px]"
                           >
                             <div className="w-[18px] h-[4px] bg-lightGreen mr-[16px]" />
-                            <p>{point?.text}</p>
+                            {parse(point?.text)}
                           </div>
                         ))}
 
