@@ -1,36 +1,24 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import SubMenuChild from "./SubMenuChild";
 
 const SubMenu = ({ childItems }) => {
-  const [hoverIndex, setHoveredIndex] = useState(-1);
-
   return (
-    <div className="absolute bg-white z-10 border-b-[1px] border-b-[#0E0A30] border-x-[1px] border-t-none w-[274px]">
-      <div className=" flex flex-col">
+    <div className="absolute bg-white z-10 border-b-[1px] border-b-[#0E0A30] border-x-[1px] border-t-none">
+      <div className=" flex flex-row gap-[30px] p-[30px]">
         {childItems?.nodes?.map((item, index) => {
           return (
-            <Link
-              key={index}
-              href={item?.url || "/"}
-              className=" pl-[28px] whitespace-nowrap py-[25px]"
-              onMouseEnter={() => {
-                setHoveredIndex(index);
-              }}
-            >
-              <div className="relative w-fit text-[1rem] font-maven">
-                <motion.div
-                  className="bg-lightGreen  h-[14%] -top-1 left-0 absolute nav"
-                  initial={{ width: "15px" }}
-                  animate={{
-                    width: hoverIndex === index ? "63%" : "15px",
-                  }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
-                {item?.label}
+            <div key={index} className=" ">
+              <div className="relative w-fit ">
+                <span className="text-[1rem] font-maven font-medium uppercase">
+                  {item?.label}
+                </span>
+
+                {item.childItems?.nodes?.length > 0 && (
+                  <SubMenuChild childItems={item.childItems} />
+                )}
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

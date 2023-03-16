@@ -17,17 +17,19 @@ function BreadCrumbs(props) {
         className
       )}
     >
-      <div className="flex items-center whitespace-nowrap">
-        <Link className="text-gray-700 hover:text-gray-900" href={`/`}>
+      <div className="flex items-center">
+        <Link className="" href={`/`}>
           <span className="p-details">Home</span>
         </Link>
         {paths.map((path, index) => (
           <Link
-            className="text-gray-700 hover:text-gray-900"
+            className={`${
+              index === 0 ? "max-w-[175px]" : "max-w-[125px]"
+            }  overflow-hidden whitespace-nowrap overflow-ellipsis`}
             key={index}
             href={`/${paths.slice(0, index + 1).join("/")}` || "/"}
           >
-            <span className="mx-2 text-gray-400">/</span>
+            <span className="mx-2">/</span>
             <span className="p-details">
               {path
                 .replace(/[-_]/g, " ")

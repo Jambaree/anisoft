@@ -54,6 +54,7 @@ const query = /* GraphQL */ `
             locations {
               title
               phone
+              faxNumber
               longitude
               latitude
               fieldGroupName

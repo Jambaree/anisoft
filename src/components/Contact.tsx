@@ -82,6 +82,15 @@ const Contact = ({ data }) => {
                       >
                         Tel: {location.phone}
                       </a>
+                      {location.faxNumber && (
+                        <a
+                          aria-label="fax number"
+                          className="phoneLink hover:underline"
+                          href={`fax:${location.faxNumber}`}
+                        >
+                          Fax: {location.faxNumber}
+                        </a>
+                      )}
                     </div>
                   );
                 })}

@@ -64,12 +64,24 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
                       </div>
                     </button>
                   )}
-                  <Link
-                    href={item?.url || "/"}
-                    className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between "
-                  >
-                    {item.label}
-                  </Link>
+                  <div>
+                    <span className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between font-medium uppercase">
+                      {item.label}
+                    </span>
+                    <div className="flex flex-col pl-[30px]">
+                      {item.childItems?.nodes?.length > 0 &&
+                        item.childItems?.nodes?.map((child, index) => (
+                          <Link
+                            className="nav text-darkPurple leading-[24px] mb-[35px] "
+                            key={index}
+                            href={child?.url || "/"}
+                            passHref
+                          >
+                            {child?.label}
+                          </Link>
+                        ))}
+                    </div>
+                  </div>
                 </div>
               ))}
             </motion.div>
