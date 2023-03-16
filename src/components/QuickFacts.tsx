@@ -2,7 +2,7 @@ import React from "react";
 import Edges from "../components/Edges";
 import Image from "next/image";
 import FadeInUp from "./FadeInUp";
-import parser from "html-react-parser";
+import parse from "html-react-parser";
 
 const handleDelay = (index) => {
   if (index === 0) {
@@ -56,7 +56,7 @@ const QuickFacts = ({ data }) => {
                     <div className="mb-[21px] text-[1.375rem] leading-[26.4px] font-maven">
                       {fact.title}
                     </div>
-                    {parser(fact.description)}
+                    {parse(fact.description)}
                   </div>
                 </FadeInUp>
               );
