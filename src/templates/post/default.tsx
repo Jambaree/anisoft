@@ -5,19 +5,22 @@ import PageHeader from "../../components/PageHeader";
 import TextInfo from "../../components/blocks/TextInfo";
 
 export default async function DefaultPostTemplate({ uri }) {
-  const { post } = await getData({ variables: { uri }, query });
+  const { post, themeOptions } = await getData({ variables: { uri }, query });
+  const {
+    options: { footerTopperCta },
+  } = themeOptions;
 
   return (
     <div>
       <PageHeader data={post} />
       <QuickFacts data={post?.quickFacts} />
       <TextInfo {...post?.textInfo} />
-      <FooterTopperCTA data={post?.template?.footerTopperCta} />
+      <FooterTopperCTA data={footerTopperCta} />
     </div>
   );
 }
 
-const query = `
+const query = /* GraphQL */ `
   query PostQuery($uri: ID!) {
     post(id: $uri, idType: URI) {
       id
@@ -33,33 +36,33 @@ const query = `
         }
       }
       textInfo {
-				tag
-				headline
-				button1 {
-					title
-					url
-					target
-				}
-				button2 {
-					title
-					url
-					target
-				}
-				text
-			}
-      template {
-        ... on DefaultTemplate {
-          templateName
-          footerTopperCta {
-            text1
-            text2
-            button {
-              title
-              url
-            }
+        tag
+        headline
+        button1 {
+          title
+          url
+          target
+        }
+        button2 {
+          title
+          url
+          target
+        }
+        text
+      }
+    }
+    themeOptions {
+      options {
+        footerTopperCta {
+          text1
+          text2
+          button {
+            target
+            title
+            url
           }
-
         }
       }
     }
-  }`;
+  }
+`;

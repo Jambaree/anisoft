@@ -17,7 +17,7 @@ function BreadCrumbs(props) {
         className
       )}
     >
-      <div className="flex items-center">
+      <div className="flex items-center whitespace-nowrap">
         <Link className="text-gray-700 hover:text-gray-900" href={`/`}>
           <span className="p-details">Home</span>
         </Link>

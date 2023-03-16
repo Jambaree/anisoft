@@ -25,8 +25,6 @@ export default async function Revalidation(
   }
 
   try {
-    console.log(`revalidating /${path}`);
-
     await res.revalidate(`/${path}`);
 
     return res.json({
