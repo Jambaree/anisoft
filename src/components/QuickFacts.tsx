@@ -27,7 +27,7 @@ const QuickFacts = ({ data }) => {
               <h1>{text2}</h1>
             </FadeInUp>
           </div>
-          <div className="flex flex-col md:flex-row">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {facts?.map((fact, index) => {
               return (
                 <FadeInUp className={`delay-${handleDelay(index)}`} key={index}>
@@ -56,7 +56,7 @@ const QuickFacts = ({ data }) => {
                     <div className="mb-[21px] text-[1.375rem] leading-[26.4px] font-maven">
                       {fact.title}
                     </div>
-                    <p>{parser(fact.description)}</p>
+                    {parser(fact.description)}
                   </div>
                 </FadeInUp>
               );
