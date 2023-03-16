@@ -2,31 +2,7 @@ import React from "react";
 import Edges from "../components/Edges";
 import Image from "next/image";
 import FadeInUp from "./FadeInUp";
-
-const quickData = {
-  text1: "AniSoft has certified and technical",
-  text2: "resources who specialize in server solutions. ",
-  facts: [
-    {
-      icon: "triangle",
-      title: "IBM Power Systems",
-      description:
-        "secure, flexible and open platforms designed for computing power and large data workloads that require security, resiliency and high availability.",
-    },
-    {
-      icon: "square",
-      title: "Lenovo servers",
-      description:
-        "cost-effective simplified solutions that contain flexible architecture that can support an organization’s current and future needs (Microsoft® Windows®, Linux® and virtualization).",
-    },
-    {
-      icon: "circle",
-      title: "Other Servers",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.",
-    },
-  ],
-};
+import parser from "html-react-parser";
 
 const handleDelay = (index) => {
   if (index === 0) {
@@ -80,7 +56,7 @@ const QuickFacts = ({ data }) => {
                     <div className="mb-[21px] text-[1.375rem] leading-[26.4px] font-maven">
                       {fact.title}
                     </div>
-                    <p>{fact.description}</p>
+                    <p>{parser(fact.description)}</p>
                   </div>
                 </FadeInUp>
               );
