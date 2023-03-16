@@ -88,6 +88,10 @@ const query = /* GraphQL */ `
                 fieldGroupName
                 header
                 logos {
+                  link {
+                    url
+                    title
+                  }
                   logo {
                     sourceUrl
                     altText

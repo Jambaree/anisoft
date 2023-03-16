@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-import { useMenuItems, getData } from "@jambaree/next-wordpress";
+import { getData } from "@jambaree/next-wordpress";
 import Providers from "../components/Providers";
 
 const mukta = Mukta({
@@ -28,10 +28,11 @@ export default async function RootLayout({
     themeOptions: {
       options: { footer, header },
     },
+    menu: { menuItems },
   } = await getData({ query });
 
-  const headerMenuItems = await useMenuItems({
-    name: "header",
+  const headerMenuItems = menuItems?.nodes?.filter((item) => {
+    return item?.parentDatabaseId === 0;
   });
 
   return (
@@ -56,8 +57,8 @@ export default async function RootLayout({
     </html>
   );
 }
-
-const query = `
+// menuItems(first: 1000)
+const query = /* GraphQL */ `
   query MenuQuery {
     themeOptions {
       options {
@@ -88,4 +89,35 @@ const query = `
         }
       }
     }
-  }`;
+    menu(id: "header", idType: NAME) {
+      id
+      slug
+      locations
+      menuItems (first: 100){
+        nodes {
+          path
+          url
+          label
+          target
+          parentDatabaseId
+          cssClasses
+          childItems {
+            nodes {
+              id
+              label
+              url
+              childItems {
+                nodes {
+                  id
+                  label
+                  url
+                  description
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

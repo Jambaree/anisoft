@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { animate } from "framer-motion";
 import Image from "next/image";
 import Edges from "../Edges";
@@ -8,15 +8,22 @@ export default function StatsModule({ title, description, stats, image }) {
   const Counter = ({ from, to }) => {
     const ref = useRef<HTMLDivElement>(null);
 
+    const [start, setStart] = useState(from);
+    const [end, setEnd] = useState(to);
+
     useEffect(() => {
-      const controls = animate(from, to, {
-        duration: 3,
+      if (from && to) {
+        setStart(from);
+        setEnd(to);
+      }
+      const controls = animate(start, end, {
+        duration: 5,
         onUpdate(value) {
           ref.current.textContent = value.toFixed() || 0;
         },
       });
       return () => controls.stop();
-    }, [from, to]);
+    }, [end, start]);
 
     return <div ref={ref}>0</div>;
   };
