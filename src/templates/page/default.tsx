@@ -5,7 +5,7 @@ import FooterTopperCTA from "../../components/FooterTopperCTA";
 import * as blocks from "../../components/blocks";
 
 export default async function DefaultPageTemplate({ uri }) {
-  const { page } = await getData({ variables: { uri }, query });
+  const { page, themeOptions } = await getData({ variables: { uri }, query });
   if (!page) {
     notFound();
   }
@@ -13,10 +13,13 @@ export default async function DefaultPageTemplate({ uri }) {
   const {
     title,
     template: {
-      footerTopperCta,
       acf: { modules },
     },
   } = page;
+
+  const {
+    options: { footerTopperCta },
+  } = themeOptions;
 
   return (
     <div>
@@ -36,14 +39,6 @@ const query = /* GraphQL */ `
       template {
         templateName
         ... on DefaultTemplate {
-          footerTopperCta {
-            button {
-              title
-              url
-            }
-            text1
-            text2
-          }
           templateName
           acf {
             modules {
@@ -165,6 +160,19 @@ const query = /* GraphQL */ `
                 }
               }
             }
+          }
+        }
+      }
+    }
+    themeOptions {
+      options {
+        footerTopperCta {
+          text1
+          text2
+          button {
+            target
+            title
+            url
           }
         }
       }
