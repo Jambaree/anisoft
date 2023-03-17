@@ -14,25 +14,24 @@ function ProductsList({ products }) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center md:flex-row  w-full h-auto pt-[60px]">
-      <SideIn
-        right={false}
-        className={"flex flex-col w-full md:h-[550px] justify-evenly "}
-      >
+    <div className="flex flex-col justify-between items-center md:flex-row  w-full h-auto pt-[60px]">
+      <SideIn right={false} className={"flex flex-col w-fit justify-evenly  "}>
         {products.map(({ product }: any, index: number) => {
           return (
             <div
               key={index}
               onMouseEnter={() => setActiveProduct(index)}
               className={classNames(
-                ' h-full md:min-w-[30%] relative before:content[""] before:absolute before:top-0 before:h-full before-h-full hidden md:flex items-center pr-[100px] cursor-pointer  transition-all ease-in-out overflow-hidden',
+                " w-full h-full relative  before:absolute before:top-0 before:h-full  hidden md:flex items-center cursor-pointer transition-all ease-in-out overflow-hidden pr-[90px]",
                 activeProduct === index
                   ? "md:before:bg-lightGreen before:w-[4px] before:right-[2.5px] "
                   : "md:before:bg-[#ADADAD] before:w-[1px] before:right-[4px] "
               )}
             >
               {product?.title && (
-                <h3 className="text-black align-middle ">{product.title}</h3>
+                <h3 className="text-black align-middle max-w-[505px] my-[15px]">
+                  {product.title}
+                </h3>
               )}
             </div>
           );
@@ -41,7 +40,7 @@ function ProductsList({ products }) {
 
       <SideIn
         className={
-          "bg-darkPurple flex flex-col md:ml-[100px] justify-center md:h-[550px] overflow-hidden"
+          "bg-darkPurple flex flex-col justify-center md:h-[550px] overflow-hidden w-full max-w-[806px] ml-[15px]"
         }
       >
         {products.map(({ product, buttonText, text }: any, idx: number) => {
@@ -74,17 +73,14 @@ function ProductsList({ products }) {
               <div className="w-full">
                 {text && <p className="text-white">{text}</p>}
               </div>
-              <div className="relative w-full mt-[30px] h-full bg-cover min-h-[220px] md:min-h-fit">
+              <div className="relative w-full mt-[30px] bg-cover h-[218px]">
                 {image?.sourceUrl && (
                   <Image
-                    className="bg-cover"
                     src={image.sourceUrl}
                     alt={image.altText}
-                    fill
-                    object-fit="cover"
-                    sizes="(max-width: 768px) 100vw,
-										(max-width: 1200px) 50vw,
-										33vw"
+                    width={700}
+                    height={218}
+                    className="object-cover h-[218px] object-center"
                   />
                 )}
               </div>
