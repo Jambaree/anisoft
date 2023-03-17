@@ -74,11 +74,8 @@ const ServiceCards = ({ services }) => {
                         </div>
 
                         {service?.points.map((point, index) => (
-                          <div
-                            key={index}
-                            className="flex flex-row items-center mb-[16px]"
-                          >
-                            <div className="w-[18px] h-[4px] bg-lightGreen mr-[16px]" />
+                          <div key={index} className="flex flex-row  mb-[16px]">
+                            <div className="max-w-[16px] w-full h-[4px] bg-lightGreen mr-[16px] mt-[11px]" />
                             {parse(point?.text)}
                           </div>
                         ))}
