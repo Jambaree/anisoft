@@ -30,7 +30,7 @@ const MenuItems = ({ menuItems, data }) => {
                 )}
                 <div className="group-hover:block hidden absolute bg-lightGreen bottom-9 w-[24px] h-[5px] "></div>
 
-                {item?.url.includes(pathname) && (
+                {item?.url.includes(pathname) && pathname !== "/" && (
                   <div className=" absolute bg-lightGreen bottom-9 w-[24px] h-[5px] "></div>
                 )}
               </div>
