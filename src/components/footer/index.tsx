@@ -40,8 +40,15 @@ export default async function Footer({ data }) {
                     href={link?.url || "/"}
                     className="mr-[22px]"
                   >
-                    {link.icon === "facebook" && <Facebook />}
-                    {link.icon === "linkedin" && <Linkedin />}
+                    {link.icon === "facebook" && (
+                      <Facebook className="hover:fill-lightGreen  fill-white" />
+                    )}
+                    {link.icon === "linkedin" && (
+                      <Linkedin
+                        id="linkedin"
+                        className="hover:fill-lightGreen fill-white"
+                      />
+                    )}
                   </a>
                 ))}
               </div>
@@ -57,10 +64,16 @@ export default async function Footer({ data }) {
           <div className=" text-white mb-[43px] flex flex-col-reverse sm:flex-row flex-wrap-reverse justify-between p-footer">
             <div>{copyrightText}</div>
             <div className="flex flex-col sm:flex-row sm:mb-0 mb-[15px]">
-              <Link href={link1?.url || "/"} className="sm:ml-[24px] ">
+              <Link
+                href={link1?.url || "/"}
+                className="sm:ml-[24px] hover:text-lightGreen"
+              >
                 {link1?.title}
               </Link>
-              <Link href={link2?.url || "/"} className="sm:ml-[24px] ">
+              <Link
+                href={link2?.url || "/"}
+                className="sm:ml-[24px] hover:text-lightGreen"
+              >
                 {link2?.title}
               </Link>
             </div>
