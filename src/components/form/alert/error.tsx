@@ -1,7 +1,6 @@
 // import { XCircleIcon } from "@heroicons/react/20/solid";
 
 export default function Error({ errors }) {
-  console.log(errors);
   return (
     <div className="rounded-md bg-red-50 py-4">
       <div className="flex">

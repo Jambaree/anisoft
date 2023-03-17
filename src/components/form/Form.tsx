@@ -51,7 +51,7 @@ export default function Form({ form }) {
   };
 
   const fields = form?.formFields?.nodes;
-  console.log(result);
+
   return (
     <>
       {result?.is_valid === false && (
