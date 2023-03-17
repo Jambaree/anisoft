@@ -176,3 +176,7 @@
 input[type="radio"] {
   accent-color: #459145 !important;
 }
+
+#linkedin:hover path {
+  fill: #00ac4d;
+}
