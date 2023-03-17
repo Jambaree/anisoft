@@ -73,14 +73,14 @@ function ProductsList({ products }) {
               <div className="w-full">
                 {text && <p className="text-white">{text}</p>}
               </div>
-              <div className="relative w-full mt-[30px] bg-cover h-[218px]">
+              <div className="relative w-full mt-[30px] bg-cover h-[218px] md:mt-auto">
                 {image?.sourceUrl && (
                   <Image
                     src={image.sourceUrl}
                     alt={image.altText}
                     width={700}
                     height={218}
-                    className="object-cover h-[218px] object-center"
+                    className="object-cover h-[218px] object-center w-full"
                   />
                 )}
               </div>
