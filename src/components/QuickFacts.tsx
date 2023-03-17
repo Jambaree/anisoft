@@ -3,6 +3,7 @@ import Edges from "../components/Edges";
 import Image from "next/image";
 import FadeInUp from "./FadeInUp";
 import parse from "html-react-parser";
+import RichTextComponents from "./RichTextComponents";
 
 const handleDelay = (index) => {
   if (index === 0) {
@@ -56,7 +57,8 @@ const QuickFacts = ({ data }) => {
                     <div className="mb-[21px] text-[1.375rem] leading-[26.4px] font-maven">
                       {fact.title}
                     </div>
-                    {parse(fact.description)}
+                    <RichTextComponents html={fact.description} />
+                    {/* {parse(fact.description)} */}
                   </div>
                 </FadeInUp>
               );

@@ -9,7 +9,7 @@ function TextInfo({ headline, tag, button1, button2, text }) {
     <div className="bg-white py-[100px] md:py-[150px]">
       <Edges size="lg">
         <div className="flex w-full h-full flex-wrap  text-black items-start justify-center">
-          <div className="w-full  mb-[30px] md:mb-0">
+          <div className="w-full  mb-[30px]">
             {tag && (
               <FadeInUp className="delay-300">
                 <p className="max-w-[575px]">{tag}</p>
