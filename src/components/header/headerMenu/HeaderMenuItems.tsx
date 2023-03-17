@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Button from "../../Button";
 import SubMenu from "./SubMenu";
+import { usePathname } from "next/navigation";
 
 const MenuItems = ({ menuItems, data }) => {
   const [hoverIndex, setHoverIndex] = useState(-1);
-
+  const pathname = usePathname();
   return (
     <>
       <ul className="flex-row justify-between  items-center hidden md:flex">
@@ -19,13 +20,18 @@ const MenuItems = ({ menuItems, data }) => {
           >
             <div className="relative flex flex-col">
               <div
-                className="nav text-lightBlue px-[16px] py-[40px] "
+                className="nav text-lightBlue px-[16px] py-[40px] group"
                 key={index}
               >
                 {item?.childItems?.nodes.length > 0 ? (
                   <div className="cursor-pointer">{item?.label}</div>
                 ) : (
                   <Link href={item?.url || "/"}>{item?.label}</Link>
+                )}
+                <div className="group-hover:block hidden absolute bg-lightGreen bottom-9 w-[24px] h-[5px] "></div>
+
+                {item?.url.includes(pathname) && (
+                  <div className=" absolute bg-lightGreen bottom-9 w-[24px] h-[5px] "></div>
                 )}
               </div>
             </div>
