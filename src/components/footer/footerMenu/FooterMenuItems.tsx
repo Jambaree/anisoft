@@ -21,8 +21,11 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
     <div className="flex flex-row ">
       <ul>
         {firstHalfMenuItems.map((item, index) => (
-          <li key={index} className="relative max-w-[180px] w-full">
-            <div className="nav text-white z-0 mb-[12px]" key={index}>
+          <li key={index} className="relative max-w-[180px] group w-full">
+            <div
+              className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
+              key={index}
+            >
               <Link href={item?.url || "/"}>{item?.label}</Link>
             </div>
           </li>
@@ -30,8 +33,11 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
       </ul>
       <ul className="ml-[24px]">
         {secondHalfMenuitems.map((item, index) => (
-          <li key={index} className="relative max-w-[180px] w-full">
-            <div className="nav text-white z-0 mb-[12px]" key={index}>
+          <li key={index} className="relative max-w-[180px] w-full group">
+            <div
+              className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
+              key={index}
+            >
               <Link href={item?.url || "/"}>{item?.label}</Link>
             </div>
           </li>
