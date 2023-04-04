@@ -4,7 +4,7 @@ import { animate } from "framer-motion";
 import Image from "next/image";
 import Edges from "../Edges";
 
-export default function StatsModule({ title, description, stats, image }) {
+export default function StatsModule({ headline, description, stats, image }) {
   const Counter = ({ from, to }) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,7 @@ export default function StatsModule({ title, description, stats, image }) {
       <Edges size="lg">
         <div className="mx-auto  md:grid md:grid-flow-col-dense md:grid-cols-2 md:gap-x-8">
           <div className="relative pt-[96px] pb-64 sm:pt-24 sm:pb-64 md:col-start-1 md:pb-[108px]">
-            <h2 className="text-white">{title}</h2>
+            <h2 className="text-white">{headline}</h2>
             <p className="mt-5 text-lg text-white">{description}</p>
             <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
               {stats?.map((item, index) => {

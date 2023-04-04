@@ -130,7 +130,7 @@ const query = /* GraphQL */ `
                   stat
                   label
                 }
-                title
+                headline
               }
               ... on DefaultTemplate_Acf_Modules_TextInfo {
                 tag
