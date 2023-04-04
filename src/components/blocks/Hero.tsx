@@ -14,7 +14,7 @@ export default function Hero({
   image,
 }) {
   return (
-    <div className="primaryRadialBg py-[100px] md:py-[150px]">
+    <div className="primaryRadialBg py-[75px] md:py-[125px]">
       <Edges size="lg">
         <div className="flex w-full h-auto flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center md:justify-between">
           <div>

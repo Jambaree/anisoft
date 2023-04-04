@@ -17,7 +17,7 @@ const handleDelay = (index) => {
 const QuickFacts = ({ data }) => {
   const { facts, text1, text2 } = data;
   return (
-    <div className="primaryRadialBg pt-[112px] pb-[136px]">
+    <div className="primaryRadialBg pt-[75px] pb-[125px]">
       <Edges size="lg">
         <div className="flex flex-col">
           <div className="flex flex-col text-white mb-[122px]">
