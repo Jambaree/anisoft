@@ -43,16 +43,16 @@ function ProductsList({ products }) {
           "bg-darkPurple flex flex-col justify-center md:h-[550px] overflow-hidden w-full max-w-[806px] ml-[15px]"
         }
       >
-        {products.map(({ product, buttonText, text }: any, idx: number) => {
+        {products.map(({ product, buttonText, text }: any, index: number) => {
           const image = product.featuredImage?.node;
           return (
             <FadeInUp
               playOnce={false}
-              key={idx}
+              key={index}
               className={`
-								${activeProduct === idx ? "block" : " mb-[30px] md:mb-0 block md:hidden "}
+								${activeProduct === index ? "block" : " mb-[30px] md:mb-0 block md:hidden "}
 								  p-[20px] md:p-[50px] flex flex-col h-full ${
-                    products.length !== idx + 1 &&
+                    products.length !== index + 1 &&
                     "border-b-white border-b-[10px] "
                   } md:border-b-0`}
             >

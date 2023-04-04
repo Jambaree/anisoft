@@ -7,12 +7,14 @@ import RichTextComponents from "../RichTextComponents";
 function TextInfo({ headline, tag, button1, button2, text }) {
   return (
     <div className="bg-white py-[100px] md:py-[150px]">
-      <Edges size="lg">
+      <Edges className="relative" size="lg">
         <div className="flex w-full h-full flex-wrap  text-black items-start justify-center">
           <div className="w-full  mb-[30px]">
             {tag && (
               <FadeInUp className="delay-300">
-                <p className="max-w-[575px]">{tag}</p>
+                <p id={tag} className="max-w-[575px]">
+                  {tag}
+                </p>
               </FadeInUp>
             )}
             {headline && (
