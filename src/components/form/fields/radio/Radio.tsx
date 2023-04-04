@@ -63,9 +63,9 @@ const Radio = forwardRef(
 
         {choices && choices.length > 0 && (
           <div className="mt-1 relative ">
-            {choices.map((option) => (
+            {choices.map((option, index) => (
               <label
-                key={option.value}
+                key={index}
                 className="flex items-center mt-3 cursor-pointer"
               >
                 <input

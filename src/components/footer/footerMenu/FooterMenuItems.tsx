@@ -26,7 +26,11 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
               key={index}
             >
-              <Link href={item?.url || "/"}>{item?.label}</Link>
+              {item?.url.includes("#") ? (
+                <a href={item?.url || "/"}>{item?.label}</a>
+              ) : (
+                <Link href={item?.url || "/"}>{item?.label}</Link>
+              )}
             </div>
           </li>
         ))}
@@ -38,7 +42,11 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
               key={index}
             >
-              <Link href={item?.url || "/"}>{item?.label}</Link>
+              {item?.url.includes("#") ? (
+                <a href={item?.url || "/"}>{item?.label}</a>
+              ) : (
+                <Link href={item?.url || "/"}>{item?.label}</Link>
+              )}
             </div>
           </li>
         ))}
