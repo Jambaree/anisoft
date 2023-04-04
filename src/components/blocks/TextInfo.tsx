@@ -18,7 +18,7 @@ function TextInfo({
   return (
     <div className="relative">
       {image?.sourceUrl && (
-        <div className="h-[292px] w-screen relative">
+        <div className="h-[292px] w-screen relative border-[6px] border-darkPurple">
           <Image
             src={image?.sourceUrl}
             alt={image?.altText}
