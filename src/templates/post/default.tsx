@@ -49,6 +49,11 @@ const query = /* GraphQL */ `
           url
           target
         }
+        image {
+          sourceUrl
+          altText
+        }
+        backgroundGradient
         text
       }
     }
