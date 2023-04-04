@@ -16,11 +16,13 @@ function InfoCallout({ headline, tag, button1, button2, text }) {
             )}
             {headline && (
               <FadeInUp className="delay-100">
-                <h1 className=" max-w-[985px] text-[48px] ">{headline}</h1>
+                <h1 className=" max-w-[985px] text-[48px] px-[15px] ">
+                  {headline}
+                </h1>
               </FadeInUp>
             )}
 
-            <FadeInUp className="delay-500">
+            <FadeInUp className="delay-500 px-[15px]">
               <div className="pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]">
                 {button1?.url && (
                   <Button variant="large" href={button1?.url} reverse={true}>

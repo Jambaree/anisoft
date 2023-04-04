@@ -2,7 +2,6 @@ import React from "react";
 import Edges from "../components/Edges";
 import Image from "next/image";
 import FadeInUp from "./FadeInUp";
-import parse from "html-react-parser";
 import RichTextComponents from "./RichTextComponents";
 
 const handleDelay = (index) => {
