@@ -11,7 +11,7 @@ const LogoModule = ({ header, logos }) => {
   return (
     <div className="w-full h-auto">
       <Edges size="md">
-        <div className="flex flex-col justify-center items-center py-[115px]">
+        <div className="flex flex-col justify-center items-center py-[95px]">
           <FadeInUp>
             <h1 className="mb-[48px]">{header}</h1>
           </FadeInUp>

@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 
 function InfoCallout({ headline, tag, button1, button2, text }) {
   return (
-    <div className="primaryRadialBg py-[100px] md:py-[150px]">
+    <div className="primaryRadialBg py-[75px] md:py-[125px]">
       <Edges size="lg">
         <div className="flex w-full h-full flex-wrap  text-white items-start justify-center">
           <div className="w-full md:w-1/2 mb-[30px] md:mb-0">

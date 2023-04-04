@@ -7,7 +7,7 @@ const PageHeader = ({ data }) => {
   const { title, content } = data;
 
   return (
-    <div className=" py-[90px] overflow-x-hidden">
+    <div className=" py-[65px] overflow-x-hidden">
       <Edges size="lg">
         <div className="grid grid-cols-1 md:grid-cols-2 justify-between gap-[30px]">
           <SideIn right={false} className="flex flex-col ">

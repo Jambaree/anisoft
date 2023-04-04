@@ -6,7 +6,7 @@ import RichTextComponents from "../RichTextComponents";
 
 function TextInfo({ headline, tag, button1, button2, text }) {
   return (
-    <div id={tag} className="bg-white py-[100px] md:py-[150px]">
+    <div id={tag} className="bg-white py-[75px] md:py-[125px]">
       <Edges className="relative" size="lg">
         <div className="flex w-full h-full flex-wrap  text-black items-start justify-center">
           <div className="w-full  mb-[30px]">
