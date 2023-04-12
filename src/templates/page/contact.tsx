@@ -42,8 +42,12 @@ const query = /* GraphQL */ `
             facts {
               description
               fieldGroupName
-              icon
+
               title
+              icon {
+                sourceUrl
+                altText
+              }
             }
           }
           map {
