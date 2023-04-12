@@ -3,17 +3,28 @@ import { notFound } from "next/navigation";
 import PageHeader2 from "../../components/PageHeader2";
 import GravityForm from "../../components/form/GravityForm";
 
-export default async function CareersPagetemplate({ uri }) {
-  const { page } = await getData({ variables: { uri }, query });
-  if (!page) {
+export default async function CareersPagetemplate({
+  uri,
+  isPreview,
+  searchParams,
+}) {
+  const data = await getData({
+    variables: { id: uri, idType: "URI" },
+    query,
+    isPreview,
+    searchParams,
+  });
+  if (!data) {
     notFound();
   }
 
   const {
-    title,
-    content,
-    template: { form },
-  } = page;
+    page: {
+      title,
+      content,
+      template: { form },
+    },
+  } = data;
 
   return (
     <div>
@@ -23,16 +34,16 @@ export default async function CareersPagetemplate({ uri }) {
   );
 }
 
-const query = `
-  query CareerPageQuery($uri: ID!) {
-    page(id: $uri, idType: URI) {
+const query = /* GraphQL */ `
+  query CareerPageQuery($id: ID!, $idType: PageIdType) {
+    page(id: $id, idType: $idType) {
       __typename
       id
       title
       uri
       slug
       content
-        template {
+      template {
         ... on Template_Careers {
           templateName
           form {
@@ -42,4 +53,5 @@ const query = `
         }
       }
     }
-  }`;
+  }
+`;

@@ -4,8 +4,17 @@ import { getData, FlexibleContent } from "@jambaree/next-wordpress";
 import FooterTopperCTA from "../../components/FooterTopperCTA";
 import * as blocks from "../../components/blocks";
 
-export default async function DefaultPageTemplate({ uri }) {
-  const { page, themeOptions } = await getData({ variables: { uri }, query });
+export default async function DefaultPageTemplate({
+  uri,
+  isPreview,
+  searchParams,
+}) {
+  const { page, themeOptions } = await getData({
+    variables: { id: uri, idType: "URI" },
+    query,
+    isPreview,
+    searchParams,
+  });
   if (!page) {
     notFound();
   }
@@ -29,8 +38,8 @@ export default async function DefaultPageTemplate({ uri }) {
   );
 }
 const query = /* GraphQL */ `
-  query PageQuery($uri: ID!) {
-    page(id: $uri, idType: URI) {
+  query PageQuery($id: ID!, $idType: PageIdType) {
+    page(id: $id, idType: $idType) {
       __typename
       id
       title

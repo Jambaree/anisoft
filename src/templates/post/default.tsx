@@ -4,8 +4,17 @@ import QuickFacts from "../../components/QuickFacts";
 import PageHeader from "../../components/PageHeader";
 import TextInfo from "../../components/blocks/TextInfo";
 
-export default async function DefaultPostTemplate({ uri }) {
-  const { post, themeOptions } = await getData({ variables: { uri }, query });
+export default async function DefaultPostTemplate({
+  uri,
+  isPreview,
+  searchParams,
+}) {
+  const { post, themeOptions } = await getData({
+    variables: { id: uri, idType: "URI" },
+    query,
+    isPreview,
+    searchParams,
+  });
   const {
     options: { footerTopperCta },
   } = themeOptions;
@@ -22,8 +31,8 @@ export default async function DefaultPostTemplate({ uri }) {
 }
 
 const query = /* GraphQL */ `
-  query PostQuery($uri: ID!) {
-    post(id: $uri, idType: URI) {
+  query PostQuery($id: ID!, $idType: PostIdType) {
+    post(id: $id, idType: $idType) {
       id
       title
       content
