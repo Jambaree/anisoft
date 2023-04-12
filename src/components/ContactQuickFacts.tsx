@@ -48,19 +48,21 @@ const QuickFacts = ({ quickData }) => {
                   key={index}
                 >
                   <div className="flex flex-col text-black mb-[25px] md:mb-0 items-center justify-center text-center">
-                    <div className="relative">
-                      <FadeInUp className="delay-1000 relative z-20">
-                        <div className="w-[35px] h-[35px] relative">
-                          <Image
-                            src={fact?.icon?.sourceUrl}
-                            alt={fact?.icon?.altText}
-                            width="35"
-                            height="35"
-                            className="mb-[27px] z-10 w-auto"
-                          />
-                        </div>
-                      </FadeInUp>
-                    </div>
+                    {fact?.icon?.sourceUrl && (
+                      <div className="relative">
+                        <FadeInUp className="delay-1000 relative z-20">
+                          <div className="w-[35px] h-[35px] relative">
+                            <Image
+                              src={fact?.icon?.sourceUrl}
+                              alt={fact?.icon?.altText}
+                              width="35"
+                              height="35"
+                              className="mb-[27px] z-10 w-auto"
+                            />
+                          </div>
+                        </FadeInUp>
+                      </div>
+                    )}
                     <h3 className="mb-[21px]  font-maven">{fact.title}</h3>
                     <p>{parse(fact.description)}</p>
                   </div>

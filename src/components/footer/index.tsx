@@ -1,6 +1,6 @@
 import React from "react";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
-import { useMenuItems } from "@jambaree/next-wordpress";
+import { getMenuItems } from "@jambaree/next-wordpress";
 import Edges from "../Edges";
 import Link from "next/link";
 import InvertedLogo from "../logos/invertedlogo";
@@ -9,12 +9,12 @@ import Linkedin from "../../../public/linkedin.svg";
 
 export default async function Footer({ data }) {
   const { contactInformation, copyrightText, link1, link2 } = data;
-  const menuItems = await useMenuItems({
-    name: "footer",
+  const menuItems = await getMenuItems({
+    id: "footer",
   });
 
-  const productMenuItems = await useMenuItems({
-    name: "SingleProduct",
+  const productMenuItems = await getMenuItems({
+    id: "SingleProduct",
   });
 
   return (

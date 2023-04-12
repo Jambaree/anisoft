@@ -1,4 +1,4 @@
-import { Mukta, Maven_Pro } from "@next/font/google";
+import { Mukta, Maven_Pro } from "next/font/google";
 
 import "./globals.css";
 import Header from "../components/header";
@@ -93,7 +93,7 @@ const query = /* GraphQL */ `
       id
       slug
       locations
-      menuItems (first: 100){
+      menuItems(first: 100) {
         nodes {
           path
           url
