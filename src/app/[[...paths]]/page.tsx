@@ -1,25 +1,24 @@
-import {
-  WordpressTemplate,
-  generateMetadata,
-  generateStaticParams,
-} from "@jambaree/next-wordpress";
+import { WordpressTemplate } from "@jambaree/next-wordpress";
 
 import templates from "../../templates";
 
 export default async function PageTemplate(props: {
   params: { paths: string[] };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const {
-    params: { paths },
-  } = props;
-
   return (
     <>
-      {/* current issue with app directory*/}
       {/* @ts-expect-error Server Component */}
-      <WordpressTemplate paths={paths} templates={templates} />{" "}
+      <WordpressTemplate
+        templates={templates}
+        params={props.params}
+        searchParams={props.searchParams}
+      />
     </>
   );
 }
 
-export { generateMetadata, generateStaticParams };
+export {
+  generateStaticParams,
+  generateMetadata,
+} from "@jambaree/next-wordpress";

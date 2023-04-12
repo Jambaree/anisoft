@@ -32,19 +32,21 @@ const QuickFacts = ({ data }) => {
               return (
                 <FadeInUp className={`delay-${handleDelay(index)}`} key={index}>
                   <div className="flex flex-col text-white mr-[32px] mb-[25px] md:mb-0">
-                    <div className="relative">
-                      <FadeInUp className="delay-1000 relative z-20">
-                        <div className="w-[35px] h-[35px] relative mb-[27px]">
-                          <Image
-                            src={fact?.icon?.sourceUrl}
-                            alt={fact?.icon?.altText}
-                            width="35"
-                            height="35"
-                            className=" z-10 w-auto"
-                          />
-                        </div>
-                      </FadeInUp>
-                    </div>
+                    {fact?.icon?.sourceUrl && (
+                      <div className="relative">
+                        <FadeInUp className="delay-1000 relative z-20">
+                          <div className="w-[35px] h-[35px] relative mb-[27px]">
+                            <Image
+                              src={fact?.icon?.sourceUrl}
+                              alt={fact?.icon?.altText}
+                              width="35"
+                              height="35"
+                              className=" z-10 w-auto"
+                            />
+                          </div>
+                        </FadeInUp>
+                      </div>
+                    )}
                     <div className="mb-[21px] text-[1.375rem] leading-[26.4px] font-maven">
                       {fact.title}
                     </div>
