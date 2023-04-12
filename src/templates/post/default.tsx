@@ -32,8 +32,12 @@ const query = /* GraphQL */ `
         text2
         facts {
           description
-          factIcon
+
           title
+          icon {
+            sourceUrl
+            altText
+          }
         }
       }
       textInfo {

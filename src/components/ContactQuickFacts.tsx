@@ -49,24 +49,16 @@ const QuickFacts = ({ quickData }) => {
                 >
                   <div className="flex flex-col text-black mb-[25px] md:mb-0 items-center justify-center text-center">
                     <div className="relative">
-                      <Image
-                        src={`/${fact?.icon}.svg`}
-                        alt=""
-                        width="35"
-                        height="35"
-                        className="mb-[27px] z-10 w-auto"
-                      />
-                      <FadeInUp className="delay-1000 absolute top-[4px] -right-[4px] z-20">
-                        <Image
-                          src={`/inverted-${fact?.icon}.svg`}
-                          alt=""
-                          width="34"
-                          height="34"
-                          className="w-auto"
-                        />
-                        <p className="text-[#FF0000] top-[4px] absolute left-[13px] text-[1.125rem] font-thin z-30 ">
-                          FPO
-                        </p>
+                      <FadeInUp className="delay-1000 relative z-20">
+                        <div className="w-[35px] h-[35px] relative">
+                          <Image
+                            src={fact?.icon?.sourceUrl}
+                            alt={fact?.icon?.altText}
+                            width="35"
+                            height="35"
+                            className="mb-[27px] z-10 w-auto"
+                          />
+                        </div>
                       </FadeInUp>
                     </div>
                     <h3 className="mb-[21px]  font-maven">{fact.title}</h3>
