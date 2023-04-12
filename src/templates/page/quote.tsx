@@ -3,8 +3,17 @@ import { notFound } from "next/navigation";
 import GravityForm from "../../components/form/GravityForm";
 import PageHeader2 from "../../components/PageHeader2";
 
-export default async function QuotePageTemplate({ uri }) {
-  const { page } = await getData({ variables: { uri }, query });
+export default async function QuotePageTemplate({
+  uri,
+  isPreview,
+  searchParams,
+}) {
+  const { page } = await getData({
+    variables: { id: uri, idType: "URI" },
+    query,
+    isPreview,
+    searchParams,
+  });
   if (!page) {
     notFound();
   }
@@ -23,9 +32,9 @@ export default async function QuotePageTemplate({ uri }) {
   );
 }
 
-const query = `
-  query PageQuery($uri: ID!) {
-    page(id: $uri, idType: URI) {
+const query = /* GraphQL */ `
+  query PageQuery($id: ID!, $idType: PageIdType) {
+    page(id: $id, idType: $idType) {
       __typename
       id
       title
@@ -42,4 +51,5 @@ const query = `
         }
       }
     }
-  }`;
+  }
+`;

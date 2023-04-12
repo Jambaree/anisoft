@@ -3,8 +3,17 @@ import { getData } from "@jambaree/next-wordpress";
 import PageHeader from "../../components/PageHeader";
 import ServiceCards from "../../components/servicecards";
 
-export default async function ServicePageTemplate({ uri }) {
-  const { page } = await getData({ variables: { uri }, query });
+export default async function ServicePageTemplate({
+  uri,
+  isPreview,
+  searchParams,
+}) {
+  const { page } = await getData({
+    variables: { id: uri, idType: "URI" },
+    query,
+    isPreview,
+    searchParams,
+  });
 
   const {
     template: { services },
@@ -18,9 +27,9 @@ export default async function ServicePageTemplate({ uri }) {
   );
 }
 
-const query = `
-  query ServicePageQuery($uri: ID!) {
-    page(id: $uri, idType: URI) {
+const query = /* GraphQL */ `
+  query ServicePageQuery($id: ID!, $idType: PageIdType) {
+    page(id: $id, idType: $idType) {
       template {
         ... on Template_Service {
           templateName
@@ -41,4 +50,5 @@ const query = `
       content
       title
     }
-  }`;
+  }
+`;

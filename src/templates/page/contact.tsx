@@ -4,17 +4,28 @@ import PageHeader2 from "../../components/PageHeader2";
 import ContactQuickFacts from "../../components/ContactQuickFacts";
 import Contact from "../../components/Contact";
 
-export default async function ContactPageTemplate({ uri }) {
-  const { page } = await getData({ variables: { uri }, query });
-  if (!page) {
+export default async function ContactPageTemplate({
+  uri,
+  isPreview,
+  searchParams,
+}) {
+  const data = await getData({
+    variables: { id: uri, idType: "URI" },
+    query,
+    isPreview,
+    searchParams,
+  });
+  if (!data) {
     notFound();
   }
 
   const {
-    title,
-    content,
-    template: { contactQuickFacts, map },
-  } = page;
+    page: {
+      title,
+      content,
+      template: { contactQuickFacts, map },
+    },
+  } = data;
 
   return (
     <div>
@@ -26,8 +37,8 @@ export default async function ContactPageTemplate({ uri }) {
 }
 
 const query = /* GraphQL */ `
-  query ContactPageQuery($uri: ID!) {
-    page(id: $uri, idType: URI) {
+  query ContactPageQuery($id: ID!, $idType: PageIdType) {
+    page(id: $id, idType: $idType) {
       __typename
       id
       title
