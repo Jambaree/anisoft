@@ -53,21 +53,13 @@ export default function Hero({
           <div>
             {image?.sourceUrl && (
               <FadeInUp className="flex items-center justify-center ">
-                <Tilt>
-                  <div className="relative w-[350px] h-[350px] cursor-pointer">
-                    <Image
-                      className="pb-[30px] cmd:pb-0"
-                      src={image?.sourceUrl}
-                      // src={heroImage}
-                      alt={image?.altText}
-                      priority
-                      sizes="(max-width: 768px) 100vw,
-                      (max-width: 1200px) 50vw,
-                      33vw"
-                      fill
-                    />
-                  </div>
-                </Tilt>
+                <div className="relative cursor-pointer">
+                  <iframe
+                    src="https://my.spline.design/cubestransformation-4eaf2e2d2f63b7636e062cbb43004740/"
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                </div>
               </FadeInUp>
             )}
           </div>
