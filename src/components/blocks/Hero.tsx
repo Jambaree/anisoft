@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
+import Spline from "@splinetool/react-spline";
 import Button from "../Button";
 import Edges from "../Edges";
-import Tilt from "react-parallax-tilt";
+
 import FadeInUp from "../FadeInUp";
 
 export default function Hero({
@@ -50,19 +50,15 @@ export default function Hero({
               </div>
             </FadeInUp>
           </div>
-          <div>
-            {image?.sourceUrl && (
-              <FadeInUp className="flex items-center justify-center ">
-                <div className="relative cursor-pointer">
-                  <iframe
-                    src="https://my.spline.design/cubestransformation-4eaf2e2d2f63b7636e062cbb43004740/"
-                    width="100%"
-                    height="100%"
-                  ></iframe>
-                </div>
-              </FadeInUp>
-            )}
-          </div>
+
+          {image?.sourceUrl && (
+            <FadeInUp>
+              <Spline
+                className="h-[450px] w-[450px]"
+                scene="https://prod.spline.design/EmCpTe6LQQBCEoVv/scene.splinecode"
+              />
+            </FadeInUp>
+          )}
         </div>
       </Edges>
     </div>
