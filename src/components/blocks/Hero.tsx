@@ -16,7 +16,7 @@ export default function Hero({
   return (
     <div className="primaryRadialBg py-[75px] md:py-[125px]">
       <Edges size="lg">
-        <div className="flex w-full h-auto flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center md:justify-between">
+        <div className="flex w-full h-auto flex-wrap-reverse md:flex-nowrap text-white items-center justify-center md:justify-between">
           <div>
             {headline && (
               <FadeInUp className="delay-100">
@@ -54,7 +54,7 @@ export default function Hero({
           {image?.sourceUrl && (
             <FadeInUp>
               <Spline
-                className="h-[450px] w-[450px]"
+                className="h-[550px] w-[550px] md:h-[800px] md:w-[800px] scale-125"
                 scene="https://prod.spline.design/EmCpTe6LQQBCEoVv/scene.splinecode"
               />
             </FadeInUp>

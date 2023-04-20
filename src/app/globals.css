@@ -6,6 +6,7 @@
   html {
     @apply scroll-smooth;
     font-size: 14px; /* 14px = 1rem */
+    overflow-x: hidden !important;
   }
   @media screen and (min-width: 1366px) {
     html {
