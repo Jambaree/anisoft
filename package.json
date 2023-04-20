@@ -12,6 +12,8 @@
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.14",
     "@jambaree/next-wordpress": "^0.5.0",
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^0.9.302",
     "@svgr/webpack": "^6.5.1",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@types/node": "18.11.18",
