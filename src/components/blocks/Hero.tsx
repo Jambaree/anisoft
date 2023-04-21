@@ -16,7 +16,7 @@ export default function Hero({
   return (
     <div className="primaryRadialBg py-[75px] md:py-[125px]">
       <Edges size="lg">
-        <div className="flex w-full h-auto flex-wrap-reverse md:flex-nowrap text-white items-center justify-center md:justify-between">
+        <div className="flex w-full h-auto flex-wrap md:flex-nowrap text-white items-center justify-center md:justify-between">
           <div>
             {headline && (
               <FadeInUp className="delay-100">
