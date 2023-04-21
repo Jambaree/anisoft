@@ -54,7 +54,7 @@ export default function Hero({
           {image?.sourceUrl && (
             <FadeInUp>
               <Spline
-                className="h-[512px] w-[512px] scale-150"
+                className=" md:h-[512px] md:w-[512px] md:scale-150"
                 scene="https://prod.spline.design/BkAwyQEQKS4xcmMh/scene.splinecode"
               />
             </FadeInUp>
