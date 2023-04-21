@@ -20,7 +20,7 @@ export default function Hero({
           <div>
             {headline && (
               <FadeInUp className="delay-100">
-                <h1 className="heroHeadline max-w-[985px] text-[2.5rem]  sm:text-[3.75rem]">
+                <h1 className="heroHeadline max-w-[800px] text-[2.5rem]  sm:text-[3.75rem]">
                   {headline}
                 </h1>
               </FadeInUp>
@@ -54,8 +54,8 @@ export default function Hero({
           {image?.sourceUrl && (
             <FadeInUp>
               <Spline
-                className="h-[550px] w-[550px] md:h-[800px] md:w-[800px] scale-125"
-                scene="https://prod.spline.design/EmCpTe6LQQBCEoVv/scene.splinecode"
+                className="h-[512px] w-[512px] scale-150"
+                scene="https://prod.spline.design/BkAwyQEQKS4xcmMh/scene.splinecode"
               />
             </FadeInUp>
           )}
