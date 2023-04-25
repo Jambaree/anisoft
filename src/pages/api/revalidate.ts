@@ -1,48 +1,65 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const {
-    body: { paths, postId },
-    method,
-  } = req;
+// import { getSeedData } from "@jambaree/next-wordpress";
 
-  console.log(req.body);
-  // if (
-  //   req.headers.authorization !== `Bearer ${process.env.REVALIDATE_SECRET_KEY}`
-  // ) {
-  //   return res.status(401).json({ message: "Invalid token" });
+type Data = {
+  status: "success" | "error";
+  message?: string;
+  path?: string;
+};
+
+export default async function Revalidation(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
+  const path = req.body.path;
+
+  console.log(`Revalidating: ${path}`);
+
+  // todo: handle revalidating content nodes and content types
+  // const seedData = await getSeedData({uri: path})
+
+  // if (seedData.isContentNode) {
+  //   // handle revalidating this and it's archive
   // }
 
-  if (method !== "PUT") {
-    return res.status(405).json({ message: `Method ${method} Not Allowed` });
-  }
+  // if (seedData.isTermNode) {
+  //   // handle revalidating this term and also all nodes that are in this term
+  // }
 
-  if (!paths) {
-    return res.status(412).json({ message: "No paths" });
-  }
+  // if (seedData.__typename === "ContentType") {
+  //   // this is an archive node
+  //   // handle revalidating this and all nodes that are in this archive
+  // }
 
-  const correctPaths = paths.filter((path: string) => path.startsWith("/"));
+  // todo: add secret to prevent unauthorized requestset to confirm this is a valid request
+  //   if (req.query.secret !== process.env.MY_SECRET_TOKEN) {
+  //     return res.status(401).json({ message: "Invalid token" });
+  //   }
+
+  if (!path || !path.length) {
+    return res.status(400).json({
+      status: "error",
+      message: "No path provided",
+    });
+  }
 
   try {
-    const revalidatePaths = correctPaths.map((path: string) =>
-      res.revalidate(path, { unstable_onlyGenerated: false })
-    );
+    console.log(`revalidating /${path}`);
 
-    await Promise.all(revalidatePaths);
-
-    // Logging for debugging purposes only
-    console.log(
-      `${new Date().toJSON()} - Paths revalidated: ${correctPaths.join(", ")}`
-    );
+    await res.revalidate(`/${path}`);
 
     return res.json({
-      revalidated: true,
-      message: `Paths revalidated: ${correctPaths.join(", ")}`,
+      status: "success",
+      message: `Revalidated ${path.length} path(s)`,
+      path,
     });
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+    // If there was an error, Next.js will continue
+    // to show the last successfully generated page
+    return res.status(500).send({
+      status: "error",
+      message: `Internal server error`,
+    });
   }
 }
