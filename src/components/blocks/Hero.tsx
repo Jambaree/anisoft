@@ -14,9 +14,20 @@ export default function Hero({
   image,
 }) {
   return (
-    <div className="primaryRadialBg py-[75px] md:py-[125px]">
-      <Edges size="lg">
-        <div className="flex w-full h-auto flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center md:justify-between">
+    <div className="primaryRadialBg relative h-screen w-full">
+      <div className="-z-10 h-screen w-full bottom-0 top-0">
+        <video
+          className="w-screen h-screen object-cover z-10"
+          autoPlay
+          muted
+          playsInline
+          loop
+        >
+          <source src="/video.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="flex max-w-[600px] z-40 absolute top-0 primaryRadialBg w-fit bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px] animate-fade-in">
+        <Edges size="lg">
           <div>
             {headline && (
               <FadeInUp className="delay-100">
@@ -50,29 +61,8 @@ export default function Hero({
               </div>
             </FadeInUp>
           </div>
-          <div>
-            {image?.sourceUrl && (
-              <FadeInUp className="flex items-center justify-center ">
-                <Tilt>
-                  <div className="relative w-[350px] h-[350px] cursor-pointer">
-                    <Image
-                      className="pb-[30px] cmd:pb-0"
-                      src={image?.sourceUrl}
-                      // src={heroImage}
-                      alt={image?.altText}
-                      priority
-                      sizes="(max-width: 768px) 100vw,
-                      (max-width: 1200px) 50vw,
-                      33vw"
-                      fill
-                    />
-                  </div>
-                </Tilt>
-              </FadeInUp>
-            )}
-          </div>
-        </div>
-      </Edges>
+        </Edges>
+      </div>
     </div>
   );
 }
