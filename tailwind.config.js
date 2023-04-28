@@ -59,7 +59,7 @@ module.exports = {
       "fade-in-up-2": "fade-in-up 2s ease-in-out",
       "fade-in-down": "fade-in-down 1s ease-in-out",
       "fade-in": "fade-in 3s ease-in-out",
-      "change-background": "change-background 3s ease-in-out forwards",
+      // "change-background": "change-background 3s ease-in-out forwards",
       "fade-in-slow": "fade-in 3s ease-in-out",
     },
 
@@ -72,14 +72,7 @@ module.exports = {
           opacity: 1,
         },
       },
-      "change-background": {
-        from: {
-          background: "#FFFFFF",
-        },
-        to: {
-          background: "#0e0a30",
-        },
-      },
+
       "fade-in-up": {
         "0%": {
           opacity: 0,

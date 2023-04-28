@@ -102,6 +102,14 @@
         /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
       #0e0a30;
   }
+  .videoRadialBg {
+    background: linear-gradient(
+      90deg,
+      rgba(14, 10, 48, 1) 34%,
+      rgba(31, 24, 91, 0) 75%
+    );
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  }
   .secondaryRadialBg {
     background: radial-gradient(
         74.46% 294.38% at 55.17% 49.79%,
