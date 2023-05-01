@@ -26,9 +26,9 @@ export default function Hero({
           <source src="/bg-video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="flex w-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
-        <Edges size="lg" className=" w-full md:w-1/2 max-w-[600px]">
-          <div>
+      <div className="flex w-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-evenly px-[45px]">
+        <div  className=" w-full md:w-1/2">
+          <Edges size="lg">
             {headline && (
               <h1 className="heroHeadline text-[2.5rem]  sm:text-[3.75rem] max-w-[600px]">
                 {headline}
@@ -55,8 +55,8 @@ export default function Hero({
                 </Button>
               )}
             </div>
-          </div>
-        </Edges>
+          </Edges>
+        </div>
         <div className="w-full md:w-1/2  object-cover z-10 my-auto h-auto max-h-full flex justify-center items-center md:justify-start">
           <video
             className="w-full h-auto  max-h-[480px] max-w-[480px]"
