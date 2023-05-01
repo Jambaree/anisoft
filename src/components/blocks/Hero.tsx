@@ -30,7 +30,7 @@ export default function Hero({
         <Edges size="lg" className=" w-full md:w-1/2 max-w-[600px]">
           <div>
             {headline && (
-              <h1 className="heroHeadline max-w-[985px] text-[2.5rem]  sm:text-[3.75rem] max-w-[600px]">
+              <h1 className="heroHeadline text-[2.5rem]  sm:text-[3.75rem] max-w-[600px]">
                 {headline}
               </h1>
             )}
