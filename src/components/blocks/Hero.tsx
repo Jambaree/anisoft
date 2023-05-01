@@ -59,7 +59,7 @@ export default function Hero({
         </div>
         <div className="w-full md:w-1/2  object-cover z-10 my-auto h-auto max-h-full flex justify-center items-center md:justify-start">
           <video
-            className="w-full h-auto  max-h-[480px] max-w-[480px]"
+            className="w-full h-auto  "
             autoPlay
             muted
             playsInline
