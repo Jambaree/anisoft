@@ -29,7 +29,7 @@ function ProductsList({ products }) {
               )}
             >
               {product?.title && (
-                <h5 className="text-black align-middle max-w-[505px] my-[7px]">
+                <h5 className="productHeadline text-black align-middle max-w-[505px] my-[7px]">
                   {product.title}
                 </h5>
               )}
