@@ -29,9 +29,9 @@ function ProductsList({ products }) {
               )}
             >
               {product?.title && (
-                <h3 className="text-black align-middle max-w-[505px] my-[15px]">
+                <h5 className="productHeadline text-black align-middle max-w-[505px] my-[7px]">
                   {product.title}
-                </h3>
+                </h5>
               )}
             </div>
           );

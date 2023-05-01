@@ -23,7 +23,7 @@ function TextInfo({
             src={image?.sourceUrl}
             alt={image?.altText}
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
           />
         </div>
       )}
