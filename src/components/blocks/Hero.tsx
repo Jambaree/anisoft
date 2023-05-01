@@ -16,10 +16,6 @@ export default function Hero({
   return (
     <div className=" relative h-screen w-full">
       <div className="-z-10 h-screen w-full bottom-0 top-0">
-        <div
-          className="absolute bottom-0 top-0 left-0 animate-fade-in 
- w-full videoRadialBg"
-        ></div>
         <video
           className="w-screen h-full md:h-screen object-cover z-10"
           autoPlay
@@ -31,10 +27,7 @@ export default function Hero({
         </video>
       </div>
       <div className="flex w-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
-        <Edges
-          size="lg"
-          className=" w-full md:w-1/2 max-w-[600px]"
-        >
+        <Edges size="lg" className=" w-full md:w-1/2 max-w-[600px]">
           <div>
             {headline && (
               <h1 className="heroHeadline max-w-[985px] text-[2.5rem]  sm:text-[3.75rem]">
@@ -64,15 +57,17 @@ export default function Hero({
             </div>
           </div>
         </Edges>
-        <video
-          className="w-full md:w-1/2 object-cover z-10 my-auto"
-          autoPlay
-          muted
-          playsInline
-          loop
-        >
-          <source src="/anisoft-hero-square.mp4" type="video/mp4" />
-        </video>
+        <div className="w-full md:w-1/2  object-cover z-10 my-auto h-auto max-h-full flex justify-center items-center md:justify-start">
+          <video
+            className="w-full h-auto  max-h-[480px] max-w-[480px]"
+            autoPlay
+            muted
+            playsInline
+            loop
+          >
+            <source src="/anisoft-hero-square.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
     </div>
   );
