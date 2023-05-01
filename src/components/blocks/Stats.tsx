@@ -42,9 +42,9 @@ export default function StatsModule({ headline, description, stats, image }) {
               (max-width: 1200px) 50vw,
               33vw"
             />
-            <p className="absolute bottom-[10%] md:top-[10%] left-[10%] md:left-[25%] text-[#FF0000]">
+            {/* <p className="absolute bottom-[10%] md:top-[10%] left-[10%] md:left-[25%] text-[#FF0000]">
               FPO
-            </p>
+            </p> */}
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-900 md:inset-y-0 md:left-0 md:h-full md:w-32 md:bg-gradient-to-r"
