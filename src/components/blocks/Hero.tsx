@@ -65,7 +65,7 @@ export default function Hero({
             playsInline
             loop
           >
-            <source src="/anisoft-hero-square.mp4" type="video/mp4" />
+            <source src="/square2.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
