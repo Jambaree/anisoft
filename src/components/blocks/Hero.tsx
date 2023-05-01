@@ -21,17 +21,17 @@ export default function Hero({
  w-full videoRadialBg"
         ></div>
         <video
-          className="w-screen h-screen object-cover z-10"
+          className="w-screen h-full md:h-screen object-cover z-10"
           autoPlay
           muted
           playsInline
           loop
         >
-          <source src="/video.mp4" type="video/mp4" />
+          <source src="/bg-video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="flex max-w-[800px] z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
-        <Edges size="lg">
+      <div className="flex w-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
+        <Edges size="lg" className='mb-auto md:mb-0 w-full md:w-1/2 max-w-[600px]'>
           <div>
             {headline && (
               <h1 className="heroHeadline max-w-[985px] text-[2.5rem]  sm:text-[3.75rem]">
@@ -61,6 +61,15 @@ export default function Hero({
             </div>
           </div>
         </Edges>
+        <video
+          className="w-full md:w-1/2 object-cover z-10 my-auto"
+          autoPlay
+          muted
+          playsInline
+          loop
+        >
+          <source src="/video.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   );
