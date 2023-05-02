@@ -66,7 +66,8 @@ export default function StatsModule({ headline, description, stats, image }) {
                   <div key={index}>
                     <h2 className=" text-white flex flex-row">
                       {num && <Counter from={0} to={parseInt(num[0])} />}
-                      {letr}
+                      {letr?.includes("Years") && <span>&nbsp;</span>}
+                      {letr} {item.label === "Customers Served" && " +"}
                     </h2>
 
                     <p className="mt-1 block  text-white">{item.label}</p>
