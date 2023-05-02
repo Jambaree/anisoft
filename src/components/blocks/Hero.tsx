@@ -14,7 +14,7 @@ export default function Hero({
   image,
 }) {
   return (
-    <div className=" relative h-[calc(100vh-103px)] w-full">
+    <div className=" relative h-[calc(100vh-103px)] w-full flex justify-center items-center">
       <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
         <video
           className="w-screen h-full md:h-[calc(100vh-103px)] object-cover z-10"
@@ -26,8 +26,8 @@ export default function Hero({
           <source src="/bg-video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-around md:px-[45px]">
-        <div className=" w-full md:w-1/2 py-6 md:py-0">
+      <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center md:px-[45px]">
+        <div className=" w-full md:w-1/2 py-6 md:py-0 ">
           <Edges size="lg">
             {headline && (
               <h1 className="heroHeadline text-[2.5rem]  sm:text-[3.75rem] max-w-[600px]">
@@ -59,7 +59,7 @@ export default function Hero({
         </div>
         <div className="w-full  md:w-1/2  object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center ">
           <video
-            className="w-full md:w-[85%] max-w-[400px] md:max-w-full h-auto  "
+            className="w-full md:w-[85%] max-w-[400px] md:max-w-[700px] h-auto  "
             autoPlay
             muted
             playsInline
