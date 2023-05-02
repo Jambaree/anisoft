@@ -26,7 +26,7 @@ export default function Hero({
           <source src="/bg-video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-around px-[45px]">
+      <div className="flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-around md:px-[45px]">
         <div className=" w-full md:w-1/2 py-6 md:py-0">
           <Edges size="lg">
             {headline && (
