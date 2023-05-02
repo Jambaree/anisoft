@@ -26,36 +26,34 @@ export default function Hero({
           <source src="/bg-video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center md:px-[45px]">
+      <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
         <div className=" w-full md:w-1/2 py-6 md:py-0 ">
-          <Edges size="lg">
-            {headline && (
-              <h1 className="heroHeadline text-[2.5rem]  sm:text-[3.75rem] max-w-[600px]">
-                {headline}
-              </h1>
-            )}
-            {subHeadline && (
-              <p className="max-w-[575px] pt-[40px]">{subHeadline}</p>
-            )}
+          {headline && (
+            <h1 className="heroHeadline text-[2.5rem]  sm:text-[3.75rem] max-w-[600px]">
+              {headline}
+            </h1>
+          )}
+          {subHeadline && (
+            <p className="max-w-[575px] pt-[40px]">{subHeadline}</p>
+          )}
 
-            <div className="pt-[50px] flex gap-[30px] flex-wrap w-auto mr-[50px]">
-              {button1?.url && (
-                <Button variant="large" href={button1?.url} reverse={true}>
-                  {button1?.title}
-                </Button>
-              )}
-              {button2?.url && (
-                <Button
-                  variant="basicWhite"
-                  href={button2?.url}
-                  reverse={true}
-                  className="heroButton"
-                >
-                  {button2?.title}
-                </Button>
-              )}
-            </div>
-          </Edges>
+          <div className="pt-[50px] flex gap-[30px] flex-wrap w-auto mr-[50px]">
+            {button1?.url && (
+              <Button variant="large" href={button1?.url} reverse={true}>
+                {button1?.title}
+              </Button>
+            )}
+            {button2?.url && (
+              <Button
+                variant="basicWhite"
+                href={button2?.url}
+                reverse={true}
+                className="heroButton"
+              >
+                {button2?.title}
+              </Button>
+            )}
+          </div>
         </div>
         <div className="w-full  md:w-1/2  object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center ">
           <video
