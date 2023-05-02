@@ -67,14 +67,8 @@ export default function Hero({
           </video>
         </div>
       </div>
-      <div className="absolute top-0 bottom-0 right-0  z-30  opacity-30 md:opacity-100">
-        <video
-          className="block w-full h-full "
-          autoPlay
-          muted
-          playsInline
-          loop
-        >
+      <div className="absolute top-0 bottom-0 right-0  z-30  opacity-50 md:opacity-100">
+        <video className="block w-full h-full " autoPlay muted playsInline loop>
           <source src="/square2.mp4" type="video/mp4" />
         </video>
       </div>
