@@ -57,7 +57,7 @@ export default function Hero({
         </div>
         <div className="w-full  md:w-1/2  object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center ">
           <video
-            className="w-full md:w-[85%] max-w-[400px] md:max-w-[700px] h-auto  "
+            className=" hidden w-full md:w-[85%] max-w-[400px] md:max-w-[700px] h-auto  "
             autoPlay
             muted
             playsInline
@@ -66,6 +66,17 @@ export default function Hero({
             <source src="/square2.mp4" type="video/mp4" />
           </video>
         </div>
+      </div>
+      <div className="absolute top-0 bottom-0 right-0  z-30  opacity-30 md:opacity-100">
+        <video
+          className="block w-full h-full "
+          autoPlay
+          muted
+          playsInline
+          loop
+        >
+          <source src="/square2.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   );
