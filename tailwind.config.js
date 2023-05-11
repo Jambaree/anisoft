@@ -54,6 +54,46 @@ module.exports = {
       radial:
         "radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%), #0E0A30;",
     },
+    animation: {
+      "fade-in-up": "fade-in-up 1s ease-in-out",
+      "fade-in-up-2": "fade-in-up 2s ease-in-out",
+      "fade-in-down": "fade-in-down 1s ease-in-out",
+      "fade-in": "fade-in 3s ease-in-out",
+      // "change-background": "change-background 3s ease-in-out forwards",
+      "fade-in-slow": "fade-in 3s ease-in-out",
+    },
+
+    keyframes: {
+      "fade-in": {
+        "0%": {
+          opacity: 0,
+        },
+        "100%": {
+          opacity: 1,
+        },
+      },
+
+      "fade-in-up": {
+        "0%": {
+          opacity: 0,
+          transform: "translateY(10px)",
+        },
+        "100%": {
+          opacity: 1,
+          transform: "translateY(0)",
+        },
+      },
+      "fade-in-down": {
+        "0%": {
+          opacity: 0,
+          transform: "translateY(-10px)",
+        },
+        "100%": {
+          opacity: 1,
+          transform: "translateY(0)",
+        },
+      },
+    },
   },
   plugins: [],
 };

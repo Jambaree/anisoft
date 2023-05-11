@@ -78,6 +78,9 @@ const query = /* GraphQL */ `
                   altText
                 }
                 subHeadline
+                video {
+                  mediaItemUrl
+                }
               }
               ... on DefaultTemplate_Acf_Modules_InfoCallout {
                 fieldGroupName
