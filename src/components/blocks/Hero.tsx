@@ -12,7 +12,9 @@ export default function Hero({
   button1,
   button2,
   image,
+  video,
 }) {
+  console.log("hero", video);
   return (
     <div className=" relative h-[calc(100vh-103px)] w-full flex justify-center items-center">
       <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
@@ -24,7 +26,7 @@ export default function Hero({
           playsInline
           loop
         >
-          <source src="/new-video-bg.mp4" type="video/mp4" />
+          <source src={video?.mediaItemUrl} type="video/mp4" />
         </video>
       </div>
       <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
