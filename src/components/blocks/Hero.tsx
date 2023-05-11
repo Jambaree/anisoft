@@ -12,67 +12,78 @@ export default function Hero({
   button1,
   button2,
   image,
+  video,
 }) {
   return (
-    <div className="primaryRadialBg py-[75px] md:py-[125px]">
-      <Edges size="lg">
-        <div className="flex w-full h-auto flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center md:justify-between">
-          <div>
-            {headline && (
-              <FadeInUp className="delay-100">
-                <h1 className="heroHeadline max-w-[985px] text-[2.5rem]  sm:text-[3.75rem]">
-                  {headline}
-                </h1>
-              </FadeInUp>
-            )}
-            {subHeadline && (
-              <FadeInUp className="delay-300">
-                <p className="max-w-[575px] pt-[40px]">{subHeadline}</p>
-              </FadeInUp>
-            )}
-            <FadeInUp className="delay-500">
-              <div className="pt-[50px] flex gap-[30px] flex-wrap w-auto mr-[50px]">
-                {button1?.url && (
-                  <Button variant="large" href={button1?.url} reverse={true}>
-                    {button1?.title}
-                  </Button>
-                )}
-                {button2?.url && (
-                  <Button
-                    variant="basicWhite"
-                    href={button2?.url}
-                    reverse={true}
-                    className="heroButton"
-                  >
-                    {button2?.title}
-                  </Button>
-                )}
-              </div>
-            </FadeInUp>
+    <div className=" relative  w-full flex justify-center items-center">
+      {video?.mediaItemUrl ? (
+        <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
+          <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg"></div>
+          <video
+            className="w-screen h-full md:h-[calc(100vh-103px)] object-cover z-10"
+            autoPlay
+            muted
+            playsInline
+            loop
+          >
+            <source src={video?.mediaItemUrl} type="video/mp4" />
+          </video>
+        </div>
+      ) : (
+        <div className="z-10 h-[calc(80vh-103px)]  w-full bottom-0 top-0">
+          {/* <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg"></div> */}
+
+          <div className="  w-screen h-full md:h-[calc(80vh-103px)] object-cover z-10 max-h-[540px]">
+            <Image src={image?.sourceUrl} fill alt={image?.altText} />
           </div>
-          <div>
-            {image?.sourceUrl && (
-              <FadeInUp className="flex items-center justify-center ">
-                <Tilt>
-                  <div className="relative w-[350px] h-[350px] cursor-pointer">
-                    <Image
-                      className="pb-[30px] cmd:pb-0"
-                      src={image?.sourceUrl}
-                      // src={heroImage}
-                      alt={image?.altText}
-                      priority
-                      sizes="(max-width: 768px) 100vw,
-                      (max-width: 1200px) 50vw,
-                      33vw"
-                      fill
-                    />
-                  </div>
-                </Tilt>
-              </FadeInUp>
+        </div>
+      )}
+      <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
+        <div className=" w-full md:w-1/2 py-6 md:py-0 ">
+          {headline && (
+            <h1 className="heroHeadline text-[2.5rem]  sm:text-[3.75rem] max-w-[600px]">
+              {headline}
+            </h1>
+          )}
+          {subHeadline && (
+            <p className="max-w-[575px] pt-[40px]">{subHeadline}</p>
+          )}
+
+          <div className="pt-[50px] flex gap-[30px] flex-wrap w-auto mr-[50px]">
+            {button1?.url && (
+              <Button variant="large" href={button1?.url} reverse={true}>
+                {button1?.title}
+              </Button>
+            )}
+            {button2?.url && (
+              <Button
+                variant="basicWhite"
+                href={button2?.url}
+                reverse={true}
+                className="heroButton"
+              >
+                {button2?.title}
+              </Button>
             )}
           </div>
         </div>
-      </Edges>
+        <div className="w-full  md:w-1/2  object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center ">
+          {/* <video
+            className=" hidden w-full md:w-[85%] max-w-[400px] md:max-w-[700px] h-auto  "
+            autoPlay
+            muted
+            playsInline
+            loop
+          >
+            <source src="/square2.mp4" type="video/mp4" />
+          </video> */}
+        </div>
+      </div>
+      {/* <div className="absolute top-0 bottom-0 right-0  z-30  opacity-50 md:opacity-100">
+        <video className="block w-full h-full " autoPlay muted playsInline loop>
+          <source src="/square2.mp4" type="video/mp4" />
+        </video>
+      </div> */}
     </div>
   );
 }
