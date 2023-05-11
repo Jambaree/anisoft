@@ -15,19 +15,29 @@ export default function Hero({
   video,
 }) {
   return (
-    <div className=" relative h-[calc(100vh-103px)] w-full flex justify-center items-center">
-      <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
-        <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg"></div>
-        <video
-          className="w-screen h-full md:h-[calc(100vh-103px)] object-cover z-10"
-          autoPlay
-          muted
-          playsInline
-          loop
-        >
-          <source src={video?.mediaItemUrl} type="video/mp4" />
-        </video>
-      </div>
+    <div className=" relative  w-full flex justify-center items-center">
+      {video?.mediaItemUrl ? (
+        <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
+          <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg"></div>
+          <video
+            className="w-screen h-full md:h-[calc(100vh-103px)] object-cover z-10"
+            autoPlay
+            muted
+            playsInline
+            loop
+          >
+            <source src={video?.mediaItemUrl} type="video/mp4" />
+          </video>
+        </div>
+      ) : (
+        <div className="z-10 h-[calc(80vh-103px)]  w-full bottom-0 top-0">
+          {/* <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg"></div> */}
+
+          <div className="  w-screen h-full md:h-[calc(100vh-103px)] object-cover z-10 max-h-[540px]">
+            <Image src={image?.sourceUrl} fill alt={image?.altText} />
+          </div>
+        </div>
+      )}
       <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
         <div className=" w-full md:w-1/2 py-6 md:py-0 ">
           {headline && (
