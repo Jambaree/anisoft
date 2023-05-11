@@ -33,7 +33,7 @@ export default function Hero({
         <div className="z-10 h-[calc(80vh-103px)]  w-full bottom-0 top-0">
           {/* <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg"></div> */}
 
-          <div className="  w-screen h-full md:h-[calc(100vh-103px)] object-cover z-10 max-h-[540px]">
+          <div className="  w-screen h-full md:h-[calc(80vh-103px)] object-cover z-10 max-h-[540px]">
             <Image src={image?.sourceUrl} fill alt={image?.altText} />
           </div>
         </div>
