@@ -14,7 +14,6 @@ export default function Hero({
   image,
   video,
 }) {
-  console.log("hero", video);
   return (
     <div className=" relative h-[calc(100vh-103px)] w-full flex justify-center items-center">
       <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
