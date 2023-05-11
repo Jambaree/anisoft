@@ -16,6 +16,7 @@ export default function Hero({
   return (
     <div className=" relative h-[calc(100vh-103px)] w-full flex justify-center items-center">
       <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
+        <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg"></div>
         <video
           className="w-screen h-full md:h-[calc(100vh-103px)] object-cover z-10"
           autoPlay
@@ -23,7 +24,7 @@ export default function Hero({
           playsInline
           loop
         >
-          <source src="/bg-video.mp4" type="video/mp4" />
+          <source src="/new-video-bg.mp4" type="video/mp4" />
         </video>
       </div>
       <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
@@ -56,7 +57,7 @@ export default function Hero({
           </div>
         </div>
         <div className="w-full  md:w-1/2  object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center ">
-          <video
+          {/* <video
             className=" hidden w-full md:w-[85%] max-w-[400px] md:max-w-[700px] h-auto  "
             autoPlay
             muted
@@ -64,14 +65,14 @@ export default function Hero({
             loop
           >
             <source src="/square2.mp4" type="video/mp4" />
-          </video>
+          </video> */}
         </div>
       </div>
-      <div className="absolute top-0 bottom-0 right-0  z-30  opacity-50 md:opacity-100">
+      {/* <div className="absolute top-0 bottom-0 right-0  z-30  opacity-50 md:opacity-100">
         <video className="block w-full h-full " autoPlay muted playsInline loop>
           <source src="/square2.mp4" type="video/mp4" />
         </video>
-      </div>
+      </div> */}
     </div>
   );
 }
