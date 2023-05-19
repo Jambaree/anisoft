@@ -53,7 +53,7 @@ export default async function Footer({ data }) {
                 ))}
               </div>
             </div>
-            <div className="max-w-[384px] mt-[30px] md:mt-0">
+            <div className=" mt-[30px] md:mt-0">
               <FooterMenuItems
                 menuItems={menuItems}
                 productMenuItems={productMenuItems}

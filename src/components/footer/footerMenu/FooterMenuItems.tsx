@@ -10,18 +10,27 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
     ? productMenuItems
     : menuItems;
 
-  const half = Math.ceil(correctMenuItems.length / 2);
-  const firstHalfMenuItems = correctMenuItems.slice(0, half);
-  const secondHalfMenuitems = correctMenuItems.slice(
-    half,
+  const third = Math.ceil(correctMenuItems.length / 3);
+  const firstHalfMenuItems = correctMenuItems.slice(0, third - 1);
+  const secondMenuitems = correctMenuItems.slice(third - 1, 2 * third - 2);
+  const thirdMenuitems = correctMenuItems.slice(
+    2 * third - 2,
     correctMenuItems.length
   );
 
+  console.log(
+    "firstHalfMenuItems",
+    correctMenuItems.length,
+    third,
+    2 * third,
+    2 * third - 1
+  );
+
   return (
-    <div className="flex flex-row ">
+    <div className="flex flex-row flex-wrap gap-[25px] md:gap-[35px]">
       <ul>
         {firstHalfMenuItems.map((item, index) => (
-          <li key={index} className="relative max-w-[180px] group w-full">
+          <li key={index} className="relative max-w-[350px] group w-full">
             <div
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
               key={index}
@@ -35,8 +44,24 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
           </li>
         ))}
       </ul>
-      <ul className="ml-[24px]">
-        {secondHalfMenuitems.map((item, index) => (
+      <ul className="">
+        {secondMenuitems.map((item, index) => (
+          <li key={index} className="relative max-w-[350px] w-full group">
+            <div
+              className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
+              key={index}
+            >
+              {item?.url.includes("#") ? (
+                <a href={item?.url || "/"}>{item?.label}</a>
+              ) : (
+                <Link href={item?.url || "/"}>{item?.label}</Link>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <ul className="">
+        {thirdMenuitems.map((item, index) => (
           <li key={index} className="relative max-w-[180px] w-full group">
             <div
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
