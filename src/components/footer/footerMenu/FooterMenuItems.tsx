@@ -18,14 +18,6 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
     correctMenuItems.length
   );
 
-  console.log(
-    "firstHalfMenuItems",
-    correctMenuItems.length,
-    third,
-    2 * third,
-    2 * third - 1
-  );
-
   return (
     <div className="flex flex-row flex-wrap gap-[25px] md:gap-[35px]">
       <ul>
