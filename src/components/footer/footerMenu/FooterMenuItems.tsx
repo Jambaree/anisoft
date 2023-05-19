@@ -11,10 +11,10 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
     : menuItems;
 
   const third = Math.ceil(correctMenuItems.length / 3);
-  const firstHalfMenuItems = correctMenuItems.slice(0, third - 1);
-  const secondMenuitems = correctMenuItems.slice(third - 1, 2 * third - 2);
+  const firstHalfMenuItems = correctMenuItems.slice(0, third );
+  const secondMenuitems = correctMenuItems.slice(third , 2 * third );
   const thirdMenuitems = correctMenuItems.slice(
-    2 * third - 2,
+    2 * third,
     correctMenuItems.length
   );
 
@@ -54,7 +54,7 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
       </ul>
       <ul className="">
         {thirdMenuitems.map((item, index) => (
-          <li key={index} className="relative max-w-[180px] w-full group">
+          <li key={index} className="relative max-w-[350px] w-full group">
             <div
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
               key={index}

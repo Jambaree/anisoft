@@ -26,7 +26,7 @@ export default async function RootLayout({
 }) {
   const {
     themeOptions: {
-      options: { footer, header },
+      options: { header },
     },
     menu: { menuItems },
   } = await getData({ query });
@@ -49,10 +49,7 @@ export default async function RootLayout({
         <Header data={header} menuItems={headerMenuItems} />
         <Providers>{children}</Providers>
         {/* @ts-expect-error Server Component */}
-        <Footer
-          data={footer}
-          // productMenuItems={productMenuItems}
-        />
+        <Footer />
       </body>
     </html>
   );
@@ -66,25 +63,6 @@ const query = /* GraphQL */ `
           button {
             title
             url
-          }
-        }
-        footer {
-          link2 {
-            title
-            url
-          }
-          link1 {
-            title
-            url
-          }
-          copyrightText
-          contactInformation {
-            email
-            phoneNumber
-            socials {
-              icon
-              url
-            }
           }
         }
       }

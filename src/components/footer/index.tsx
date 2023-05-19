@@ -6,13 +6,18 @@ import Link from "next/link";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
+import { getData } from "@jambaree/next-wordpress";
 
-export default async function Footer({ data }) {
-  const { contactInformation, copyrightText, link1, link2 } = data;
-  const menuItems = await getMenuItems({
-    id: "footer",
-  });
-
+export default async function Footer() {
+  const {
+    themeOptions: {
+      options: {
+        footer: { contactInformation, copyrightText, link1, link2 },
+      },
+    },
+    menu: { menuItems },
+  } = await getData({ query });
+  console.log(menuItems);
   const productMenuItems = await getMenuItems({
     id: "SingleProduct",
   });
@@ -55,7 +60,7 @@ export default async function Footer({ data }) {
             </div>
             <div className=" mt-[30px] md:mt-0">
               <FooterMenuItems
-                menuItems={menuItems}
+                menuItems={menuItems.nodes}
                 productMenuItems={productMenuItems}
               />
             </div>
@@ -83,3 +88,61 @@ export default async function Footer({ data }) {
     </div>
   );
 }
+
+const query = /* GraphQL */ `
+  query MenuQuery {
+    themeOptions {
+      options {
+        footer {
+          link2 {
+            title
+            url
+          }
+          link1 {
+            title
+            url
+          }
+          copyrightText
+          contactInformation {
+            email
+            phoneNumber
+            socials {
+              icon
+              url
+            }
+          }
+        }
+      }
+    }
+    menu(id: "footer", idType: NAME) {
+      id
+      slug
+      locations
+      menuItems(first: 100) {
+        nodes {
+          path
+          url
+          label
+          target
+          parentDatabaseId
+          cssClasses
+          childItems {
+            nodes {
+              id
+              label
+              url
+              childItems {
+                nodes {
+                  id
+                  label
+                  url
+                  description
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
