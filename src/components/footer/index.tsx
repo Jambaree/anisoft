@@ -17,7 +17,6 @@ export default async function Footer() {
     },
     menu: { menuItems },
   } = await getData({ query });
-  console.log(menuItems);
   const productMenuItems = await getMenuItems({
     id: "SingleProduct",
   });
