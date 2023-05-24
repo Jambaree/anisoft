@@ -64,6 +64,7 @@ const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
             width: 0,
             transition: { delay: 0.7, duration: 0.3 },
           }}
+          className="h-full overflow-y-scroll"
         >
           <motion.div
             initial="closed"
