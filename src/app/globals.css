@@ -194,3 +194,8 @@ input[type="radio"] {
 #linkedin:hover path {
   fill: #00ac4d;
 }
+
+input {
+  border-radius: 0px !important;
+  -webkit-border-radius: 0px !important; /* For iOS */
+}
