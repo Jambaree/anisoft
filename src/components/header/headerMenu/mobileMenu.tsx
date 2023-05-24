@@ -70,7 +70,7 @@ const MobileMenu = ({ isOpen, menu }) => {
             animate="open"
             exit="closed"
             variants={sideVariants}
-            className="fixed z-[9999999999] h-full w-full bg-white"
+            className="fixed z-[9999999999] h-full w-full bg-white overflow-y-scroll"
           >
             <Edges size="lg">
               <motion.div variants={itemVariants} className="mt-[60px]">

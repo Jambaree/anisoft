@@ -48,7 +48,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
             variants={sideVariants}
             className="fixed z-50"
           >
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className='h-full pb-[100px]'>
               {menu?.nodes?.map((item, index) => (
                 <div key={index} className="flex flex-col text-left ml-[15px]">
                   {index <= 0 && (
