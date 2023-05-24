@@ -49,13 +49,13 @@ export default function Header({ menuItems, data }) {
                   />
                 </button>
               ) : (
-                <button className="w-[30px] h-[30px] relative ml-[10px] md:ml-0">
+                <button className="w-[20px] h-[20px] relative ml-[10px] md:ml-0">
                   <Image
                     src="/close.svg"
                     alt="close-icon"
                     className=" cursor-pointer "
-                    width="18"
-                    height="18"
+                    width="20"
+                    height="20"
                     onClick={() => {
                       setIsOpen(!isOpen);
                     }}
