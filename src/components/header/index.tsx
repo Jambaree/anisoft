@@ -53,7 +53,7 @@ export default function Header({ menuItems, data }) {
                   <Image
                     src="/close.svg"
                     alt="close-icon"
-                    className=" cursor-pointer "
+                    className=" cursor-pointer  max-w-[20px] max-h-[20px]"
                     width="20"
                     height="20"
                     onClick={() => {
@@ -67,7 +67,11 @@ export default function Header({ menuItems, data }) {
         </Edges>
       </div>
       <div className="md:hidden flex">
-        <MobileMenu isOpen={isOpen} menu={menuItems} buttonData={data?.button} />
+        <MobileMenu
+          isOpen={isOpen}
+          menu={menuItems}
+          buttonData={data?.button}
+        />
       </div>
     </>
   );

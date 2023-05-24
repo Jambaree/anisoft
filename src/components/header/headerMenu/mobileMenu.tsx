@@ -129,7 +129,7 @@ const MobileMenu = ({ isOpen, menu, buttonData }) => {
                     href={getUrlPath(buttonData?.url) || "/"}
                     className="ml-[15px]"
                   >
-                    {buttonData?.label}
+                    {buttonData?.title}
                   </Button>
                 )}
               </motion.div>
