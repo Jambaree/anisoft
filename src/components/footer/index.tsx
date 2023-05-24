@@ -37,24 +37,25 @@ export default async function Footer() {
                 <p className="text-white">{contactInformation.email}</p>
               </div>
               <div className="flex flex-row">
-                {contactInformation?.socials.map((link, index) => (
-                  <a
-                    aria-label="social link"
-                    key={index}
-                    href={link?.url || "/"}
-                    className="mr-[22px]"
-                  >
-                    {link.icon === "facebook" && (
-                      <Facebook className="hover:fill-lightGreen  fill-white" />
-                    )}
-                    {link.icon === "linkedin" && (
-                      <Linkedin
-                        id="linkedin"
-                        className="hover:fill-lightGreen fill-white"
-                      />
-                    )}
-                  </a>
-                ))}
+                {contactInformation?.socials?.length > 0 &&
+                  contactInformation?.socials.map((link, index) => (
+                    <a
+                      aria-label="social link"
+                      key={index}
+                      href={link?.url || "/"}
+                      className="mr-[22px]"
+                    >
+                      {link.icon === "facebook" && (
+                        <Facebook className="hover:fill-lightGreen  fill-white" />
+                      )}
+                      {link.icon === "linkedin" && (
+                        <Linkedin
+                          id="linkedin"
+                          className="hover:fill-lightGreen fill-white"
+                        />
+                      )}
+                    </a>
+                  ))}
               </div>
             </div>
             <div className=" mt-[30px] md:mt-0">

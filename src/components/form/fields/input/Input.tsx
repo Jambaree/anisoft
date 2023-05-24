@@ -65,7 +65,7 @@ const Input = forwardRef(
             name={name}
             type={type}
             className={clsx(
-              "appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black active:border-lightGreen ",
+              "rounded-0 appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black active:border-lightGreen ",
               " shadow-sm placeholder-gray-400 focus:outline-none",
               " focus:border-lightGreen ",
               disabled && "opacity-50",

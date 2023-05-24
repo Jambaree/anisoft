@@ -68,7 +68,7 @@ const Textarea = forwardRef(
             name={name}
             type={type}
             className={clsx(
-              " appearance-none block w-full px-3 py-3 border-b-[1px] border-l-[1px] border-black active:border-lightGreen text-black",
+              "rounded-0 appearance-none block w-full px-3 py-3 border-b-[1px] border-l-[1px] border-black active:border-lightGreen text-black",
               " shadow-sm placeholder-gray-400 focus:outline-none",
               "focus:ring-light focus:border-lightGreen ",
               disabled && "opacity-50",

@@ -23,7 +23,12 @@ export default function Header({ menuItems, data }) {
       <div className="z-50 fixed bg-white w-full border-b-[1px] border-b-[#0E0A30] top-0 ">
         <Edges size="lg">
           <div className="flex flex-row justify-between items-center relative">
-            <Link href="/" className="my-[31px]" aria-label="logo-home-link">
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="my-[31px]"
+              aria-label="logo-home-link"
+            >
               <Logo />
             </Link>
             <HeaderMenuItems menuItems={menuItems} data={data} />
@@ -44,13 +49,13 @@ export default function Header({ menuItems, data }) {
                   />
                 </button>
               ) : (
-                <button className="w-[30px] h-[30px] relative ml-[10px] md:ml-0">
+                <button className="w-[20px] h-[20px] relative ml-[10px] md:ml-0">
                   <Image
                     src="/close.svg"
                     alt="close-icon"
-                    className=" cursor-pointer "
-                    width="18"
-                    height="18"
+                    className=" cursor-pointer  max-w-[20px] max-h-[20px]"
+                    width="20"
+                    height="20"
                     onClick={() => {
                       setIsOpen(!isOpen);
                     }}
@@ -62,7 +67,12 @@ export default function Header({ menuItems, data }) {
         </Edges>
       </div>
       <div className="md:hidden flex">
-        <MobileMenu isOpen={isOpen} menu={menuItems} />
+        <MobileMenu
+          isOpen={isOpen}
+          menu={menuItems}
+          buttonData={data?.button}
+          setIsOpen={setIsOpen}
+        />
       </div>
     </>
   );

@@ -6,9 +6,7 @@ import { usePathname } from "next/navigation";
 const MenuItems = ({ menuItems, productMenuItems }) => {
   const urlName = usePathname();
 
-  const correctMenuItems = urlName.includes("products")
-    ? productMenuItems
-    : menuItems;
+  const correctMenuItems = menuItems;
 
   const third = Math.ceil(correctMenuItems.length / 3);
   const firstHalfMenuItems = correctMenuItems.slice(0, third );

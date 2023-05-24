@@ -7,8 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "../../Button";
 import MobileSubMenu from "./MobileSubMenu";
 import ChevonRight from "../../../../public/chevron-left.svg";
+import { getUrlPath } from "../../../utils/getUrlPath";
 
-const MobileMenu = ({ isOpen, menu }) => {
+const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -69,7 +70,7 @@ const MobileMenu = ({ isOpen, menu }) => {
             animate="open"
             exit="closed"
             variants={sideVariants}
-            className="fixed z-[9999999999] h-full w-full bg-white"
+            className="fixed z-[9999999999] h-full w-full bg-white overflow-y-scroll mobileMenu"
           >
             <Edges size="lg">
               <motion.div variants={itemVariants} className="mt-[60px]">
@@ -104,7 +105,7 @@ const MobileMenu = ({ isOpen, menu }) => {
                                 index
                               );
                             }}
-                            href={item?.url || "/"}
+                            href={getUrlPath(item?.url) || "/"}
                             className="nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px]"
                           >
                             {item.label}
@@ -119,12 +120,17 @@ const MobileMenu = ({ isOpen, menu }) => {
                       isOpen={subMenuIsOpen}
                       setIsOpen={setSubMenuIsOpen}
                       menu={item?.childItems}
+                      setIsOpen2={setIsOpen}
                     />
                   </div>
                 ))}
                 {!subMenuIsOpen && (
-                  <Button variant="medium" href="/" className="ml-[15px]">
-                    Get Started
+                  <Button
+                    variant="medium"
+                    href={getUrlPath(buttonData?.url) || "/"}
+                    className="ml-[15px]"
+                  >
+                    {buttonData?.title}
                   </Button>
                 )}
               </motion.div>
