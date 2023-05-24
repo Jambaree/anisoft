@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getUrlPath } from "../../../utils/getUrlPath";
 
 const MenuItems = ({ menuItems, productMenuItems }) => {
   const urlName = usePathname();
@@ -9,8 +10,8 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
   const correctMenuItems = menuItems;
 
   const third = Math.ceil(correctMenuItems.length / 3);
-  const firstHalfMenuItems = correctMenuItems.slice(0, third );
-  const secondMenuitems = correctMenuItems.slice(third , 2 * third );
+  const firstHalfMenuItems = correctMenuItems.slice(0, third);
+  const secondMenuitems = correctMenuItems.slice(third, 2 * third);
   const thirdMenuitems = correctMenuItems.slice(
     2 * third,
     correctMenuItems.length
@@ -28,7 +29,7 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
               {item?.url.includes("#") ? (
                 <a href={item?.url || "/"}>{item?.label}</a>
               ) : (
-                <Link href={item?.url || "/"}>{item?.label}</Link>
+                <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
               )}
             </div>
           </li>
@@ -44,7 +45,7 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
               {item?.url.includes("#") ? (
                 <a href={item?.url || "/"}>{item?.label}</a>
               ) : (
-                <Link href={item?.url || "/"}>{item?.label}</Link>
+                <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
               )}
             </div>
           </li>
@@ -60,7 +61,7 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
               {item?.url.includes("#") ? (
                 <a href={item?.url || "/"}>{item?.label}</a>
               ) : (
-                <Link href={item?.url || "/"}>{item?.label}</Link>
+                <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
               )}
             </div>
           </li>
