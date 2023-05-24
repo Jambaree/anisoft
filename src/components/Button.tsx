@@ -4,6 +4,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import ChevronRight from "../../public/chevron-right.svg";
+import { getUrlPath } from "../utils/getUrlPath";
 
 interface IButtonProps {
   children: React.ReactNode;
@@ -26,7 +27,7 @@ const Button: React.FC<IButtonProps> = ({
   return href ? (
     <Link
       aria-label="button"
-      href={href || "/"}
+      href={getUrlPath(href) || "/"}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={classNames(

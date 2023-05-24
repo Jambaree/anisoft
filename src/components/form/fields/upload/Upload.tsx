@@ -68,7 +68,7 @@ const Upload = forwardRef(
             name={name}
             type={"file"}
             className={clsx(
-              "uploadButton appearance-none block w-full px-3 py-2  text-black border-b-[1px] border-l-[1px] border-black active:border-lightGreen ",
+              "rounded-0 uploadButton appearance-none block w-full px-3 py-2  text-black border-b-[1px] border-l-[1px] border-black active:border-lightGreen ",
 
               disabled && "opacity-50",
               error &&

@@ -4,8 +4,16 @@ import React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import ChevronLeft from "../../../../public/chevron-left.svg";
+import { getUrlPath } from "../../../utils/getUrlPath";
 
-const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
+const MobileSubMenu = ({
+  isOpen,
+  setIsOpen,
+  menu,
+  openedMenu,
+  menuIndex,
+  setIsOpen2,
+}) => {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -47,7 +55,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
             variants={sideVariants}
             className="fixed z-50"
           >
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="h-full pb-[100px]">
               {menu?.nodes?.map((item, index) => (
                 <div key={index} className="flex flex-col text-left ml-[15px]">
                   {index <= 0 && (
@@ -74,7 +82,8 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
                           <Link
                             className="nav text-darkPurple leading-[24px] mb-[35px] "
                             key={index}
-                            href={child?.url || "/"}
+                            href={getUrlPath(child?.url) || "/"}
+                            onClick={() => setIsOpen2(false)}
                             passHref
                           >
                             {child?.label}
