@@ -9,7 +9,7 @@ import MobileSubMenu from "./MobileSubMenu";
 import ChevonRight from "../../../../public/chevron-left.svg";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
-const MobileMenu = ({ isOpen, menu }) => {
+const MobileMenu = ({ isOpen, menu, buttonData }) => {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -124,8 +124,12 @@ const MobileMenu = ({ isOpen, menu }) => {
                   </div>
                 ))}
                 {!subMenuIsOpen && (
-                  <Button variant="medium" href="/" className="ml-[15px]">
-                    Get Started
+                  <Button
+                    variant="medium"
+                    href={getUrlPath(buttonData?.url) || "/"}
+                    className="ml-[15px]"
+                  >
+                    {buttonData?.label}
                   </Button>
                 )}
               </motion.div>

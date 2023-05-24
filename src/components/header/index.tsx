@@ -67,7 +67,7 @@ export default function Header({ menuItems, data }) {
         </Edges>
       </div>
       <div className="md:hidden flex">
-        <MobileMenu isOpen={isOpen} menu={menuItems} />
+        <MobileMenu isOpen={isOpen} menu={menuItems} buttonData={data?.button} />
       </div>
     </>
   );
