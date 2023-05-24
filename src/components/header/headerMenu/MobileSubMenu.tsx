@@ -51,6 +51,7 @@ const MobileSubMenu = ({
         <motion.aside
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
+          className="overflow-y-scroll mobileMenu"
         >
           <motion.div
             initial="closed"
