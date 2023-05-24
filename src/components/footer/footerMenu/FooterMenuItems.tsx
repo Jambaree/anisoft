@@ -16,8 +16,6 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
     correctMenuItems.length
   );
 
-  console.log(correctMenuItems);
-
   return (
     <div className="flex flex-row flex-wrap gap-[25px] md:gap-[35px]">
       <ul>
