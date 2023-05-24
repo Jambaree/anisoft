@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "../../Button";
 import SubMenu from "./SubMenu";
 import { usePathname } from "next/navigation";
+import { getUrlPath } from "../../../utils/getUrlPath";
 
 const MenuItems = ({ menuItems, data }) => {
   const [hoverIndex, setHoverIndex] = useState(-1);
@@ -26,7 +27,7 @@ const MenuItems = ({ menuItems, data }) => {
                 {item?.childItems?.nodes.length > 0 ? (
                   <div className="cursor-pointer">{item?.label}</div>
                 ) : (
-                  <Link href={item?.url || "/"}>{item?.label}</Link>
+                  <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
                 )}
                 <div className="group-hover:block hidden absolute bg-lightGreen bottom-9 w-[24px] h-[5px] "></div>
 

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import ChevronLeft from "../../../../public/chevron-left.svg";
+import { getUrlPath } from "../../../utils/getUrlPath";
 
 const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
   const sideVariants = {
@@ -74,7 +75,7 @@ const MobileSubMenu = ({ isOpen, setIsOpen, menu, openedMenu, menuIndex }) => {
                           <Link
                             className="nav text-darkPurple leading-[24px] mb-[35px] "
                             key={index}
-                            href={child?.url || "/"}
+                            href={getUrlPath(child?.url) || "/"}
                             passHref
                           >
                             {child?.label}
