@@ -9,7 +9,7 @@ import MobileSubMenu from "./MobileSubMenu";
 import ChevonRight from "../../../../public/chevron-left.svg";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
-const MobileMenu = ({ isOpen, menu, buttonData }) => {
+const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -120,6 +120,7 @@ const MobileMenu = ({ isOpen, menu, buttonData }) => {
                       isOpen={subMenuIsOpen}
                       setIsOpen={setSubMenuIsOpen}
                       menu={item?.childItems}
+                      setIsOpen2={setIsOpen}
                     />
                   </div>
                 ))}

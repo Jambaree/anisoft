@@ -71,6 +71,7 @@ export default function Header({ menuItems, data }) {
           isOpen={isOpen}
           menu={menuItems}
           buttonData={data?.button}
+          setIsOpen={setIsOpen}
         />
       </div>
     </>
