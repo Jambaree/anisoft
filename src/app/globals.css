@@ -195,7 +195,11 @@ input[type="radio"] {
   fill: #00ac4d;
 }
 
-input {
+input, textarea {
   border-radius: 0px !important;
   -webkit-border-radius: 0px !important; /* For iOS */
+}
+.mobileMenu {
+  overflow-y: scroll !important;
+  -webkit-overflow-y: 0px !important; /* For iOS */
 }
