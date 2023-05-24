@@ -48,12 +48,15 @@ const MobileSubMenu = ({
   return (
     <AnimatePresence>
       {isOpen && openedMenu === menuIndex && (
-        <motion.aside initial={{ width: 0 }} animate={{ width: "100%" }}>
+        <motion.aside
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+        >
           <motion.div
             initial="closed"
             animate="open"
             variants={sideVariants}
-            className="fixed z-50"
+            className="fixed z-50 overflow-y-scroll mobileMenu h-full pb-[100px]"
           >
             <motion.div variants={itemVariants} className="h-full pb-[100px]">
               {menu?.nodes?.map((item, index) => (
