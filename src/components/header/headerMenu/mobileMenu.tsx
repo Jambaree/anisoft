@@ -76,10 +76,10 @@ const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
             <Edges size="lg">
               <motion.div
                 variants={itemVariants}
-                className="mt-[60px] h-auto overflow-y-scroll"
+                className="mt-[60px] h-full overflow-y-scroll"
               >
                 {menu?.map((item, index) => (
-                  <div key={index} className="h-full">
+                  <div key={index} className="h-full overflow-y-scroll">
                     {!subMenuIsOpen && (
                       <div className=" flex flex-col text-left">
                         {item?.childItems?.nodes?.length > 0 ? (
