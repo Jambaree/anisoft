@@ -57,7 +57,7 @@ const MobileSubMenu = ({
             initial="closed"
             animate="open"
             variants={sideVariants}
-            className="fixed z-50 overflow-y-scroll mobileMenu pb-[300px] min-h-fit"
+            className="fixed z-50 overflow-y-scroll mobileMenu pb-[300px] h-full"
           >
             <motion.div variants={itemVariants} className="">
               {menu?.nodes?.map((item, index) => (
