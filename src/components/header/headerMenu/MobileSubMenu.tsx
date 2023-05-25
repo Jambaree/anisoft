@@ -58,13 +58,13 @@ const MobileSubMenu = ({
               initial="closed"
               animate="open"
               variants={sideVariants}
-              className="fixed z-50 overflow-y-scroll mobileMenu pb-[300px] min-h-fit"
+              className="fixed h-full z-50 overflow-y-scroll mobileMenu pb-[300px]"
             >
               <motion.div variants={itemVariants} className="">
                 {menu?.nodes?.map((item, index) => (
                   <div
                     key={index}
-                    className="flex flex-col text-left ml-[15px]"
+                    className="flex flex-col text-left ml-[15px] h-full"
                   >
                     {index <= 0 && (
                       <button
