@@ -31,18 +31,12 @@ function BreadCrumbs(props) {
             return (
               <Link
                 className={`${
-                  index === 0 ? "max-w-[175px]" : "max-w-[125px]"
-                }  overflow-hidden whitespace-nowrap overflow-ellipsis`}
+                  index === 0 ? "max-w-[175px] " : "max-w-[125px] "
+                }  overflow-hidden whitespace-nowrap overflow-ellipsis sm:max-w-full`}
                 key={index}
                 href={`/${paths.slice(0, index + 1).join("/")}` || "/"}
               >
                 <span className="mx-2">/</span>
-                {/* {console.log(
-                  path
-                    .replace(/[-_]/g, " ")
-                    .replace(/\b\w/g, (l) => l.toUpperCase()) ===
-                    "Solutions And Products"
-                )} */}
                 <span className="p-details hover:text-lightGreen">
                   {path
                     .replace(/[-_]/g, " ")
