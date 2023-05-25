@@ -46,7 +46,7 @@ const MobileSubMenu = ({
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence >
       {isOpen && openedMenu === menuIndex && (
         <motion.aside
           initial={{ width: 0 }}

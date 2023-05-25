@@ -74,7 +74,7 @@ const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
             className="fixed z-[9999999999] h-full w-full bg-white overflow-y-scroll mobileMenu"
           >
             <Edges size="lg">
-              <motion.div variants={itemVariants} className="mt-[60px]">
+              <motion.div variants={itemVariants} className="mt-[60px] h-auto overflow-y-scroll">
                 {menu?.map((item, index) => (
                   <div key={index}>
                     {!subMenuIsOpen && (
