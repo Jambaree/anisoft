@@ -30,9 +30,7 @@ function BreadCrumbs(props) {
           ) {
             return (
               <Link
-                className={`${
-                  index === 0 ? "max-w-[175px]" : "max-w-[125px]"
-                }  overflow-hidden whitespace-nowrap overflow-ellipsis`}
+                className={`max-w-[175px] overflow-hidden whitespace-nowrap overflow-ellipsis`}
                 key={index}
                 href={`/${paths.slice(0, index + 1).join("/")}` || "/"}
               >
