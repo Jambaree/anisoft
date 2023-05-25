@@ -21,22 +21,37 @@ function BreadCrumbs(props) {
         <Link className="" href={`/`}>
           <span className="p-details">Home</span>
         </Link>
-        {paths.map((path, index) => (
-          <Link
-            className={`${
-              index === 0 ? "max-w-[175px]" : "max-w-[125px]"
-            }  overflow-hidden whitespace-nowrap overflow-ellipsis`}
-            key={index}
-            href={`/${paths.slice(0, index + 1).join("/")}` || "/"}
-          >
-            <span className="mx-2">/</span>
-            <span className="p-details">
-              {path
-                .replace(/[-_]/g, " ")
-                .replace(/\b\w/g, (l) => l.toUpperCase())}
-            </span>
-          </Link>
-        ))}
+        {paths.map((path, index) => {
+          if (
+            path
+              .replace(/[-_]/g, " ")
+              .replace(/\b\w/g, (l) => l.toUpperCase()) !==
+            "Solutions And Products"
+          ) {
+            return (
+              <Link
+                className={`${
+                  index === 0 ? "max-w-[175px]" : "max-w-[125px]"
+                }  overflow-hidden whitespace-nowrap overflow-ellipsis`}
+                key={index}
+                href={`/${paths.slice(0, index + 1).join("/")}` || "/"}
+              >
+                <span className="mx-2">/</span>
+                {/* {console.log(
+                  path
+                    .replace(/[-_]/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase()) ===
+                    "Solutions And Products"
+                )} */}
+                <span className="p-details">
+                  {path
+                    .replace(/[-_]/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase())}
+                </span>
+              </Link>
+            );
+          }
+        })}
       </div>
     </nav>
   );
