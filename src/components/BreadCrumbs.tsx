@@ -19,7 +19,7 @@ function BreadCrumbs(props) {
     >
       <div className="flex items-center">
         <Link className="" href={`/`}>
-          <span className="p-details">Home</span>
+          <span className="p-details hover:text-lightGreen">Home</span>
         </Link>
         {paths.map((path, index) => {
           if (
@@ -30,9 +30,33 @@ function BreadCrumbs(props) {
           ) {
             return (
               <Link
-                className={`max-w-[175px] overflow-hidden whitespace-nowrap overflow-ellipsis`}
+                className={`${
+                  index === 0 ? "max-w-[175px]" : "max-w-[125px]"
+                }  overflow-hidden whitespace-nowrap overflow-ellipsis`}
                 key={index}
                 href={`/${paths.slice(0, index + 1).join("/")}` || "/"}
+              >
+                <span className="mx-2">/</span>
+                {/* {console.log(
+                  path
+                    .replace(/[-_]/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase()) ===
+                    "Solutions And Products"
+                )} */}
+                <span className="p-details hover:text-lightGreen">
+                  {path
+                    .replace(/[-_]/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase())}
+                </span>
+              </Link>
+            );
+          } else {
+            return (
+              <div
+                className={`${
+                  index === 0 ? "max-w-[175px]" : "max-w-[125px]"
+                }  overflow-hidden whitespace-nowrap overflow-ellipsis`}
+                key={index}
               >
                 <span className="mx-2">/</span>
                 {/* {console.log(
@@ -46,7 +70,7 @@ function BreadCrumbs(props) {
                     .replace(/[-_]/g, " ")
                     .replace(/\b\w/g, (l) => l.toUpperCase())}
                 </span>
-              </Link>
+              </div>
             );
           }
         })}
