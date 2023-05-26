@@ -41,12 +41,12 @@ export default function Hero({
       <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
         <div className=" w-full md:w-1/2 py-6 md:py-0 mds:min-w-[600px] ">
           {headline && (
-            <h1 className="heroHeadline text-[2.25rem]  max-w-[600px] ">
+            <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] max-w-[600px] ">
               {headline}
             </h1>
           )}
           {subHeadline && (
-            <p className="max-w-[575px] pt-[40px]">{subHeadline}</p>
+            <p className="max-w-[800px] text-[1.3rem] pt-[40px]">{subHeadline}</p>
           )}
 
           <div className="pt-[50px] flex gap-[30px] flex-wrap w-auto mr-[50px]">
