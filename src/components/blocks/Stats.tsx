@@ -5,28 +5,51 @@ import Image from "next/image";
 import Edges from "../Edges";
 
 export default function StatsModule({ headline, description, stats, image }) {
-  const Counter = ({ from, to }) => {
-    const ref = useRef<HTMLDivElement>(null);
+ const Counter = ({ from, to }) => {
+   const ref = useRef<HTMLDivElement>(null);
+   const observerRef = useRef<IntersectionObserver | null>(null);
 
-    const [start, setStart] = useState(from);
-    const [end, setEnd] = useState(to);
+   const [start, setStart] = useState(from);
+   const [end, setEnd] = useState(to);
+   const [shouldStart, setShouldStart] = useState(false); // add this line
 
-    useEffect(() => {
-      if (from && to) {
-        setStart(from);
-        setEnd(to);
-      }
-      const controls = animate(start, end, {
-        duration: 5,
-        onUpdate(value) {
-          ref.current.textContent = value.toFixed() || 0;
-        },
-      });
-      return () => controls.stop();
-    }, [end, start]);
+   useEffect(() => {
+     if (ref.current && !observerRef.current) {
+       observerRef.current = new IntersectionObserver(([entry]) => {
+         if (entry.isIntersecting) {
+           setShouldStart(true);
+         }
+       });
 
-    return <div ref={ref}>0</div>;
-  };
+       observerRef.current.observe(ref.current);
+     }
+
+     return () => {
+       if (ref.current && observerRef.current) {
+         observerRef.current.unobserve(ref.current);
+       }
+     };
+   }, []);
+
+   useEffect(() => {
+     if (from && to && shouldStart) {
+       setStart(from);
+       setEnd(to);
+     }
+
+     const controls = animate(start, end, {
+       duration: 5,
+       onUpdate(value) {
+         if (ref.current) ref.current.textContent = value.toFixed() || 0;
+       },
+     });
+
+     return () => controls.stop();
+   }, [end, start, shouldStart]); // add shouldStart here
+
+   return <div ref={ref}>0</div>;
+ };
+
 
   return (
     <div className="relative primaryRadialBg pb-[115px] md:pb-0">
