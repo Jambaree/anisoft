@@ -53,7 +53,7 @@ const Contact = ({ data }) => {
               <p className="text-black max-w-[300px] mb-[30px]">{text}</p>
             )}
             <div className="max-h-[400px] overflow-y-scroll flex flex-col gap-[30px]">
-              {locations.length > 0 &&
+              {locations?.length > 0 &&
                 locations.map((location, index) => {
                   return (
                     <div
