@@ -5,6 +5,7 @@ import Button from "../../Button";
 import SubMenu from "./SubMenu";
 import { usePathname } from "next/navigation";
 import { getUrlPath } from "../../../utils/getUrlPath";
+import MegaNavSubMenu from "./MegaNavSubMenu";
 
 const MenuItems = ({ menuItems, data }) => {
   const [hoverIndex, setHoverIndex] = useState(-1);
@@ -24,7 +25,8 @@ const MenuItems = ({ menuItems, data }) => {
                 className="nav text-lightBlue px-[16px] py-[40px] group"
                 key={index}
               >
-                {item?.childItems?.nodes.length > 0 ? (
+                {item?.childItems?.nodes.length > 0 &&
+                item?.cssClasses[0] === "megaNav" ? (
                   <div className="cursor-pointer">{item?.label}</div>
                 ) : (
                   <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
@@ -37,9 +39,15 @@ const MenuItems = ({ menuItems, data }) => {
               </div>
             </div>
 
-            {hoverIndex === index && item?.childItems?.nodes.length > 0 && (
-              <SubMenu childItems={item?.childItems} />
-            )}
+            {hoverIndex === index &&
+              item?.childItems?.nodes.length > 0 &&
+              item?.cssClasses[0] === "megaNav" &&
+              item && <MegaNavSubMenu childItems={item?.childItems} />}
+
+            {hoverIndex === index &&
+              item?.childItems?.nodes.length > 0 &&
+              item?.cssClasses[0] !== "megaNav" &&
+              item && <SubMenu childItems={item?.childItems} />}
           </li>
         ))}
 
