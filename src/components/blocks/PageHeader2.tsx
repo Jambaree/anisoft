@@ -14,16 +14,11 @@ const PageHeader2 = ({ title, text }) => {
               <h1 className="justify-center w-full  text-white ">{title}</h1>
             )}
           </FadeInUp>
-          <FadeInUp className=" w-full max-w-[555px] mx-auto ">
+          <FadeInUp className=" w-full max-w-[555px] mx-auto flex justify-center">
             {text && (
-              // <div
-              //   className="text-white px-2 text-center"
-              //   dangerouslySetInnerHTML={{ __html: text }}
-              // />
-              <RichTextComponents
-                className="text-white px-2 text-center font-mukta"
-                html={text}
-              />
+              <span className="text-[1.125rem] text-white px-2 text-center font-mukta">
+                {text}
+              </span>
             )}
           </FadeInUp>
         </div>
