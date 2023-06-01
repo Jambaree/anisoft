@@ -166,11 +166,14 @@
 .richText > * {
   padding-bottom: 15px !important;
   list-style: outside;
-  font-family: var(--font-mukta);
+  font-family: var(--font-mukta) !important;
   font-style: normal;
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 27px;
+}
+.richText  div{
+  font-family: var(--font-mukta) !important;
 }
 .richText > ul > li {
   padding-bottom: 15px !important;
@@ -195,7 +198,8 @@ input[type="radio"] {
   fill: #00ac4d;
 }
 
-input, textarea {
+input,
+textarea {
   border-radius: 0px !important;
   -webkit-border-radius: 0px !important; /* For iOS */
 }
