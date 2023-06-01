@@ -21,7 +21,7 @@ const PageHeader2 = ({ title, text }) => {
               //   dangerouslySetInnerHTML={{ __html: text }}
               // />
               <RichTextComponents
-                className="text-white px-2 text-center"
+                className="text-white px-2 text-center font-mukta"
                 html={text}
               />
             )}
