@@ -6,6 +6,9 @@ import ProductsSlider from "./ProductsSlider";
 import Stats from "./Stats";
 import TextInfo from "./TextInfo";
 import Testimonials from "./Testimonials";
+import Form from "./Form";
+import PageHeader1 from "./PageHeader1";
+import PageHeader2 from "./PageHeader2";
 
 export {
   Anisoft,
@@ -16,4 +19,7 @@ export {
   Stats,
   TextInfo,
   Testimonials,
+  Form,
+  PageHeader1,
+  PageHeader2,
 };
