@@ -1,6 +1,7 @@
 import BreadCrumbs from "../BreadCrumbs";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
+import RichTextComponents from "../RichTextComponents";
 
 const PageHeader2 = ({ title, text }) => {
   return (
@@ -15,9 +16,13 @@ const PageHeader2 = ({ title, text }) => {
           </FadeInUp>
           <FadeInUp className=" w-full max-w-[555px] mx-auto ">
             {text && (
-              <div
+              // <div
+              //   className="text-white px-2 text-center"
+              //   dangerouslySetInnerHTML={{ __html: text }}
+              // />
+              <RichTextComponents
                 className="text-white px-2 text-center"
-                dangerouslySetInnerHTML={{ __html: text }}
+                html={text}
               />
             )}
           </FadeInUp>

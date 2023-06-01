@@ -1,8 +1,12 @@
+import classNames from "classnames";
 import React from "react";
 
-function RichTextComponents({ html }) {
+function RichTextComponents({ html,className }) {
   return (
-    <div className="richText" dangerouslySetInnerHTML={{ __html: html }} />
+    <div
+      className={classNames(className, "richText")}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }
 
