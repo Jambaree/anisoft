@@ -23,6 +23,7 @@ export default async function DefaultPageTemplate({
     title,
     template: {
       acf: { modules },
+      hasFooterCta: { hasFooterCta },
     },
   } = page;
 
@@ -33,7 +34,7 @@ export default async function DefaultPageTemplate({
   return (
     <div>
       <FlexibleContent blocks={blocks} rows={modules} data={{ title, uri }} />
-      <FooterTopperCTA data={footerTopperCta} />
+      {hasFooterCta && <FooterTopperCTA data={footerTopperCta} />}
     </div>
   );
 }
@@ -49,6 +50,10 @@ const query = /* GraphQL */ `
         templateName
         ... on DefaultTemplate {
           templateName
+          hasFooterCta {
+            fieldGroupName
+            hasFooterCta
+          }
           acf {
             modules {
               __typename
