@@ -62,6 +62,20 @@ const query = /* GraphQL */ `
                   url
                 }
               }
+              ... on DefaultTemplate_Acf_Modules_Form {
+                fieldGroupName
+                formId
+              }
+              ... on DefaultTemplate_Acf_Modules_PageHeader1 {
+                fieldGroupName
+                text
+                title
+              }
+              ... on DefaultTemplate_Acf_Modules_PageHeader2 {
+                fieldGroupName
+                text
+                title
+              }
               ... on DefaultTemplate_Acf_Modules_Hero {
                 fieldGroupName
                 headline
