@@ -16,7 +16,7 @@ const PageHeader2 = ({ title, text }) => {
           </FadeInUp>
           <FadeInUp className=" w-full max-w-[555px] mx-auto flex justify-center">
             {text && (
-              <span className="text-[1.125rem] text-white px-2 text-center font-mukta">
+              <span className="text-[1.125rem] text-white px-2 text-center font-mukta font-light">
                 {text}
               </span>
             )}
