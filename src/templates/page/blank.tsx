@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Edges from "../../components/Edges";
-import GravityForm from "../../components/form/GravityForm";
 import PageHeader2 from "../../components/PageHeader2";
 
 export default async function BlankPageTemplate({
@@ -22,7 +21,7 @@ export default async function BlankPageTemplate({
     notFound();
   }
 
-  const { title, content, template } = page;
+  const { title, content } = page;
   const { nodes } = categories;
   const filteredCategories = nodes.filter(
     (category) => category?.posts.nodes.length > 0
