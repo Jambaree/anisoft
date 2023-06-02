@@ -1,4 +1,3 @@
-"use client";
 import React, { useRef, useEffect, useState } from "react";
 import { animate } from "framer-motion";
 import Image from "next/image";
@@ -12,16 +11,15 @@ export default function SolutionsProducts({
   categoryName,
   allPosts,
 }) {
-
-  {console.log(allPosts)}
+  {
+    console.log(allPosts);
+  }
   return (
     <div className="relative primaryRadialBg pb-[115px] md:pb-0">
       <Edges size="lg">
         <div>
-          
           {/* <PostsCards categoryName={categoryName} /> */}
-          
-          </div>
+        </div>
       </Edges>
     </div>
   );

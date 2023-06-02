@@ -1,22 +1,22 @@
+"use client";
+import React from "react";
+import { getData } from "@jambaree/next-wordpress";
 
-// import React from "react";
-// import { getData } from "@jambaree/next-wordpress";
+export default async function PostsCards({ categoryName }) {
+  const { posts } = await getData({
+    query,
+  });
 
-// export default async function PostsCards({ categoryName }) {
-//   const { posts } = await getData({
-//     query,
-//   });
+  return <div></div>;
+}
 
-//   return <div></div>;
-// }
-
-// const query = /* GraphQL */ `
-//   query ServicePageQuery {
-//     posts {
-//       nodes {
-//         id
-//         title
-//       }
-//     }
-//   }
-// `;
+const query = /* GraphQL */ `
+  query ServicePageQuery {
+    posts {
+      nodes {
+        id
+        title
+      }
+    }
+  }
+`;
