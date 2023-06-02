@@ -9,6 +9,7 @@ import Testimonials from "./Testimonials";
 import Form from "./Form";
 import PageHeader1 from "./PageHeader1";
 import PageHeader2 from "./PageHeader2";
+import SolutionsProducts from "./SolutionsProducts";
 
 export {
   Anisoft,
@@ -22,4 +23,5 @@ export {
   Form,
   PageHeader1,
   PageHeader2,
+  SolutionsProducts,
 };
