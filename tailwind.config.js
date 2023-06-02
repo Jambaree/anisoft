@@ -44,6 +44,7 @@ module.exports = {
       greenBg:
         "linear-gradient(180deg, #119D5E 0%, rgba(37, 229, 142, 0) 100%);",
       lightGreyBg: "#F4F4F4",
+      lightGreyBg2: "#F5F5F5",
       black: "#000000",
       blueBg:
         "linear-gradient(90deg, #3CFFFE 9.76%, #3CE6FE 23.42%, #3CCBFE 42.3%, #3CB7FE 61.35%, #3CABFE 80.53%, #3CA7FE 100%);",
