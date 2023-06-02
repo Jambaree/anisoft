@@ -67,12 +67,6 @@ const query = /* GraphQL */ `
                   url
                 }
               }
-              ... on DefaultTemplate_Acf_Modules_SolutionsProducts {
-                backgroundColor
-                categoryName
-                headline
-                fieldGroupName
-              }
               ... on DefaultTemplate_Acf_Modules_Form {
                 fieldGroupName
                 formId
