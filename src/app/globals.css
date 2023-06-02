@@ -172,7 +172,7 @@
   font-size: 1.125rem;
   line-height: 27px;
 }
-.richText  div{
+.richText div {
   font-family: var(--font-mukta) !important;
 }
 .richText > ul > li {
@@ -206,4 +206,12 @@ textarea {
 .mobileMenu {
   overflow-y: scroll !important;
   -webkit-overflow-y: 0px !important; /* For iOS */
+}
+.archiveText p,
+span {
+  font-weight: 300 !important;
+    font-family: var(--font-mukta) !important;
+    font-size: 18px !important;
+    text-overflow: ellipsis !important;
+
 }
