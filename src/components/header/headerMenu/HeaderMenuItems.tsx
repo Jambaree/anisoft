@@ -27,7 +27,12 @@ const MenuItems = ({ menuItems, data }) => {
               >
                 {item?.childItems?.nodes.length > 0 &&
                 item?.cssClasses[0] === "megaNav" ? (
-                  <div className="cursor-pointer">{item?.label}</div>
+                  <Link
+                    href={getUrlPath(item?.url) || "/"}
+                    className="cursor-pointer"
+                  >
+                    {item?.label}
+                  </Link>
                 ) : (
                   <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
                 )}
