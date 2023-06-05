@@ -51,7 +51,7 @@ export default function Hero({
 
           <div className="pt-[50px] flex gap-[30px] flex-wrap w-auto mr-[50px]">
             {button1?.url && (
-              <Button variant="large" href={button1?.url} reverse={true}>
+              <Button variant="xlarge" href={button1?.url} reverse={true}>
                 {button1?.title}
               </Button>
             )}

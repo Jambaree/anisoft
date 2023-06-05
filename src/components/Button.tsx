@@ -9,7 +9,7 @@ import { getUrlPath } from "../utils/getUrlPath";
 interface IButtonProps {
   children: React.ReactNode;
   reverse?: boolean;
-  variant?: "large" | "medium" | "basic" | "basicWhite" | "full";
+  variant?: "large" |"xlarge" | "medium" | "basic" | "basicWhite" | "full";
   href: string;
   className?: string;
   disabled?: boolean;
@@ -37,6 +37,8 @@ const Button: React.FC<IButtonProps> = ({
         !reverse && variant === "medium" && "text-lightBlue border-lightBlue",
         variant === "full"
           ? "p  w-full h-[48px] rounded-full border-[1px] flex items-center text-[1.125rem] justify-center uppercase font-mukta leading-[150%] font-light pt-1"
+          : variant === "xlarge"
+          ? "p  w-[300px] h-[48px] rounded-full border-[1px] flex items-center text-[1.125rem] justify-center uppercase font-mukta leading-[150%] font-light pt-1"
           : variant === "large"
           ? "p  w-[199px] h-[48px] rounded-full border-[1px] flex items-center text-[1.125rem] justify-center uppercase font-mukta leading-[150%] font-light pt-1"
           : variant === "medium"
