@@ -62,7 +62,7 @@ export default async function BlankPageTemplate({
 
                           {post?.content && (
                             <div
-                              className="text-white archiveText overflow-hidden  overflow-ellipsis 	h-[80px]"
+                              className="text-white archiveText overflow-hidden  overflow-ellipsis 	h-[60px]"
                               dangerouslySetInnerHTML={{
                                 __html: post?.content,
                               }}
