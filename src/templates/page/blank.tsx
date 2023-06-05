@@ -57,12 +57,12 @@ export default async function BlankPageTemplate({
                           className="w-full  bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
                         >
                           {post?.title && (
-                            <h3 className="text-white">{post?.title}</h3>
+                            <h3 className="text-white overflow-hidden  overflow-ellipsis  w-auto h-[30px]">{post?.title}</h3>
                           )}
 
                           {post?.content && (
                             <div
-                              className="text-white archiveText overflow-hidden  overflow-ellipsis 	h-[60px]"
+                              className="text-white archiveText overflow-hidden  overflow-ellipsis 	h-[55px]"
                               dangerouslySetInnerHTML={{
                                 __html: post?.content,
                               }}
