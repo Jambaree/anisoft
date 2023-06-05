@@ -175,6 +175,17 @@
 .richText div {
   font-family: var(--font-mukta) !important;
 }
+.richText h2 {
+  font-family: var(--font-maven);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 120%;
+}
+.richText ol {
+  margin-left: 20px !important;
+ 
+}
 .richText > ul > li {
   padding-bottom: 15px !important;
   margin-left: 18px;
