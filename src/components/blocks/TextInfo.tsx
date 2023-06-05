@@ -60,7 +60,7 @@ function TextInfo({
                 <FadeInUp className="flex items-center justify-center ">
                   <div>
                     <div className="relative">
-                      <RichTextComponents html={text} />
+                      <RichTextComponents html={text} className=''/>
                     </div>
                   </div>
                 </FadeInUp>

@@ -49,7 +49,7 @@ export default async function BlankPageTemplate({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-16">
                   {cat?.posts?.nodes?.length > 0 &&
-                    cat?.posts?.nodes.map((post, idx) => {
+                    [...cat?.posts?.nodes].reverse().map((post, idx) => {
                       return (
                         <Link
                           href={post?.uri || "/"}
