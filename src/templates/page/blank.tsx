@@ -57,7 +57,7 @@ export default async function BlankPageTemplate({
                           className="w-full  bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
                         >
                           {post?.title && (
-                            <h4 className="text-white w-auto h-[30px]">{post?.title}</h4>
+                            <h4 className="text-white w-auto">{post?.title}</h4>
                           )}
 
                           {post?.content && (
