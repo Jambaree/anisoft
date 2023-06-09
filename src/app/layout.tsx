@@ -3,7 +3,6 @@ import { Mukta, Maven_Pro } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
-
 import { getData } from "@jambaree/next-wordpress";
 import Providers from "../components/Providers";
 
