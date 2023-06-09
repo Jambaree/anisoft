@@ -6,7 +6,6 @@ import Footer from "../components/footer";
 
 import { getData } from "@jambaree/next-wordpress";
 import Providers from "../components/Providers";
-import Script from "next/script";
 
 const mukta = Mukta({
   variable: "--font-mukta",
