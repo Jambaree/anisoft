@@ -19,12 +19,6 @@ export default function Scripts() {
         })(window,document,'script','dataLayer','GTM-5NP3J68');
       `}
       </Script>
-
-      <Script strategy="lazyOnload" src="//js.hs-scripts.com/21121658.js" />
-      <Script
-        strategy="lazyOnload"
-        src="https://secure.smart-enterprise-365.com/js/779218.js"
-      />
     </>
   );
 }
