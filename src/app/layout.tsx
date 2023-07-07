@@ -5,7 +5,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { getData } from "@jambaree/next-wordpress";
 import Providers from "../components/Providers";
-import Scripts from "../components/Scripts";
+import { Partytown } from "@builder.io/partytown/react";
 
 const mukta = Mukta({
   variable: "--font-mukta",
@@ -44,7 +44,9 @@ export default async function RootLayout({
           href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
           rel="stylesheet"
         />
-        {/* <script
+        <Partytown debug={true} forward={["dataLayer.push"]} />
+        <script
+          type="text/partytown"
           async
           id="google-tag-manager"
           strategy="afterInteractive"
@@ -55,16 +57,14 @@ export default async function RootLayout({
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-5NP3J68');`,
           }}
-        /> */}
+        />
       </head>
       <body id="top">
-        <Scripts />
-
-        {/* <noscript
+        <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NP3J68" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
           }}
-        /> */}
+        />
         <Header data={header} menuItems={headerMenuItems} />
         <Providers>{children}</Providers>
         {/* @ts-expect-error Server Component */}
