@@ -1,16 +1,11 @@
 import React from "react";
-import { Partytown } from "@builder.io/partytown/react";
+
 import Script from "next/script";
 
 export default function Scripts() {
   return (
     <>
-      <Partytown debug={true} forward={["dataLayer.push"]} />
-      <Script
-        type="text/partytown"
-        strategy="lazyOnload"
-        id="google-tag-manager"
-      >
+      <Script strategy="lazyOnload" id="google-tag-manager">
         {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
