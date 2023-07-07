@@ -44,7 +44,7 @@ export default async function RootLayout({
           href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
           rel="stylesheet"
         />
-        <Partytown debug={true} forward={["dataLayer.push"]} />
+        {/* <Partytown debug={true} forward={["dataLayer.push"]} />
         <script
           type="text/partytown"
           async
@@ -57,14 +57,14 @@ export default async function RootLayout({
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-5NP3J68');`,
           }}
-        />
+        /> */}
       </head>
       <body id="top">
-        <noscript
+        {/* <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NP3J68" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
           }}
-        />
+        /> */}
         <Header data={header} menuItems={headerMenuItems} />
         <Providers>{children}</Providers>
         {/* @ts-expect-error Server Component */}
