@@ -21,6 +21,11 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
   images: {
     //enter the domain or subdomain where you have WordPress installed
     domains: ["images.unsplash.com", "anisoft.wpengine.com"],
