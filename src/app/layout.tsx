@@ -1,13 +1,11 @@
-import { Mukta, Maven_Pro } from "next/font/google";
-
 import "./globals.css";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import { Mukta, Maven_Pro } from "next/font/google";
 import { getData } from "@jambaree/next-wordpress";
-import Providers from "../components/Providers";
-
 import { GoogleTagManager } from "@next/third-parties/google";
 import { TriggerPageView } from "@/components/trigger-gtm-pageview";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import Providers from "../components/Providers";
 
 const mukta = Mukta({
   variable: "--font-mukta",
@@ -38,10 +36,10 @@ export default async function RootLayout({
   });
 
   return (
-    <html lang="en" className={`${maven.variable} ${mukta.variable}`}>
+    <html className={`${maven.variable} ${mukta.variable}`} lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link
           href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
           rel="stylesheet"
@@ -50,7 +48,6 @@ export default async function RootLayout({
       <body id="top">
         <Header data={header} menuItems={headerMenuItems} />
         <Providers>{children}</Providers>
-        {/* @ts-expect-error Server Component */}
         <Footer />
       </body>
       <GoogleTagManager gtmId="GTM-5NP3J68" />
