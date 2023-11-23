@@ -51,22 +51,20 @@ const Upload = forwardRef(
   ) => {
     return (
       <div className={className}>
-        {label && (
+        {label ? (
           <label
-            htmlFor={"file-input"}
             className={clsx("p-details", labelClassName)}
+            htmlFor="file-input"
           >
             {label}
-            {required && <span className="p-details text-red-600"> *</span>}
+            {required ? (
+              <span className="p-details text-red-600"> *</span>
+            ) : null}
           </label>
-        )}
+        ) : null}
 
         <div className="mt-1 relative ">
           <input
-            ref={ref}
-            id={id}
-            name={name}
-            type={"file"}
             className={clsx(
               "rounded-0 uploadButton appearance-none block w-full px-3 py-2  text-black border-b-[1px] border-l-[1px] border-black active:border-lightGreen ",
 
@@ -75,17 +73,21 @@ const Upload = forwardRef(
                 "block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500  rounded-md",
               inputClassName
             )}
-            required={required}
             disabled={disabled}
             fileUploadValues={fileUploadValues}
+            id={id}
+            name={name}
+            ref={ref}
+            required={required}
+            type="file"
             {...rest}
           />
 
-          {error && (
+          {error ? (
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
             </div>
-          )}
+          ) : null}
         </div>
         {/* 
         {error && (
@@ -96,13 +98,13 @@ const Upload = forwardRef(
           </div>
         )} */}
 
-        {description && (
+        {description ? (
           <div>
             <span className="mt-2  text-gray-500" id={`${id}-description`}>
               {description}
             </span>
           </div>
-        )}
+        ) : null}
       </div>
     );
   }
