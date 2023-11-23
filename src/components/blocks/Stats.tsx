@@ -5,51 +5,52 @@ import Image from "next/image";
 import Edges from "../Edges";
 
 export default function StatsModule({ headline, description, stats, image }) {
- const Counter = ({ from, to }) => {
-   const ref = useRef<HTMLDivElement>(null);
-   const observerRef = useRef<IntersectionObserver | null>(null);
+  function Counter({ from, to }) {
+    const ref = useRef<HTMLDivElement>(null);
+    const observerRef = useRef<IntersectionObserver | null>(null);
 
-   const [start, setStart] = useState(from);
-   const [end, setEnd] = useState(to);
-   const [shouldStart, setShouldStart] = useState(false); // add this line
+    const [start, setStart] = useState(from);
+    const [end, setEnd] = useState(to);
+    const [shouldStart, setShouldStart] = useState(false); // add this line
 
-   useEffect(() => {
-     if (ref.current && !observerRef.current) {
-       observerRef.current = new IntersectionObserver(([entry]) => {
-         if (entry.isIntersecting) {
-           setShouldStart(true);
-         }
-       });
+    useEffect(() => {
+      if (ref.current && !observerRef.current) {
+        observerRef.current = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            setShouldStart(true);
+          }
+        });
 
-       observerRef.current.observe(ref.current);
-     }
+        observerRef.current.observe(ref.current);
+      }
 
-     return () => {
-       if (ref.current && observerRef.current) {
-         observerRef.current.unobserve(ref.current);
-       }
-     };
-   }, []);
+      return () => {
+        if (ref.current && observerRef.current) {
+          observerRef.current.unobserve(ref.current);
+        }
+      };
+    }, []);
 
-   useEffect(() => {
-     if (from && to && shouldStart) {
-       setStart(from);
-       setEnd(to);
-     }
+    useEffect(() => {
+      if (from && to && shouldStart) {
+        setStart(from);
+        setEnd(to);
+      }
 
-     const controls = animate(start, end, {
-       duration: 5,
-       onUpdate(value) {
-         if (ref.current) ref.current.textContent = value.toFixed() || 0;
-       },
-     });
+      const controls = animate(start, end, {
+        duration: 5,
+        onUpdate(value) {
+          if (ref.current) ref.current.textContent = value.toFixed() || 0;
+        },
+      });
 
-     return () => controls.stop();
-   }, [end, start, shouldStart]); // add shouldStart here
+      return () => {
+        controls.stop();
+      };
+    }, [end, start, shouldStart]); // add shouldStart here
 
-   return <div ref={ref}>0</div>;
- };
-
+    return <div ref={ref}>0</div>;
+  }
 
   return (
     <div className="relative primaryRadialBg pb-[115px] md:pb-0">
@@ -57,13 +58,13 @@ export default function StatsModule({ headline, description, stats, image }) {
         <div className="h-full w-full md:grid md:grid-cols-2">
           <div className="h-full md:relative md:col-start-2">
             <Image
-              fill
-              className="h-full w-full object-cover md:absolute md:inset-0 md:pl-[15%]"
-              src={image?.sourceUrl}
               alt="People working on laptops"
+              className="h-full w-full object-cover md:absolute md:inset-0 md:pl-[15%]"
+              fill
               sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
+              src={image?.url}
             />
             {/* <p className="absolute bottom-[10%] md:top-[10%] left-[10%] md:left-[25%] text-[#FF0000]">
               FPO
@@ -88,8 +89,8 @@ export default function StatsModule({ headline, description, stats, image }) {
                 return (
                   <div key={index}>
                     <h2 className=" text-white flex flex-row">
-                      {num && <Counter from={0} to={parseInt(num[0])} />}
-                      {letr?.includes("Years") && <span>+&nbsp;</span>}
+                      {num ? <Counter from={0} to={parseInt(num[0])} /> : null}
+                      {letr?.includes("Years") ? <span>+&nbsp;</span> : null}
                       {letr} {item.label === "Customers Served" && " +"}
                     </h2>
 

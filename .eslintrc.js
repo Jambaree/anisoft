@@ -37,6 +37,8 @@ module.exports = {
   ignorePatterns: ["node_modules/", "dist/"],
   // add rules configurations here
   rules: {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "unicorn/filename-case": "off",
     camelcase: "off",
     "import/no-named-as-default": "off",
     "@typescript-eslint/restrict-template-expressions": "warn",
@@ -46,7 +48,7 @@ module.exports = {
     "@typescript-eslint/consistent-indexed-object-style": "warn",
     "no-implicit-coercion": "warn",
     "no-extra-boolean-cast": "warn",
-    "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-shadow": "off",
     "@typescript-eslint/no-confusing-void-expression": "warn",
     "no-param-reassign": "warn",
     "@typescript-eslint/require-await": "warn",

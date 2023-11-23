@@ -1,24 +1,46 @@
 import React from "react";
-import FooterMenuItems from "./footerMenu/FooterMenuItems";
-import { getMenuItems } from "@jambaree/next-wordpress";
-import Edges from "../Edges";
+import { getMenuItems, getOptionsPage } from "@jambaree/next-wordpress";
 import Link from "next/link";
+import { deepCamelCase } from "@/utils/deep-camel-case-helper";
+import Edges from "../Edges";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
-import { getData } from "@jambaree/next-wordpress";
+import FooterMenuItems from "./footerMenu/FooterMenuItems";
+
+type FooterOptions = {
+  footer: {
+    contactInformation: {
+      phoneNumber: string;
+      email: string;
+      socials: {
+        icon: string;
+        url: string;
+      }[];
+    };
+    copyrightText?: string;
+    link1?: {
+      title: string;
+      url: string;
+    };
+    link2?: {
+      title: string;
+      url: string;
+    };
+  };
+};
 
 export default async function Footer() {
   const {
-    themeOptions: {
-      options: {
-        footer: { contactInformation, copyrightText, link1, link2 },
-      },
-    },
-    menu: { menuItems },
-  } = await getData({ query });
-  const productMenuItems = await getMenuItems({
-    id: "SingleProduct",
+    footer: { contactInformation, copyrightText, link1, link2 },
+  } = deepCamelCase(
+    await getOptionsPage({
+      slug: "theme-options",
+    })
+  ) as FooterOptions;
+
+  const menuItems = await getMenuItems({
+    slug: "footer",
   });
 
   return (
@@ -28,7 +50,7 @@ export default async function Footer() {
           <div className="flex flex-col md:flex-row md:justify-between pb-[100px] ">
             <div>
               <div className="mb-[32px]">
-                <Link href="/" aria-label="logo-home-link">
+                <Link aria-label="logo-home-link" href="/">
                   <InvertedLogo />
                 </Link>
               </div>
@@ -37,21 +59,21 @@ export default async function Footer() {
                 <p className="text-white">{contactInformation.email}</p>
               </div>
               <div className="flex flex-row">
-                {contactInformation?.socials?.length > 0 &&
-                  contactInformation?.socials.map((link, index) => (
+                {contactInformation.socials.length > 0 &&
+                  contactInformation.socials.map((link, index) => (
                     <a
                       aria-label="social link"
-                      key={index}
-                      href={link?.url || "/"}
                       className="mr-[22px]"
+                      href={link.url || "/"}
+                      key={index}
                     >
                       {link.icon === "facebook" && (
                         <Facebook className="hover:fill-lightGreen  fill-white" />
                       )}
                       {link.icon === "linkedin" && (
                         <Linkedin
-                          id="linkedin"
                           className="hover:fill-lightGreen fill-white"
+                          id="linkedin"
                         />
                       )}
                     </a>
@@ -59,28 +81,29 @@ export default async function Footer() {
               </div>
             </div>
             <div className=" mt-[30px] md:mt-0">
-              <FooterMenuItems
-                menuItems={menuItems.nodes}
-                productMenuItems={productMenuItems}
-              />
+              <FooterMenuItems menuItems={menuItems} />
             </div>
           </div>
-          <div className="bg-white w-full h-[1px] mb-[32px]"></div>
+          <div className="bg-white w-full h-[1px] mb-[32px]" />
           <div className=" text-white mb-[43px] flex flex-col-reverse sm:flex-row flex-wrap-reverse justify-between p-footer">
             <div>{copyrightText}</div>
             <div className="flex flex-col sm:flex-row sm:mb-0 mb-[15px]">
-              <Link
-                href={link1?.url || "/"}
-                className="sm:ml-[24px] hover:text-lightGreen"
-              >
-                {link1?.title}
-              </Link>
-              <Link
-                href={link2?.url || "/"}
-                className="sm:ml-[24px] hover:text-lightGreen"
-              >
-                {link2?.title}
-              </Link>
+              {link1 ? (
+                <Link
+                  className="sm:ml-[24px] hover:text-lightGreen"
+                  href={link1.url || "/"}
+                >
+                  {link1.title}
+                </Link>
+              ) : null}
+              {link2 ? (
+                <Link
+                  className="sm:ml-[24px] hover:text-lightGreen"
+                  href={link2.url || "/"}
+                >
+                  {link2.title}
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import React from "react";
+import classNames from "classnames";
+import Image from "next/image";
 import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
 import RichTextComponents from "../RichTextComponents";
-import classNames from "classnames";
-import Image from "next/image";
 
 function TextInfo({
   headline,
@@ -17,22 +17,22 @@ function TextInfo({
 }) {
   return (
     <div className="relative">
-      {image?.sourceUrl && (
+      {image?.url ? (
         <div className="h-[292px] w-screen relative border-[6px] border-darkPurple">
           <Image
-            src={image?.sourceUrl}
-            alt={image?.altText}
-            fill
+            alt={image?.alt}
             className="object-cover object-center"
+            fill
+            src={image?.url}
           />
         </div>
-      )}
+      ) : null}
       <div
-        id={tag}
         className={classNames(
           backgroundGradient ? "primaryRadialBg" : "bg-white",
           "py-[75px] md:py-[125px]"
         )}
+        id={tag}
       >
         <Edges className="relative" size="lg">
           <div
@@ -42,49 +42,49 @@ function TextInfo({
             )}
           >
             <div className="w-full  mb-[30px]">
-              {tag && (
+              {tag ? (
                 <FadeInUp className="delay-300">
                   <p className="max-w-[575px]">{tag}</p>
                 </FadeInUp>
-              )}
-              {headline && (
+              ) : null}
+              {headline ? (
                 <FadeInUp className="delay-100">
                   <h1 className="heroHeadline max-w-[985px] text-[40px]  sm:text-[60px]">
                     {headline}
                   </h1>
                 </FadeInUp>
-              )}
+              ) : null}
             </div>
             <div className="w-full md:w-[60%]">
-              {text && (
+              {text ? (
                 <FadeInUp className="flex items-center justify-center ">
                   <div>
                     <div className="relative">
-                      <RichTextComponents html={text} className=''/>
+                      <RichTextComponents className="" html={text} />
                     </div>
                   </div>
                 </FadeInUp>
-              )}
+              ) : null}
               <FadeInUp className="delay-500">
                 <div className="pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]">
-                  {button1?.url && (
+                  {button1?.url ? (
                     <Button
-                      variant="large"
-                      reverse={backgroundGradient ? true : false}
                       href={button1?.url}
+                      reverse={Boolean(backgroundGradient)}
+                      variant="large"
                     >
                       {button1?.title}
                     </Button>
-                  )}
-                  {button2?.url && (
+                  ) : null}
+                  {button2?.url ? (
                     <Button
-                      variant="basic"
-                      reverse={backgroundGradient ? true : false}
                       href={button2?.url}
+                      reverse={Boolean(backgroundGradient)}
+                      variant="basic"
                     >
                       {button2?.title}
                     </Button>
-                  )}
+                  ) : null}
                 </div>
               </FadeInUp>
             </div>
