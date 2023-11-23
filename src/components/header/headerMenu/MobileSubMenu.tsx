@@ -1,19 +1,21 @@
 "use client";
 import React from "react";
-
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import type { WpMenuItem } from "@jambaree/next-wordpress/types";
 import ChevronLeft from "../../../../public/chevron-left.svg";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
-const MobileSubMenu = ({
+function MobileSubMenu({
   isOpen,
   setIsOpen,
-  menu,
+  menuItems,
   openedMenu,
   menuIndex,
   setIsOpen2,
-}) => {
+}: {
+  menuItems: WpMenuItem[];
+}) {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -47,29 +49,30 @@ const MobileSubMenu = ({
 
   return (
     <AnimatePresence>
-      {isOpen && openedMenu === menuIndex && (
+      {isOpen && openedMenu === menuIndex ? (
         <motion.aside
-          initial={{ width: 0 }}
           animate={{ width: "100%" }}
           className="overflow-y-scroll mobileMenu"
+          initial={{ width: 0 }}
         >
           <motion.div
-            initial="closed"
             animate="open"
-            variants={sideVariants}
             className="fixed z-50 overflow-y-scroll mobileMenu pb-[300px] h-full"
+            initial="closed"
+            variants={sideVariants}
           >
-            <motion.div variants={itemVariants} className="">
-              {menu?.nodes?.map((item, index) => (
-                <div key={index} className="flex flex-col text-left ml-[15px]">
+            <motion.div className="" variants={itemVariants}>
+              {menuItems.map((item, index) => (
+                <div className="flex flex-col text-left ml-[15px]" key={index}>
                   {index <= 0 && (
                     <button
                       className="flex flex-row mb-[35px] items-center w-screen"
                       onClick={() => setIsOpen(!isOpen)}
+                      type="button"
                     >
                       <ChevronLeft
-                        width="6"
                         className="mr-[11px] w-[6px] h-[10px] fill-black"
+                        width="6"
                       />
                       <div className="text-[1rem] leading-[24px] font-mukta font-semibold">
                         BACK
@@ -77,21 +80,23 @@ const MobileSubMenu = ({
                     </button>
                   )}
                   <div>
-                    <span className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between font-medium uppercase">
-                      {item.label}
-                    </span>
+                    <span
+                      className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between font-medium uppercase"
+                      dangerouslySetInnerHTML={{ __html: item.label }}
+                    />
                     <div className="flex flex-col pl-[30px]">
-                      {item.childItems?.nodes?.length > 0 &&
-                        item.childItems?.nodes?.map((child, index) => (
+                      {item.childItems.length > 0 &&
+                        item.childItems.map((childItem, index: number) => (
                           <Link
-                            className="nav text-darkPurple leading-[24px] mb-[35px] "
+                            className="nav text-darkPurple leading-[24px] mb-[35px]"
+                            dangerouslySetInnerHTML={{
+                              __html: childItem.label,
+                            }}
+                            href={getUrlPath(childItem.url) || "/"}
                             key={index}
-                            href={getUrlPath(child?.url) || "/"}
                             onClick={() => setIsOpen2(false)}
                             passHref
-                          >
-                            {child?.label}
-                          </Link>
+                          />
                         ))}
                     </div>
                   </div>
@@ -100,9 +105,9 @@ const MobileSubMenu = ({
             </motion.div>
           </motion.div>
         </motion.aside>
-      )}
+      ) : null}
     </AnimatePresence>
   );
-};
+}
 
 export default MobileSubMenu;

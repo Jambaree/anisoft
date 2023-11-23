@@ -1,15 +1,26 @@
 "use client";
 import React, { useState } from "react";
-
-import Edges from "../../Edges";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import type { WpLink, WpMenu } from "@jambaree/next-wordpress/types";
+import parse from "html-react-parser";
+import Edges from "../../Edges";
 import Button from "../../Button";
-import MobileSubMenu from "./MobileSubMenu";
 import ChevonRight from "../../../../public/chevron-left.svg";
 import { getUrlPath } from "../../../utils/getUrlPath";
+import MobileSubMenu from "./MobileSubMenu";
 
-const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
+function MobileMenu({
+  isOpen,
+  menuItems,
+  button,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  menuItems?: WpMenu;
+  button?: WpLink;
+  setIsOpen: (isOpen: boolean) => void;
+}) {
   const sideVariants = {
     closed: {
       x: "100%",
@@ -44,7 +55,11 @@ const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
   const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
   const [openedMenu, setOpenedMenu] = useState(-1);
 
-  const handleSubMenu = (subMenuIsOpen, childItems, index) => {
+  const handleSubMenu = (
+    subMenuIsOpen: boolean,
+    childItems: WpMenu,
+    index: number
+  ) => {
     if (childItems.length <= 0) {
       setSubMenuIsOpen(false);
       subMenuIsOpen(false);
@@ -56,91 +71,90 @@ const MobileMenu = ({ isOpen, menu, buttonData, setIsOpen }) => {
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen ? (
         <motion.aside
-          initial={{ width: 0 }}
           animate={{ width: "100%" }}
+          className="h-full overflow-y-scroll"
           exit={{
             width: 0,
             transition: { delay: 0.7, duration: 0.3 },
           }}
-          className="h-full overflow-y-scroll"
+          initial={{ width: 0 }}
         >
           <motion.div
-            initial="closed"
             animate="open"
-            exit="closed"
-            variants={sideVariants}
             className="fixed z-[9999999999] h-full w-full bg-white overflow-y-scroll mobileMenu"
+            exit="closed"
+            initial="closed"
+            variants={sideVariants}
           >
             <Edges size="lg">
-              <motion.div variants={itemVariants} className="mt-[60px]">
-                {menu?.map((item, index) => (
+              <motion.div className="mt-[60px]" variants={itemVariants}>
+                {menuItems?.map((item, index) => (
                   <div key={index}>
                     {!subMenuIsOpen && (
                       <div className=" flex flex-col text-left">
-                        {item?.childItems?.nodes?.length > 0 ? (
-                          <div
+                        {item.childItems.length > 0 ? (
+                          <button
+                            className="cursor-pointer nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px] items-center"
                             onClick={() => {
                               handleSubMenu(
                                 subMenuIsOpen,
-                                item?.childItems?.nodes,
+                                item.childItems,
                                 index
                               );
                             }}
-                            className="cursor-pointer nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px] items-center"
+                            type="button"
                           >
-                            {item.label}
-
+                            {parse(item.label)}
                             <ChevonRight
-                              width="6"
                               className="mr-[11px] w-[6px] h-[10px] fill-black rotate-180"
+                              width="6"
                             />
-                          </div>
+                          </button>
                         ) : (
                           <Link
+                            className="nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px]"
+                            dangerouslySetInnerHTML={{ __html: item.label }}
+                            href={item.url ? getUrlPath(item.url) : "/"}
                             onClick={() => {
                               handleSubMenu(
                                 subMenuIsOpen,
-                                item?.childItems?.nodes,
+                                item.childItems,
                                 index
                               );
                             }}
-                            href={getUrlPath(item?.url) || "/"}
-                            className="nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px]"
-                          >
-                            {item.label}
-                          </Link>
+                          />
                         )}
                       </div>
                     )}
 
                     <MobileSubMenu
-                      menuIndex={index}
-                      openedMenu={openedMenu}
                       isOpen={subMenuIsOpen}
+                      menuIndex={index}
+                      menuItems={item.childItems}
+                      openedMenu={openedMenu}
                       setIsOpen={setSubMenuIsOpen}
-                      menu={item?.childItems}
                       setIsOpen2={setIsOpen}
                     />
                   </div>
                 ))}
                 {!subMenuIsOpen && (
                   <Button
-                    variant="medium"
-                    href={getUrlPath(buttonData?.url) || "/"}
                     className="ml-[15px]"
+                    href={button?.url ? getUrlPath(button.url) : "/"}
+                    variant="medium"
                   >
-                    {buttonData?.title}
+                    {button?.title}
                   </Button>
                 )}
               </motion.div>
             </Edges>
           </motion.div>
         </motion.aside>
-      )}
+      ) : null}
     </AnimatePresence>
   );
-};
+}
 
 export default MobileMenu;

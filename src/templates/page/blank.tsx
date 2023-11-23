@@ -1,83 +1,87 @@
-import { getData } from "@jambaree/next-wordpress";
+import { getItems } from "@jambaree/next-wordpress/src/api/get-items";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import Edges from "../../components/Edges";
 import PageHeader2 from "../../components/PageHeader2";
 
-export default async function BlankPageTemplate({
-  uri,
-  isPreview,
-  searchParams,
-}) {
-  const { page, categories } = await getData({
-    variables: { id: uri, idType: "URI" },
-    query,
-    isPreview,
-    searchParams,
-  });
-  if (!page) {
-    notFound();
-  }
-
-  const { title, content } = page;
-  const { nodes } = categories;
-  const filteredCategories = nodes.filter(
-    (category) => category?.posts.nodes.length > 0
+export default async function BlankPageTemplate({ data }) {
+  const req = await fetch(
+    `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/categories`
   );
+  const categoriesList = await req.json();
+
+  const posts = await getItems({
+    restBase: "posts",
+  });
+
+  const categories = categoriesList
+    .map((cat) => {
+      return {
+        ...cat,
+        posts: posts.filter((post) => {
+          return post.categories.includes(cat.id);
+        }),
+      };
+    })
+    ?.filter((cat) => cat.posts.length > 0);
 
   return (
     <div>
-      <PageHeader2 text={content} title={title} />
-      {filteredCategories?.length > 0 &&
-        filteredCategories.map((cat, idx) => {
+      <PageHeader2 text={data.content.rendered} title={data.title.rendered} />
+
+      {categories?.length > 0 &&
+        categories.map((cat, idx) => {
           return (
             <div
-              key={idx}
               className={classNames(
                 idx % 2 === 0 ? "bg-white" : "bg-lightGreyBg",
                 "py-[80px] w-full h-full flex flex-col justify-center items-start"
               )}
+              key={idx}
             >
               <Edges size="lg">
-                {cat?.name && <h1 className="pb-[30px]">{cat?.name}s</h1>}
+                {cat?.name ? <h1 className="pb-[30px]">{cat?.name}s</h1> : null}
 
-                {cat?.description && (
+                {cat?.description ? (
                   <p className="pb-[60px]">{cat?.description}</p>
-                )}
+                ) : null}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-16">
-                  {cat?.posts?.nodes?.length > 0 &&
-                    [...cat?.posts?.nodes].reverse().map((post, idx) => {
+                  {cat?.posts?.length > 0 &&
+                    cat.posts.reverse().map((post, idx) => {
+                      const image = post?._embedded["wp:featuredmedia"]?.[0];
+
                       return (
                         <Link
-                          href={post?.uri || "/"}
-                          key={idx}
                           className="w-full  bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
+                          href={post?.path || "/"}
+                          key={idx}
                         >
-                          {post?.title && (
-                            <h4 className="text-white w-auto sm:w-fit text-[1.45rem] whitespace-nowrap">{post?.title}</h4>
-                          )}
+                          {post?.title?.rendered ? (
+                            <h4 className="text-white w-auto sm:w-fit text-[1.45rem] whitespace-nowrap">
+                              {post?.title?.rendered}
+                            </h4>
+                          ) : null}
 
-                          {post?.content && (
+                          {post?.content?.rendered ? (
                             <div
                               className="text-white archiveText overflow-hidden  overflow-ellipsis 	h-[55px]"
                               dangerouslySetInnerHTML={{
-                                __html: post?.content,
+                                __html: post?.content?.rendered,
                               }}
                             />
-                          )}
+                          ) : null}
 
-                          {post?.featuredImage?.node?.sourceUrl && (
+                          {image.source_url ? (
                             <div className="relative w-full h-[220px]">
                               <Image
-                                src={post?.featuredImage?.node?.sourceUrl}
-                                alt={post?.featuredImage?.node?.altText}
+                                alt={image.alt}
                                 fill
+                                src={image.source_url}
                               />
                             </div>
-                          )}
+                          ) : null}
                         </Link>
                       );
                     })}
@@ -89,41 +93,3 @@ export default async function BlankPageTemplate({
     </div>
   );
 }
-
-const query = /* GraphQL */ `
-  query PageQuery($id: ID!, $idType: PageIdType) {
-    page(id: $id, idType: $idType) {
-      __typename
-      id
-      title
-      uri
-      slug
-      content
-      template {
-        ... on Template_Blank {
-          templateName
-        }
-      }
-    }
-    categories {
-      nodes {
-        posts {
-          nodes {
-            title
-            content
-            uri
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-              }
-            }
-          }
-        }
-        id
-        name
-        description
-      }
-    }
-  }
-`;

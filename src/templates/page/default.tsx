@@ -1,212 +1,39 @@
-import { notFound } from "next/navigation";
-
-import { getData, FlexibleContent } from "@jambaree/next-wordpress";
+import { type WpPage } from "@jambaree/next-wordpress/types";
+import { FlexibleContent, getOptionsPage } from "@jambaree/next-wordpress";
+// import { DataDiff } from "@/components/data-diff";
+import { deepCamelCase } from "@/utils/deep-camel-case-helper";
 import FooterTopperCTA from "../../components/FooterTopperCTA";
 import * as blocks from "../../components/blocks";
 
 export default async function DefaultPageTemplate({
   uri,
-  isPreview,
-  searchParams,
+  data,
+}: {
+  uri: string;
+  data: WpPage;
 }) {
-  const { page, themeOptions } = await getData({
-    variables: { id: uri, idType: "URI" },
-    query,
-    isPreview,
-    searchParams,
-  });
-  if (!page) {
-    notFound();
-  }
+  const modifiedData: any = deepCamelCase(data);
 
   const {
     title,
-    template: {
-      acf: { modules },
-      hasFooterCta: { hasFooterCta },
-    },
-  } = page;
+    acf: { modules, has_footer_cta },
+  } = modifiedData;
 
-  const {
-    options: { footerTopperCta },
-  } = themeOptions;
+  const themeOptions = deepCamelCase(
+    await getOptionsPage({
+      slug: "theme-options",
+    })
+  );
 
   return (
-    <div>
-      <FlexibleContent blocks={blocks} rows={modules} data={{ title, uri }} />
-      {hasFooterCta && <FooterTopperCTA data={footerTopperCta} />}
-    </div>
+    <>
+      {/* <DataDiff data1={data} data2={modifiedData} /> */}
+      <div>
+        <FlexibleContent blocks={blocks} data={{ title, uri }} rows={modules} />
+        {has_footer_cta ? (
+          <FooterTopperCTA data={themeOptions.footerTopperCta} />
+        ) : null}
+      </div>
+    </>
   );
 }
-const query = /* GraphQL */ `
-  query PageQuery($id: ID!, $idType: PageIdType) {
-    page(id: $id, idType: $idType) {
-      __typename
-      id
-      title
-      uri
-      slug
-      template {
-        templateName
-        ... on DefaultTemplate {
-          templateName
-          hasFooterCta {
-            fieldGroupName
-            hasFooterCta
-          }
-          acf {
-            modules {
-              __typename
-              ... on DefaultTemplate_Acf_Modules_Anisoft {
-                fieldGroupName
-                headline
-                tag
-                text
-                button {
-                  title
-                  url
-                }
-              }
-              ... on DefaultTemplate_Acf_Modules_Form {
-                fieldGroupName
-                formId
-              }
-              ... on DefaultTemplate_Acf_Modules_PageHeader1 {
-                fieldGroupName
-                text
-                title
-              }
-              ... on DefaultTemplate_Acf_Modules_PageHeader2 {
-                fieldGroupName
-                text
-                title
-              }
-              ... on DefaultTemplate_Acf_Modules_Hero {
-                fieldGroupName
-                headline
-                button2 {
-                  title
-                  url
-                }
-                button1 {
-                  title
-                  url
-                }
-                image {
-                  sourceUrl
-                  altText
-                }
-                subHeadline
-                video {
-                  mediaItemUrl
-                }
-              }
-              ... on DefaultTemplate_Acf_Modules_InfoCallout {
-                fieldGroupName
-                headline
-                tag
-                text
-                button2 {
-                  title
-                  url
-                }
-                button1 {
-                  url
-                  title
-                }
-              }
-              ... on DefaultTemplate_Acf_Modules_Logos {
-                fieldGroupName
-                header
-                logos {
-                  link {
-                    url
-                    title
-                  }
-                  logo {
-                    sourceUrl
-                    altText
-                  }
-                }
-              }
-              ... on DefaultTemplate_Acf_Modules_ProductsSlider {
-                fieldGroupName
-                headline
-                products {
-                  text
-                  buttonText
-                  product {
-                    ... on Post {
-                      id
-                      uri
-                      title
-                      featuredImage {
-                        node {
-                          sourceUrl
-                          altText
-                        }
-                      }
-                    }
-                  }
-                }
-                tag
-              }
-              ... on DefaultTemplate_Acf_Modules_Stats {
-                description
-                fieldGroupName
-                image {
-                  sourceUrl
-                }
-                stats {
-                  stat
-                  label
-                }
-                headline
-              }
-              ... on DefaultTemplate_Acf_Modules_TextInfo {
-                tag
-                headline
-                button1 {
-                  title
-                  url
-                  target
-                }
-                button2 {
-                  title
-                  url
-                  target
-                }
-                text
-              }
-              ... on DefaultTemplate_Acf_Modules_Testimonials {
-                fieldGroupName
-                testimonials {
-                  description
-                  name
-                  title
-                  image {
-                    sourceUrl
-                    altText
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    themeOptions {
-      options {
-        footerTopperCta {
-          text1
-          text2
-          button {
-            target
-            title
-            url
-          }
-        }
-      }
-    }
-  }
-`;

@@ -1,11 +1,11 @@
 import React from "react";
-import Edges from "../Edges";
 import Image from "next/image";
-import FadeInUp from "../FadeInUp";
 import classNames from "classnames";
 import Link from "next/link";
+import FadeInUp from "../FadeInUp";
+import Edges from "../Edges";
 
-const LogoModule = ({ header, logos }) => {
+function LogoModule({ header, logos }) {
   const half = Math.ceil(logos.length / 2);
 
   return (
@@ -19,20 +19,20 @@ const LogoModule = ({ header, logos }) => {
             {logos?.map(({ logo, link }, index) => {
               const isFirstHalf = index < half;
               return (
-                logo?.sourceUrl && (
+                logo?.url && (
                   <FadeInUp
-                    key={index}
                     className={classNames(
                       isFirstHalf ? "delay-100" : "delay-300",
                       "relative w-[170px] min-h-[45px] max-h-[45px] h-[45px]  min-w-[170px] max-w-[170px] my-[24px] mx-[10px]"
                     )}
+                    key={index}
                   >
                     <Link href={link?.url || ""} target="_blank">
                       <Image
-                        src={logo?.sourceUrl}
-                        alt={logo?.altText || "logo-image"}
-                        fill
+                        alt={logo?.alt || "logo-image"}
                         className=" object-contain"
+                        fill
+                        src={logo?.url}
                       />
                     </Link>
                   </FadeInUp>
@@ -44,6 +44,6 @@ const LogoModule = ({ header, logos }) => {
       </Edges>
     </div>
   );
-};
+}
 
 export default LogoModule;

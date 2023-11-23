@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
-const MenuItems = ({ menuItems, productMenuItems }) => {
+function MenuItems({ menuItems }) {
   const urlName = usePathname();
 
   const correctMenuItems = menuItems;
@@ -21,15 +21,21 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
     <div className="flex flex-row flex-wrap gap-[25px] md:gap-[35px]">
       <ul>
         {firstHalfMenuItems.map((item, index) => (
-          <li key={index} className="relative max-w-[350px] group w-full">
+          <li className="relative max-w-[350px] group w-full" key={index}>
             <div
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
               key={index}
             >
               {item?.url.includes("#") ? (
-                <a href={item?.url || "/"}>{item?.label}</a>
+                <a
+                  dangerouslySetInnerHTML={{ __html: item.label }}
+                  href={item?.url || "/"}
+                />
               ) : (
-                <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
+                <Link
+                  dangerouslySetInnerHTML={{ __html: item.label }}
+                  href={getUrlPath(item?.url) || "/"}
+                />
               )}
             </div>
           </li>
@@ -37,15 +43,21 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
       </ul>
       <ul className="">
         {secondMenuitems.map((item, index) => (
-          <li key={index} className="relative max-w-[350px] w-full group">
+          <li className="relative max-w-[350px] w-full group" key={index}>
             <div
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
               key={index}
             >
               {item?.url.includes("#") ? (
-                <a href={item?.url || "/"}>{item?.label}</a>
+                <a
+                  dangerouslySetInnerHTML={{ __html: item.label }}
+                  href={item?.url || "/"}
+                />
               ) : (
-                <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
+                <Link
+                  dangerouslySetInnerHTML={{ __html: item.label }}
+                  href={getUrlPath(item?.url) || "/"}
+                />
               )}
             </div>
           </li>
@@ -53,15 +65,21 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
       </ul>
       <ul className="">
         {thirdMenuitems.map((item, index) => (
-          <li key={index} className="relative max-w-[350px] w-full group">
+          <li className="relative max-w-[350px] w-full group" key={index}>
             <div
               className="nav text-white z-0 mb-[12px] hover:text-lightGreen"
               key={index}
             >
               {item?.url.includes("#") ? (
-                <a href={item?.url || "/"}>{item?.label}</a>
+                <a
+                  dangerouslySetInnerHTML={{ __html: item.label }}
+                  href={item?.url || "/"}
+                />
               ) : (
-                <Link href={getUrlPath(item?.url) || "/"}>{item?.label}</Link>
+                <Link
+                  dangerouslySetInnerHTML={{ __html: item.label }}
+                  href={getUrlPath(item?.url) || "/"}
+                />
               )}
             </div>
           </li>
@@ -69,6 +87,6 @@ const MenuItems = ({ menuItems, productMenuItems }) => {
       </ul>
     </div>
   );
-};
+}
 
 export default MenuItems;

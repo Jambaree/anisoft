@@ -1,8 +1,8 @@
 import React from "react";
-import Edges from "../components/Edges";
 import Image from "next/image";
-import FadeInUp from "./FadeInUp";
 import parse from "html-react-parser";
+import Edges from "./Edges";
+import FadeInUp from "./FadeInUp";
 
 // const quickData = {
 //   facts: [
@@ -35,7 +35,7 @@ const handleDelay = (index) => {
     return 500;
   }
 };
-const QuickFacts = ({ quickData }) => {
+function QuickFacts({ quickData }) {
   return (
     <div className="pt-[112px] pb-[136px]">
       <Edges size="md">
@@ -48,21 +48,21 @@ const QuickFacts = ({ quickData }) => {
                   key={index}
                 >
                   <div className="flex flex-col text-black mb-[25px] md:mb-0 items-center justify-center text-center">
-                    {fact?.icon?.sourceUrl && (
+                    {fact?.icon?.url ? (
                       <div className="relative">
                         <FadeInUp className="delay-1000 relative z-20">
                           <div className="w-[35px] h-[35px] relative">
                             <Image
-                              src={fact?.icon?.sourceUrl}
-                              alt={fact?.icon?.altText}
-                              width="35"
-                              height="35"
+                              alt={fact?.icon?.alt}
                               className="mb-[27px] z-10 w-auto"
+                              height="35"
+                              src={fact?.icon?.url}
+                              width="35"
                             />
                           </div>
                         </FadeInUp>
                       </div>
-                    )}
+                    ) : null}
                     <h3 className="mb-[21px]  font-maven">{fact.title}</h3>
                     <p>{parse(fact.description)}</p>
                   </div>
@@ -74,6 +74,6 @@ const QuickFacts = ({ quickData }) => {
       </Edges>
     </div>
   );
-};
+}
 
 export default QuickFacts;
