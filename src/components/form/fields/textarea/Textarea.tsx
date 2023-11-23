@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react";
 import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
-import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
+import type { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 // import { InputProps } from "./InputTypes";
 interface InputProps {
   className?: string;
@@ -51,22 +51,22 @@ const Textarea = forwardRef(
   ) => {
     return (
       <div className={className}>
-        {label && (
+        {label ? (
           <label
-            htmlFor={id || name}
             className={clsx("block p-details ", labelClassName)}
+            htmlFor={id || name}
           >
             {label}
-            {required && <span className="text-red-500"> *</span>}
+            {required ? <span className="text-red-500"> *</span> : null}
           </label>
-        )}
+        ) : null}
 
         <div className="mt-1 relative">
           <textarea
-            ref={ref}
-            id={id}
-            name={name}
-            type={type}
+            aria-describedby={
+              error ? `${id}-error` : description && `${id}-description`
+            }
+            aria-invalid={error ? "true" : null}
             className={clsx(
               "rounded-0 appearance-none block w-full px-3 py-3 border-b-[1px] border-l-[1px] border-black active:border-lightGreen text-black",
               " shadow-sm placeholder-gray-400 focus:outline-none",
@@ -76,22 +76,22 @@ const Textarea = forwardRef(
                 "block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 rounded-md",
               inputClassName
             )}
-            placeholder={placeholder}
             defaultValue={defaultValue}
-            aria-invalid={error && "true"}
-            aria-describedby={
-              error ? `${id}-error` : description && `${id}-description`
-            }
-            required={required}
             disabled={disabled}
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            ref={ref}
+            required={required}
+            type={type}
             {...rest}
           />
 
-          {error && (
+          {error ? (
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
             </div>
-          )}
+          ) : null}
         </div>
 
         {/* {error && (
@@ -102,13 +102,15 @@ const Textarea = forwardRef(
           </div>
         )} */}
 
-        {description && (
+        {description ? (
           <div>
-            <span className="mt-2  text-gray-500" id={`${id}-description`}>
-              {description}
-            </span>
+            <span
+              className="mt-2  text-gray-500"
+              dangerouslySetInnerHTML={{ __html: description }}
+              id={`${id}-description`}
+            />
           </div>
-        )}
+        ) : null}
       </div>
     );
   }
