@@ -1,20 +1,23 @@
 import React from "react";
 import Image from "next/image";
+import type { WpImage } from "@jambaree/next-wordpress/types";
 import Edges from "./Edges";
 import FadeInUp from "./FadeInUp";
 import RichTextComponents from "./RichTextComponents";
 
-const handleDelay = (index) => {
-  if (index === 0) {
-    return 200;
-  } else if (index === 1) {
-    return 300;
-  } else if (index === 2) {
-    return 500;
-  }
-};
-function QuickFacts({ data }) {
-  const { facts, text1, text2 } = data;
+function QuickFacts({
+  text1,
+  text2,
+  facts,
+}: {
+  text1?: string;
+  text2?: string;
+  facts?: {
+    title?: string;
+    description?: string;
+    icon?: WpImage;
+  };
+}) {
   return (
     <div className="primaryRadialBg pt-[75px] pb-[125px]">
       <Edges size="lg">
@@ -27,6 +30,7 @@ function QuickFacts({ data }) {
               <h1>{text2}</h1>
             </FadeInUp>
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {facts?.map((fact, index) => {
               return (
@@ -51,7 +55,6 @@ function QuickFacts({ data }) {
                       {fact.title}
                     </div>
                     <RichTextComponents html={fact.description} />
-                    {/* {parse(fact.description)} */}
                   </div>
                 </FadeInUp>
               );
@@ -64,3 +67,13 @@ function QuickFacts({ data }) {
 }
 
 export default QuickFacts;
+
+const handleDelay = (index) => {
+  if (index === 0) {
+    return 200;
+  } else if (index === 1) {
+    return 300;
+  } else if (index === 2) {
+    return 500;
+  }
+};

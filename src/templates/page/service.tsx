@@ -1,54 +1,44 @@
+import type { WpPage } from "@jambaree/next-wordpress/types";
 import React from "react";
-import { getData } from "@jambaree/next-wordpress";
 import PageHeader from "../../components/PageHeader";
 import ServiceCards from "../../components/servicecards";
 
-export default async function ServicePageTemplate({
-  uri,
-  isPreview,
-  searchParams,
-}) {
-  const { page } = await getData({
-    variables: { id: uri, idType: "URI" },
-    query,
-    isPreview,
-    searchParams,
-  });
-
-  const {
-    template: { services },
-  } = page;
-
+export default function ServicePageTemplate({ data }: { data: WpPage }) {
   return (
     <div>
-      <PageHeader data={page} />
-      <ServiceCards {...services} />
+      <PageHeader content={data.content.rendered} title={data.title.rendered} />
+
+      {/* <pre>
+        <code>{JSON.stringify(data, null, 2)}</code>
+      </pre> */}
+
+      <ServiceCards services={data.acf?.services} />
     </div>
   );
 }
 
-const query = /* GraphQL */ `
-  query ServicePageQuery($id: ID!, $idType: PageIdType) {
-    page(id: $id, idType: $idType) {
-      template {
-        ... on Template_Service {
-          templateName
-          services {
-            services {
-              description
-              name
-              points {
-                text
-              }
-              image {
-                sourceUrl
-              }
-            }
-          }
-        }
-      }
-      content
-      title
-    }
-  }
-`;
+// const query = /* GraphQL */ `
+//   query ServicePageQuery($id: ID!, $idType: PageIdType) {
+//     page(id: $id, idType: $idType) {
+//       template {
+//         ... on Template_Service {
+//           templateName
+//           services {
+//             services {
+//               description
+//               name
+//               points {
+//                 text
+//               }
+//               image {
+//                 sourceUrl
+//               }
+//             }
+//           }
+//         }
+//       }
+//       content
+//       title
+//     }
+//   }
+// `;

@@ -50,7 +50,7 @@ function ProductsList({ products }) {
             index: number
           ) => {
             const image = _embedded["wp:featuredmedia"]?.[0];
-            console.log({ image });
+
             return (
               <FadeInUp
                 className={`
