@@ -25,15 +25,15 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    header: { button },
-  } = (await getOptionsPage({
+  const themeOptions = (await getOptionsPage({
     slug: "theme-options",
   })) as {
-    header: {
-      button: WpLink;
+    header?: {
+      button?: WpLink;
     };
   };
+
+  const button = themeOptions.header?.button;
 
   const menuItems = await getMenuItems({
     slug: "header",

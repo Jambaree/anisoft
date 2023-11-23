@@ -1,6 +1,7 @@
 import React from "react";
 import { getMenuItems, getOptionsPage } from "@jambaree/next-wordpress";
 import Link from "next/link";
+import type { WpLink } from "@jambaree/next-wordpress/types";
 import { deepCamelCase } from "@/utils/deep-camel-case-helper";
 import Edges from "../Edges";
 import InvertedLogo from "../logos/invertedlogo";
@@ -9,24 +10,18 @@ import Linkedin from "../../../public/linkedin.svg";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
 
 type FooterOptions = {
-  footer: {
-    contactInformation: {
-      phoneNumber: string;
-      email: string;
-      socials: {
-        icon: string;
-        url: string;
+  footer?: {
+    contactInformation?: {
+      phoneNumber?: string;
+      email?: string;
+      socials?: {
+        icon?: string;
+        url?: string;
       }[];
     };
     copyrightText?: string;
-    link_1?: {
-      title: string;
-      url: string;
-    };
-    link_2?: {
-      title: string;
-      url: string;
-    };
+    link_1?: WpLink;
+    link_2?: WpLink;
   };
 };
 
@@ -37,9 +32,8 @@ export default async function Footer() {
     })
   ) as FooterOptions;
 
-  const {
-    footer: { contactInformation, copyrightText, link_1, link_2 },
-  } = themeOptions;
+  const { contactInformation, copyrightText, link_1, link_2 } =
+    themeOptions.footer || {};
 
   const menuItems = await getMenuItems({
     slug: "footer",
@@ -57,12 +51,12 @@ export default async function Footer() {
                 </Link>
               </div>
               <div className="flex flex-col mb-[27px] p-footer">
-                <p className="text-white">{contactInformation.phoneNumber}</p>
-                <p className="text-white">{contactInformation.email}</p>
+                <p className="text-white">{contactInformation?.phoneNumber}</p>
+                <p className="text-white">{contactInformation?.email}</p>
               </div>
               <div className="flex flex-row">
-                {contactInformation.socials.length > 0 &&
-                  contactInformation.socials.map((link, index) => (
+                {contactInformation?.socials?.length > 0 &&
+                  contactInformation?.socials.map((link, index) => (
                     <a
                       aria-label="social link"
                       className="mr-[22px]"
