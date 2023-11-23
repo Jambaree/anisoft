@@ -2,73 +2,37 @@
 import React, { useRef, useEffect, useState } from "react";
 import { animate } from "framer-motion";
 import Image from "next/image";
+import type { WpImage } from "@jambaree/next-wordpress/types";
 import Edges from "../Edges";
 
-export default function StatsModule({ headline, description, stats, image }) {
-  function Counter({ from, to }) {
-    const ref = useRef<HTMLDivElement>(null);
-    const observerRef = useRef<IntersectionObserver | null>(null);
-
-    const [start, setStart] = useState(from);
-    const [end, setEnd] = useState(to);
-    const [shouldStart, setShouldStart] = useState(false); // add this line
-
-    useEffect(() => {
-      if (ref.current && !observerRef.current) {
-        observerRef.current = new IntersectionObserver(([entry]) => {
-          if (entry.isIntersecting) {
-            setShouldStart(true);
-          }
-        });
-
-        observerRef.current.observe(ref.current);
-      }
-
-      return () => {
-        if (ref.current && observerRef.current) {
-          observerRef.current.unobserve(ref.current);
-        }
-      };
-    }, []);
-
-    useEffect(() => {
-      if (from && to && shouldStart) {
-        setStart(from);
-        setEnd(to);
-      }
-
-      const controls = animate(start, end, {
-        duration: 5,
-        onUpdate(value) {
-          if (ref.current) ref.current.textContent = value.toFixed() || 0;
-        },
-      });
-
-      return () => {
-        controls.stop();
-      };
-    }, [end, start, shouldStart]); // add shouldStart here
-
-    return <div ref={ref}>0</div>;
-  }
-
+export default function StatsModule({
+  headline,
+  description,
+  stats,
+  image,
+}: {
+  headline?: string;
+  description?: string;
+  stats?: { stat?: string; label?: string }[];
+  image?: WpImage;
+}) {
   return (
     <div className="relative primaryRadialBg pb-[115px] md:pb-0">
       <div className="absolute bottom-0 h-80 w-full md:inset-0 md:h-full">
         <div className="h-full w-full md:grid md:grid-cols-2">
           <div className="h-full md:relative md:col-start-2">
-            <Image
-              alt="People working on laptops"
-              className="h-full w-full object-cover md:absolute md:inset-0 md:pl-[15%]"
-              fill
-              sizes="(max-width: 768px) 100vw,
+            {image?.url ? (
+              <Image
+                alt="People working on laptops"
+                className="h-full w-full object-cover md:absolute md:inset-0 md:pl-[15%]"
+                fill
+                sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-              src={image?.url}
-            />
-            {/* <p className="absolute bottom-[10%] md:top-[10%] left-[10%] md:left-[25%] text-[#FF0000]">
-              FPO
-            </p> */}
+                src={image.url}
+              />
+            ) : null}
+
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-900 md:inset-y-0 md:left-0 md:h-full md:w-32 md:bg-gradient-to-r"
@@ -83,8 +47,8 @@ export default function StatsModule({ headline, description, stats, image }) {
             <p className="mt-5 text-lg text-white">{description}</p>
             <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
               {stats?.map((item, index) => {
-                const num = item?.stat?.match(/\d+/g);
-                const letr = item?.stat?.match(/[a-zA-Z!@#\$%\^\&*]+/g);
+                const num = item.stat?.match(/\d+/g);
+                const letr = item.stat?.match(/[a-zA-Z!@#\$%\^\&*]+/g);
 
                 return (
                   <div key={index}>
@@ -104,4 +68,51 @@ export default function StatsModule({ headline, description, stats, image }) {
       </Edges>
     </div>
   );
+}
+
+function Counter({ from, to }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const [start, setStart] = useState(from);
+  const [end, setEnd] = useState(to);
+  const [shouldStart, setShouldStart] = useState(false); // add this line
+
+  useEffect(() => {
+    if (ref.current && !observerRef.current) {
+      observerRef.current = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldStart(true);
+        }
+      });
+
+      observerRef.current.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current && observerRef.current) {
+        observerRef.current.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (from && to && shouldStart) {
+      setStart(from);
+      setEnd(to);
+    }
+
+    const controls = animate(start, end, {
+      duration: 5,
+      onUpdate(value) {
+        if (ref.current) ref.current.textContent = value.toFixed() || 0;
+      },
+    });
+
+    return () => {
+      controls.stop();
+    };
+  }, [end, start, shouldStart]); // add shouldStart here
+
+  return <div ref={ref}>0</div>;
 }
