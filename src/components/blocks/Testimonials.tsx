@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import Dot from "../../../public/dot.svg";
 import ChevronRight from "../../../public/chevron-right.svg";
 import ChevronLeft from "../../../public/chevron-left.svg";
 import Edges from "../Edges";
-import { motion, AnimatePresence, useDragControls } from "framer-motion";
 
 export default function Testimonials({ testimonials }) {
   const [animateDirection, setAnimateDirection] = useState("right");
@@ -28,37 +28,40 @@ export default function Testimonials({ testimonials }) {
     const interval = setInterval(() => {
       handleSlideChange(activeSlide + 1, "right");
     }, 5000);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, [activeSlide]);
 
   return (
     <section className="py-12 md:py-20 lg:py-24 primaryRadialBg flex justify-center">
-      <Edges size="md" className="relative w-full">
+      <Edges className="relative w-full" size="md">
         <div className="flex flex-row justify-between">
           <ChevronLeft
             className="fill-lightGreen min-w-[12px] w-[12px] h-[20px] relative my-auto cursor-pointer ml-[25px]"
-            onClick={() => handleSlideChange(activeSlide - 1, "left")}
+            onClick={() => {
+              handleSlideChange(activeSlide - 1, "left");
+            }}
           />
           <AnimatePresence initial={false} mode="wait">
             {testimonials.map(
               (testimonial, index) =>
                 activeSlide === index && (
                   <motion.div
-                    drag={"x"}
-                    dragControls={controls}
-                    dragConstraints={{ left: 0, right: 0 }}
-                    initial={{
-                      x: animateDirection === "right" ? -300 : 300,
-                      opacity: 0,
-                    }}
                     animate={{ x: 0, opacity: 1 }}
+                    className=" mx-auto max-w-7xl px-6 lg:px-8 text-white overflow-y-auto"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragControls={controls}
                     exit={{
                       x: animateDirection === "right" ? 300 : -300,
                       opacity: 0,
                     }}
-                    onDragStart={(event, info) =>
-                      setDragDirection(info.point.x)
-                    }
+                    initial={{
+                      x: animateDirection === "right" ? -300 : 300,
+                      opacity: 0,
+                    }}
+                    key={index}
                     onDragEnd={(event, info) => {
                       if (info.point.x < dragDirection) {
                         handleSlideChange(activeSlide - 1, "left");
@@ -66,17 +69,18 @@ export default function Testimonials({ testimonials }) {
                         handleSlideChange(activeSlide + 1, "right");
                       }
                     }}
-                    key={index}
-                    className=" mx-auto max-w-7xl px-6 lg:px-8 text-white overflow-y-auto"
+                    onDragStart={(event, info) => {
+                      setDragDirection(info.point.x);
+                    }}
                   >
                     <div className="relative flex flex-col items-center">
                       <div className="h-[61px] w-[91px] mx-auto mb-[40px]">
                         <Image
-                          className="object-cover "
-                          src={testimonial?.image?.sourceUrl}
-                          height="61"
-                          width="91"
                           alt="Workcation"
+                          className="object-cover "
+                          height="61"
+                          src={testimonial?.image?.url}
+                          width="91"
                         />
                       </div>
                       <div>
@@ -112,26 +116,30 @@ export default function Testimonials({ testimonials }) {
             )}
           </AnimatePresence>
           <ChevronRight
-            onClick={() => handleSlideChange(activeSlide + 1, "right")}
             className="fill-lightGreen min-w-[12px] w-[12px] h-[20px] relative my-auto cursor-pointer mr-[25px]"
+            onClick={() => {
+              handleSlideChange(activeSlide + 1, "right");
+            }}
           />
         </div>
 
         <div className="flex flex-row text-[3.125rem] justify-center">
           {testimonials.map((testimonial, index) => (
             <div
-              onClick={() => handleSlideChange(index, "right")}
-              key={index}
               className="h-fit w-fit mx-[4.5px]"
+              key={index}
+              onClick={() => {
+                handleSlideChange(index, "right");
+              }}
             >
               <Dot
-                width="8"
-                height="8"
                 className={
                   activeSlide === index
                     ? "fill-lightGreen cursor-pointer"
                     : "fill-white cursor-pointer"
                 }
+                height="8"
+                width="8"
               />
             </div>
           ))}

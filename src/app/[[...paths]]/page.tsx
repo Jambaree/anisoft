@@ -1,20 +1,16 @@
 import { WordpressTemplate } from "@jambaree/next-wordpress";
-
 import templates from "../../templates";
 
-export default async function PageTemplate(props: {
+export default function PageTemplate(props: {
   params: { paths: string[] };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: Record<string, string | string[] | undefined>;
 }) {
   return (
-    <>
-      {/* @ts-expect-error Server Component */}
-      <WordpressTemplate
-        templates={templates}
-        params={props.params}
-        searchParams={props.searchParams}
-      />
-    </>
+    <WordpressTemplate
+      params={props.params}
+      searchParams={props.searchParams}
+      templates={templates}
+    />
   );
 }
 

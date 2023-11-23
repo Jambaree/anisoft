@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const wpBaseUrl = process.env.NEXT_PUBLIC_WP_URL?.replace("https://", "");
+
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
@@ -11,9 +14,7 @@ const nextConfig = {
   env: {
     NEXT_MAPBOX: process.env.NEXT_MAPBOX,
   },
-  experimental: {
-    appDir: true,
-  },
+
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
@@ -27,11 +28,27 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    //enter the domain or subdomain where you have WordPress installed
-    domains: ["images.unsplash.com", "anisoft.wpengine.com"],
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: wpBaseUrl,
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "tailwindui.com",
+      },
+    ],
   },
+
+  // logging: {
+  //   fetches: {
+  //     fullUrl: true,
+  //   },
+  // },
 };
 
 module.exports = nextConfig;
