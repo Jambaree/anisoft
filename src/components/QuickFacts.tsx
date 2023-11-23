@@ -16,7 +16,7 @@ function QuickFacts({
     title?: string;
     description?: string;
     icon?: WpImage;
-  };
+  }[];
 }) {
   return (
     <div className="primaryRadialBg pt-[75px] pb-[125px]">
@@ -36,15 +36,15 @@ function QuickFacts({
               return (
                 <FadeInUp className={`delay-${handleDelay(index)}`} key={index}>
                   <div className="flex flex-col text-white mr-[32px] mb-[25px] md:mb-0">
-                    {fact?.icon?.url ? (
+                    {fact.icon?.url ? (
                       <div className="relative">
                         <FadeInUp className="delay-1000 relative z-20">
                           <div className="w-[35px] h-[35px] relative mb-[27px]">
                             <Image
-                              alt={fact?.icon?.alt}
+                              alt={fact.icon.alt}
                               className=" z-10 w-auto"
                               height="35"
-                              src={fact?.icon?.url}
+                              src={fact.icon.url}
                               width="35"
                             />
                           </div>
