@@ -1,37 +1,45 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-
-import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
-// @ts-ignore
+import Image from "next/image";
+import type { WpLink, WpMenu } from "@jambaree/next-wordpress/types";
 import Edges from "../Edges";
 import Logo from "../logos/logo";
-import Image from "next/image";
+import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
 import MobileMenu from "./headerMenu/mobileMenu";
 
-export default function Header({ menuItems, data }) {
+export default function Header({
+  menuItems,
+  button,
+}: {
+  menuItems: WpMenu;
+  button: WpLink;
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    window?.document && isOpen
+    isOpen
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
   }, [isOpen]);
+
   return (
     <>
-      <div className=" h-[100px] z-20 relative"></div>
+      <div className=" h-[100px] z-20 relative" />
       <div className="z-50 fixed bg-white w-full border-b-[1px] border-b-[#0E0A30] top-0 ">
         <Edges size="lg">
           <div className="flex flex-row justify-between items-center relative">
             <Link
-              href="/"
-              onClick={() => setIsOpen(false)}
-              className="my-[31px]"
               aria-label="logo-home-link"
+              className="my-[31px]"
+              href="/"
+              onClick={() => {
+                setIsOpen(false);
+              }}
             >
               <Logo />
             </Link>
-            <HeaderMenuItems menuItems={menuItems} data={data} />
+            <HeaderMenuItems button={button} menuItems={menuItems} />
             <div className="md:hidden flex ml-[10px] md:ml-0">
               {!isOpen ? (
                 <button
@@ -39,13 +47,14 @@ export default function Header({ menuItems, data }) {
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
+                  type="button"
                 >
                   <Image
+                    alt="hamburger-menu"
+                    height="30"
                     priority
                     src="/hamburger.svg"
-                    alt="hamburger-menu"
                     width="30"
-                    height="30"
                   />
                 </button>
               ) : (
@@ -54,13 +63,14 @@ export default function Header({ menuItems, data }) {
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
+                  type="button"
                 >
                   <Image
-                    src="/close.svg"
                     alt="close-icon"
                     className=" cursor-pointer  max-w-[20px] max-h-[20px]"
-                    width="20"
                     height="20"
+                    src="/close.svg"
+                    width="20"
                   />
                 </button>
               )}
@@ -70,9 +80,9 @@ export default function Header({ menuItems, data }) {
       </div>
       <div className="md:hidden flex">
         <MobileMenu
+          button={button}
           isOpen={isOpen}
-          menu={menuItems}
-          buttonData={data?.button}
+          menuItems={menuItems}
           setIsOpen={setIsOpen}
         />
       </div>

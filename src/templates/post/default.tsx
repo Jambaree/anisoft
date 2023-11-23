@@ -1,87 +1,67 @@
-import { getData } from "@jambaree/next-wordpress";
-import FooterTopperCTA from "../../components/FooterTopperCTA";
-import QuickFacts from "../../components/QuickFacts";
-import PageHeader from "../../components/PageHeader";
-import TextInfo from "../../components/blocks/TextInfo";
+import { getOptionsPage } from "@jambaree/next-wordpress";
+import type { WpImage, WpLink, WpPage } from "@jambaree/next-wordpress/types";
+import FooterTopperCTA from "@/components/FooterTopperCTA";
+import QuickFacts from "@/components/QuickFacts";
+import TextInfo from "@/components/blocks/TextInfo";
+import PageHeader from "@/components/PageHeader";
+
+interface PostData extends WpPage {
+  acf: {
+    facts?: {
+      title?: string;
+      description?: string;
+      icon?: WpImage;
+    }[];
+    text1?: string;
+    text2?: string;
+    background_gradient?: boolean;
+    button1?: WpLink;
+    button2?: WpLink;
+    headline?: string;
+    image?: WpImage;
+    tag?: string;
+    text?: string;
+  };
+}
 
 export default async function DefaultPostTemplate({
-  uri,
-  isPreview,
-  searchParams,
+  data,
+}: {
+  data: PostData;
 }) {
-  const { post, themeOptions } = await getData({
-    variables: { id: uri, idType: "URI" },
-    query,
-    isPreview,
-    searchParams,
-  });
-  const {
-    options: { footerTopperCta },
-  } = themeOptions;
+  const themeOptions = (await getOptionsPage({
+    slug: "theme-options",
+  })) as {
+    footer_topper_cta: {
+      text: string;
+      button_text: string;
+      button_link: string;
+    };
+  };
 
   return (
     <div>
-      <PageHeader data={post} />
+      <PageHeader content={data.content.rendered} title={data.title.rendered} />
 
-      {post?.quickFacts?.facts && <QuickFacts data={post?.quickFacts} />}
-      <TextInfo {...post?.textInfo} />
-      <FooterTopperCTA data={footerTopperCta} />
+      {data.acf.facts ? (
+        <QuickFacts
+          facts={data.acf.facts}
+          text1={data.acf.text1}
+          text2={data.acf.text2}
+        />
+      ) : null}
+
+      <TextInfo
+        backgroundGradient={data.acf.background_gradient}
+        button1={data.acf.button1}
+        button2={data.acf.button2}
+        headline={data.acf.headline}
+        image={data.acf.image}
+        tag={data.acf.tag}
+        text={data.acf.text}
+      />
+
+      <FooterTopperCTA data={themeOptions.footer_topper_cta} />
     </div>
   );
 }
-
-const query = /* GraphQL */ `
-  query PostQuery($id: ID!, $idType: PostIdType) {
-    post(id: $id, idType: $idType) {
-      id
-      title
-      content
-      quickFacts {
-        text1
-        text2
-        facts {
-          description
-
-          title
-          icon {
-            sourceUrl
-            altText
-          }
-        }
-      }
-      textInfo {
-        tag
-        headline
-        button1 {
-          title
-          url
-          target
-        }
-        button2 {
-          title
-          url
-          target
-        }
-        image {
-          sourceUrl
-          altText
-        }
-        backgroundGradient
-        text
-      }
-    }
-    themeOptions {
-      options {
-        footerTopperCta {
-          text1
-          text2
-          button {
-            target
-            title
-            url
-          }
-        }
-      }
-    }
-  }
-`;
