@@ -12,8 +12,8 @@ dependencies:
     specifier: ^2.0.18
     version: 2.0.18(react@18.2.0)
   '@jambaree/next-wordpress':
-    specifier: 2.0.0-beta.23
-    version: 2.0.0-beta.23(@babel/core@7.23.3)(encoding@0.1.13)
+    specifier: 2.0.0-beta.24
+    version: 2.0.0-beta.24(@babel/core@7.23.3)(encoding@0.1.13)
   '@next/third-parties':
     specifier: ^14.0.4-canary.8
     version: 14.0.4-canary.8(next@14.0.3)(react@18.2.0)
@@ -1495,8 +1495,8 @@ packages:
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
 
-  /@jambaree/next-wordpress@2.0.0-beta.23(@babel/core@7.23.3)(encoding@0.1.13):
-    resolution: {integrity: sha512-IV0mAYDyl3Q4ULYhqUCK+UR+3e3XfAwbb/dyUq56yhup+LuRRQwajADJ4wwTH5R4vq3Sh4BVGkzsBpRH7ImCVw==}
+  /@jambaree/next-wordpress@2.0.0-beta.24(@babel/core@7.23.3)(encoding@0.1.13):
+    resolution: {integrity: sha512-Xk6GgnUiPenEw3qgn9EZUFmzQhgMyDAtH9d4kVolP09/GyCc9KaKiv6UlZrTwaujANlv8agNjZzqZr+3JYFOGw==}
     dependencies:
       '@types/node': 20.9.4
       '@types/react': 18.2.38

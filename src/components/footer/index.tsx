@@ -19,11 +19,11 @@ type FooterOptions = {
       }[];
     };
     copyrightText?: string;
-    link1?: {
+    link_1?: {
       title: string;
       url: string;
     };
-    link2?: {
+    link_2?: {
       title: string;
       url: string;
     };
@@ -31,13 +31,15 @@ type FooterOptions = {
 };
 
 export default async function Footer() {
-  const {
-    footer: { contactInformation, copyrightText, link1, link2 },
-  } = deepCamelCase(
+  const themeOptions = deepCamelCase(
     await getOptionsPage({
       slug: "theme-options",
     })
   ) as FooterOptions;
+
+  const {
+    footer: { contactInformation, copyrightText, link_1, link_2 },
+  } = themeOptions;
 
   const menuItems = await getMenuItems({
     slug: "footer",
@@ -88,20 +90,20 @@ export default async function Footer() {
           <div className=" text-white mb-[43px] flex flex-col-reverse sm:flex-row flex-wrap-reverse justify-between p-footer">
             <div>{copyrightText}</div>
             <div className="flex flex-col sm:flex-row sm:mb-0 mb-[15px]">
-              {link1 ? (
+              {link_1 ? (
                 <Link
                   className="sm:ml-[24px] hover:text-lightGreen"
-                  href={link1.url || "/"}
+                  href={link_1.url || "/"}
                 >
-                  {link1.title}
+                  {link_1.title}
                 </Link>
               ) : null}
-              {link2 ? (
+              {link_2 ? (
                 <Link
                   className="sm:ml-[24px] hover:text-lightGreen"
-                  href={link2.url || "/"}
+                  href={link_2.url || "/"}
                 >
-                  {link2.title}
+                  {link_2.title}
                 </Link>
               ) : null}
             </div>
@@ -111,61 +113,3 @@ export default async function Footer() {
     </div>
   );
 }
-
-const query = /* GraphQL */ `
-  query MenuQuery {
-    themeOptions {
-      options {
-        footer {
-          link2 {
-            title
-            url
-          }
-          link1 {
-            title
-            url
-          }
-          copyrightText
-          contactInformation {
-            email
-            phoneNumber
-            socials {
-              icon
-              url
-            }
-          }
-        }
-      }
-    }
-    menu(id: "footer", idType: NAME) {
-      id
-      slug
-      locations
-      menuItems(first: 100) {
-        nodes {
-          path
-          url
-          label
-          target
-          parentDatabaseId
-          cssClasses
-          childItems {
-            nodes {
-              id
-              label
-              url
-              childItems {
-                nodes {
-                  id
-                  label
-                  url
-                  description
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
