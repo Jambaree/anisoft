@@ -15,9 +15,10 @@ export default function Form({ form }) {
   const {
     register,
     handleSubmit,
-
+    watch,
     formState: { errors },
   } = useForm();
+  const values = watch();
 
   const [result, setResult] = useState();
 
@@ -28,7 +29,7 @@ export default function Form({ form }) {
     isError,
   } = useMutation(({ formdata }: any) => {
     const request = fetch(
-      `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.formId}/submissions`,
+      `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.id}/submissions`,
       {
         method: "POST",
         body: formdata,
@@ -51,7 +52,7 @@ export default function Form({ form }) {
     submitForm({ formdata });
   };
 
-  const fields = form?.formFields?.nodes;
+  const fields = form?.fields;
 
   return (
     <>
@@ -138,17 +139,17 @@ const FormField = forwardRef(({ field, error, ...rest }, ref) => {
   };
 
   switch (field.type) {
-    case "EMAIL":
+    case "email":
       return <Input {...inputProps} />;
-    case "TEXTAREA":
+    case "textarea":
       return <Textarea {...inputProps} rows="4" />;
-    case "TEXT":
+    case "text":
       return <Input {...inputProps} />;
-    case "PHONE":
+    case "phone":
       return <Input {...inputProps} />;
-    case "RADIO":
+    case "radio":
       return <Radio {...inputProps} />;
-    case "FILEUPLOAD":
+    case "fileupload":
       return <Upload {...inputProps} />;
     default:
       return <Input {...inputProps} />;
@@ -164,7 +165,7 @@ const formatData = (data) => {
     const fieldId = key.split("_")[1];
 
     switch (fieldType) {
-      case "FILEUPLOAD":
+      case "fileupload":
         formdata.append(`input_${fieldId}`, value[0]);
         break;
 
