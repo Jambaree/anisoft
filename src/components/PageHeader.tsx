@@ -10,7 +10,10 @@ function PageHeader({ title, content }: { title?: string; content?: string }) {
           <SideIn className="flex flex-col " right={false}>
             <BreadCrumbs />
             {title ? (
-              <h1 className="heroHeadline mb-[30px] md:mb-0">{title}</h1>
+              <h1
+                className="heroHeadline mb-[30px] md:mb-0"
+                dangerouslySetInnerHTML={{ __html: title }}
+              />
             ) : null}
           </SideIn>
           <SideIn className=" py-2 mt-auto relative">
