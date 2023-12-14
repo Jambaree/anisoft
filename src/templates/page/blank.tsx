@@ -59,9 +59,12 @@ export default async function BlankPageTemplate({ data }) {
                           key={idx}
                         >
                           {post?.title?.rendered ? (
-                            <h4 className="text-white w-auto sm:w-fit text-[1.45rem] whitespace-nowrap">
-                              {post?.title?.rendered}
-                            </h4>
+                            <h4
+                              className="text-white w-auto sm:w-fit text-[1.45rem] whitespace-nowrap"
+                              dangerouslySetInnerHTML={{
+                                __html: post?.title?.rendered,
+                              }}
+                            />
                           ) : null}
 
                           {post?.content?.rendered ? (
