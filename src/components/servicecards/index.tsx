@@ -48,19 +48,17 @@ function ServiceCards({ services }) {
                 }}
                 threshold={windowHeight < 960 ? 0.2 : 1}
               >
-                {({ ref, inView }) => (
+                {({ ref }) => (
                   <div
                     className="flex md:mr-[80px] relative md:my-[235px] "
                     key={index}
                   >
-                    <div
-                      className={classNames(
-                        // index % 2 !== 0 ? "bg-[#F4F4F4]" : "bg-white",
-                        "py-[50px] sm:py-[50px]  z-30"
-                      )}
-                    >
+                    <div className={classNames("py-[50px] sm:py-[50px]  z-30")}>
                       <div className="flex flex-col justify-center " ref={ref}>
-                        <h1 className="mb-[24px]">{service?.name}</h1>
+                        <h1
+                          className="mb-[24px]"
+                          dangerouslySetInnerHTML={{ __html: service.name }}
+                        />
                         <div
                           className="block h-[45vh] -mt-[45vh] md:h-[50vh] md:-mt-[50vh] invisible"
                           id={service.name}
@@ -76,18 +74,20 @@ function ServiceCards({ services }) {
                           </div>
                         ))}
 
-                        <div className="md:hidden block relative  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px]">
-                          <Image
-                            alt="service-image"
-                            className="object-cover"
-                            fill
-                            ref={imageRef}
-                            sizes="(max-width: 768px) 100vw,
+                        {service?.image?.url ? (
+                          <div className="md:hidden block relative  h-[300px] w-full md:min-w-[616px] md:w-[616px] md:h-[630px] mt-[10px] md:mt-[112px]">
+                            <Image
+                              alt="service-image"
+                              className="object-cover"
+                              fill
+                              ref={imageRef}
+                              sizes="(max-width: 768px) 100vw,
                             (max-width: 1200px) 50vw,
                             33vw"
-                            src={service?.image?.url}
-                          />
-                        </div>
+                              src={service?.image?.url}
+                            />
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   </div>
@@ -104,20 +104,22 @@ function ServiceCards({ services }) {
               initial={{ opacity: 0.9 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="relative h-full">
-                <Image
-                  alt="service-image"
-                  className="object-cover "
-                  fill
-                  key={activeIndex}
-                  priority
-                  ref={imageRef}
-                  sizes="(max-width: 768px) 100vw,
+              {currentImage ? (
+                <div className="relative h-full">
+                  <Image
+                    alt="service-image"
+                    className="object-cover "
+                    fill
+                    key={activeIndex}
+                    priority
+                    ref={imageRef}
+                    sizes="(max-width: 768px) 100vw,
                 (max-width: 1200px) 50vw,
                 33vw"
-                  src={currentImage}
-                />
-              </div>
+                    src={currentImage}
+                  />
+                </div>
+              ) : null}
             </motion.div>
           ) : null}
         </div>
