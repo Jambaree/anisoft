@@ -1,28 +1,24 @@
-import Edges from "../Edges";
+import clsx from "clsx";
 import Form from "./Form";
 
 type GravityFormProps = {
   formId: string;
+  variant?: "landing-page" | undefined;
+  className?: string;
 };
 
-const GravityForm: React.FC<GravityFormProps> = async ({
-  formId,
-}: GravityFormProps) => {
+async function GravityForm({ formId, variant, className }: GravityFormProps) {
   const form = await getForm(formId);
 
   return (
-    <div className="my-[65px]">
-      <Edges size="md">
-        <div className="max-w-[620px] mx-auto">
-          <Form form={form} />
-        </div>
-      </Edges>
+    <div className={clsx("max-w-[620px] mx-auto", className)}>
+      <Form form={form} variant={variant} />
     </div>
   );
-};
+}
 export default GravityForm;
 
-async function getForm(id: string) {
+export async function getForm(id: string) {
   const req = await fetch(
     `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${id}`,
     {

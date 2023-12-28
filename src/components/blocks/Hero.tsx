@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { type WpImage } from "@jambaree/next-wordpress/types";
+import clsx from "clsx";
 import Button from "../Button";
 
 export default function Hero(props: {
@@ -19,11 +20,23 @@ export default function Hero(props: {
   video?: {
     url?: string;
   };
+  /**
+   * Increase the max width of the content from 800px to 1200px
+   */
+  wide_content?: boolean;
 }) {
-  const { headline, subHeadline, button_1, button_2, image, video } = props;
+  const {
+    headline,
+    subHeadline,
+    button_1,
+    button_2,
+    image,
+    video,
+    wide_content,
+  } = props;
 
   return (
-    <div className="relative  w-full flex justify-center items-center">
+    <div className="relative bg-darkPurple w-full flex justify-center items-center">
       {video?.url ? (
         <div className="z-10 h-[calc(100vh-103px)] w-full bottom-0 top-0">
           <div className="absolute bottom-0 top-0 left-0 animate-fade-in w-full videoRadialBg" />
@@ -44,8 +57,15 @@ export default function Hero(props: {
           </div>
         </div>
       )}
+
       <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
-        <div className=" w-full md:w-1/2 py-6 md:py-0 mds:min-w-[600px] ">
+        <div
+          className={clsx(
+            "w-full py-6 md:py-0 mds:min-w-[600px]",
+
+            wide_content ? "md:w-3/4" : "md:w-1/2"
+          )}
+        >
           {headline ? (
             <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] max-w-[600px] ">
               {headline}
