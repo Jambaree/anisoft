@@ -1,25 +1,13 @@
-import Anisoft from "./Anisoft";
-import Hero from "./Hero";
-import InfoCallout from "./InfoCallout";
-import Logos from "./Logos";
-import ProductsSlider from "./ProductsSlider";
-import Stats from "./Stats";
-import TextInfo from "./TextInfo";
-import Testimonials from "./Testimonials";
-import Form from "./Form";
-import PageHeader1 from "./PageHeader1";
-import PageHeader2 from "./PageHeader2";
-
-export {
-  Anisoft,
-  Hero,
-  InfoCallout,
-  Logos,
-  ProductsSlider,
-  Stats,
-  TextInfo,
-  Testimonials,
-  Form,
-  PageHeader1,
-  PageHeader2,
-};
+export { default as Anisoft } from "./Anisoft";
+export { default as Hero } from "./Hero";
+export { default as InfoCallout } from "./InfoCallout";
+export { default as Logos } from "./Logos";
+export { default as ProductsSlider } from "./ProductsSlider";
+export { default as Stats } from "./Stats";
+export { default as TextInfo } from "./TextInfo";
+export { default as Testimonials } from "./Testimonials";
+export { default as Form } from "./Form";
+export { default as PageHeader1 } from "./PageHeader1";
+export { default as PageHeader2 } from "./PageHeader2";
+export { ScheduleAppointment } from "./ScheduleAppointment";
+export { Grid } from "./Grid";
