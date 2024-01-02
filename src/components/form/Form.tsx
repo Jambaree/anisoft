@@ -91,8 +91,9 @@ export default function Form({ form, variant }) {
 
           {variant === "landing-page" && (
             <button
-              className="relative cursor-pointer bg-[#2cc2c6] w-full py-3 text-white font-semibold text-[1.125rem] rounded-[5px] hover:bg-[#22b4b8] transition-colors duration-300 ease-in-out uppercase text-center flex items-center justify-center"
+              className="relative cursor-pointer bg-lightGreen w-full py-3 text-white font-semibold text-[1.125rem] rounded-[5px] hover:bg-lightGreen/90 transition-colors duration-300 ease-in-out uppercase text-center flex items-center justify-center"
               disabled={isLoading}
+              type="submit"
             >
               {isLoading ? (
                 <span className="flex items-center">

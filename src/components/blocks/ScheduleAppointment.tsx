@@ -35,7 +35,7 @@ export async function ScheduleAppointment({
                 ({ headline = "", subline = "", icon = "screen" }, index) => (
                   // eslint-disable-next-line react/no-array-index-key -- we don't have a unique id
                   <div className="mb-10 flex" key={index}>
-                    <div className="text-[#22b4b8]">
+                    <div className="text-lightGreen">
                       <Icon className="w-10 h-10 mr-5" icon={icon} />
                     </div>
                     <div>
@@ -48,7 +48,7 @@ export async function ScheduleAppointment({
             </div>
           </div>
 
-          <div className="relative z-20 bg-[#152f2e] py-6 px-5 text-white md:-mt-32 md:w-2/6 min-w-[300px] flex-shrink-0">
+          <div className="relative z-20 bg-[#234F63] py-6 px-5 text-white md:-mt-32 md:w-2/6 min-w-[300px] flex-shrink-0">
             <div className="text-center mb-5">
               {form.title ? <h3 className="mb-5">{form.title}</h3> : null}
               {form.description ? <p>{form.description}</p> : null}
