@@ -48,66 +48,67 @@ const Input = forwardRef(
   ) => {
     return (
       <div className={className}>
-        {label && (
+        {label ? (
           <label
-            htmlFor={id || name}
             className={clsx("p-details", labelClassName)}
+            htmlFor={id || name}
           >
             {label}
-            {required && <span className="text-red-500"> *</span>}
+            {required ? <span className="text-red-500"> *</span> : null}
           </label>
-        )}
+        ) : null}
 
         <div className="mt-1 relative ">
           <input
-            ref={ref}
-            id={id}
-            name={name}
-            type={type}
+            aria-describedby={
+              error ? `${id}-error` : description && `${id}-description`
+            }
             className={clsx(
+              "forminput",
               "rounded-0 appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black active:border-lightGreen ",
               " shadow-sm placeholder-gray-400 focus:outline-none",
               " focus:border-lightGreen ",
               disabled && "opacity-50",
               error &&
-                "block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500  rounded-md",
+                "block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 ",
               inputClassName
             )}
-            placeholder={placeholder}
             defaultValue={defaultValue}
-            aria-describedby={
-              error ? `${id}-error` : description && `${id}-description`
-            }
-            required={required}
             disabled={disabled}
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            ref={ref}
+            required={required}
+            type={type}
             {...rest}
           />
 
-          {error && (
+          {error ? (
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <ExclamationCircleIcon
-                className="h-5 w-5 text-red-500"
                 aria-hidden="true"
+                className="h-5 w-5 text-red-500"
               />
             </div>
-          )}
+          ) : null}
         </div>
 
-        {/* {error && (
+        {error?.message ? (
           <div>
             <span className="mt-2  text-red-600" id={`${id}-error`}>
-              {error.message || "This field is required"}
+              {error.message}
             </span>
           </div>
-        )} */}
+        ) : null}
 
-        {description && (
+        {description ? (
           <div>
             <span className="mt-2  text-gray-500" id={`${id}-description`}>
               {description}
             </span>
           </div>
-        )}
+        ) : null}
       </div>
     );
   }

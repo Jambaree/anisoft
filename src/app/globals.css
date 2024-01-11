@@ -184,7 +184,6 @@
 }
 .richText ol {
   margin-left: 20px !important;
- 
 }
 .richText > ul > li {
   padding-bottom: 15px !important;
@@ -221,8 +220,17 @@ textarea {
 .archiveText p,
 span {
   font-weight: 300 !important;
-    font-family: var(--font-mukta) !important;
-    font-size: 18px !important;
-    text-overflow: ellipsis !important;
+  font-family: var(--font-mukta) !important;
+  font-size: 18px !important;
+  text-overflow: ellipsis !important;
+}
 
+.gf-formfield {
+  margin-bottom: 15px;
+}
+.formblock .gf-formfield {
+  margin-bottom: 50px;
+}
+.appointmentform .forminput {
+  @apply !rounded-md;
 }
