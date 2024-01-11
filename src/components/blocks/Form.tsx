@@ -1,9 +1,12 @@
+import Edges from "../Edges";
 import GravityForm from "../form/GravityForm";
 
-function Form({ formId }) {
+function Form({ formId }: { formId?: string }) {
   return (
-    <div>
-      <GravityForm formId={formId} />
+    <div className="my-[65px]">
+      <Edges className="formblock" size="md">
+        {formId ? <GravityForm formId={formId} /> : null}
+      </Edges>
     </div>
   );
 }

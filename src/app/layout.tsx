@@ -52,7 +52,7 @@ export default async function Layout({
       <body id="top">
         <Header button={button} menuItems={menuItems} />
         <Providers>{children}</Providers>
-        <Footer button={button} />
+        <Footer />
       </body>
       <GoogleTagManager gtmId="GTM-5NP3J68" />
       <TriggerPageView />

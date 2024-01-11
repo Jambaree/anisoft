@@ -11,7 +11,7 @@ import Upload from "./fields/upload/Upload";
 import Error from "./alert/error";
 import Success from "./alert/success";
 
-export default function Form({ form }) {
+export default function Form({ form, variant }) {
   const {
     register,
     handleSubmit,
@@ -76,7 +76,6 @@ export default function Form({ form }) {
             return (
               <div
                 className={classNames(
-                  "mb-[50px]",
                   `${field.size === "MEDIUM" ? "w-full md:w-[48%]" : "w-full "}`
                 )}
                 key={index}
@@ -90,40 +89,77 @@ export default function Form({ form }) {
             );
           })}
 
-          <Button
-            className="ml-auto"
-            disabled={isLoading}
-            type="submit"
-            variant="large"
-          >
-            {isLoading ? (
-              <span className="flex items-center">
-                <svg
-                  className="animate-spin -ml-1 mr-3 h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    fill="currentColor"
-                  />
-                </svg>
-                Processing...
-              </span>
-            ) : (
-              `Submit`
-            )}
-          </Button>
+          {variant === "landing-page" && (
+            <button
+              className="relative cursor-pointer bg-lightGreen w-full py-3 text-white font-semibold text-[1.125rem] rounded-[5px] hover:bg-lightGreen/90 transition-colors duration-300 ease-in-out uppercase text-center flex items-center justify-center"
+              disabled={isLoading}
+              type="submit"
+            >
+              {isLoading ? (
+                <span className="flex items-center">
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      fill="currentColor"
+                    />
+                  </svg>{" "}
+                </span>
+              ) : (
+                <>{form?.button.text || "Submit"}</>
+              )}
+            </button>
+          )}
+
+          {variant !== "landing-page" && (
+            <Button
+              className="ml-auto"
+              disabled={isLoading}
+              type="submit"
+              variant="large"
+            >
+              {isLoading ? (
+                <span className="flex items-center">
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  Processing...
+                </span>
+              ) : (
+                <>{form?.button?.text || "Submit"}</>
+              )}
+            </Button>
+          )}
         </form>
       )}
     </>
@@ -131,12 +167,17 @@ export default function Form({ form }) {
 }
 const FormField = forwardRef(({ field, error, ...rest }, ref) => {
   const inputProps = {
+    className: "gf-formfield",
     ...field,
     required: Boolean(field.isRequired),
     error,
     ...rest,
     ref,
   };
+
+  if (field?.labelPlacement === "hidden_label") {
+    delete inputProps.label;
+  }
 
   switch (field.type) {
     case "email":
@@ -151,6 +192,8 @@ const FormField = forwardRef(({ field, error, ...rest }, ref) => {
       return <Radio {...inputProps} />;
     case "fileupload":
       return <Upload {...inputProps} />;
+    // case "select":
+    //   return <Select {...inputProps} />;
     default:
       return <Input {...inputProps} />;
   }
