@@ -31,7 +31,7 @@ export function Grid({ headline, subline, items }: GridProps) {
         {items?.map(({ headline, subline, image, link }, index) => {
           return (
             <DynamicLinkOrDiv
-              className="w-full bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
+              className="w-full bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-between"
               href={link?.url ? stripWpUrl(link.url) : undefined}
               // eslint-disable-next-line react/no-array-index-key -- we don't have a unique ID
               key={index}
@@ -39,27 +39,29 @@ export function Grid({ headline, subline, items }: GridProps) {
             >
               {headline ? (
                 <h4
-                  className="text-white w-auto sm:w-fit text-[1.45rem] whitespace-nowrap"
+                  className="text-white w-auto sm:w-fit text-[1.45rem]"
                   dangerouslySetInnerHTML={{
                     __html: headline,
                   }}
                 />
               ) : null}
 
-              {subline ? (
-                <div
-                  className="text-white archiveText overflow-hidden overflow-ellipsis"
-                  dangerouslySetInnerHTML={{
-                    __html: subline,
-                  }}
-                />
-              ) : null}
+              <div className="">
+                {subline ? (
+                  <div
+                    className="text-white archiveText overflow-hidden overflow-ellipsis mb-4"
+                    dangerouslySetInnerHTML={{
+                      __html: subline,
+                    }}
+                  />
+                ) : null}
 
-              {image?.url ? (
-                <div className="relative w-full h-[220px]">
-                  <Image alt={image.alt || ""} fill src={image.url} />
-                </div>
-              ) : null}
+                {image?.url ? (
+                  <div className="relative w-full h-[220px]">
+                    <Image alt={image.alt || ""} fill src={image.url} />
+                  </div>
+                ) : null}
+              </div>
             </DynamicLinkOrDiv>
           );
         })}
