@@ -12,13 +12,14 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
-    "@jambaree/next-wordpress": "2.0.0-beta.24",
-    "@next/third-parties": "^14.0.4-canary.8",
+    "@jambaree/next-wordpress": "2.0.0",
+    "@next/third-parties": "^14.1.0",
+    "@nextwp/core": "^0.0.2",
     "@svgr/webpack": "^6.5.1",
     "@tailwindcss/line-clamp": "^0.4.2",
-    "@types/node": "18.11.18",
-    "@types/react": "^18.2.38",
-    "@types/react-dom": "^18.2.16",
+    "@types/node": "20.11.17",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
     "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "encoding": "^0.1.13",
@@ -29,7 +30,7 @@
     "graphql-request": "^5.1.0",
     "html-react-parser": "^3.0.8",
     "mapbox-gl": "^2.15.0",
-    "next": "14.0.3",
+    "next": "14.1.0",
     "parse-path": "^7.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -39,12 +40,12 @@
     "react-parallax-tilt": "^1.7.175",
     "react-query": "^3.39.3",
     "sharp": "^0.31.3",
-    "typescript": "4.9.4"
+    "typescript": "5.3.3"
   },
   "devDependencies": {
-    "@vercel/style-guide": "^5.1.0",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
+    "@vercel/style-guide": "^5.2.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
   }
 }
