@@ -8,9 +8,9 @@ import DefaultPostTemplate from "./post/default";
 const templates = {
   page: {
     default: DefaultPageTemplate,
-    "wp-custom-template-contact": ContactPageTemplate,
-    "wp-custom-template-quote": QuotePageTemplate,
-    "wp-custom-template-service": ServicePageTemplate,
+    contact: ContactPageTemplate,
+    quote: QuotePageTemplate,
+    service: ServicePageTemplate,
     blank: BlankPageTemplate,
   },
   post: {

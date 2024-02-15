@@ -4,7 +4,7 @@ import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
 
-function InfoCallout({
+export function InfoCallout({
   headline,
   tag,
   button_1,
@@ -72,5 +72,3 @@ function InfoCallout({
     </div>
   );
 }
-
-export default InfoCallout;
