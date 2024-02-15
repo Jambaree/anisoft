@@ -1,7 +1,7 @@
 import { type WpPage, getFeaturedImage } from "@nextwp/core";
 import Link from "next/link";
-import Image from "next/image";
 import { stripWpUrl } from "@/utils/strip-wp-url";
+import { ImageWithBlur } from "../image-with-blur";
 
 export function PostsGrid({ posts }: { posts?: WpPage[] }) {
   return (
@@ -38,7 +38,7 @@ export function PostsGrid({ posts }: { posts?: WpPage[] }) {
 
                   {featuredImage?.url ? (
                     <div className="relative w-full h-[220px]">
-                      <Image
+                      <ImageWithBlur
                         alt={featuredImage.alt || ""}
                         fill
                         src={featuredImage.url}

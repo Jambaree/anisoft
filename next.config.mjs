@@ -1,7 +1,7 @@
-/** @type {import('next').NextConfig} */
-
+import withPlaiceholder from "@plaiceholder/next";
 const wpBaseUrl = process.env.NEXT_PUBLIC_WP_URL?.replace("https://", "");
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
@@ -50,4 +50,4 @@ const nextConfig = {
   // },
 };
 
-module.exports = nextConfig;
+export default withPlaiceholder(nextConfig);
