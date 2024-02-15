@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import type { WpLink, WpMenu } from "@jambaree/next-wordpress/types";
+import type { WpLink, WpMenu } from "@nextwp/core";
 import parse from "html-react-parser";
 import Edges from "../../Edges";
 import Button from "../../Button";

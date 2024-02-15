@@ -1,4 +1,4 @@
-import { getSingleItem, type WpPage } from "@jambaree/next-wordpress";
+import { getSingleItem, type WpPage } from "@nextwp/core";
 import Edges from "../Edges";
 import ProductsList from "../ProductsList";
 

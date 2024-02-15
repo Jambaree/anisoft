@@ -3,7 +3,7 @@ import {
   type WpImage,
   type WpLink,
   type WpPage,
-} from "@jambaree/next-wordpress";
+} from "@nextwp/core";
 import FooterTopperCTA from "@/components/FooterTopperCTA";
 import QuickFacts from "@/components/QuickFacts";
 import { TextInfo } from "@/components/blocks/TextInfo";

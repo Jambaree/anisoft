@@ -41,6 +41,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "tailwindui.com",
       },
+      {
+        protocol: "https",
+        hostname: "secure.gravatar.com",
+      },
     ],
   },
 

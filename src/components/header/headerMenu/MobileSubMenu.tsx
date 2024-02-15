@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import type { WpMenuItem } from "@jambaree/next-wordpress/types";
+import type { WpMenuItem } from "@nextwp/core";
 import ChevronLeft from "../../../../public/chevron-left.svg";
 import { getUrlPath } from "../../../utils/getUrlPath";
 

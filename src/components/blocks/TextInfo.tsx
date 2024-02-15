@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import Image from "next/image";
-import type { WpLink, WpImage } from "@jambaree/next-wordpress";
+import type { WpLink, WpImage } from "@nextwp/core";
 import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";

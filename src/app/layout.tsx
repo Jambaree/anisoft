@@ -1,8 +1,8 @@
 import "./globals.css";
 import { Mukta, Maven_Pro } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { getMenuItems, getOptionsPage } from "@jambaree/next-wordpress";
-import type { WpLink } from "@jambaree/next-wordpress/types";
+import { getMenuItems, getOptionsPage } from "@nextwp/core";
+import type { WpLink } from "@nextwp/core";
 import { TriggerPageView } from "@/components/trigger-gtm-pageview";
 import Header from "../components/header";
 import Footer from "../components/footer";

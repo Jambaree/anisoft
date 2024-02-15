@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { WpLink, WpMenu } from "@jambaree/next-wordpress/types";
+import type { WpLink, WpMenu } from "@nextwp/core";
 import Edges from "../Edges";
 import Logo from "../logos/logo";
 import HeaderMenuItems from "./headerMenu/HeaderMenuItems";

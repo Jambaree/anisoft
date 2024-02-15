@@ -1,4 +1,4 @@
-import { NextWordPressPreview } from "@jambaree/next-wordpress";
+import { NextWordPressPreview } from "@nextwp/core";
 
 const previewOptions = {
   toolbar: true,

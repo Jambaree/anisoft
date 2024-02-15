@@ -1,4 +1,4 @@
-import type { WpLink } from "@jambaree/next-wordpress/types";
+import type { WpLink } from "@nextwp/core";
 import Image from "next/image";
 import Button from "../Button";
 import Edges from "../Edges";
