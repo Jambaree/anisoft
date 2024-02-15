@@ -1,4 +1,4 @@
-import type { WpPage } from "@jambaree/next-wordpress/types";
+import type { WpPage } from "@nextwp/core";
 import PageHeader2 from "@/components/PageHeader2";
 import ContactQuickFacts from "@/components/ContactQuickFacts";
 import Contact from "@/components/Contact";

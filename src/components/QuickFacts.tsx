@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import type { WpImage } from "@jambaree/next-wordpress/types";
+import type { WpImage } from "@nextwp/core";
 import Edges from "./Edges";
 import FadeInUp from "./FadeInUp";
 import RichTextComponents from "./RichTextComponents";

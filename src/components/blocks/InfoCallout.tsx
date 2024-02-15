@@ -1,5 +1,5 @@
 import parse from "html-react-parser";
-import type { WpLink } from "@jambaree/next-wordpress/types";
+import type { WpLink } from "@nextwp/core";
 import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";

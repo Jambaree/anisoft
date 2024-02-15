@@ -1,5 +1,5 @@
-import { type WpPage } from "@jambaree/next-wordpress/types";
-import { FlexibleContent, getOptionsPage } from "@jambaree/next-wordpress";
+import { type WpPage } from "@nextwp/core";
+import { FlexibleContent, getOptionsPage } from "@nextwp/core";
 // import { DataDiff } from "@/components/data-diff";
 import { deepCamelCase } from "@/utils/deep-camel-case-helper";
 import FooterTopperCTA from "../../components/FooterTopperCTA";

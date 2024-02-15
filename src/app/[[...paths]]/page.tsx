@@ -1,4 +1,4 @@
-import { WordpressTemplate } from "@jambaree/next-wordpress";
+import { WordpressTemplate } from "@nextwp/core";
 import templates from "../../templates";
 
 export default function PageTemplate(props: {
@@ -8,7 +8,4 @@ export default function PageTemplate(props: {
   return <WordpressTemplate params={props.params} templates={templates} />;
 }
 
-export {
-  generateStaticParams,
-  generateMetadata,
-} from "@jambaree/next-wordpress";
+export { generateStaticParams, generateMetadata } from "@nextwp/core";

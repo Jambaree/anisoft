@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { WpLink, WpMenuItem } from "@jambaree/next-wordpress/types";
+import type { WpLink, WpMenuItem } from "@nextwp/core";
 import Button from "../../Button";
 import { getUrlPath } from "../../../utils/getUrlPath";
 import SubMenu from "./SubMenu";

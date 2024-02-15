@@ -1,4 +1,4 @@
-import type { WpPage } from "@jambaree/next-wordpress/types";
+import type { WpPage } from "@nextwp/core";
 import GravityForm from "../../components/form/GravityForm";
 import PageHeader2 from "../../components/PageHeader2";
 
