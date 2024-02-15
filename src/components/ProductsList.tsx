@@ -17,7 +17,7 @@ function ProductsList({ products }) {
   return (
     <div className="flex flex-col justify-between items-center md:flex-row  w-full h-auto pt-[60px]">
       <SideIn className="flex flex-col w-fit justify-evenly  " right={false}>
-        {products.map(({ postItem: product }: any, index: number) => {
+        {products?.map(({ postItem: product }: any, index: number) => {
           return (
             <button
               className={classNames(
@@ -44,12 +44,12 @@ function ProductsList({ products }) {
       </SideIn>
 
       <SideIn className="bg-darkPurple flex flex-col justify-center md:h-[550px] overflow-hidden w-full max-w-[806px] ml-[15px]">
-        {products.map(
+        {products?.map(
           (
             { postItem: { title, link, _embedded }, buttonText, text }: any,
             index: number
           ) => {
-            const image = _embedded["wp:featuredmedia"]?.[0];
+            const image = _embedded?.["wp:featuredmedia"]?.[0];
 
             return (
               <FadeInUp

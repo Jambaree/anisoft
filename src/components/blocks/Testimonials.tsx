@@ -7,7 +7,7 @@ import ChevronRight from "../../../public/chevron-right.svg";
 import ChevronLeft from "../../../public/chevron-left.svg";
 import Edges from "../Edges";
 
-export default function Testimonials({ testimonials }) {
+export function Testimonials({ testimonials }) {
   const [animateDirection, setAnimateDirection] = useState("right");
   const handleSlideChange = (activeSlide, direction) => {
     setAnimateDirection(direction);

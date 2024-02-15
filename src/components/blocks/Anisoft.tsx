@@ -4,7 +4,7 @@ import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
 
-function Anisoft({
+export function Anisoft({
   headline,
   tag,
   button,
@@ -56,5 +56,3 @@ function Anisoft({
     </div>
   );
 }
-
-export default Anisoft;

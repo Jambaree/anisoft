@@ -1,13 +1,13 @@
 import React from "react";
 import classNames from "classnames";
 import Image from "next/image";
-import type { WpLink, WpImage } from "@jambaree/next-wordpress/types";
+import type { WpLink, WpImage } from "@jambaree/next-wordpress";
 import Button from "../Button";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
 import RichTextComponents from "../RichTextComponents";
 
-function TextInfo({
+export function TextInfo({
   headline,
   tag,
   button1,
@@ -107,5 +107,3 @@ function TextInfo({
     </div>
   );
 }
-
-export default TextInfo;

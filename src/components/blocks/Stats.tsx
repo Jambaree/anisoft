@@ -5,7 +5,7 @@ import Image from "next/image";
 import type { WpImage } from "@jambaree/next-wordpress/types";
 import Edges from "../Edges";
 
-export default function StatsModule({
+export function Stats({
   headline,
   description,
   stats,

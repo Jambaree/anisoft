@@ -1,4 +1,4 @@
-import { getItems } from "@jambaree/next-wordpress/src/api/get-items";
+import { getItems } from "@nextwp/core/src/api/get-items";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";

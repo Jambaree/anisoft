@@ -5,7 +5,7 @@ import { type WpImage } from "@jambaree/next-wordpress/types";
 import clsx from "clsx";
 import Button from "../Button";
 
-export default function Hero(props: {
+export function Hero(props: {
   headline?: string;
   subHeadline?: string;
   button_1?: {
