@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
+  darkMode: "class",
   important: true,
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -35,31 +36,32 @@ const config = {
       bold: "700",
       extrabold: "800",
     },
-    colors: {
-      "red-500": "rgb(239 68 68)",
-      "red-600": "rgb(220 38 38)",
-      "red-700": "rgb(185 28 28)",
-      "red-800": "rgb(153 27 27)",
-      grey: " #7D7D7D",
-      white: "#FFFFFF",
-      lightBlue: "#18354B",
-      darkPurple: "#0E0A30",
-      lightGreen: "#00AC4D",
-      greenBg:
-        "linear-gradient(180deg, #119D5E 0%, rgba(37, 229, 142, 0) 100%);",
-      lightGreyBg: "#F4F4F4",
-      lightGreyBg2: "#F5F5F5",
-      black: "#000000",
-      blueBg:
-        "linear-gradient(90deg, #3CFFFE 9.76%, #3CE6FE 23.42%, #3CCBFE 42.3%, #3CB7FE 61.35%, #3CABFE 80.53%, #3CA7FE 100%);",
-      purpleBg:
-        "linear-gradient(90deg, #B04BFF 0%, #BD4BF3 33.47%, #DF4BD2 95.21%, #E24BCF 100%);",
-      purpleFadeBg:
-        "linear-gradient(180deg, #B04BFF 0%, rgba(189, 75, 243, 0.4) 58.33%, rgba(223, 75, 210, 0) 95.21%, rgba(226, 75, 207, 0) 100%);",
-      radial:
-        "radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%), #0E0A30;",
-    },
+
     extend: {
+      colors: {
+        "red-500": "rgb(239 68 68)",
+        "red-600": "rgb(220 38 38)",
+        "red-700": "rgb(185 28 28)",
+        "red-800": "rgb(153 27 27)",
+        grey: " #7D7D7D",
+        white: "#FFFFFF",
+        lightBlue: "#18354B",
+        darkPurple: "#0E0A30",
+        lightGreen: "#00AC4D",
+        greenBg:
+          "linear-gradient(180deg, #119D5E 0%, rgba(37, 229, 142, 0) 100%);",
+        lightGreyBg: "#F4F4F4",
+        lightGreyBg2: "#F5F5F5",
+        black: "#000000",
+        blueBg:
+          "linear-gradient(90deg, #3CFFFE 9.76%, #3CE6FE 23.42%, #3CCBFE 42.3%, #3CB7FE 61.35%, #3CABFE 80.53%, #3CA7FE 100%);",
+        purpleBg:
+          "linear-gradient(90deg, #B04BFF 0%, #BD4BF3 33.47%, #DF4BD2 95.21%, #E24BCF 100%);",
+        purpleFadeBg:
+          "linear-gradient(180deg, #B04BFF 0%, rgba(189, 75, 243, 0.4) 58.33%, rgba(223, 75, 210, 0) 95.21%, rgba(226, 75, 207, 0) 100%);",
+        radial:
+          "radial-gradient(46.73% 158.33% at 33% 43.77%, #1F185B 0%, rgba(14, 10, 48, 0) 100%), #0E0A30;",
+      },
       keyframes: {
         "fade-in": {
           "0%": {

@@ -6,48 +6,50 @@ import { stripWpUrl } from "@/utils/strip-wp-url";
 export function PostsGrid({ posts }: { posts?: WpPage[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-16">
-      {posts?.map((post) => {
-        const featuredImage = getFeaturedImage(post);
-        const relativeUrl = stripWpUrl(post.link!);
+      {posts?.length
+        ? posts.map((post) => {
+            const featuredImage = getFeaturedImage(post);
+            const relativeUrl = stripWpUrl(post.link!);
 
-        return (
-          <Link
-            className="w-full bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-between"
-            href={relativeUrl}
-            key={post.id}
-          >
-            {post.title?.rendered ? (
-              <h4
-                className="text-white w-auto sm:w-fit text-[1.45rem]"
-                dangerouslySetInnerHTML={{
-                  __html: post.title.rendered,
-                }}
-              />
-            ) : null}
-
-            <div className="w-full">
-              {post.excerpt?.rendered ? (
-                <div
-                  className="text-white archiveText overflow-hidden overflow-ellipsis mb-4"
-                  dangerouslySetInnerHTML={{
-                    __html: post.excerpt.rendered,
-                  }}
-                />
-              ) : null}
-
-              {featuredImage?.url ? (
-                <div className="relative w-full h-[220px]">
-                  <Image
-                    alt={featuredImage.alt || ""}
-                    fill
-                    src={featuredImage.url}
+            return (
+              <Link
+                className="w-full bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-between"
+                href={relativeUrl}
+                key={post.id}
+              >
+                {post.title?.rendered ? (
+                  <h4
+                    className="text-white w-auto sm:w-fit text-[1.45rem]"
+                    dangerouslySetInnerHTML={{
+                      __html: post.title.rendered,
+                    }}
                   />
+                ) : null}
+
+                <div className="w-full">
+                  {post.excerpt?.rendered ? (
+                    <div
+                      className="text-white archiveText overflow-hidden overflow-ellipsis mb-4"
+                      dangerouslySetInnerHTML={{
+                        __html: post.excerpt.rendered,
+                      }}
+                    />
+                  ) : null}
+
+                  {featuredImage?.url ? (
+                    <div className="relative w-full h-[220px]">
+                      <Image
+                        alt={featuredImage.alt || ""}
+                        fill
+                        src={featuredImage.url}
+                      />
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
-            </div>
-          </Link>
-        );
-      })}
+              </Link>
+            );
+          })
+        : null}
     </div>
   );
 }
