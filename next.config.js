@@ -15,18 +15,6 @@ const nextConfig = {
     NEXT_MAPBOX: process.env.NEXT_MAPBOX,
   },
 
-  typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -46,6 +34,13 @@ const nextConfig = {
         hostname: "secure.gravatar.com",
       },
     ],
+  },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 
   // logging: {

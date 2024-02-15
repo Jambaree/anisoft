@@ -28,7 +28,11 @@ interface PostData extends WpPage {
   };
 }
 
-export async function DefaultPostTemplate({ data }: { data: PostData }) {
+export async function SolutionsAndProductsTemplate({
+  data,
+}: {
+  data: PostData;
+}) {
   const themeOptions = (await getOptionsPage({
     slug: "theme-options",
   })) as {
