@@ -1,1 +1,1 @@
-export { generateSiteMap as default } from "@nextwp/core";
+export { generateSitemap as default } from "@nextwp/core";
