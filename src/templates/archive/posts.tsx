@@ -1,5 +1,4 @@
 import { type WpPage } from "@nextwp/core";
-// import { Button } from "@/components/Button";
 import Edges from "@/components/Edges";
 import PageHeader2 from "@/components/PageHeader2";
 import { PostsGrid } from "@/components/blog/posts-grid";
@@ -33,15 +32,17 @@ export function PostArchive(props: {
       <PageHeader2 title={page?.title?.rendered} />
       <Edges className="my-24">
         <PostsGrid posts={items} />
-        <BlogPagination
-          basePath="/blog"
-          className="mt-12"
-          currentPage={currentPage}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          totalItems={totalItems}
-          totalPages={totalPages}
-        />
+
+        {currentPage && totalPages && totalItems ? (
+          <BlogPagination
+            className="mt-12"
+            currentPage={currentPage}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            totalItems={totalItems}
+            totalPages={totalPages}
+          />
+        ) : null}
       </Edges>
     </>
   );
