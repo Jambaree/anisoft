@@ -4,7 +4,7 @@ import QuotePageTemplate from "./page/quote";
 import BlankPageTemplate from "./page/blank";
 import ServicePageTemplate from "./page/service";
 import { DefaultPostTemplate } from "./post/default";
-import { PostArchive } from "./archive/blog";
+import { PostArchive } from "./archive/posts";
 import { SolutionsAndProductsTemplate } from "./solutions-products/default";
 
 const templates = {
@@ -15,11 +15,11 @@ const templates = {
     service: ServicePageTemplate,
     blank: BlankPageTemplate,
   },
-  post: {
-    default: DefaultPostTemplate,
-  },
   "solutions-products": {
     default: SolutionsAndProductsTemplate,
+  },
+  post: {
+    default: DefaultPostTemplate,
   },
   archive: {
     posts: PostArchive,
