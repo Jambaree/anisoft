@@ -1,3 +1,5 @@
+"use client";
+import { usePathname } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
@@ -14,17 +16,25 @@ export function BlogPagination({
   nextPage,
   prevPage,
   totalPages,
-  basePath = "/blog",
+  overrideBasePath,
 }: {
   className?: string;
-  basePath?: string;
+  /**
+   * Overrides the base path for the pagination links, defaults to the current page pathname without the page number (ex: "/blog")
+   */
+  overrideBasePath?: string;
   prevPage?: string;
   nextPage?: string;
-  totalItems?: number;
-  totalPages?: number;
-  currentPage?: number;
+  totalItems: number;
+  totalPages: number;
+  currentPage: number;
 }) {
-  const range = (start, end) => {
+  const pathname = usePathname();
+  const regex = /^\/[^/]+(?=\/\d+|$)/; // Regular expression to match the base path and optionally a trailing page number
+  const match = regex.exec(pathname);
+  const basePath = overrideBasePath || (match ? match[0] : "/");
+
+  const range = (start: number, end: number) => {
     const length = end - start + 1;
     return Array.from({ length }, (_, idx) => idx + start);
   };
@@ -85,12 +95,14 @@ export function BlogPagination({
         {paginationRange.map((page, index) => {
           if (page === "...") {
             return (
+              // eslint-disable-next-line react/no-array-index-key -- We don't have a unique key for the ellipsis
               <PaginationItem key={index}>
                 <PaginationEllipsis />
               </PaginationItem>
             );
           } else if (page === 1) {
             return (
+              // eslint-disable-next-line react/no-array-index-key -- We don't have a unique key for the first page
               <PaginationItem key={index}>
                 <PaginationLink href={basePath} isActive={currentPage === page}>
                   {page}
@@ -99,6 +111,7 @@ export function BlogPagination({
             );
           }
           return (
+            // eslint-disable-next-line react/no-array-index-key -- We don't have a unique key for the page
             <PaginationItem key={index}>
               <PaginationLink
                 href={`${basePath}/${page}`}
