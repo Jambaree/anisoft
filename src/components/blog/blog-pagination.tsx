@@ -17,11 +17,12 @@ export function BlogPagination({
   basePath = "/blog",
 }: {
   className?: string;
-  currentPage: number;
-  nextPage: string;
-  prevPage: string;
-  totalPages: number;
   basePath?: string;
+  prevPage?: string;
+  nextPage?: string;
+  totalItems?: number;
+  totalPages?: number;
+  currentPage?: number;
 }) {
   const range = (start, end) => {
     const length = end - start + 1;
