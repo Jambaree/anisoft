@@ -30,14 +30,11 @@ export function PostArchive(props: {
 
   return (
     <>
-      <PageHeader2
-        text="The latest news, tips, and insights from our team."
-        title={page?.title?.rendered}
-      />
+      <PageHeader2 title={page?.title?.rendered} />
       <Edges className="my-24">
         <PostsGrid posts={items} />
-
         <BlogPagination
+          basePath="/blog"
           className="mt-12"
           currentPage={currentPage}
           nextPage={nextPage}
