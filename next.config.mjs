@@ -43,6 +43,21 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/solutions-products",
+        destination: "/solutions-and-products",
+        permanent: true,
+      },
+      {
+        source: "/solutions-and-products/:slug",
+        destination: "/solutions-products/:slug",
+        permanent: true,
+      },
+    ];
+  },
+
   // logging: {
   //   fetches: {
   //     fullUrl: true,
