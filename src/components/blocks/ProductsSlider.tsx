@@ -14,7 +14,7 @@ export async function ProductsSlider(props: {
     products.map(async (item) => {
       const postItem = await getSingleItem({
         id: item.product.ID,
-        rest_base: "posts",
+        rest_base: "solutions-products",
       });
 
       if (postItem?.data) {
