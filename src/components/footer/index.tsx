@@ -1,7 +1,7 @@
 import React from "react";
-import { getMenuItems, getOptionsPage } from "@jambaree/next-wordpress";
+import { getMenuItems, getOptionsPage } from "@nextwp/core";
 import Link from "next/link";
-import type { WpLink } from "@jambaree/next-wordpress/types";
+import type { WpLink } from "@nextwp/core";
 import { deepCamelCase } from "@/utils/deep-camel-case-helper";
 import Edges from "../Edges";
 import InvertedLogo from "../logos/invertedlogo";

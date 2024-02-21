@@ -1,9 +1,9 @@
-import { NextWordPressPreview } from "@jambaree/next-wordpress";
+import { preview } from "@nextwp/core";
 
 const previewOptions = {
   toolbar: true,
 };
 
-const previewHandler = NextWordPressPreview(previewOptions);
+const previewHandler = preview(previewOptions);
 
 export { previewHandler as GET };

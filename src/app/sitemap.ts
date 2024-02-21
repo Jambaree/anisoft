@@ -1,1 +1,7 @@
-export { generateSiteMap as default } from "@jambaree/next-wordpress";
+import { generateSitemap } from "@nextwp/core";
+
+export default function sitemap() {
+  return generateSitemap({
+    postTypes: ["pages", "posts", "solutions-products"],
+  });
+}

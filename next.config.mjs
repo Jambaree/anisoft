@@ -1,7 +1,7 @@
-/** @type {import('next').NextConfig} */
-
+import withPlaiceholder from "@plaiceholder/next";
 const wpBaseUrl = process.env.NEXT_PUBLIC_WP_URL?.replace("https://", "");
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
@@ -15,18 +15,6 @@ const nextConfig = {
     NEXT_MAPBOX: process.env.NEXT_MAPBOX,
   },
 
-  typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -41,7 +29,33 @@ const nextConfig = {
         protocol: "https",
         hostname: "tailwindui.com",
       },
+      {
+        protocol: "https",
+        hostname: "secure.gravatar.com",
+      },
     ],
+  },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/solutions-products",
+        destination: "/solutions-and-products",
+        permanent: true,
+      },
+      {
+        source: "/solutions-and-products/:slug",
+        destination: "/solutions-products/:slug",
+        permanent: true,
+      },
+    ];
   },
 
   // logging: {
@@ -51,4 +65,4 @@ const nextConfig = {
   // },
 };
 
-module.exports = nextConfig;
+export default withPlaiceholder(nextConfig);

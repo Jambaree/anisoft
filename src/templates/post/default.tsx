@@ -1,12 +1,17 @@
-import { getOptionsPage } from "@jambaree/next-wordpress";
-import type { WpImage, WpLink, WpPage } from "@jambaree/next-wordpress/types";
+import {
+  getOptionsPage,
+  type WpImage,
+  type WpLink,
+  type WpPage,
+} from "@nextwp/core";
 import FooterTopperCTA from "@/components/FooterTopperCTA";
 import QuickFacts from "@/components/QuickFacts";
-import TextInfo from "@/components/blocks/TextInfo";
+import { TextInfo } from "@/components/blocks/TextInfo";
 import PageHeader from "@/components/PageHeader";
+import Edges from "@/components/Edges";
 
 interface PostData extends WpPage {
-  acf: {
+  acf?: {
     facts?: {
       title?: string;
       description?: string;
@@ -24,44 +29,22 @@ interface PostData extends WpPage {
   };
 }
 
-export default async function DefaultPostTemplate({
-  data,
-}: {
-  data: PostData;
-}) {
-  const themeOptions = (await getOptionsPage({
-    slug: "theme-options",
-  })) as {
-    footer_topper_cta: {
-      text: string;
-      button_text: string;
-      button_link: string;
-    };
-  };
-
+export function DefaultPostTemplate({ data }: { data: PostData }) {
   return (
     <div>
-      <PageHeader content={data.content.rendered} title={data.title.rendered} />
-
-      {data.acf.facts ? (
-        <QuickFacts
-          facts={data.acf.facts}
-          text1={data.acf.text1}
-          text2={data.acf.text2}
-        />
-      ) : null}
-
-      <TextInfo
-        backgroundGradient={data.acf.background_gradient}
-        button1={data.acf.button1}
-        button2={data.acf.button2}
-        headline={data.acf.headline}
-        image={data.acf.image}
-        tag={data.acf.tag}
-        text={data.acf.text}
+      <PageHeader
+        breadcrumbs={{
+          basePath: "insights",
+        }}
+        title={data.title?.rendered}
       />
 
-      <FooterTopperCTA data={themeOptions.footer_topper_cta} />
+      <Edges className="mb-24" size="lg">
+        <div
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: data.content?.rendered || "" }}
+        />
+      </Edges>
     </div>
   );
 }

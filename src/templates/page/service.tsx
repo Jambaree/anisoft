@@ -1,4 +1,4 @@
-import type { WpPage } from "@jambaree/next-wordpress/types";
+import type { WpPage } from "@nextwp/core";
 import React from "react";
 import PageHeader from "../../components/PageHeader";
 import ServiceCards from "../../components/servicecards";

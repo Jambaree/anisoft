@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { type WpImage } from "@jambaree/next-wordpress/types";
+import { type WpImage } from "@nextwp/core";
 import clsx from "clsx";
 import Button from "../Button";
 
-export default function Hero(props: {
+export function Hero(props: {
   headline?: string;
   subHeadline?: string;
   button_1?: {

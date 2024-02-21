@@ -1,62 +1,65 @@
-import { getItems } from "@jambaree/next-wordpress/src/api/get-items";
+import { getItems } from "@nextwp/core/src/api/get-items";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+import { getFeaturedImage } from "@nextwp/core";
 import Edges from "../../components/Edges";
 import PageHeader2 from "../../components/PageHeader2";
 
 export default async function BlankPageTemplate({ data }) {
   const req = await fetch(
-    `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/categories`
+    `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/service-type`
   );
-  const categoriesList = await req.json();
+  const serviceTypes = await req.json();
 
   const posts = await getItems({
-    restBase: "posts",
+    restBase: "solutions-products",
   });
 
-  const categories = categoriesList
-    .map((cat) => {
+  const sections = serviceTypes
+    .map((serviceType) => {
       return {
-        ...cat,
+        ...serviceType,
         posts: posts.filter((post) => {
-          return post.categories.includes(cat.id);
+          return post["service-type"]?.includes(serviceType.id);
         }),
       };
     })
-    ?.filter((cat) => cat.posts.length > 0);
+    ?.filter((section) => section.posts.length > 0);
 
   return (
     <div>
       <PageHeader2 text={data.content.rendered} title={data.title.rendered} />
 
-      {categories?.length > 0 &&
-        categories.map((cat, idx) => {
+      {sections?.length > 0 &&
+        sections.map((section, index) => {
           return (
             <div
               className={classNames(
-                idx % 2 === 0 ? "bg-white" : "bg-lightGreyBg",
+                index % 2 === 0 ? "bg-white" : "bg-lightGreyBg",
                 "py-[80px] w-full h-full flex flex-col justify-center items-start"
               )}
-              key={idx}
+              key={index}
             >
               <Edges size="lg">
-                {cat?.name ? <h1 className="pb-[30px]">{cat?.name}s</h1> : null}
+                {section?.name ? (
+                  <h1 className="pb-[30px]">{section?.name}</h1>
+                ) : null}
 
-                {cat?.description ? (
-                  <p className="pb-[60px]">{cat?.description}</p>
+                {section?.description ? (
+                  <p className="pb-[60px]">{section?.description}</p>
                 ) : null}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-16">
-                  {cat?.posts?.length > 0 &&
-                    cat.posts.reverse().map((post, idx) => {
-                      const image = post?._embedded["wp:featuredmedia"]?.[0];
+                  {section?.posts?.length > 0 &&
+                    section.posts.reverse().map((post, index) => {
+                      const featuredImage = getFeaturedImage(post);
 
                       return (
                         <Link
                           className="w-full  bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
                           href={post?.path || "/"}
-                          key={idx}
+                          key={index}
                         >
                           {post?.title?.rendered ? (
                             <h4
@@ -76,12 +79,12 @@ export default async function BlankPageTemplate({ data }) {
                             />
                           ) : null}
 
-                          {image.source_url ? (
+                          {featuredImage?.url ? (
                             <div className="relative w-full h-[220px]">
                               <Image
-                                alt={image.alt}
+                                alt={featuredImage.alt || ""}
                                 fill
-                                src={image.source_url}
+                                src={featuredImage.url}
                               />
                             </div>
                           ) : null}

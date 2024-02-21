@@ -2,10 +2,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import { animate } from "framer-motion";
 import Image from "next/image";
-import type { WpImage } from "@jambaree/next-wordpress/types";
+import type { WpImage } from "@nextwp/core";
 import Edges from "../Edges";
 
-export default function StatsModule({
+export function Stats({
   headline,
   description,
   stats,
