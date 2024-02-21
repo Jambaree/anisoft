@@ -1,9 +1,8 @@
-import { getSingleItem } from "@jambaree/next-wordpress";
-import type { WpPage } from "@jambaree/next-wordpress/types";
+import { getSingleItem, type WpPage } from "@nextwp/core";
 import Edges from "../Edges";
 import ProductsList from "../ProductsList";
 
-async function ProductsSlider(props: {
+export async function ProductsSlider(props: {
   headline?: string;
   tag?: string;
   products: any[];
@@ -13,12 +12,14 @@ async function ProductsSlider(props: {
   const productsData: WpPage[] = [];
   await Promise.all(
     products.map(async (item) => {
-      const postItem = (await getSingleItem({
+      const postItem = await getSingleItem({
         id: item.product.ID,
-        postTypeRestBase: "posts",
-      })) as WpPage;
+        rest_base: "solutions-products",
+      });
 
-      productsData.push({ ...item, postItem });
+      if (postItem?.data) {
+        productsData.push({ ...item, postItem: postItem.data });
+      }
     })
   );
 
@@ -42,5 +43,3 @@ async function ProductsSlider(props: {
     </div>
   );
 }
-
-export default ProductsSlider;

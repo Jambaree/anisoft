@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import parse from "html-react-parser";
-import type { WpMenuItem } from "@jambaree/next-wordpress/types";
+import type { WpMenuItem } from "@nextwp/core";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
 function SubMenu({ childItems }: { childItems: WpMenuItem[] }) {

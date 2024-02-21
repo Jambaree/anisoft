@@ -1,1 +1,1 @@
-export { revalidate as PUT } from "@jambaree/next-wordpress";
+export { revalidate as PUT } from "@nextwp/core";

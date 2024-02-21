@@ -6,7 +6,6 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import { stripWpUrl } from "@/utils/strip-wp-url";
 import ChevronRight from "../../public/chevron-right.svg";
-import { getUrlPath } from "../utils/getUrlPath";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -17,7 +16,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-function Button({
+export function Button({
   reverse,
   children,
   variant,

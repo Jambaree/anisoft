@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { getOptionsPage } from "@jambaree/next-wordpress";
+import { getOptionsPage } from "@nextwp/core";
 import Button from "@/components/Button";
 
 export default async function NotFound() {

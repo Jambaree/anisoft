@@ -1,9 +1,8 @@
 import BreadCrumbs from "../BreadCrumbs";
 import Edges from "../Edges";
 import FadeInUp from "../FadeInUp";
-// import RichTextComponents from "../RichTextComponents";
 
-function PageHeader2({ title, text }) {
+export function PageHeader2({ title, text }) {
   return (
     <div className="thirdRadialBg  py-[80px]">
       <Edges size="lg">
@@ -28,5 +27,3 @@ function PageHeader2({ title, text }) {
     </div>
   );
 }
-
-export default PageHeader2;

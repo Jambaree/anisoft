@@ -5,7 +5,7 @@ import Link from "next/link";
 import FadeInUp from "../FadeInUp";
 import Edges from "../Edges";
 
-function LogoModule({ header, logos }) {
+export function Logos({ header, logos }) {
   const half = Math.ceil(logos.length / 2);
 
   return (
@@ -45,5 +45,3 @@ function LogoModule({ header, logos }) {
     </div>
   );
 }
-
-export default LogoModule;

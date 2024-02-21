@@ -3,7 +3,13 @@ import BreadCrumbs from "../BreadCrumbs";
 import Edges from "../Edges";
 import SideIn from "../SideIn";
 
-function PageHeader1({ title, content }: { title?: string; content?: string }) {
+export function PageHeader1({
+  title,
+  content,
+}: {
+  title?: string;
+  content?: string;
+}) {
   return (
     <div className=" py-[65px] overflow-x-hidden">
       <Edges size="lg">
@@ -23,5 +29,3 @@ function PageHeader1({ title, content }: { title?: string; content?: string }) {
     </div>
   );
 }
-
-export default PageHeader1;
