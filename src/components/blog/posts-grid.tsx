@@ -17,6 +17,17 @@ export function PostsGrid({ posts }: { posts?: WpPage[] }) {
                 href={relativeUrl}
                 key={post.id}
               >
+                {featuredImage?.url ? (
+                  <div className="w-full">
+                    <div className="relative w-full h-[220px]">
+                      <ImageWithBlur
+                        alt={featuredImage.alt || ""}
+                        fill
+                        src={featuredImage.url}
+                      />
+                    </div>
+                  </div>
+                ) : null}
                 {post.title?.rendered ? (
                   <h4
                     className="text-white w-auto sm:w-fit text-[1.45rem]"
@@ -25,27 +36,6 @@ export function PostsGrid({ posts }: { posts?: WpPage[] }) {
                     }}
                   />
                 ) : null}
-
-                <div className="w-full">
-                  {post.excerpt?.rendered ? (
-                    <div
-                      className="text-white archiveText overflow-hidden overflow-ellipsis mb-4"
-                      dangerouslySetInnerHTML={{
-                        __html: post.excerpt.rendered,
-                      }}
-                    />
-                  ) : null}
-
-                  {featuredImage?.url ? (
-                    <div className="relative w-full h-[220px]">
-                      <ImageWithBlur
-                        alt={featuredImage.alt || ""}
-                        fill
-                        src={featuredImage.url}
-                      />
-                    </div>
-                  ) : null}
-                </div>
               </Link>
             );
           })
