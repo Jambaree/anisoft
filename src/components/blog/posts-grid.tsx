@@ -13,7 +13,7 @@ export function PostsGrid({ posts }: { posts?: WpPage[] }) {
 
             return (
               <Link
-                className="w-full bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-between"
+                className="w-full bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
                 href={relativeUrl}
                 key={post.id}
               >
