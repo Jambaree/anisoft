@@ -48,10 +48,7 @@ export const Select = forwardRef(
       <div className={className} style={style}>
         {label ? (
           <label
-            className={clsx(
-              "block text-lg font-semibold tracking-wide text-[#141414]",
-              labelClassName
-            )}
+            className={clsx("p-details", labelClassName)}
             htmlFor={id || name}
           >
             {label}
@@ -62,9 +59,10 @@ export const Select = forwardRef(
         <div className="relative mt-1">
           <select
             className={cn(
-              "block w-full appearance-none py-2 text-black",
-              "border-b placeholder-gray-400 focus:outline-none",
-              "focus:ring-light focus:border-light focus:border-black sm:text-sm",
+              "forminput",
+              "rounded-0 appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black active:border-lightGreen ",
+              " shadow-sm placeholder-gray-400 focus:outline-none",
+              " focus:border-lightGreen ",
               disabled && "opacity-50",
               error &&
                 "block w-full border-b-2 border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
