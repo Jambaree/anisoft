@@ -14,6 +14,7 @@ interface ButtonProps {
   href: string;
   className?: string;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export function Button({
@@ -23,6 +24,7 @@ export function Button({
   href,
   disabled,
   className,
+  type,
 }: ButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -105,7 +107,7 @@ export function Button({
       onMouseLeave={() => {
         setIsHovered(false);
       }}
-      type="button"
+      type={type}
     >
       {!variant?.includes("basic") && (
         <motion.div
