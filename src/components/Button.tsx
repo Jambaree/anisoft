@@ -11,7 +11,7 @@ interface ButtonProps {
   children: React.ReactNode;
   reverse?: boolean;
   variant?: "large" | "xlarge" | "medium" | "basic" | "basicWhite" | "full";
-  href: string;
+  href?: string;
   className?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
