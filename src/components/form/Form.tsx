@@ -10,6 +10,7 @@ import Radio from "./fields/radio/Radio";
 import Upload from "./fields/upload/Upload";
 import Error from "./alert/error";
 import Success from "./alert/success";
+import { Select } from "./fields/select";
 
 export default function Form({ form, variant }) {
   const {
@@ -19,6 +20,7 @@ export default function Form({ form, variant }) {
     formState: { errors },
   } = useForm();
   const values = watch();
+  console.log("values", values);
 
   const [result, setResult] = useState();
 
@@ -76,13 +78,15 @@ export default function Form({ form, variant }) {
             return (
               <div
                 className={classNames(
-                  `${field.size === "MEDIUM" ? "w-full md:w-[48%]" : "w-full "}`
+                  field.size === "MEDIUM" ? "w-full md:w-[48%]" : "w-full "
                 )}
                 key={index}
               >
                 <FormField
                   field={field}
-                  {...register(inputId, { required: field.required })}
+                  inputId={inputId}
+                  register={register}
+                  // {...register(inputId, { required: field.required })}
                   error={error}
                 />
               </div>
@@ -165,39 +169,85 @@ export default function Form({ form, variant }) {
     </>
   );
 }
-const FormField = forwardRef(({ field, error, ...rest }, ref) => {
-  const inputProps = {
-    className: "gf-formfield",
-    ...field,
-    required: Boolean(field.isRequired),
-    error,
-    ...rest,
-    ref,
-  };
+const FormField = forwardRef(
+  ({ field, error, inputId, register, ...rest }, ref) => {
+    const inputProps = {
+      className: "gf-formfield",
+      ...field,
+      required: Boolean(field.isRequired),
+      error,
+      ...rest,
+      ref,
+    };
 
-  if (field?.labelPlacement === "hidden_label") {
-    delete inputProps.label;
-  }
+    if (field?.labelPlacement === "hidden_label") {
+      delete inputProps.label;
+    }
 
-  switch (field.type) {
-    case "email":
-      return <Input {...inputProps} />;
-    case "textarea":
-      return <Textarea {...inputProps} rows="4" />;
-    case "text":
-      return <Input {...inputProps} />;
-    case "phone":
-      return <Input {...inputProps} />;
-    case "radio":
-      return <Radio {...inputProps} />;
-    case "fileupload":
-      return <Upload {...inputProps} />;
-    // case "select":
-    //   return <Select {...inputProps} />;
-    default:
-      return <Input {...inputProps} />;
+    switch (field.type) {
+      case "select":
+        return (
+          <Select
+            {...inputProps}
+            inputId={inputId}
+            options={field.choices.map((choice) => choice.value)}
+            register={register}
+          />
+        );
+      case "email":
+        return (
+          <Input
+            {...inputProps}
+            {...register(inputId, { required: field.isRequired })}
+          />
+        );
+      case "textarea":
+        return (
+          <Textarea
+            {...inputProps}
+            rows="4"
+            {...register(inputId, { required: field.isRequired })}
+          />
+        );
+      case "text":
+        return (
+          <Input
+            {...inputProps}
+            {...register(inputId, { required: field.isRequired })}
+          />
+        );
+      case "phone":
+        return (
+          <Input
+            {...inputProps}
+            {...register(inputId, { required: field.isRequired })}
+          />
+        );
+      case "radio":
+        return (
+          <Radio
+            {...inputProps}
+            {...register(inputId, { required: field.isRequired })}
+          />
+        );
+      case "fileupload":
+        return (
+          <Upload
+            {...inputProps}
+            {...register(inputId, { required: field.isRequired })}
+          />
+        );
+
+      default:
+        return (
+          <Input
+            {...inputProps}
+            {...register(inputId, { required: field.isRequired })}
+          />
+        );
+    }
   }
-});
+);
 FormField.displayName = "FormField";
 
 const formatData = (data) => {
