@@ -12,24 +12,18 @@ import Error from "./alert/error";
 import Success from "./alert/success";
 import { Select } from "./fields/select";
 
-export default function Form({ form, variant }) {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const values = watch();
-  console.log("values", values);
+export default function Form({
+  form,
+  variant,
+}: {
+  form: any;
+  variant: string;
+}) {
+  const { register, handleSubmit } = useForm();
 
   const [result, setResult] = useState();
 
-  const {
-    mutate: submitForm,
-    isLoading,
-    isSuccess,
-    isError,
-  } = useMutation(({ formdata }: any) => {
+  const { mutate: submitForm, isLoading } = useMutation(({ formdata }: any) => {
     const request = fetch(
       `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.id}/submissions`,
       {

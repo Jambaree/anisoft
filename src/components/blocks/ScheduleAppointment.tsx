@@ -11,13 +11,15 @@ interface ScheduleAppointmentProps {
   headline: string;
   benefits: Benefit[];
   uri: string;
+  form_id?: number;
 }
 
 export async function ScheduleAppointment({
   headline,
   benefits,
+  form_id,
 }: ScheduleAppointmentProps) {
-  const form = await getForm(6);
+  const form = await getForm(form_id);
 
   return (
     <div className="py-[25px] md:py-[50px]">
@@ -54,11 +56,13 @@ export async function ScheduleAppointment({
               {form.description ? <p>{form.description}</p> : null}
             </div>
 
-            <GravityForm
-              className="appointmentform"
-              formId="6"
-              variant="landing-page"
-            />
+            {form_id ? (
+              <GravityForm
+                className="appointmentform"
+                formId={form_id}
+                variant="landing-page"
+              />
+            ) : null}
           </div>
         </div>
       </Edges>
