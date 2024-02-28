@@ -50,20 +50,22 @@ export async function ScheduleAppointment({
             </div>
           </div>
 
-          <div className="relative z-20 bg-[#234F63] py-6 px-5 text-white md:-mt-32 md:w-2/6 min-w-[300px] flex-shrink-0">
-            <div className="text-center mb-5">
-              {form.title ? <h3 className="mb-5">{form.title}</h3> : null}
-              {form.description ? <p>{form.description}</p> : null}
-            </div>
+          {form ? (
+            <div className="relative z-20 bg-[#234F63] py-6 px-5 text-white md:-mt-32 md:w-2/6 min-w-[300px] flex-shrink-0">
+              <div className="text-center mb-5">
+                {form?.title ? <h3 className="mb-5">{form.title}</h3> : null}
+                {form?.description ? <p>{form.description}</p> : null}
+              </div>
 
-            {form_id ? (
-              <GravityForm
-                className="appointmentform"
-                formId={form_id}
-                variant="landing-page"
-              />
-            ) : null}
-          </div>
+              {form_id ? (
+                <GravityForm
+                  className="appointmentform"
+                  formId={form_id}
+                  variant="landing-page"
+                />
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </Edges>
     </div>

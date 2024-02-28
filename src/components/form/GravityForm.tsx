@@ -12,14 +12,17 @@ async function GravityForm({ formId, variant, className }: GravityFormProps) {
 
   return (
     <div className={clsx("max-w-[620px] mx-auto", className)}>
-      <Form form={form} variant={variant} />
+      {form ? <Form form={form} variant={variant} /> : null}
     </div>
   );
 }
 export default GravityForm;
 
 export async function getForm(id: string | number) {
-  const req = await fetch(
+  if (!id) {
+    return null;
+  }
+  const res = await fetch(
     `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${id}`,
     {
       headers: {
@@ -27,6 +30,9 @@ export async function getForm(id: string | number) {
       },
     }
   );
-  const form = await req.json();
+  if (!res.ok) {
+    return null;
+  }
+  const form = await res.json();
   return form;
 }
