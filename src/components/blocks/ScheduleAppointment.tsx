@@ -51,8 +51,10 @@ export async function ScheduleAppointment({
                       <Icon className="w-10 h-10 mr-5" icon={icon} />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">{headline}</h4>
-                      <p>{subline}</p>
+                      {headline ? (
+                        <h4 className="font-semibold mb-2">{headline}</h4>
+                      ) : null}
+                      {subline ? <p>{subline}</p> : null}
                     </div>
                   </div>
                 )
@@ -63,9 +65,9 @@ export async function ScheduleAppointment({
           {form ? (
             <div className="relative z-20 bg-[#234F63] py-6 px-5 text-white md:-mt-32 md:w-2/6 min-w-[300px] flex-shrink-0">
               <div className="text-center mb-5">
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center mb-5">
                   {form_logo?.url ? (
-                    <div className="relative w-[180px] h-[120px] mx-3">
+                    <div className="relative w-1/2 h-[60px] mx-3">
                       <Image
                         alt={form_logo.alt || ""}
                         className="object-contain"
@@ -74,9 +76,13 @@ export async function ScheduleAppointment({
                       />
                     </div>
                   ) : null}
-                  {form?.title ? <h3 className="mb-5">{form.title}</h3> : null}
+
+                  {form.title ? (
+                    <h3 className="text-left w-1/2">{form.title}</h3>
+                  ) : null}
                 </div>
-                {form?.description ? <p>{form.description}</p> : null}
+
+                {form.description ? <p>{form.description}</p> : null}
               </div>
 
               {form_id ? (
