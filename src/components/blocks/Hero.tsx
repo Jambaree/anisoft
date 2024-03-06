@@ -100,11 +100,13 @@ export function Hero(props: {
             ) : null}
           </div>
         </div>
-        <div className="w-full  md:w-1/2  object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center " />
+        <div className="w-full md:w-1/2 object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center " />
 
         {banner?.label ? (
-          <div className="absolute top-[50px] right-0 flex justify-center items-center py-3 px-7 border-lightGreen border rounded-full">
-            <span className="mr-6 font-medium text-lg">{banner.label}</span>
+          <div className="sm:absolute sm:top-[50px] sm:right-0 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center sm:py-3 sm:px-7 border-lightGreen sm:border-l sm:border-t sm:border-b lg:border lg:rounded-full sm:rounded-l-full">
+            <span className="text-center mb-6 sm:mb-0 sm:mr-6 font-medium text-lg">
+              {banner.label}
+            </span>
             <Button href={banner.button?.url} reverse variant="medium">
               {banner.button?.title}
             </Button>
