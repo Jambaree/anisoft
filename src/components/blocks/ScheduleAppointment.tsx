@@ -1,4 +1,6 @@
 import clsx from "clsx";
+import Image from "next/image";
+import type { WpImage } from "@nextwp/core";
 import Edges from "../Edges";
 import GravityForm, { getForm } from "../form/GravityForm";
 
@@ -12,13 +14,19 @@ interface ScheduleAppointmentProps {
   benefits: Benefit[];
   uri: string;
   form_id?: number;
+  form_logo?: WpImage;
 }
 
 export async function ScheduleAppointment({
   headline,
   benefits,
   form_id,
+  form_logo,
 }: ScheduleAppointmentProps) {
+  if (!form_id) {
+    return null;
+  }
+
   const form = await getForm(form_id);
 
   return (
@@ -27,9 +35,11 @@ export async function ScheduleAppointment({
         <div className="flex flex-col md:flex-row">
           <div>
             {headline ? (
-              <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] mb-5">
-                {headline}
-              </h1>
+              <div className="flex">
+                <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] mb-5">
+                  {headline}
+                </h1>
+              </div>
             ) : null}
 
             <div className="px-10 py-5">
@@ -41,8 +51,10 @@ export async function ScheduleAppointment({
                       <Icon className="w-10 h-10 mr-5" icon={icon} />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">{headline}</h4>
-                      <p>{subline}</p>
+                      {headline ? (
+                        <h4 className="font-semibold mb-2">{headline}</h4>
+                      ) : null}
+                      {subline ? <p>{subline}</p> : null}
                     </div>
                   </div>
                 )
@@ -53,8 +65,24 @@ export async function ScheduleAppointment({
           {form ? (
             <div className="relative z-20 bg-[#234F63] py-6 px-5 text-white md:-mt-32 md:w-2/6 min-w-[300px] flex-shrink-0">
               <div className="text-center mb-5">
-                {form?.title ? <h3 className="mb-5">{form.title}</h3> : null}
-                {form?.description ? <p>{form.description}</p> : null}
+                <div className="flex items-center justify-center mb-5">
+                  {form_logo?.url ? (
+                    <div className="relative w-1/2 h-[60px] mx-3">
+                      <Image
+                        alt={form_logo.alt || ""}
+                        className="object-contain"
+                        fill
+                        src={form_logo.url}
+                      />
+                    </div>
+                  ) : null}
+
+                  {form.title ? (
+                    <h3 className="text-left w-1/2">{form.title}</h3>
+                  ) : null}
+                </div>
+
+                {form.description ? <p>{form.description}</p> : null}
               </div>
 
               {form_id ? (
