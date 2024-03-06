@@ -78,7 +78,9 @@ export async function ScheduleAppointment({
                   ) : null}
 
                   {form.title ? (
-                    <h3 className="text-left w-1/2">{form.title}</h3>
+                    <h3 className={form_logo?.url ? "text-left w-1/2" : ""}>
+                      {form.title}
+                    </h3>
                   ) : null}
                 </div>
 
