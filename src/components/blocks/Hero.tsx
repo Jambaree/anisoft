@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { type WpImage } from "@nextwp/core";
+import type { WpLink, WpImage } from "@nextwp/core";
 import clsx from "clsx";
 import Button from "../Button";
 
@@ -20,6 +20,10 @@ export function Hero(props: {
   video?: {
     url?: string;
   };
+  banner?: {
+    label?: string;
+    button?: WpLink;
+  };
   /**
    * Increase the max width of the content from 800px to 1200px
    */
@@ -33,6 +37,7 @@ export function Hero(props: {
     image,
     video,
     wide_content,
+    banner,
   } = props;
 
   return (
@@ -96,6 +101,15 @@ export function Hero(props: {
           </div>
         </div>
         <div className="w-full  md:w-1/2  object-cover z-10 md:m-auto h-auto max-h-full flex justify-center items-center " />
+
+        {banner?.label ? (
+          <div className="absolute top-[50px] right-0 flex justify-center items-center py-3 px-7 border-lightGreen border rounded-full">
+            <span className="mr-6 font-medium text-lg">{banner.label}</span>
+            <Button href={banner.button?.url} reverse variant="medium">
+              {banner.button?.title}
+            </Button>
+          </div>
+        ) : null}
       </div>
     </div>
   );
