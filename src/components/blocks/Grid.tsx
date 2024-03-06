@@ -37,16 +37,16 @@ export function Grid({ headline, subline, items }: GridProps) {
               key={index}
               target={link?.target}
             >
-              {headline ? (
-                <h4
-                  className="text-white w-auto sm:w-fit text-[1.45rem]"
-                  dangerouslySetInnerHTML={{
-                    __html: headline,
-                  }}
-                />
-              ) : null}
-
               <div className="">
+                {headline ? (
+                  <h4
+                    className="text-white w-auto sm:w-fit text-[1.45rem] mb-5"
+                    dangerouslySetInnerHTML={{
+                      __html: headline,
+                    }}
+                  />
+                ) : null}
+
                 {subline ? (
                   <div
                     className="text-white archiveText overflow-hidden overflow-ellipsis mb-4"
@@ -55,13 +55,12 @@ export function Grid({ headline, subline, items }: GridProps) {
                     }}
                   />
                 ) : null}
-
-                {image?.url ? (
-                  <div className="relative w-full h-[220px]">
-                    <Image alt={image.alt || ""} fill src={image.url} />
-                  </div>
-                ) : null}
               </div>
+              {image?.url ? (
+                <div className="relative w-full h-[220px]">
+                  <Image alt={image.alt || ""} fill src={image.url} />
+                </div>
+              ) : null}
             </DynamicLinkOrDiv>
           );
         })}
