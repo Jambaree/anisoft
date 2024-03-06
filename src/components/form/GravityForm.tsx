@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Form from "./Form";
+import { type Form as FormType } from "./form-types";
 
 type GravityFormProps = {
   formId: string | number;
@@ -18,7 +19,7 @@ async function GravityForm({ formId, variant, className }: GravityFormProps) {
 }
 export default GravityForm;
 
-export async function getForm(id: string | number) {
+export async function getForm(id: string | number): Promise<FormType | null> {
   if (!id) {
     return null;
   }
@@ -33,6 +34,7 @@ export async function getForm(id: string | number) {
   if (!res.ok) {
     return null;
   }
-  const form = await res.json();
+  const form = (await res.json()) as FormType;
+
   return form;
 }
