@@ -18,7 +18,7 @@ export function InfoCallout({
   text?: string;
 }) {
   return (
-    <div className="primaryRadialBg py-[75px] md:py-[125px]">
+    <div className="primaryRadialBg py-16">
       <Edges size="lg">
         <div className="flex w-full h-full flex-wrap  text-white items-start justify-center">
           <div className="w-full md:w-1/2 mb-[30px] md:mb-0">
