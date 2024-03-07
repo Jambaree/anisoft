@@ -18,7 +18,7 @@ interface GridProps {
 
 export function Grid({ headline, subline, items }: GridProps) {
   return (
-    <Edges>
+    <Edges className="my-12">
       {headline ? (
         <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] mb-5">
           {headline}
