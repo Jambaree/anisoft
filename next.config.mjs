@@ -47,11 +47,11 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: [
-          {
-            key: "Content-Security-Policy",
-            value:
-              "default-src 'self'; script-src 'self'; img-src 'self' data:; style-src 'self';",
-          },
+          // {
+          //   key: "Content-Security-Policy",
+          //   value:
+          //     "default-src 'self'; script-src 'self'; img-src 'self' data:; style-src 'self';",
+          // },
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
