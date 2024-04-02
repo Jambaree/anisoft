@@ -61,12 +61,7 @@ function BreadCrumbs(props) {
               key={index}
             >
               <span className="mx-2">/</span>
-              {/* {console.log(
-                  path
-                    .replace(/[-_]/g, " ")
-                    .replace(/\b\w/g, (l) => l.toUpperCase()) ===
-                    "Solutions And Products"
-                )} */}
+
               <span className="p-details">
                 {path
                   .replace(/[-_]/g, " ")
