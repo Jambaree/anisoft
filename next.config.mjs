@@ -50,7 +50,7 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com; img-src 'self' data:; media-src 'self' https://anisoft.wpengine.com; connect-src 'self' https://www.google-analytics.com; frame-src 'self' https://td.doubleclick.net;",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google-analytics.com https://api.mapbox.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com; img-src 'self' data:; media-src 'self' https://anisoft.wpengine.com; connect-src 'self' https://www.google-analytics.com https://api.mapbox.com https://events.mapbox.com; frame-src 'self' https://td.doubleclick.net; worker-src 'self' blob:",
           },
           {
             key: "X-Content-Type-Options",
