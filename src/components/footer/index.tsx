@@ -1,14 +1,13 @@
 import React from "react";
 import { getMenuItems, getOptionsPage } from "@nextwp/core";
-
 import type { WpLink } from "@nextwp/core";
 import { deepCamelCase } from "@/utils/deep-camel-case-helper";
 import Edges from "../Edges";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
-import FooterMenuItems from "./footerMenu/FooterMenuItems";
 import ConditionalLink from "../ConditionalLink";
+import FooterMenuItems from "./footerMenu/FooterMenuItems";
 
 type FooterOptions = {
   footer?: {
@@ -63,7 +62,6 @@ export default async function Footer() {
                       className="mr-[22px]"
                       href={link.url || "/"}
                       key={index}
-                      target="_blank"
                     >
                       {link.icon === "facebook" && (
                         <Facebook className="hover:fill-lightGreen  fill-white" />

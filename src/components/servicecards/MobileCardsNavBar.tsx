@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-
 import ChevronUp from "../../../public/chevron-up.svg";
 import MobileCardsSubMenu from "./MobileCardsSubMenu";
-const CardsNavBar = ({ services, activeIndex }) => {
+
+function CardsNavBar({ services, activeIndex }) {
   const refArray = useRef([]);
   const [activeNav, setActiveNav] = useState(-1);
 
@@ -47,18 +47,19 @@ const CardsNavBar = ({ services, activeIndex }) => {
           return (
             index === activeIndex && (
               <a
+                className="target:rounded-full target:border-[1px] z-20 mr-[31px] flex flex-row items-center relative"
+                href={`#${service.name}`}
+                key={index}
                 onMouseOver={() => {
                   setIsOpen(true);
                 }}
-                href={`#${service.name}`}
-                key={index}
                 ref={(ref) => {
                   refArray.current[index] = ref;
                 }}
+                rel="noopener"
                 target="_blank"
-                className="target:rounded-full target:border-[1px] z-20 mr-[31px] flex flex-row items-center relative"
               >
-                <div className="bg-lightGreen  h-[2px] w-[15px] top-0 left-0 absolute nav"></div>
+                <div className="bg-lightGreen  h-[2px] w-[15px] top-0 left-0 absolute nav" />
                 <p
                   className="text-white h-[39px] py-0 whitespace-nowrap flex justify-center items-center "
                   onClick={() => {
@@ -80,15 +81,17 @@ const CardsNavBar = ({ services, activeIndex }) => {
       </div>
 
       <MobileCardsSubMenu
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        menu={services}
         activeIndex={activeIndex}
+        isOpen={isOpen}
+        menu={services}
+        setIsOpen={setIsOpen}
       />
       <a href="#top">
         <p
           className="text-white flex flex-row items-center"
-          onClick={() => setActiveNav(-1)}
+          onClick={() => {
+            setActiveNav(-1);
+          }}
         >
           <ChevronUp className="mr-[10px]" />
           Return to top
@@ -96,6 +99,6 @@ const CardsNavBar = ({ services, activeIndex }) => {
       </a>
     </div>
   );
-};
+}
 
 export default CardsNavBar;
