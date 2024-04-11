@@ -74,7 +74,6 @@ function CardsNavBar({ services, activeIndex }) {
                 className="target:rounded-full target:border-[1px] z-20 mr-[31px]"
                 href={`#${service.name}`}
                 key={index}
-                target="_blank"
                 ref={(ref) => {
                   refArray.current[index] = ref;
                 }}

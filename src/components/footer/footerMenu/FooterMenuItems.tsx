@@ -53,7 +53,6 @@ function MenuItems({ menuItems }) {
                   dangerouslySetInnerHTML={{ __html: item.label }}
                   href={item?.url || "/"}
                   rel="noopener"
-                  target="_blank"
                 />
               ) : (
                 <ConditionalLink
