@@ -1,6 +1,6 @@
 // ConditionalLink.js
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,11 +20,23 @@ export default function ConditionalLink({
   dangerouslySetInnerHTML,
   className,
   ariaLabel,
-
   ...rest
 }: ConditionalLinkProps) {
-  const optInPaths = ["anisoft-ibmi"];
-  const isOptInPath = usePathname().includes(optInPaths);
+  const currentPathname = usePathname();
+  const [isOptInPath, setIsOptInPath] = useState(false);
+
+  useEffect(() => {
+    const optInPaths = [
+      "anisoft-ibmi",
+      "anisoft-cyber-resilience-framework",
+      "ibm-cyber-resilience-framework",
+      "netapp-cyber-resilience-framework",
+    ];
+    const checkIfOptInPath = optInPaths.some((path) =>
+      currentPathname.includes(path)
+    );
+    setIsOptInPath(checkIfOptInPath);
+  }, [currentPathname]); // Depend on currentPathname to re-evaluate when it changes
 
   if (dangerouslySetInnerHTML) {
     return (
