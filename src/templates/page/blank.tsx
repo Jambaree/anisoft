@@ -1,10 +1,11 @@
 import { getItems } from "@nextwp/core/src/api/get-items";
 import classNames from "classnames";
 import Image from "next/image";
-import Link from "next/link";
+
 import { getFeaturedImage } from "@nextwp/core";
 import Edges from "../../components/Edges";
 import PageHeader2 from "../../components/PageHeader2";
+import ConditionalLink from "@/components/ConditionalLink";
 
 export default async function BlankPageTemplate({ data }) {
   const req = await fetch(
@@ -56,7 +57,7 @@ export default async function BlankPageTemplate({ data }) {
                       const featuredImage = getFeaturedImage(post);
 
                       return (
-                        <Link
+                        <ConditionalLink
                           className="w-full  bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
                           href={post?.path || "/"}
                           key={index}
@@ -88,7 +89,7 @@ export default async function BlankPageTemplate({ data }) {
                               />
                             </div>
                           ) : null}
-                        </Link>
+                        </ConditionalLink>
                       );
                     })}
                 </div>

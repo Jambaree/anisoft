@@ -1,9 +1,10 @@
 "use client";
-import Link from "next/link";
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import parse from "html-react-parser";
 import type { WpMenuItem } from "@nextwp/core";
+import ConditionalLink from "@/components/ConditionalLink";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
 function SubMenu({ childItems }: { childItems: WpMenuItem[] }) {
@@ -14,7 +15,7 @@ function SubMenu({ childItems }: { childItems: WpMenuItem[] }) {
       <div className=" flex flex-col w-fit px-[30px] pb-[30px]">
         {childItems.map((item, index) => {
           return (
-            <Link
+            <ConditionalLink
               className=" pt-[30px] flex-1"
               href={item.url ? getUrlPath(item.url) : "/"}
               key={index}
@@ -43,7 +44,7 @@ function SubMenu({ childItems }: { childItems: WpMenuItem[] }) {
                   </span>
                 ) : null}
               </div>
-            </Link>
+            </ConditionalLink>
           );
         })}
       </div>

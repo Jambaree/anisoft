@@ -1,11 +1,11 @@
 /* eslint-disable no-nested-ternary -- avoid nesting so many ternaries in the future */
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import { stripWpUrl } from "@/utils/strip-wp-url";
 import ChevronRight from "../../public/chevron-right.svg";
+import ConditionalLink from "./ConditionalLink";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -29,8 +29,8 @@ export function Button({
   const [isHovered, setIsHovered] = useState(false);
 
   return href ? (
-    <Link
-      aria-label="button"
+    <ConditionalLink
+      ariaLabel="button"
       className={classNames(
         className,
         reverse && "text-white border-white",
@@ -81,7 +81,7 @@ export function Button({
           )}
         </motion.div>
       ) : null}
-    </Link>
+    </ConditionalLink>
   ) : (
     <button
       className={classNames(

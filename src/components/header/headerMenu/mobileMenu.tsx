@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
+import ConditionalLink from "@/components/ConditionalLink";
 import { motion, AnimatePresence } from "framer-motion";
 import type { WpLink, WpMenu } from "@nextwp/core";
 import parse from "html-react-parser";
@@ -113,7 +113,7 @@ function MobileMenu({
                             />
                           </button>
                         ) : (
-                          <Link
+                          <ConditionalLink
                             className="nav text-darkPurple leading-[24px] pb-[35px] flex flex-row justify-between ml-[15px]"
                             dangerouslySetInnerHTML={{ __html: item.label }}
                             href={item.url ? getUrlPath(item.url) : "/"}

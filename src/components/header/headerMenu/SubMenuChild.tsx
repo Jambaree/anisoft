@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import ConditionalLink from "@/components/ConditionalLink";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
 function SubMenuChild({ childItems }) {
@@ -11,7 +11,7 @@ function SubMenuChild({ childItems }) {
     <div className=" flex flex-col w-[330px]">
       {childItems?.map((item, index) => {
         return (
-          <Link
+          <ConditionalLink
             className=" py-[20px] flex-1"
             href={getUrlPath(item?.url) || "/"}
             key={index}
@@ -44,7 +44,7 @@ function SubMenuChild({ childItems }) {
                 />
               ) : null}
             </div>
-          </Link>
+          </ConditionalLink>
         );
       })}
     </div>
