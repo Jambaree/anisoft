@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import type { WpMenuItem } from "@nextwp/core";
+import ConditionalLink from "@/components/ConditionalLink";
 import ChevronLeft from "../../../../public/chevron-left.svg";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
@@ -87,7 +87,7 @@ function MobileSubMenu({
                     <div className="flex flex-col pl-[30px]">
                       {item.childItems.length > 0 &&
                         item.childItems.map((childItem, index: number) => (
-                          <Link
+                          <ConditionalLink
                             className="nav text-darkPurple leading-[24px] mb-[35px]"
                             dangerouslySetInnerHTML={{
                               __html: childItem.label,

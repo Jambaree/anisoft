@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import classNames from "classnames";
+import ConditionalLink from "@/components/ConditionalLink";
 
 function BreadCrumbs(props) {
   const { className, basePath } = props;
@@ -19,15 +19,15 @@ function BreadCrumbs(props) {
     >
       <div className="flex items-center">
         {basePath ? (
-          <Link href={`/${basePath}`}>
+          <ConditionalLink href={`/${basePath}`}>
             <span className="p-details hover:text-lightGreen capitalize">
               {basePath}
             </span>
-          </Link>
+          </ConditionalLink>
         ) : (
-          <Link href="/">
+          <ConditionalLink href="/">
             <span className="p-details hover:text-lightGreen">Home</span>
-          </Link>
+          </ConditionalLink>
         )}
         {paths.map((path, index) => {
           if (
@@ -37,7 +37,7 @@ function BreadCrumbs(props) {
             "Solutions And Products"
           ) {
             return (
-              <Link
+              <ConditionalLink
                 className={`${
                   index === 0 ? "max-w-[175px] " : "max-w-[125px] "
                 }  overflow-hidden whitespace-nowrap overflow-ellipsis sm:max-w-full`}
@@ -50,7 +50,7 @@ function BreadCrumbs(props) {
                     .replace(/[-_]/g, " ")
                     .replace(/\b\w/g, (l) => l.toUpperCase())}
                 </span>
-              </Link>
+              </ConditionalLink>
             );
           }
           return (

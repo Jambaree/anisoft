@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useRef, useCallback } from "react";
+import type { MapRef } from "react-map-gl";
+import classNames from "classnames";
 import Edges from "./Edges";
 import Mapbox from "./MapBox";
-import { MapRef } from "react-map-gl";
-import classNames from "classnames";
 
-const Contact = ({ data }) => {
+function Contact({ data }) {
   const { headline, tag, text, locations } = data;
 
   const mapRef = useRef<MapRef>();
@@ -13,9 +13,9 @@ const Contact = ({ data }) => {
   const onSelectCity = useCallback(
     (longitude, latitude, zoom: number, index) => {
       setSelectedCity(index);
-      mapRef?.current?.flyTo({
+      mapRef.current?.flyTo({
         center: [longitude, latitude],
-        zoom: zoom,
+        zoom,
         duration: 4000,
       });
     },
@@ -25,16 +25,15 @@ const Contact = ({ data }) => {
   return (
     <div className="bg-white py-[50px] md:py-[90px] h-full ">
       <Edges size="lg">
-        {tag && <p className="text-black font-[16px] pb-[20px]">{tag}</p>}
+        {tag ? <p className="text-black font-[16px] pb-[20px]">{tag}</p> : null}
         <div className="w-full h-full flex flex-col md:flex-row md:gap-0 gap-[30px]">
           <div className="w-full md:w-[40%] flex flex-col ">
             <div className="flex justify-between items-center flex-wrap pb-[30px] gap-[20px]">
-              {headline && (
+              {headline ? (
                 <h2 className="text-black  pr-[30px]  ">{headline}</h2>
-              )}
+              ) : null}
               {selectedCity >= 0 && (
                 <p
-                  role="button"
                   className="md:ml-auto my-auto pr-[30px]  hover:underline"
                   onClick={() => {
                     onSelectCity(
@@ -44,19 +43,27 @@ const Contact = ({ data }) => {
                       -1
                     );
                   }}
+                  role="button"
                 >
                   View All Locations
                 </p>
               )}
             </div>
-            {text && (
+            {text ? (
               <p className="text-black max-w-[300px] mb-[30px]">{text}</p>
-            )}
+            ) : null}
             <div className="max-h-[400px] overflow-y-scroll flex flex-col gap-[30px]">
               {locations?.length > 0 &&
                 locations.map((location, index) => {
                   return (
                     <div
+                      className={classNames(
+                        "cursor-pointer flex flex-col gap-[15px] border-l-[2px] pl-[30px]",
+                        selectedCity === index
+                          ? "border-lightGreen"
+                          : "border-[#ADADAD]"
+                      )}
+                      key={index}
                       onClick={() => {
                         onSelectCity(
                           location.longitude,
@@ -65,13 +72,6 @@ const Contact = ({ data }) => {
                           index
                         );
                       }}
-                      key={index}
-                      className={classNames(
-                        "cursor-pointer flex flex-col gap-[15px] border-l-[2px] pl-[30px]",
-                        selectedCity === index
-                          ? "border-lightGreen"
-                          : "border-[#ADADAD]"
-                      )}
                     >
                       <h3 className="text-black">{location.title}</h3>
                       <p className="text-black">{location.address}</p>
@@ -82,7 +82,7 @@ const Contact = ({ data }) => {
                       >
                         Tel: {location.phone}
                       </a>
-                      {location.faxNumber && (
+                      {location.faxNumber ? (
                         <a
                           aria-label="fax number"
                           className="phoneLink hover:underline"
@@ -90,7 +90,7 @@ const Contact = ({ data }) => {
                         >
                           Fax: {location.faxNumber}
                         </a>
-                      )}
+                      ) : null}
                     </div>
                   );
                 })}
@@ -98,15 +98,15 @@ const Contact = ({ data }) => {
           </div>
           <div className="md:w-[60%] w-full ">
             <Mapbox
-              onSelectCity={onSelectCity}
-              mapRef={mapRef}
               locations={locations}
+              mapRef={mapRef}
+              onSelectCity={onSelectCity}
             />
           </div>
         </div>
       </Edges>
     </div>
   );
-};
+}
 
 export default Contact;
