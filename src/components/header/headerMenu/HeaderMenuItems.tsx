@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
+
 import { usePathname } from "next/navigation";
 import type { WpLink, WpMenuItem } from "@nextwp/core";
+import ConditionalLink from "@/components/ConditionalLink";
 import Button from "../../Button";
 import { getUrlPath } from "../../../utils/getUrlPath";
 import SubMenu from "./SubMenu";
@@ -35,13 +36,13 @@ function MenuItems({
           <div className="relative flex flex-col">
             <div className="nav text-lightBlue px-[16px] py-[40px] group">
               {item.childItems.length > 0 && item.classes[0] === "megaNav" ? (
-                <Link
+                <ConditionalLink
                   className="cursor-pointer"
                   dangerouslySetInnerHTML={{ __html: item.label }}
                   href={getUrlPath(item.url) || "/"}
                 />
               ) : (
-                <Link
+                <ConditionalLink
                   dangerouslySetInnerHTML={{ __html: item.label }}
                   href={getUrlPath(item.url) || "/"}
                 />

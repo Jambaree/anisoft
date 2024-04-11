@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import classNames from "classnames";
-import Link from "next/link";
+
 import FadeInUp from "../FadeInUp";
 import Edges from "../Edges";
+import ConditionalLink from "../ConditionalLink";
 
 export function Logos({ header, logos }) {
   const half = Math.ceil(logos.length / 2);
@@ -27,14 +28,14 @@ export function Logos({ header, logos }) {
                     )}
                     key={index}
                   >
-                    <Link href={link?.url || ""} target="_blank">
+                    <ConditionalLink href={link?.url || ""}>
                       <Image
                         alt={logo?.alt || "logo-image"}
                         className=" object-contain"
                         fill
                         src={logo?.url}
                       />
-                    </Link>
+                    </ConditionalLink>
                   </FadeInUp>
                 )
               );

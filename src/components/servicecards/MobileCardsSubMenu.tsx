@@ -1,14 +1,11 @@
 "use client";
 import React from "react";
-
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import ChevronLeft from "../../../public/chevron-left.svg";
 
-const MobileCardsSubMenu = ({ isOpen, setIsOpen, menu, activeIndex }) => {
+function MobileCardsSubMenu({ isOpen, setIsOpen, menu, activeIndex }) {
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen ? (
         <aside
           onMouseLeave={() => {
             setIsOpen(false);
@@ -20,17 +17,17 @@ const MobileCardsSubMenu = ({ isOpen, setIsOpen, menu, activeIndex }) => {
                 (item, index) =>
                   index !== activeIndex && (
                     <div
-                      key={index}
                       className="flex flex-col text-left ml-[30px] relative"
+                      key={index}
                     >
                       <a
-                        href={`#${item.name}`}
                         className="nav text-white leading-[24px] mb-[35px] flex flex-row justify-between "
+                        href={`#${item.name}`}
                         onClick={() => {
                           setIsOpen(false);
                         }}
                       >
-                        <div className="bg-lightGreen  h-[2px] w-[15px] -top-[4px] left-0 absolute nav "></div>
+                        <div className="bg-lightGreen  h-[2px] w-[15px] -top-[4px] left-0 absolute nav " />
                         {item.name}
                       </a>
                     </div>
@@ -39,9 +36,9 @@ const MobileCardsSubMenu = ({ isOpen, setIsOpen, menu, activeIndex }) => {
             </div>
           </div>
         </aside>
-      )}
+      ) : null}
     </AnimatePresence>
   );
-};
+}
 
 export default MobileCardsSubMenu;

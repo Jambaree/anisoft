@@ -1,5 +1,5 @@
 import { type WpPage, getFeaturedImage } from "@nextwp/core";
-import Link from "next/link";
+import ConditionalLink from "@/components/ConditionalLink";
 import { stripWpUrl } from "@/utils/strip-wp-url";
 import { ImageWithBlur } from "../image-with-blur";
 
@@ -12,7 +12,7 @@ export function PostsGrid({ posts }: { posts?: WpPage[] }) {
             const relativeUrl = stripWpUrl(post.link!);
 
             return (
-              <Link
+              <ConditionalLink
                 className="w-full bg-darkPurple p-[30px] flex flex-col gap-4 items-start justify-start"
                 href={relativeUrl}
                 key={post.id}
@@ -36,7 +36,7 @@ export function PostsGrid({ posts }: { posts?: WpPage[] }) {
                     }}
                   />
                 ) : null}
-              </Link>
+              </ConditionalLink>
             );
           })
         : null}

@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
+
 import Image from "next/image";
 import type { WpLink, WpMenu } from "@nextwp/core";
 import Edges from "../Edges";
 import Logo from "../logos/logo";
 import HeaderMenuItems from "./headerMenu/HeaderMenuItems";
 import MobileMenu from "./headerMenu/mobileMenu";
+import ConditionalLink from "../ConditionalLink";
 
 export default function Header({
   menuItems,
@@ -29,8 +30,8 @@ export default function Header({
       <div className="z-50 fixed bg-white w-full border-b-[1px] border-b-[#0E0A30] top-0 ">
         <Edges size="lg">
           <div className="flex flex-row justify-between items-center relative">
-            <Link
-              aria-label="logo-home-link"
+            <ConditionalLink
+              ariaLabel="logo-home-link"
               className="my-[31px]"
               href="/"
               onClick={() => {
@@ -38,7 +39,7 @@ export default function Header({
               }}
             >
               <Logo />
-            </Link>
+            </ConditionalLink>
             <HeaderMenuItems button={button} menuItems={menuItems} />
             <div className="md:hidden flex ml-[10px] md:ml-0">
               {!isOpen ? (
