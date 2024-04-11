@@ -1,6 +1,8 @@
 // ConditionalLink.js
+"use client";
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface ConditionalLinkProps {
   href: string;
@@ -21,6 +23,9 @@ export default function ConditionalLink({
 
   ...rest
 }: ConditionalLinkProps) {
+  const optInPaths = ["anisoft-ibmi"];
+  const isOptInPath = usePathname().includes(optInPaths);
+
   if (dangerouslySetInnerHTML) {
     return (
       <Link
@@ -30,7 +35,7 @@ export default function ConditionalLink({
         dangerouslySetInnerHTML={dangerouslySetInnerHTML}
         href={href}
         rel="noopener noreferrer"
-        target="_blank"
+        target={isOptInPath ? "_blank" : "_self"}
       />
     );
   }
@@ -41,7 +46,7 @@ export default function ConditionalLink({
       className={className}
       href={href}
       rel="noopener noreferrer"
-      target="_blank"
+      target={isOptInPath ? "_blank" : "_self"}
     >
       {children}
     </Link>
