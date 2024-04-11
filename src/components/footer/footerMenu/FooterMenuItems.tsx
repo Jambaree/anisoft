@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ConditionalLink from "@/components/ConditionalLink";
 import { getUrlPath } from "../../../utils/getUrlPath";
 
 function MenuItems({ menuItems }) {
@@ -32,7 +32,7 @@ function MenuItems({ menuItems }) {
                   href={item?.url || "/"}
                 />
               ) : (
-                <Link
+                <ConditionalLink
                   dangerouslySetInnerHTML={{ __html: item.label }}
                   href={getUrlPath(item?.url) || "/"}
                 />
@@ -52,9 +52,11 @@ function MenuItems({ menuItems }) {
                 <a
                   dangerouslySetInnerHTML={{ __html: item.label }}
                   href={item?.url || "/"}
+                  rel="noopener"
+                  target="_blank"
                 />
               ) : (
-                <Link
+                <ConditionalLink
                   dangerouslySetInnerHTML={{ __html: item.label }}
                   href={getUrlPath(item?.url) || "/"}
                 />
@@ -76,7 +78,7 @@ function MenuItems({ menuItems }) {
                   href={item?.url || "/"}
                 />
               ) : (
-                <Link
+                <ConditionalLink
                   dangerouslySetInnerHTML={{ __html: item.label }}
                   href={getUrlPath(item?.url) || "/"}
                 />

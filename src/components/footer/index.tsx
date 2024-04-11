@@ -1,6 +1,6 @@
 import React from "react";
 import { getMenuItems, getOptionsPage } from "@nextwp/core";
-import Link from "next/link";
+
 import type { WpLink } from "@nextwp/core";
 import { deepCamelCase } from "@/utils/deep-camel-case-helper";
 import Edges from "../Edges";
@@ -8,6 +8,7 @@ import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
 import Linkedin from "../../../public/linkedin.svg";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
+import ConditionalLink from "../ConditionalLink";
 
 type FooterOptions = {
   footer?: {
@@ -46,9 +47,9 @@ export default async function Footer() {
           <div className="flex flex-col md:flex-row md:justify-between pb-[100px] ">
             <div>
               <div className="mb-[32px]">
-                <Link aria-label="logo-home-link" href="/">
+                <ConditionalLink ariaLabel="logo-home-link" href="/">
                   <InvertedLogo />
-                </Link>
+                </ConditionalLink>
               </div>
               <div className="flex flex-col mb-[27px] p-footer">
                 <p className="text-white">{contactInformation?.phoneNumber}</p>
@@ -62,6 +63,7 @@ export default async function Footer() {
                       className="mr-[22px]"
                       href={link.url || "/"}
                       key={index}
+                      target="_blank"
                     >
                       {link.icon === "facebook" && (
                         <Facebook className="hover:fill-lightGreen  fill-white" />
@@ -85,20 +87,20 @@ export default async function Footer() {
             <div>{copyrightText}</div>
             <div className="flex flex-col sm:flex-row sm:mb-0 mb-[15px]">
               {link_1 ? (
-                <Link
+                <ConditionalLink
                   className="sm:ml-[24px] hover:text-lightGreen"
                   href={link_1.url || "/"}
                 >
                   {link_1.title}
-                </Link>
+                </ConditionalLink>
               ) : null}
               {link_2 ? (
-                <Link
+                <ConditionalLink
                   className="sm:ml-[24px] hover:text-lightGreen"
                   href={link_2.url || "/"}
                 >
                   {link_2.title}
-                </Link>
+                </ConditionalLink>
               ) : null}
             </div>
           </div>

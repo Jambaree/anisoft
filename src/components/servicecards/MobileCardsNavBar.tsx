@@ -55,6 +55,7 @@ const CardsNavBar = ({ services, activeIndex }) => {
                 ref={(ref) => {
                   refArray.current[index] = ref;
                 }}
+                target="_blank"
                 className="target:rounded-full target:border-[1px] z-20 mr-[31px] flex flex-row items-center relative"
               >
                 <div className="bg-lightGreen  h-[2px] w-[15px] top-0 left-0 absolute nav"></div>

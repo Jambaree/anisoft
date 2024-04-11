@@ -79,6 +79,7 @@ const Contact = ({ data }) => {
                         aria-label="phone number"
                         className="phoneLink hover:underline"
                         href={`tel:${location.phone}`}
+                        target="_blank"
                       >
                         Tel: {location.phone}
                       </a>
@@ -87,6 +88,7 @@ const Contact = ({ data }) => {
                           aria-label="fax number"
                           className="phoneLink hover:underline"
                           href={`fax:${location.faxNumber}`}
+                          target="_blank"
                         >
                           Fax: {location.faxNumber}
                         </a>

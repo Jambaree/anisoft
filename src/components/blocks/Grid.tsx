@@ -1,9 +1,10 @@
 import type { WpImage, WpLink } from "@nextwp/core";
 import type { LinkProps } from "next/link";
-import Link from "next/link";
+
 import Image from "next/image";
 import { stripWpUrl } from "@/utils/strip-wp-url";
 import Edges from "../Edges";
+import ConditionalLink from "../ConditionalLink";
 
 interface GridProps {
   headline?: string;
@@ -69,7 +70,7 @@ export function Grid({ headline, subline, items }: GridProps) {
   );
 }
 
-interface DynamicLinkOrDivProps extends Omit<LinkProps, "href"> {
+interface DynamicLinkOrDivProps extends Omit<ConditionalLinkProps, "href"> {
   href?: string;
   target?: string;
   children: React.ReactNode;
@@ -87,7 +88,7 @@ function DynamicLinkOrDiv({
 }: DynamicLinkOrDivProps) {
   if (href) {
     return (
-      <Link
+      <ConditionalLink
         href={href}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
@@ -96,7 +97,7 @@ function DynamicLinkOrDiv({
         {...rest}
       >
         {children}
-      </Link>
+      </ConditionalLink>
     );
   }
   return <div {...rest}>{children}</div>;
