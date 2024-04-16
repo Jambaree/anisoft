@@ -62,7 +62,7 @@ export function InfoCallout({
             {text ? (
               <FadeInUp className="flex items-center justify-center ">
                 <div>
-                  <div className="relative">{parse(text)}</div>
+                  <div className="relative wysiwyg">{parse(text)}</div>
                 </div>
               </FadeInUp>
             ) : null}

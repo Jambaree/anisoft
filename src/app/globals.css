@@ -185,6 +185,10 @@
 .richText ol {
   margin-left: 20px !important;
 }
+.wysiwyg p {
+  margin-bottom: 15px;
+}
+
 .richText > ul > li {
   padding-bottom: 15px !important;
   margin-left: 18px;
