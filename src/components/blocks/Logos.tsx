@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import classNames from "classnames";
-
 import FadeInUp from "../FadeInUp";
 import Edges from "../Edges";
 import ConditionalLink from "../ConditionalLink";
@@ -14,7 +13,7 @@ export function Logos({ header, logos }) {
       <Edges size="md">
         <div className="flex flex-col justify-center items-center py-[95px]">
           <FadeInUp>
-            <h1 className="mb-[48px]">{header}</h1>
+            <h2 className="mb-[48px] text-[2rem]  sm:text-[3rem]">{header}</h2>
           </FadeInUp>
           <div className="flex flex-wrap justify-center max-w-[970px]">
             {logos?.map(({ logo, link }, index) => {

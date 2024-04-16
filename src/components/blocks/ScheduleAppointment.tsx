@@ -36,9 +36,9 @@ export async function ScheduleAppointment({
           <div>
             {headline ? (
               <div className="flex">
-                <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] mb-5">
+                <h2 className=" text-[2rem]  sm:text-[3rem] mb-5">
                   {headline}
-                </h1>
+                </h2>
               </div>
             ) : null}
 
