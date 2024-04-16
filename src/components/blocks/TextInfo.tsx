@@ -39,7 +39,7 @@ export function TextInfo({
       <div
         className={classNames(
           backgroundGradient ? "primaryRadialBg" : "bg-white",
-          "py-[75px] md:py-[125px]"
+          "pt-[75px] md:pt-[100px]"
         )}
         id={tag}
       >
