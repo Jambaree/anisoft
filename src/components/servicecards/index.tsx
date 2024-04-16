@@ -55,7 +55,7 @@ function ServiceCards({ services }) {
                   >
                     <div className={classNames("py-[50px] sm:py-[50px]  z-30")}>
                       <div className="flex flex-col justify-center " ref={ref}>
-                        <h1
+                        <h2
                           className="mb-[24px]"
                           dangerouslySetInnerHTML={{ __html: service.name }}
                         />

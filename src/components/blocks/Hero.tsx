@@ -72,9 +72,7 @@ export function Hero(props: {
           )}
         >
           {headline ? (
-            <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] max-w-[600px] ">
-              {headline}
-            </h1>
+            <h1 className="heroHeadline max-w-[600px] ">{headline}</h1>
           ) : null}
           {subHeadline ? (
             <p className="max-w-[800px] text-[1.3rem] pt-[40px]">
