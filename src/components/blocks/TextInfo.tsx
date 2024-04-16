@@ -59,9 +59,9 @@ export function TextInfo({
 
               {headline ? (
                 <FadeInUp className="delay-100">
-                  <h1 className="heroHeadline max-w-[985px] text-[40px]  sm:text-[60px]">
+                  <h2 className=" max-w-[985px] text-[2rem]  sm:text-[3rem]">
                     {headline}
-                  </h1>
+                  </h2>
                 </FadeInUp>
               ) : null}
             </div>

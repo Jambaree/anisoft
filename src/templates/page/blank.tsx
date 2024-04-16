@@ -1,11 +1,10 @@
 import { getItems } from "@nextwp/core/src/api/get-items";
 import classNames from "classnames";
 import Image from "next/image";
-
 import { getFeaturedImage } from "@nextwp/core";
+import ConditionalLink from "@/components/ConditionalLink";
 import Edges from "../../components/Edges";
 import PageHeader2 from "../../components/PageHeader2";
-import ConditionalLink from "@/components/ConditionalLink";
 
 export default async function BlankPageTemplate({ data }) {
   const req = await fetch(
@@ -44,7 +43,7 @@ export default async function BlankPageTemplate({ data }) {
             >
               <Edges size="lg">
                 {section?.name ? (
-                  <h1 className="pb-[30px]">{section?.name}</h1>
+                  <h2 className="pb-[30px]">{section?.name}</h2>
                 ) : null}
 
                 {section?.description ? (

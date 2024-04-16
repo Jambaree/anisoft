@@ -1,6 +1,5 @@
 import type { WpImage, WpLink } from "@nextwp/core";
 import type { LinkProps } from "next/link";
-
 import Image from "next/image";
 import { stripWpUrl } from "@/utils/strip-wp-url";
 import Edges from "../Edges";
@@ -21,9 +20,7 @@ export function Grid({ headline, subline, items }: GridProps) {
   return (
     <Edges className="my-12">
       {headline ? (
-        <h1 className="heroHeadline text-[2rem]  sm:text-[3rem] mb-5">
-          {headline}
-        </h1>
+        <h2 className=" text-[2rem]  sm:text-[3rem] mb-5">{headline}</h2>
       ) : null}
 
       {subline ? <p className="mb-5">{subline}</p> : null}

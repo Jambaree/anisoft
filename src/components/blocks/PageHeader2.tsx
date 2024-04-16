@@ -10,7 +10,7 @@ export function PageHeader2({ title, text }) {
           <FadeInUp className="flex flex-col w-full justify-center max-w-[555px] mx-auto text-center">
             <BreadCrumbs className="text-white text-center mx-auto " />
             {title ? (
-              <h1 className="justify-center w-full  text-white ">
+              <h1 className="justify-center w-full  text-white heroHeadline">
                 {typeof title === "string" ? title : title?.rendered}
               </h1>
             ) : null}

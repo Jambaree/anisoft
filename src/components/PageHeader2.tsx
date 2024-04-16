@@ -11,7 +11,7 @@ function PageHeader({ title, text }: { title?: string; text?: string }) {
             <BreadCrumbs className="text-white text-center mx-auto " />
             {title ? (
               <h1
-                className="justify-center w-full  text-white "
+                className="justify-center w-full text-white heroHeadline "
                 dangerouslySetInnerHTML={{ __html: title }}
               />
             ) : null}
