@@ -4,6 +4,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { getMenuItems, getOptionsPage } from "@nextwp/core";
 import type { WpLink } from "@nextwp/core";
 import { TriggerPageView } from "@/components/trigger-gtm-pageview";
+import ZendeskChat from "@/components/ZenDesk";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Providers from "../components/Providers";
@@ -56,6 +57,7 @@ export default async function Layout({
       </body>
       <GoogleTagManager gtmId="GTM-5NP3J68" />
       <TriggerPageView />
+      <ZendeskChat />
     </html>
   );
 }

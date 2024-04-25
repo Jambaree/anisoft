@@ -50,7 +50,33 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google-analytics.com https://api.mapbox.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com; img-src 'self' data:; media-src 'self' https://anisoft.wpengine.com; connect-src 'self' https://www.google-analytics.com https://api.mapbox.com https://events.mapbox.com https://anisoft.wpengine.com; frame-src 'self' https://td.doubleclick.net; worker-src 'self' blob:",
+              "default-src 'self'; " +
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' " +
+              "https://www.googletagmanager.com " +
+              "https://googleads.g.doubleclick.net " +
+              "https://www.google-analytics.com " +
+              "https://api.mapbox.com " +
+              "https://static.zdassets.com " +
+              "https://ekr.zdassets.com " +
+              "https://pod-20.zendesk.com; " +
+              "style-src 'self' 'unsafe-inline' https://api.mapbox.com; " +
+              "img-src 'self' data: " +
+              "https://static.zdassets.com " +
+              "https://anisoftgroupinc.zendesk.com " +
+              "https://www.gravatar.com " + // Added for Gravatar images
+              "https://p20.zdusercontent.com; " + // Added for Zendesk user content
+              "media-src 'self' https://anisoft.wpengine.com; " +
+              "connect-src 'self' " +
+              "https://www.google-analytics.com " +
+              "https://api.mapbox.com " +
+              "https://events.mapbox.com " +
+              "https://anisoft.wpengine.com " +
+              "https://ekr.zdassets.com " +
+              "https://anisoftgroupinc.zendesk.com " +
+              "https://*.zendesk.com " +
+              "wss://*.zendesk.com; " +
+              "frame-src 'self' https://td.doubleclick.net; " +
+              "worker-src 'self' blob:;",
           },
           {
             key: "X-Content-Type-Options",
