@@ -1,8 +1,9 @@
 "use client";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import classNames from "classnames";
+import ReCAPTCHA from "react-google-recaptcha";
 import Button from "../Button";
 import Input from "./fields/input/Input";
 import Textarea from "./fields/textarea/Textarea";
@@ -19,6 +20,9 @@ export default function Form({
   form: any;
   variant: string;
 }) {
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const recaptchaRef = useRef(null); // Reference to the reCAPTCHA component
+
   const { register, handleSubmit } = useForm();
 
   const [result, setResult] = useState();
@@ -42,10 +46,29 @@ export default function Form({
     return request;
   });
 
-  const onSubmit = (formValues: any) => {
-    const { formdata } = formatData(formValues);
+  const onSubmit = async (formValues: any) => {
+    console.log("test");
+    // Function to handle the actual form data submission
+    const submitData = () => {
+      const { formdata } = formatData(formValues);
+      submitForm({ formdata });
+      setCaptchaValue(null); // Reset captcha value after submission
+    };
 
-    submitForm({ formdata });
+    if (!captchaValue) {
+      // Execute reCAPTCHA when the form is submitted and captchaValue is not set
+      recaptchaRef.current.execute();
+    } else {
+      // If captchaValue is already set, proceed to submit data
+      submitData();
+    }
+  };
+  const onCaptchaChange = (value) => {
+    console.log("test");
+    setCaptchaValue(value);
+    if (value) {
+      handleSubmit(onSubmit)(); // Automatically resubmit the form when reCAPTCHA is validated
+    }
   };
 
   const fields = form?.fields;
@@ -86,6 +109,16 @@ export default function Form({
               </div>
             );
           })}
+
+          {process.env.NEXT_PUBLIC_FORM_RECAPTCHA ? (
+            <ReCAPTCHA
+              badge="bottomleft"
+              onChange={onCaptchaChange}
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_FORM_RECAPTCHA}
+              size="invisible"
+            />
+          ) : null}
 
           {variant === "landing-page" && (
             <button
