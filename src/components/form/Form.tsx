@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import classNames from "classnames";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useRouter } from "next/navigation";
 import Button from "../Button";
 import Input from "./fields/input/Input";
 import Textarea from "./fields/textarea/Textarea";
@@ -20,6 +21,7 @@ export default function Form({
   form: any;
   variant: string;
 }) {
+  const router = useRouter();
   const [captchaValue, setCaptchaValue] = useState(null);
   const recaptchaRef = useRef(null); // Reference to the reCAPTCHA component
 
@@ -37,7 +39,16 @@ export default function Form({
     )
       .then((response) => response.text())
       .then((result) => {
-        setResult(JSON.parse(result));
+        const parsedResult = JSON.parse(result);
+        setResult(parsedResult);
+
+        // Step 2: Check if the result is valid and if the form contains specific field IDs
+        if (
+          parsedResult.is_valid &&
+          form.fields.some((field) => [9, 7, 8, 6].includes(field.id))
+        ) {
+          router.push("/thank-you"); // Step 3: Redirect to the thank-you page
+        }
       })
       .catch((error) => {
         console.log("error", error);
@@ -47,7 +58,6 @@ export default function Form({
   });
 
   const onSubmit = async (formValues: any) => {
-    console.log("test");
     // Function to handle the actual form data submission
     const submitData = () => {
       const { formdata } = formatData(formValues);
@@ -64,7 +74,6 @@ export default function Form({
     }
   };
   const onCaptchaChange = (value) => {
-    console.log("test");
     setCaptchaValue(value);
     if (value) {
       handleSubmit(onSubmit)(); // Automatically resubmit the form when reCAPTCHA is validated
@@ -72,6 +81,9 @@ export default function Form({
   };
 
   const fields = form?.fields;
+  const containsExcludedFieldId = form.fields.some((field) =>
+    [9, 7, 8, 6].includes(field.id)
+  );
 
   return (
     <>
@@ -79,10 +91,9 @@ export default function Form({
         <Error errors={result.validation_messages} />
       )}
 
-      {result?.is_valid === true && (
+      {result?.is_valid === true && !containsExcludedFieldId && (
         <Success>{result.confirmation_message}</Success>
       )}
-
       {!result?.is_valid && (
         <form
           className="flex flex-wrap justify-between items-center "
