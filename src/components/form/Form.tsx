@@ -42,12 +42,8 @@ export default function Form({
         const parsedResult = JSON.parse(result);
         setResult(parsedResult);
 
-        // Step 2: Check if the result is valid and if the form contains specific field IDs
-        if (
-          parsedResult.is_valid &&
-          form.fields.some((field) => [9, 7, 8, 6].includes(field.id))
-        ) {
-          router.push("/thank-you"); // Step 3: Redirect to the thank-you page
+        if (parsedResult.is_valid && [9, 7, 8, 6].includes(form.id)) {
+          router.push("/thank-you"); // Redirect to the thank-you page if the form ID matches
         }
       })
       .catch((error) => {
@@ -81,9 +77,7 @@ export default function Form({
   };
 
   const fields = form?.fields;
-  const containsExcludedFieldId = form.fields.some((field) =>
-    [9, 7, 8, 6].includes(field.id)
-  );
+  const excludedFormIds = [9, 7, 8, 6]; // Define the excluded form IDs at the top for clarity
 
   return (
     <>
@@ -91,9 +85,10 @@ export default function Form({
         <Error errors={result.validation_messages} />
       )}
 
-      {result?.is_valid === true && !containsExcludedFieldId && (
+      {result?.is_valid === true && !excludedFormIds.includes(form.id) && (
         <Success>{result.confirmation_message}</Success>
       )}
+
       {!result?.is_valid && (
         <form
           className="flex flex-wrap justify-between items-center "
