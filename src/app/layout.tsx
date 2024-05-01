@@ -54,10 +54,10 @@ export default async function Layout({
         <Header button={button} menuItems={menuItems} />
         <Providers>{children}</Providers>
         <Footer />
+        <ZendeskChat />
       </body>
       <GoogleTagManager gtmId="GTM-5NP3J68" />
       <TriggerPageView />
-      <ZendeskChat />
     </html>
   );
 }
