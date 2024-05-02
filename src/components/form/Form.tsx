@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef, useState, useRef } from "react";
+import { forwardRef, useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import classNames from "classnames";
@@ -76,6 +76,12 @@ export default function Form({
     }
   };
 
+  useEffect(() => {
+    if (captchaValue) {
+      handleSubmit(onSubmit)();
+    }
+  }, [captchaValue]);
+
   const fields = form?.fields;
   const excludedFormIds = [9, 7, 8, 6]; // Define the excluded form IDs at the top for clarity
 
@@ -88,7 +94,6 @@ export default function Form({
       {result?.is_valid === true && !excludedFormIds.includes(form.id) && (
         <Success>{result.confirmation_message}</Success>
       )}
-
       {!result?.is_valid && (
         <form
           className="flex flex-wrap justify-between items-center "
