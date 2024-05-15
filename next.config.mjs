@@ -50,7 +50,7 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google-analytics.com https://api.mapbox.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com; img-src 'self' data:; media-src 'self' https://anisoft.wpengine.com; connect-src 'self' https://www.google-analytics.com https://api.mapbox.com https://events.mapbox.com https://anisoft.wpengine.com; frame-src 'self' https://www.google.com https://td.doubleclick.net; worker-src 'self' blob:",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google-analytics.com https://api.mapbox.com https://www.google.com https://www.gstatic.com https://salesiq.zohopublic.ca https://js.zohocdn.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com https://css.zohocdn.com; img-src 'self' data:; media-src 'self' https://anisoft.wpengine.com; connect-src 'self' https://www.google-analytics.com https://api.mapbox.com https://events.mapbox.com https://anisoft.wpengine.com https://salesiq.zohocloud.ca; frame-src 'self' https://www.google.com https://td.doubleclick.net; worker-src 'self' blob:; font-src 'self' https://css.zohocdn.com;",
           },
           {
             key: "X-Content-Type-Options",
