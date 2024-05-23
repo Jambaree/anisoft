@@ -2,8 +2,7 @@
 import React, { forwardRef } from "react";
 import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
-import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
-// import { InputProps } from "./InputTypes";
+
 interface InputProps {
   className?: string;
   inputClassName?: string;
@@ -16,7 +15,6 @@ interface InputProps {
   value?: string;
   placeholder?: string;
   hiddenLabel?: boolean;
-  //   fullWidth?: boolean
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error?: any;
@@ -24,6 +22,7 @@ interface InputProps {
   required?: boolean;
   description?: string;
   defaultValue?: string;
+  checked?: boolean; // added for checkbox
 }
 
 const Input = forwardRef(
@@ -42,35 +41,30 @@ const Input = forwardRef(
       labelClassName,
       description,
       disabled,
+      checked, // added for checkbox
       ...rest
     }: InputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
-    return (
-      <div className={className}>
-        {label ? (
-          <label
-            className={clsx("p-details", labelClassName)}
-            htmlFor={id || name}
-          >
-            {label}
-            {required ? <span className="text-red-500"> *</span> : null}
-          </label>
-        ) : null}
+    const isCheckbox = type === "checkbox"; // Determine if the input type is checkbox
 
-        <div className="mt-1 relative ">
+    return (
+      <div className={clsx("flex flex-col space-y-2", className)}>
+        <div className="flex items-center space-x-2">
           <input
             aria-describedby={
               error ? `${id}-error` : description && `${id}-description`
             }
+            checked={checked}
             className={clsx(
               "forminput",
-              "rounded-0 appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black active:border-lightGreen ",
-              " shadow-sm placeholder-gray-400 focus:outline-none",
-              " focus:border-lightGreen ",
+              isCheckbox
+                ? "form-checkbox h-4 w-4 text-indigo-600"
+                : "rounded-0 appearance-none block w-full px-3 py-2 border-b-[1px] border-l-[1px] text-black active:border-lightGreen shadow-sm placeholder-gray-400 focus:outline-none focus:border-lightGreen",
               disabled && "opacity-50",
               error &&
-                "block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 ",
+                !isCheckbox &&
+                "pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500",
               inputClassName
             )}
             defaultValue={defaultValue}
@@ -79,35 +73,33 @@ const Input = forwardRef(
             name={name}
             placeholder={placeholder}
             ref={ref}
-            required={required}
+            required={required ? !isCheckbox : null}
             type={type}
             {...rest}
           />
-
-          {error ? (
-            <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <ExclamationCircleIcon
-                aria-hidden="true"
-                className="h-5 w-5 text-red-500"
-              />
-            </div>
+          {label ? (
+            <label
+              className={clsx("p-details", labelClassName)}
+              htmlFor={id || name}
+            >
+              {label}
+              {required && isCheckbox ? (
+                <span className="text-red-500"> *</span>
+              ) : null}
+            </label>
           ) : null}
         </div>
 
         {error?.message ? (
-          <div>
-            <span className="mt-2  text-red-600" id={`${id}-error`}>
-              {error.message}
-            </span>
-          </div>
+          <span className="text-red-600" id={`${id}-error`}>
+            {error.message}
+          </span>
         ) : null}
 
         {description ? (
-          <div>
-            <span className="mt-2  text-gray-500" id={`${id}-description`}>
-              {description}
-            </span>
-          </div>
+          <p className="text-sm text-gray-500" id={`${id}-description`}>
+            {description}
+          </p>
         ) : null}
       </div>
     );
