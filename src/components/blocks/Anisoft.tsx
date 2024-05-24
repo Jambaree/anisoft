@@ -42,7 +42,9 @@ export function Anisoft({
               ) : null}
             </div>
             <div className="max-w-[500px] flex flex-col pt-[50px] md:pt-[150px]">
-              {text ? <p>{parse(text)}</p> : null}
+              {text ? (
+                <p className="text-[16px] md:text-[20px]">{parse(text)}</p>
+              ) : null}
               <div className="pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]">
                 {button?.url ? (
                   <Button href={button.url} variant="large">
