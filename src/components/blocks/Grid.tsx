@@ -20,7 +20,7 @@ export function Grid({ headline, subline, items }: GridProps) {
   return (
     <Edges className="my-12">
       {headline ? (
-        <h2 className=" text-[2rem]  sm:text-[3rem] mb-5">{headline}</h2>
+        <h2 className=" text-[2rem]  sm:text-[2.5rem] mb-5">{headline}</h2>
       ) : null}
 
       {subline ? <p className="mb-5">{subline}</p> : null}
