@@ -22,7 +22,9 @@ export async function ScheduleAppointment({
   benefits,
   form_id,
   form_logo,
+  form_consent_text,
 }: ScheduleAppointmentProps) {
+  console.log(form_consent_text);
   if (!form_id) {
     return null;
   }
@@ -90,6 +92,7 @@ export async function ScheduleAppointment({
               {form_id ? (
                 <GravityForm
                   className="appointmentform"
+                  consentText={form_consent_text}
                   formId={form_id}
                   variant="landing-page"
                 />
