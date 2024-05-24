@@ -24,10 +24,10 @@ function QuickFacts({
         <div className="flex flex-col">
           <div className="flex flex-col text-white mb-[122px]">
             <FadeInUp className="delay-75">
-              <h2 className="text-[2rem]  sm:text-[3rem]">{text1}</h2>
+              <h2 className="text-[2rem]  sm:text-[2.5rem]">{text1}</h2>
             </FadeInUp>
             <FadeInUp className="delay-150">
-              <h2 className="text-[2rem]  sm:text-[3rem]">{text2}</h2>
+              <h2 className="text-[2rem]  sm:text-[2.5rem]">{text2}</h2>
             </FadeInUp>
           </div>
 

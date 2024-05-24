@@ -31,7 +31,7 @@ export async function ProductsSlider(props: {
             {tag ? <p className="max-w-[575px] pt-[40px]">{tag}</p> : null}
 
             {headline ? (
-              <h2 className=" text-[2rem]  sm:text-[3rem]">{headline}</h2>
+              <h2 className=" text-[2rem]  sm:text-[2.5rem]">{headline}</h2>
             ) : null}
           </div>
 

@@ -37,7 +37,7 @@ export async function ScheduleAppointment({
           <div>
             {headline ? (
               <div className="flex">
-                <h2 className=" text-[2rem]  sm:text-[3rem] mb-5">
+                <h2 className=" text-[2rem]  sm:text-[2.5rem] mb-5">
                   {headline}
                 </h2>
               </div>
