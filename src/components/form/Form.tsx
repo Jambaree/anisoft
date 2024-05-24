@@ -61,7 +61,6 @@ export default function Form({
       const { formdata } = formatData(formValues);
       submitForm({ formdata });
       setCaptchaValue(null); // Reset captcha value after submission
-      console.log(formdata);
     };
     if (!captchaValue) {
       // Execute reCAPTCHA when the form is submitted and captchaValue is not set
@@ -204,7 +203,7 @@ export default function Form({
               )}
             </Button>
           )}
-          {console.log(consentText)}
+
           {consentText ? (
             <p className="text-sm text-white mt-[20px] text-center">
               {consentText}
@@ -229,7 +228,7 @@ const FormField = forwardRef(
     if (field?.labelPlacement === "hidden_label") {
       delete inputProps.label;
     }
-    console.log(field.type);
+
     switch (field.type) {
       case "select":
         return (

@@ -24,7 +24,6 @@ export async function ScheduleAppointment({
   form_logo,
   form_consent_text,
 }: ScheduleAppointmentProps) {
-  console.log(form_consent_text);
   if (!form_id) {
     return null;
   }
