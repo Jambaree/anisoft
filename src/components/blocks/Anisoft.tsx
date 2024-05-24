@@ -35,7 +35,7 @@ export function Anisoft({
 
               {headline ? (
                 <FadeInUp className="delay-200">
-                  <h2 className=" max-w-[985px] text-[2rem]  sm:text-[3rem]">
+                  <h2 className=" max-w-[985px] text-[2rem]  sm:text-[2rem]">
                     {headline}
                   </h2>
                 </FadeInUp>
