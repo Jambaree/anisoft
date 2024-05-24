@@ -18,6 +18,7 @@ import { Select } from "./fields/select";
 export default function Form({
   form,
   variant,
+  consentText,
 }: {
   form: any;
   variant: string;
@@ -203,12 +204,12 @@ export default function Form({
               )}
             </Button>
           )}
-          {form.id === 7 && (
+          {console.log(consentText)}
+          {consentText ? (
             <p className="text-sm text-white mt-[20px] text-center">
-              We hate spam. We will never share your information with anyone.
-              View our Privacy Policy for more information
+              {consentText}
             </p>
-          )}
+          ) : null}
         </form>
       )}
     </>
