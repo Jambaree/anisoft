@@ -10,4 +10,5 @@ export { Form } from "./Form";
 export { PageHeader1 } from "./PageHeader1";
 export { PageHeader2 } from "./PageHeader2";
 export { ScheduleAppointment } from "./ScheduleAppointment";
+export { LandingGrid } from "./LandingGrid";
 export { Grid } from "./Grid";
