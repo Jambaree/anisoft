@@ -63,7 +63,7 @@ export function Hero(props: {
         </div>
       )}
 
-      <div className=" max-w-screen-lg mx-auto flex w-full h-full z-40 absolute  top-0 bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
+      <div className=" max-w-screen-lg mx-auto flex w-full h-full z-40 absolute pt-[55px] sm:top-0 bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
         <div
           className={clsx(
             "w-full py-6 md:py-0 mds:min-w-[600px]",
