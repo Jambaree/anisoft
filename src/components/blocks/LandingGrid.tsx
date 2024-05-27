@@ -25,7 +25,7 @@ export function LandingGrid({ headline, subline, items }: GridProps) {
         {items?.map(({ title, description, icon }, index) => {
           return (
             <div
-              className="w-full  p-[30px] flex flex-col gap-4 items-center justify-center"
+              className="w-full  p-[30px] flex flex-col gap-4 items-center"
               // eslint-disable-next-line react/no-array-index-key -- we don't have a unique ID
               key={index}
             >
