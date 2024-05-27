@@ -21,13 +21,12 @@ export function LandingGrid({ headline, subline, items }: GridProps) {
 
       {subline ? <p className="mb-5">{subline}</p> : null}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-16">
-        {items?.map(({ title, description, icon }, index) => {
-          return (
+      <div className="flex justify-center">
+        <div className="flex flex-row flex-wrap max-w-max">
+          {items?.map(({ title, description, icon }, index) => (
             <div
-              className="w-full  p-[30px] flex flex-col gap-4 items-center"
-              // eslint-disable-next-line react/no-array-index-key -- we don't have a unique ID
-              key={index}
+              className="w-full p-[30px] flex flex-col gap-4 max-w-[410px] mx-auto relative"
+              key={index} // Assume index is okay as per your comment
             >
               {icon?.url ? (
                 <div className="relative w-fit mx-auto">
@@ -43,24 +42,19 @@ export function LandingGrid({ headline, subline, items }: GridProps) {
                 {title ? (
                   <h4
                     className="text-black w-auto sm:w-fit text-[1.45rem] mb-4 text-center font-bold"
-                    dangerouslySetInnerHTML={{
-                      __html: title,
-                    }}
+                    dangerouslySetInnerHTML={{ __html: title }}
                   />
                 ) : null}
-
                 {description ? (
                   <div
                     className="text-black archiveText overflow-hidden overflow-ellipsis mb-4 text-center"
-                    dangerouslySetInnerHTML={{
-                      __html: description,
-                    }}
+                    dangerouslySetInnerHTML={{ __html: description }}
                   />
                 ) : null}
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </Edges>
   );
