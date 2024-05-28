@@ -10,13 +10,15 @@ import Input from "./fields/input/Input";
 import Textarea from "./fields/textarea/Textarea";
 import Radio from "./fields/radio/Radio";
 import Upload from "./fields/upload/Upload";
-import Error from "./alert/error";
-import Success from "./alert/success";
+import { Checkbox } from "./fields/checkbox/Checkbox";
+// import Error from "./alert/error";
+// import Success from "./alert/success";
 import { Select } from "./fields/select";
 
 export default function Form({
   form,
   variant,
+  consentText,
 }: {
   form: any;
   variant: string;
@@ -60,7 +62,6 @@ export default function Form({
       submitForm({ formdata });
       setCaptchaValue(null); // Reset captcha value after submission
     };
-
     if (!captchaValue) {
       // Execute reCAPTCHA when the form is submitted and captchaValue is not set
       recaptchaRef.current.execute();
@@ -87,13 +88,13 @@ export default function Form({
 
   return (
     <>
-      {result?.is_valid === false && (
+      {/* {result?.is_valid === false && (
         <Error errors={result.validation_messages} />
       )}
 
       {result?.is_valid === true && !excludedFormIds.includes(form.id) && (
         <Success>{result.confirmation_message}</Success>
-      )}
+      )} */}
       {!result?.is_valid && (
         <form
           className="flex flex-wrap justify-between items-center "
@@ -202,6 +203,12 @@ export default function Form({
               )}
             </Button>
           )}
+
+          {consentText ? (
+            <p className="text-sm text-white mt-[20px] text-center">
+              {consentText}
+            </p>
+          ) : null}
         </form>
       )}
     </>
@@ -276,6 +283,16 @@ const FormField = forwardRef(
           />
         );
 
+      case "checkbox":
+        return (
+          <Checkbox
+            inputId={inputId}
+            options={field.choices.map((choice) => choice.value)}
+            {...inputProps}
+            register={register}
+          />
+        );
+
       default:
         return (
           <Input
@@ -299,7 +316,17 @@ const formatData = (data) => {
       case "fileupload":
         formdata.append(`input_${fieldId}`, value[0]);
         break;
-
+      case "checkbox":
+        if (Array.isArray(value)) {
+          value.forEach((val, index) => {
+            if (val) {
+              const checkboxId = `${fieldId}_${index + 1}`;
+              const checkboxValue = typeof val === "boolean" ? "Selected" : val;
+              formdata.append(`input_${checkboxId}`, checkboxValue);
+            }
+          });
+        }
+        break;
       default:
         formdata.append(`input_${fieldId}`, value);
         break;

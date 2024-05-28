@@ -8,12 +8,19 @@ type GravityFormProps = {
   className?: string;
 };
 
-async function GravityForm({ formId, variant, className }: GravityFormProps) {
+async function GravityForm({
+  formId,
+  variant,
+  className,
+  consentText,
+}: GravityFormProps) {
   const form = await getForm(formId);
 
   return (
     <div className={clsx("max-w-[620px] mx-auto", className)}>
-      {form ? <Form form={form} variant={variant} /> : null}
+      {form ? (
+        <Form consentText={consentText} form={form} variant={variant} />
+      ) : null}
     </div>
   );
 }

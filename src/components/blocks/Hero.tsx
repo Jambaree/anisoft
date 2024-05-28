@@ -63,7 +63,7 @@ export function Hero(props: {
         </div>
       )}
 
-      <div className=" max-w-screen-lg mx-auto flex w-full h-full  z-40 absolute top-0  bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
+      <div className=" max-w-screen-lg mx-auto flex w-full h-full z-40 absolute  sm:top-0 bottom-0 flex-wrap-reverse mds:flex-nowrap text-white items-center justify-center px-[45px]">
         <div
           className={clsx(
             "w-full py-6 md:py-0 mds:min-w-[600px]",
@@ -72,7 +72,9 @@ export function Hero(props: {
           )}
         >
           {headline ? (
-            <h1 className="heroHeadline max-w-[600px] ">{headline}</h1>
+            <h1 className="heroHeadline max-w-[600px] text-[38px] md:text-[3rem]">
+              {headline}
+            </h1>
           ) : null}
           {subHeadline ? (
             <p className="max-w-[800px] text-[1.3rem] pt-[40px]">
@@ -102,10 +104,15 @@ export function Hero(props: {
 
         {banner?.label ? (
           <div className="sm:absolute sm:top-[50px] sm:right-0 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center sm:py-3 sm:px-7 border-lightGreen sm:border-l sm:border-t sm:border-b lg:border lg:rounded-full sm:rounded-l-full">
-            <span className="text-center mb-6 sm:mb-0 sm:mr-6 font-medium text-lg">
+            <span className="text-center mb-6 sm:mb-0 sm:mr-6 font-medium text-lg invisible sm:visible">
               {banner.label}
             </span>
-            <Button href={banner.button?.url} reverse variant="medium">
+            <Button
+              className="invisible sm:visible"
+              href={banner.button?.url}
+              reverse
+              variant="medium"
+            >
               {banner.button?.title}
             </Button>
           </div>
