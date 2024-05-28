@@ -4,6 +4,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { getMenuItems, getOptionsPage } from "@nextwp/core";
 import type { WpLink } from "@nextwp/core";
 import { TriggerPageView } from "@/components/trigger-gtm-pageview";
+import ZohoChatWidget from "@/components/zoho-chat-widget";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Providers from "../components/Providers";
@@ -53,6 +54,7 @@ export default async function Layout({
         <Header button={button} menuItems={menuItems} />
         <Providers>{children}</Providers>
         <Footer />
+        <ZohoChatWidget />
       </body>
       <GoogleTagManager gtmId="GTM-5NP3J68" />
       <TriggerPageView />
