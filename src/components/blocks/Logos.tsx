@@ -13,7 +13,9 @@ export function Logos({ header, logos }) {
       <Edges size="md">
         <div className="flex flex-col justify-center items-center py-[95px]">
           <FadeInUp>
-            <h2 className="mb-[48px] text-[2rem]  sm:text-[3rem]">{header}</h2>
+            <h2 className="mb-[48px] text-[2rem]  sm:text-[2.5rem]">
+              {header}
+            </h2>
           </FadeInUp>
           <div className="flex flex-wrap justify-center max-w-[970px]">
             {logos?.map(({ logo, link }, index) => {

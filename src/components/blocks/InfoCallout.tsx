@@ -30,7 +30,7 @@ export function InfoCallout({
 
             {headline ? (
               <FadeInUp className="delay-100">
-                <h2 className=" max-w-[985px] text-[2rem]  sm:text-[3rem] px-[15px] ">
+                <h2 className=" max-w-[985px] text-[2rem]  sm:text-[2.5rem] px-[15px] ">
                   {headline}
                 </h2>
               </FadeInUp>
