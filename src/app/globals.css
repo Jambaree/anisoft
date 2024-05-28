@@ -212,6 +212,10 @@ input[type="radio"] {
   fill: #00ac4d;
 }
 
+p a {
+  text-decoration: underline;
+}
+
 input,
 textarea {
   border-radius: 0px !important;
