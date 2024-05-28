@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import type { WpImage } from "@nextwp/core";
+import parse from "html-react-parser";
 import Edges from "../Edges";
 import GravityForm, { getForm } from "../form/GravityForm";
 
@@ -85,7 +86,7 @@ export async function ScheduleAppointment({
                   ) : null}
                 </div>
 
-                {form.description ? <p>{form.description}</p> : null}
+                {form.description ? <p>{parse(form.description)}</p> : null}
               </div>
 
               {form_id ? (
