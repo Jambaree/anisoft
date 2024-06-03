@@ -189,6 +189,14 @@
   margin-bottom: 15px;
 }
 
+.wysiwyg h2 {
+  color: white;
+}
+
+.wysiwyg a {
+  color: white;
+}
+
 .richText > ul > li {
   padding-bottom: 15px !important;
   margin-left: 18px;
