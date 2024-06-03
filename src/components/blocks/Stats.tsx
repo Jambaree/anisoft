@@ -76,7 +76,7 @@ function Counter({ from, to }) {
 
   const [start, setStart] = useState(from);
   const [end, setEnd] = useState(to);
-  const [shouldStart, setShouldStart] = useState(false); // add this line
+  const [shouldStart, setShouldStart] = useState(false);
 
   useEffect(() => {
     if (ref.current && !observerRef.current) {
