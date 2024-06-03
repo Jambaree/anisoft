@@ -26,12 +26,11 @@ export async function ScheduleAppointment({
   form_consent_text,
   wysiwyg,
 }: ScheduleAppointmentProps) {
-  if (!form_id) {
-    return null;
-  }
+  // if (!form_id) {
+  //   return null;
+  // }
 
-  // const form = await getForm(form_id);
-  const form = false;
+  const form = await getForm(form_id);
 
   return (
     <div className="py-[25px] md:py-[50px]">
