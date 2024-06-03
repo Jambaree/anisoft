@@ -31,7 +31,7 @@ export function TeamBios({
         <div className="hidden md:flex flex-col">
           {members?.map((member, index) => {
             const rowClass = isEven(index) ? "flex-row" : "flex-row-reverse";
-            const checkMargin = isEven(index) ? "ml-auto" : "mr-auto"; // Example for different text color
+            const checkMargin = isEven(index) ? "ml-auto" : "mr-auto";
             const imageMargin = isEven(index) ? "mr-[25px]" : "ml-[25px]";
             const imageLine = isEven(index) ? "right-[-80px]" : "left-[-80px]";
             const greenLineAlign = isEven(index) ? "left-[40%]" : "right-[44%]";
