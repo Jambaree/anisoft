@@ -25,27 +25,29 @@ export function TeamBios({
     <div className="relative">
       <div className="absolute top-[-135px]" id="leadership" />
       <Edges size="lg">
-        <h2 className="mt-[97px] mb-[59px] w-fit md:mx-0 mx-auto text-[36px] text-[#100D29]">
+        <h2 className="mt-[97px] mb-[59px] w-fit sm:mx-0 mx-auto text-[36px] text-[#100D29]">
           {headline}
         </h2>
-        <div className="hidden md:flex flex-col">
+        <div className="hidden sm:flex flex-col justify-center items-center">
           {members?.map((member, index) => {
             const rowClass = isEven(index) ? "flex-row" : "flex-row-reverse";
             const checkMargin = isEven(index) ? "ml-auto" : "mr-auto";
-            const imageMargin = isEven(index) ? "mr-[25px]" : "ml-[25px]";
+            const imageMargin = isEven(index) ? "mr-[65px]" : "ml-[65px]";
             const imageLine = isEven(index) ? "right-[-80px]" : "left-[-80px]";
-            const greenLineAlign = isEven(index) ? "left-[40%]" : "right-[44%]";
+            const greenLineAlign = isEven(index) ? "left-[32%]" : "right-[50%]";
             return (
               <div className="w-fit relative" key={index}>
                 <div
-                  className={` ${rowClass} w-full relative ml-[40px] flex pb-[20px]`}
+                  className={` ${rowClass} w-full relative  flex pb-[20px] mb-[55px]`}
                 >
-                  <div className={`relative z-30 w-fit ${imageMargin}`}>
+                  <div
+                    className={`relative z-30 w-fit ${imageMargin} min-w-[250px]`}
+                  >
                     <Image
                       alt={member.image.alt}
-                      height={member.image.height}
+                      height={400}
                       src={member.image.url}
-                      width={member.image.width}
+                      width={350}
                     />
                   </div>
                   <div
@@ -59,7 +61,7 @@ export function TeamBios({
                       />
                     </div>
 
-                    <h3 className="mb-[7px] text-[#100D29] text-[36px] font-normal">
+                    <h3 className="mb-[7px] text-[#100D29] text-[36px] font-normal mt-[100px]">
                       {member.name}
                     </h3>
                     <p className="mb-[14px] text-[#100D29] text-[17px] font-bold leading-[26px]">
@@ -83,7 +85,7 @@ export function TeamBios({
               <Accordion collapsible type="single">
                 <AccordionItem value="item-1">
                   <div
-                    className={` w-full relative  md:hidden flex flex-row flex-wrap mb-[21px] `}
+                    className={` w-full relative  sm:hidden flex flex-row flex-wrap mb-[21px] `}
                   >
                     <div className={`relative z-30 w-[136px] h-[136px] `}>
                       <Image
