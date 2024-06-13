@@ -12,3 +12,4 @@ export { PageHeader2 } from "./PageHeader2";
 export { ScheduleAppointment } from "./ScheduleAppointment";
 export { LandingGrid } from "./LandingGrid";
 export { Grid } from "./Grid";
+export { TeamBios } from "./TeamBios";
