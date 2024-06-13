@@ -24,17 +24,18 @@ export async function ScheduleAppointment({
   form_id,
   form_logo,
   form_consent_text,
+  wysiwyg,
 }: ScheduleAppointmentProps) {
-  if (!form_id) {
-    return null;
-  }
+  // if (!form_id) {
+  //   return null;
+  // }
 
   const form = await getForm(form_id);
 
   return (
     <div className="py-[25px] md:py-[50px]">
       <Edges>
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row items-center">
           <div>
             {headline ? (
               <div className="flex">
@@ -98,7 +99,15 @@ export async function ScheduleAppointment({
                 />
               ) : null}
             </div>
-          ) : null}
+          ) : (
+            <div className="relative z-20 bg-[#234F63] py-6 px-5 text-white md:-mt-32 md:w-2/6 min-w-[300px] h-fit">
+              {wysiwyg ? (
+                <div className="prose max-w-none wysiwyg text-white">
+                  {parse(wysiwyg)}
+                </div>
+              ) : null}
+            </div>
+          )}
         </div>
       </Edges>
     </div>
