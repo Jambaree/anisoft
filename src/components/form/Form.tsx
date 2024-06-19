@@ -44,7 +44,7 @@ export default function Form({
         const parsedResult = JSON.parse(result);
         setResult(parsedResult);
 
-        if (parsedResult.is_valid && [9, 7, 8, 6].includes(form.id)) {
+        if (parsedResult.is_valid && [1, 9, 7, 8, 6].includes(form.id)) {
           router.push("/thank-you"); // Redirect to the thank-you page if the form ID matches
         }
       })
