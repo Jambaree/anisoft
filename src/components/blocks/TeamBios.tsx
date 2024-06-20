@@ -67,18 +67,15 @@ export function TeamBios({
                     <h3 className="mb-[7px] text-[#100D29] text-[36px] font-normal mt-[100px]">
                       {member.name}
                     </h3>
-                    <p className="mb-[14px] text-[#100D29] text-[17px] font-bold leading-[26px]">
+                    <p className="mb-[5px] text-[#100D29] text-[17px] font-bold leading-[26px]">
                       {member.professionalTitle}
                     </p>
                     <div>
-                      <p className="text-[#100D29] text-[16px] leading-[26px]">
-                        {member.description}
-                      </p>
                       {member?.socialIcons?.length > 0 &&
                         member?.socialIcons?.map((link, index) => (
                           <a
                             aria-label="social link"
-                            className="mr-[22px] mt-[15px] w-fit relative justify-center items-center flex flex-row"
+                            className="mr-[22px] w-fit mb-[10px] relative justify-center items-center flex flex-row"
                             href={link.url || "/"}
                             key={index}
                           >
@@ -99,6 +96,10 @@ export function TeamBios({
                             )}
                           </a>
                         ))}
+
+                      <p className="text-[#100D29] text-[16px] leading-[26px]">
+                        {member.description}
+                      </p>
                     </div>
                   </div>
                 </div>
