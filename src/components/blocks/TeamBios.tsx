@@ -6,6 +6,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Edges from "../Edges";
+import Facebook from "../../../public/facebook.svg";
+import Twitter from "../../../public/x.svg";
+import Linkedin from "../../../public/linkedin.svg";
 
 export function TeamBios({
   headline,
@@ -67,9 +70,36 @@ export function TeamBios({
                     <p className="mb-[14px] text-[#100D29] text-[17px] font-bold leading-[26px]">
                       {member.professionalTitle}
                     </p>
-                    <p className="text-[#100D29] text-[16px] leading-[26px]">
-                      {member.description}
-                    </p>
+                    <div>
+                      <p className="text-[#100D29] text-[16px] leading-[26px]">
+                        {member.description}
+                      </p>
+                      {member?.socialIcons?.length > 0 &&
+                        member?.socialIcons?.map((link, index) => (
+                          <a
+                            aria-label="social link"
+                            className="mr-[22px] mt-[15px] w-fit relative justify-center items-center flex flex-row"
+                            href={link.url || "/"}
+                            key={index}
+                          >
+                            {link.icon === "facebook" && (
+                              <Facebook className="fill-lightGreen w-fit hover:fill-white" />
+                            )}
+                            {link.icon === "linkedin" && (
+                              <Linkedin
+                                className="fill-lightGreen hover:fill-white w-fit"
+                                id="linkedin"
+                              />
+                            )}
+                            {link.icon === "twitter" && (
+                              <Twitter
+                                className="fill-lightGreen hover:fill-white w-fit"
+                                id="twitter"
+                              />
+                            )}
+                          </a>
+                        ))}
+                    </div>
                   </div>
                 </div>
               </div>

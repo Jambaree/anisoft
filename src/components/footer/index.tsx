@@ -5,7 +5,8 @@ import { deepCamelCase } from "@/utils/deep-camel-case-helper";
 import Edges from "../Edges";
 import InvertedLogo from "../logos/invertedlogo";
 import Facebook from "../../../public/facebook.svg";
-import Linkedin from "../../../public/linkedin.svg";
+import Twitter from "../../../public/x.svg";
+import Linkedin from "../../../public/linkedin-white.svg";
 import ConditionalLink from "../ConditionalLink";
 import FooterMenuItems from "./footerMenu/FooterMenuItems";
 
@@ -70,6 +71,12 @@ export default async function Footer() {
                         <Linkedin
                           className="hover:fill-lightGreen fill-white"
                           id="linkedin"
+                        />
+                      )}
+                      {link.icon === "twitter" && (
+                        <Twitter
+                          className="hover:fill-lightGreen fill-white"
+                          id="twitter"
                         />
                       )}
                     </a>

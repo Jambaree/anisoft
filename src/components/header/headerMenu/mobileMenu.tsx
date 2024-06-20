@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import ConditionalLink from "@/components/ConditionalLink";
 import { motion, AnimatePresence } from "framer-motion";
 import type { WpLink, WpMenu } from "@nextwp/core";
 import parse from "html-react-parser";
+import ConditionalLink from "@/components/ConditionalLink";
 import Edges from "../../Edges";
 import Button from "../../Button";
 import ChevonRight from "../../../../public/chevron-left.svg";
@@ -140,14 +140,21 @@ function MobileMenu({
                   </div>
                 ))}
                 {!subMenuIsOpen && (
-                  <Button
-                    className="ml-[15px]"
-                    href={button?.url ? getUrlPath(button.url) : "/"}
-                    variant="medium"
+                  <div
+                    onClick={() => {
+                      setIsOpen(false);
+                    }}
                   >
-                    {button?.title}
-                  </Button>
+                    <Button
+                      className="ml-[15px]"
+                      href={button?.url ? getUrlPath(button.url) : "/"}
+                      variant="medium"
+                    >
+                      {button?.title}
+                    </Button>
+                  </div>
                 )}
+                {console.log(isOpen)}
               </motion.div>
             </Edges>
           </motion.div>
