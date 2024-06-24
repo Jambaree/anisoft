@@ -73,10 +73,11 @@ export default async function Footer() {
                           id="linkedin"
                         />
                       )}
+
                       {link.icon === "twitter" && (
                         <Twitter
                           className="hover:fill-lightGreen fill-white"
-                          id="twitter"
+                          id="linkedin"
                         />
                       )}
                     </a>

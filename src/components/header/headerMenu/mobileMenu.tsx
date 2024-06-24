@@ -154,7 +154,6 @@ function MobileMenu({
                     </Button>
                   </div>
                 )}
-                {console.log(isOpen)}
               </motion.div>
             </Edges>
           </motion.div>

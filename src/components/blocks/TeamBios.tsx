@@ -88,6 +88,7 @@ export function TeamBios({
                                 id="linkedin"
                               />
                             )}
+
                             {link.icon === "twitter" && (
                               <Twitter
                                 className="fill-lightGreen hover:fill-white w-fit"
