@@ -77,7 +77,7 @@ export default async function Footer() {
                       {link.icon === "twitter" && (
                         <Twitter
                           className="hover:fill-lightGreen fill-white"
-                          id="linkedin"
+                          id="twitter"
                         />
                       )}
                     </a>
