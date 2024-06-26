@@ -80,9 +80,11 @@ function MobileSubMenu({
                     </button>
                   )}
                   <div>
-                    <span
+                    {console.log(item)}
+                    <a
                       className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between font-medium uppercase"
                       dangerouslySetInnerHTML={{ __html: item.label }}
+                      href={getUrlPath(item.url) || "/"}
                     />
                     <div className="flex flex-col pl-[30px]">
                       {item.childItems.length > 0 &&
