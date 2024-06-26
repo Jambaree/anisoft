@@ -80,7 +80,6 @@ function MobileSubMenu({
                     </button>
                   )}
                   <div>
-                    {console.log(item)}
                     <a
                       className="nav text-darkPurple leading-[24px] mb-[35px] flex flex-row justify-between font-medium uppercase"
                       dangerouslySetInnerHTML={{ __html: item.label }}
