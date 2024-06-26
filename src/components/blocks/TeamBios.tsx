@@ -136,6 +136,34 @@ export function TeamBios({
                       <p className="mb-[14px] text-[#100D29] text-[17px] font-bold leading-[26px]">
                         {member.professionalTitle}
                       </p>
+                      <div>
+                        {member?.socialIcons?.length > 0 &&
+                          member?.socialIcons?.map((link, index) => (
+                            <a
+                              aria-label="social link"
+                              className="mr-[22px] w-fit mb-[10px] relative justify-center items-center flex flex-row"
+                              href={link.url || "/"}
+                              key={index}
+                            >
+                              {link.icon === "facebook" && (
+                                <Facebook className="fill-lightGreen w-fit hover:fill-white" />
+                              )}
+                              {link.icon === "linkedin" && (
+                                <Linkedin
+                                  className="fill-lightGreen hover:fill-white w-fit"
+                                  id="linkedin"
+                                />
+                              )}
+
+                              {link.icon === "twitter" && (
+                                <Twitter
+                                  className="fill-lightGreen hover:fill-white w-fit"
+                                  id="twitter"
+                                />
+                              )}
+                            </a>
+                          ))}
+                      </div>
 
                       <AccordionTrigger className="text-[18px] font-light text-[#00AC4D] [&[data-state=open]]:hidden">{`Read ${firstName}'s bio`}</AccordionTrigger>
                       <AccordionTrigger className="text-[18px] font-light text-[#00AC4D] hidden [&[data-state=open]]:flex">{`Close ${firstName}'s bio`}</AccordionTrigger>
