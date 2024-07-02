@@ -68,7 +68,7 @@ export const Checkbox = forwardRef(
                 required={required}
                 type="checkbox"
                 value={value}
-                {...register(`${inputId}[${index}]`)}
+                {...register(`${inputId}.${index}`)} // Adjusted the registration
                 className="w-fit scale-150"
               />
               <span className="ml-5">{value}</span>
