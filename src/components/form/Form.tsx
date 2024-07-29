@@ -124,11 +124,9 @@ export default function Form({
 
           {process.env.NEXT_PUBLIC_FORM_RECAPTCHA ? (
             <ReCAPTCHA
-              badge="bottomleft"
               onChange={onCaptchaChange}
               ref={recaptchaRef}
               sitekey={process.env.NEXT_PUBLIC_FORM_RECAPTCHA}
-              size="invisible"
             />
           ) : null}
 
