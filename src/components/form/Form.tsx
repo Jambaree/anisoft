@@ -112,11 +112,10 @@ export default function Form({
                 key={index}
               >
                 <FormField
+                  error={error}
                   field={field}
                   inputId={inputId}
                   register={register}
-                  // {...register(inputId, { required: field.required })}
-                  error={error}
                 />
               </div>
             );
