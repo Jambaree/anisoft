@@ -1,13 +1,8 @@
 import { NextResponse } from "next/server";
 
-export const config = {
-  api: {
-    bodyParser: false, // Disable body parsing to handle FormData manually
-  },
-};
-
 export async function POST(request: Request) {
   try {
+    // Since body parsing is enabled by default, we can directly handle FormData
     const formdata = await request.formData(); // Extract FormData from the request
 
     const recaptchaToken = request.headers.get("recaptcha-token");
@@ -39,7 +34,7 @@ export async function POST(request: Request) {
       `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${formId}/submissions`,
       {
         method: "POST",
-        body: formdata,
+        body: formdata, // FormData can be passed directly here
       }
     );
 
