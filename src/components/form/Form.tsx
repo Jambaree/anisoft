@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef, useState, useRef, useEffect } from "react";
+import { forwardRef, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import classNames from "classnames";
@@ -11,8 +11,6 @@ import Textarea from "./fields/textarea/Textarea";
 import Radio from "./fields/radio/Radio";
 import Upload from "./fields/upload/Upload";
 import { Checkbox } from "./fields/checkbox/Checkbox";
-// import Error from "./alert/error";
-// import Success from "./alert/success";
 import { Select } from "./fields/select";
 
 export default function Form({
@@ -24,77 +22,67 @@ export default function Form({
   variant: string;
 }) {
   const router = useRouter();
-  const [captchaValue, setCaptchaValue] = useState(null);
-  const recaptchaRef = useRef(null); // Reference to the reCAPTCHA component
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const { register, handleSubmit } = useForm();
+  const [result, setResult] = useState<any>();
 
-  const [result, setResult] = useState();
-
-  const { mutate: submitForm, isLoading } = useMutation(({ formdata }: any) => {
-    const request = fetch(
-      `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/gf/v2/forms/${form.id}/submissions`,
-      {
+  const { mutate: submitForm, isLoading } = useMutation(
+    async ({ formdata, recaptchaToken, formId }: any) => {
+      const response = await fetch("/api/submit-form", {
         method: "POST",
         body: formdata,
-      }
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        const parsedResult = JSON.parse(result);
-        setResult(parsedResult);
-
-        if (parsedResult.is_valid && [1, 9, 7, 8, 6].includes(form.id)) {
-          router.push("/thank-you"); // Redirect to the thank-you page if the form ID matches
-        }
-      })
-      .catch((error) => {
-        console.log("error", error);
+        headers: {
+          "recaptcha-token": recaptchaToken,
+          "form-id": formId,
+        },
       });
 
-    return request;
-  });
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+      return response.json();
+    },
+    {
+      onSuccess: (data) => {
+        if (data.is_valid && [1, 9, 7, 8, 6].includes(form.id)) {
+          router.push("/thank-you"); // Redirect to the thank-you page if the form ID matches
+        } else {
+          setResult(data); // Handle errors or other scenarios
+        }
+      },
+      onError: (error) => {
+        console.error("Form submission failed:", error);
+      },
+    }
+  );
 
   const onSubmit = async (formValues: any) => {
-    // Function to handle the actual form data submission
+    if (!captchaValue) {
+      alert("Please complete the reCAPTCHA challenge.");
+      return;
+    }
+
     const submitData = () => {
       const { formdata } = formatData(formValues);
-      submitForm({ formdata });
+      submitForm({ formdata, recaptchaToken: captchaValue, formId: form.id });
       setCaptchaValue(null); // Reset captcha value after submission
     };
-    if (!captchaValue) {
-      // Execute reCAPTCHA when the form is submitted and captchaValue is not set
-      recaptchaRef.current.execute();
-    } else {
-      // If captchaValue is already set, proceed to submit data
-      submitData();
-    }
-  };
-  const onCaptchaChange = (value) => {
-    setCaptchaValue(value);
-    if (value) {
-      handleSubmit(onSubmit)(); // Automatically resubmit the form when reCAPTCHA is validated
-    }
+
+    submitData();
   };
 
-  useEffect(() => {
-    if (captchaValue) {
-      handleSubmit(onSubmit)();
-    }
-  }, [captchaValue]);
+  const onCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
 
   const fields = form?.fields;
   const excludedFormIds = [9, 7, 8, 6]; // Define the excluded form IDs at the top for clarity
 
   return (
     <>
-      {/* {result?.is_valid === false && (
-        <Error errors={result.validation_messages} />
-      )}
-
-      {result?.is_valid === true && !excludedFormIds.includes(form.id) && (
-        <Success>{result.confirmation_message}</Success>
-      )} */}
       {!result?.is_valid && (
         <form
           className="flex flex-wrap justify-between items-center "
@@ -102,7 +90,7 @@ export default function Form({
         >
           {fields?.map?.((field, index) => {
             const inputId = `${field.type}_${field.id}`;
-            const error = result?.validation_messages[field.id];
+            const error = result?.validation_messages?.[field.id];
 
             return (
               <div
@@ -211,6 +199,7 @@ export default function Form({
     </>
   );
 }
+
 const FormField = forwardRef(
   ({ field, error, inputId, register, ...rest }, ref) => {
     const inputProps = {
@@ -302,16 +291,18 @@ const FormField = forwardRef(
 );
 FormField.displayName = "FormField";
 
-const formatData = (data) => {
+const formatData = (data: any) => {
   const formdata = new FormData();
 
-  Object.entries(data).map(([key, value]) => {
+  Object.entries(data).forEach(([key, value]) => {
     const fieldType = key.split("_")[0];
     const fieldId = key.split("_")[1];
 
     switch (fieldType) {
       case "fileupload":
-        formdata.append(`input_${fieldId}`, value[0]);
+        if (value.length > 0) {
+          formdata.append(`input_${fieldId}`, value[0]);
+        }
         break;
       case "checkbox":
         if (Array.isArray(value)) {
