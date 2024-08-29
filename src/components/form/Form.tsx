@@ -1,9 +1,8 @@
 "use client";
-import { forwardRef, useState, useRef } from "react";
+import { useState, forwardRef } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import classNames from "classnames";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
 import Button from "../Button";
 import Input from "./fields/input/Input";
@@ -22,9 +21,6 @@ export default function Form({
   variant: string;
 }) {
   const router = useRouter();
-  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-
   const { register, handleSubmit } = useForm();
   const [result, setResult] = useState<any>();
 
@@ -60,22 +56,23 @@ export default function Form({
   );
 
   const onSubmit = async (formValues: any) => {
-    if (!captchaValue) {
-      alert("Please complete the reCAPTCHA challenge.");
-      return;
+    try {
+      // Execute reCAPTCHA v3 and get the token
+      const recaptchaToken = await grecaptcha.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+        { action: "submit" }
+      );
+
+      const submitData = () => {
+        const { formdata } = formatData(formValues);
+        submitForm({ formdata, recaptchaToken, formId: form.id });
+      };
+
+      submitData();
+    } catch (error) {
+      alert("reCAPTCHA validation failed. Please try again.");
+      console.error("reCAPTCHA error:", error);
     }
-
-    const submitData = () => {
-      const { formdata } = formatData(formValues);
-      submitForm({ formdata, recaptchaToken: captchaValue, formId: form.id });
-      setCaptchaValue(null); // Reset captcha value after submission
-    };
-
-    submitData();
-  };
-
-  const onCaptchaChange = (value: string | null) => {
-    setCaptchaValue(value);
   };
 
   const fields = form?.fields;
@@ -88,6 +85,15 @@ export default function Form({
           className="flex flex-wrap justify-between items-center "
           onSubmit={handleSubmit(onSubmit)}
         >
+          {/* Honeypot Field */}
+          <input
+            className="hidden"
+            name="honeypot"
+            style={{ display: "none" }}
+            type="text"
+            {...register("honeypot")}
+          />
+
           {fields?.map?.((field, index) => {
             const inputId = `${field.type}_${field.id}`;
             const error = result?.validation_messages?.[field.id];
@@ -108,14 +114,6 @@ export default function Form({
               </div>
             );
           })}
-
-          {process.env.NEXT_PUBLIC_FORM_RECAPTCHA ? (
-            <ReCAPTCHA
-              onChange={onCaptchaChange}
-              ref={recaptchaRef}
-              sitekey={process.env.NEXT_PUBLIC_FORM_RECAPTCHA}
-            />
-          ) : null}
 
           {variant === "landing-page" && (
             <button

@@ -3,6 +3,7 @@ import { Mukta, Maven_Pro } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { getMenuItems, getOptionsPage } from "@nextwp/core";
 import type { WpLink } from "@nextwp/core";
+import Script from "next/script";
 import { TriggerPageView } from "@/components/trigger-gtm-pageview";
 import ZohoChatWidget from "@/components/zoho-chat-widget";
 import LinkedinInsightScript from "@/components/LinkedinInsightScript";
@@ -57,6 +58,10 @@ export default async function Layout({
         <Footer />
         <ZohoChatWidget />
         <LinkedinInsightScript />
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="beforeInteractive"
+        />
       </body>
       <GoogleTagManager gtmId="GTM-5NP3J68" />
       <TriggerPageView />
