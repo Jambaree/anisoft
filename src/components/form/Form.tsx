@@ -86,13 +86,13 @@ export default function Form({
           onSubmit={handleSubmit(onSubmit)}
         >
           {/* Honeypot Field */}
-          <input
+          {/* <input
             className="hidden"
             name="honeypot"
             style={{ display: "none" }}
             type="text"
             {...register("honeypot")}
-          />
+          /> */}
 
           {fields?.map?.((field, index) => {
             const inputId = `${field.type}_${field.id}`;

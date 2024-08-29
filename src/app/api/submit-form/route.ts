@@ -4,15 +4,15 @@ export async function POST(request: Request) {
   try {
     const formdata = await request.formData(); // Extract FormData from the request
 
-    const honeypot = formdata.get("honeypot");
+    // const honeypot = formdata.get("honeypot");
 
-    // If the honeypot is filled out, treat it as spam and reject the request
-    if (honeypot) {
-      return NextResponse.json(
-        { error: "Spam submission detected" },
-        { status: 400 }
-      );
-    }
+    // // If the honeypot is filled out, treat it as spam and reject the request
+    // if (honeypot) {
+    //   return NextResponse.json(
+    //     { error: "Spam submission detected" },
+    //     { status: 400 }
+    //   );
+    // }
 
     const recaptchaToken = request.headers.get("recaptcha-token");
     const formId = request.headers.get("form-id");
