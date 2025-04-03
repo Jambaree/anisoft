@@ -62,6 +62,11 @@ export async function SolutionsAndProductsTemplate({
           text2={data.acf.text2}
         />
       ) : null}
+      <FlexibleContent
+        blocks={blocks}
+        data={{ title, uri }}
+        rows={data.acf?.modules}
+      />
       <TextInfo
         backgroundGradient={data.acf?.background_gradient}
         button1={data.acf?.button1}
@@ -70,11 +75,6 @@ export async function SolutionsAndProductsTemplate({
         image={data.acf?.image}
         tag={data.acf?.tag}
         text={data.acf?.text}
-      />
-      <FlexibleContent
-        blocks={blocks}
-        data={{ title, uri }}
-        rows={data.acf?.modules}
       />
 
       <FooterTopperCTA data={themeOptions.footer_topper_cta} />
