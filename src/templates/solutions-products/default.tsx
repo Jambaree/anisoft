@@ -1,4 +1,5 @@
 import {
+  FlexibleContent,
   getOptionsPage,
   type WpImage,
   type WpLink,
@@ -8,6 +9,7 @@ import FooterTopperCTA from "@/components/FooterTopperCTA";
 import QuickFacts from "@/components/QuickFacts";
 import { TextInfo } from "@/components/blocks/TextInfo";
 import PageHeader from "@/components/PageHeader";
+import * as blocks from "../../components/blocks";
 
 interface PostData extends WpPage {
   acf?: {
@@ -43,6 +45,9 @@ export async function SolutionsAndProductsTemplate({
     };
   };
 
+  const title = data.title?.rendered;
+  const uri = `/${data.slug}`;
+
   return (
     <div>
       <PageHeader
@@ -57,7 +62,6 @@ export async function SolutionsAndProductsTemplate({
           text2={data.acf.text2}
         />
       ) : null}
-
       <TextInfo
         backgroundGradient={data.acf?.background_gradient}
         button1={data.acf?.button1}
@@ -66,6 +70,11 @@ export async function SolutionsAndProductsTemplate({
         image={data.acf?.image}
         tag={data.acf?.tag}
         text={data.acf?.text}
+      />
+      <FlexibleContent
+        blocks={blocks}
+        data={{ title, uri }}
+        rows={data.acf?.modules}
       />
 
       <FooterTopperCTA data={themeOptions.footer_topper_cta} />

@@ -77,7 +77,7 @@ export function TextInfo({
                 </FadeInUp>
               ) : null}
 
-              <FadeInUp className="delay-500">
+              <FadeInUp className="delay-500 mb-[50px]">
                 <div className="pt-[50px] flex wrap gap-[30px] flex-wrap w-auto mr-[50px]">
                   {button1?.url ? (
                     <Button
