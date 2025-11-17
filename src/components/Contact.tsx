@@ -1,7 +1,6 @@
 "use client";
-import React, { useState, useRef, useCallback } from "react";
+import React, { useRef } from "react";
 import type { MapRef } from "react-map-gl";
-import classNames from "classnames";
 import Edges from "./Edges";
 import Mapbox from "./MapBox";
 
@@ -9,18 +8,6 @@ function Contact({ data }) {
   const { headline, tag, text, locations } = data;
 
   const mapRef = useRef<MapRef>();
-  const [selectedCity, setSelectedCity] = useState(-1);
-  const onSelectCity = useCallback(
-    (longitude, latitude, zoom: number, index) => {
-      setSelectedCity(index);
-      mapRef.current?.flyTo({
-        center: [longitude, latitude],
-        zoom,
-        duration: 4000,
-      });
-    },
-    []
-  );
 
   return (
     <div className="bg-white py-[50px] md:py-[90px] h-full ">
@@ -32,22 +19,6 @@ function Contact({ data }) {
               {headline ? (
                 <h2 className="text-black  pr-[30px]  ">{headline}</h2>
               ) : null}
-              {selectedCity >= 0 && (
-                <p
-                  className="md:ml-auto my-auto pr-[30px]  hover:underline"
-                  onClick={() => {
-                    onSelectCity(
-                      -106.11014797030543,
-                      49.741015932602835,
-                      2,
-                      -1
-                    );
-                  }}
-                  role="button"
-                >
-                  View All Locations
-                </p>
-              )}
             </div>
             {text ? (
               <p className="text-black max-w-[300px] mb-[30px]">{text}</p>
@@ -57,31 +28,18 @@ function Contact({ data }) {
                 locations.map((location, index) => {
                   return (
                     <div
-                      className={classNames(
-                        "cursor-pointer flex flex-col gap-[15px] border-l-[2px] pl-[30px]",
-                        selectedCity === index
-                          ? "border-lightGreen"
-                          : "border-[#ADADAD]"
-                      )}
+                      className="flex flex-col gap-[15px] border-l-[2px] pl-[30px] border-[#ADADAD]"
                       key={index}
-                      onClick={() => {
-                        onSelectCity(
-                          location.longitude,
-                          location.latitude,
-                          11,
-                          index
-                        );
-                      }}
                     >
                       <h3 className="text-black">{location.title}</h3>
                       <p className="text-black">{location.address}</p>
-                      <a
+                      {/* <a
                         aria-label="phone number"
                         className="phoneLink hover:underline"
                         href={`tel:${location.phone}`}
                       >
                         Tel: {location.phone}
-                      </a>
+                      </a> */}
                       {location.faxNumber ? (
                         <a
                           aria-label="fax number"
@@ -97,11 +55,7 @@ function Contact({ data }) {
             </div>
           </div>
           <div className="md:w-[60%] w-full ">
-            <Mapbox
-              locations={locations}
-              mapRef={mapRef}
-              onSelectCity={onSelectCity}
-            />
+            <Mapbox locations={locations} mapRef={mapRef} />
           </div>
         </div>
       </Edges>
