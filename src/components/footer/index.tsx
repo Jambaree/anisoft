@@ -52,7 +52,12 @@ export default async function Footer() {
                 </ConditionalLink>
               </div>
               <div className="flex flex-col mb-[27px] p-footer">
-                <p className="text-white">{contactInformation?.phoneNumber}</p>
+                <p className="text-white">
+                  Can: {contactInformation?.canadaPhoneNumber}
+                </p>
+                <p className="text-white">
+                  USA: {contactInformation?.usPhoneNumber}
+                </p>
                 <p className="text-white">{contactInformation?.email}</p>
               </div>
               <div className="flex flex-row">
