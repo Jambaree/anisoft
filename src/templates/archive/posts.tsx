@@ -27,11 +27,21 @@ export function PostArchive(props: {
     },
   } = props;
 
+  // On page 1, sort sticky (pinned) posts to the top
+  const sortedItems =
+    currentPage === 1 && items
+      ? [...items].sort((a, b) => {
+          const aSticky = (a as any).sticky ? 1 : 0;
+          const bSticky = (b as any).sticky ? 1 : 0;
+          return bSticky - aSticky;
+        })
+      : items;
+
   return (
     <>
       <PageHeader2 title={page?.title?.rendered} />
       <Edges className="my-24">
-        <PostsGrid posts={items} />
+        <PostsGrid posts={sortedItems} />
 
         {currentPage && totalPages && totalItems ? (
           <BlogPagination

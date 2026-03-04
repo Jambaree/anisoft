@@ -8,7 +8,8 @@ import PageHeader2 from "../../components/PageHeader2";
 
 export default async function BlankPageTemplate({ data }) {
   const req = await fetch(
-    `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/service-type`
+    `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/service-type`,
+    { next: { revalidate: 60 } }
   );
   const serviceTypes = await req.json();
 

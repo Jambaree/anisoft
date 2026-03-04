@@ -11,6 +11,9 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Providers from "../components/Providers";
 
+// Revalidate layout data (menus, theme options) every 60 seconds
+export const revalidate = 60;
+
 const mukta = Mukta({
   variable: "--font-mukta",
   subsets: ["latin"],
