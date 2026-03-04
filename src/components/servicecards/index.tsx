@@ -67,7 +67,7 @@ function ServiceCards({ services }) {
                           {parse(service?.description)}
                         </div>
 
-                        {service?.points.map((point, index) => (
+                        {service?.points?.map((point, index) => (
                           <div className="flex flex-row  mb-[16px]" key={index}>
                             <div className="max-w-[16px] w-full h-[4px] bg-lightGreen mr-[16px] mt-[11px]" />
                             {parse(point?.text)}
