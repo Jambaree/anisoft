@@ -15,6 +15,7 @@ export function TextInfo({
   text,
   image,
   backgroundGradient,
+  background_gradient,
 }: {
   headline?: string;
   tag?: string;
@@ -23,7 +24,10 @@ export function TextInfo({
   text?: string;
   image?: WpImage;
   backgroundGradient?: boolean;
+  background_gradient?: boolean;
 }) {
+  const hasBgGradient = backgroundGradient || background_gradient;
+
   return (
     <div className="relative">
       {image?.url ? (
@@ -38,7 +42,7 @@ export function TextInfo({
       ) : null}
       <div
         className={classNames(
-          backgroundGradient ? "primaryRadialBg" : "bg-white",
+          hasBgGradient ? "primaryRadialBg" : "bg-white",
           "pt-[75px] md:pt-[100px]"
         )}
         id={tag}
@@ -46,7 +50,7 @@ export function TextInfo({
         <Edges className="relative" size="lg">
           <div
             className={classNames(
-              backgroundGradient ? "text-white" : "text-black",
+              hasBgGradient ? "text-white" : "text-black",
               "flex w-full h-full flex-wrap  items-start justify-center"
             )}
           >
@@ -83,7 +87,7 @@ export function TextInfo({
                   {button1?.url ? (
                     <Button
                       href={button1.url}
-                      reverse={Boolean(backgroundGradient)}
+                      reverse={Boolean(hasBgGradient)}
                       variant="large"
                     >
                       {button1.title}
@@ -93,7 +97,7 @@ export function TextInfo({
                   {button2?.url ? (
                     <Button
                       href={button2.url}
-                      reverse={Boolean(backgroundGradient)}
+                      reverse={Boolean(hasBgGradient)}
                       variant="basic"
                     >
                       {button2.title}
