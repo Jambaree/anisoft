@@ -63,7 +63,7 @@ function ServiceCards({ services }) {
                           className="block h-[45vh] -mt-[45vh] md:h-[50vh] md:-mt-[50vh] invisible"
                           id={service.name}
                         />
-                        <div className="mb-[32px]">
+                        <div className="mb-[32px] prose max-w-none">
                           {parse(service?.description)}
                         </div>
 
