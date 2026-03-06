@@ -250,3 +250,6 @@ span {
 .appointmentform .forminput {
   @apply !rounded-md;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

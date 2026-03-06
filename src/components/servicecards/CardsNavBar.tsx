@@ -46,10 +46,10 @@ function CardsNavBar({ services, activeIndex }) {
   return (
     <div className="md:block hidden w-full bg-darkPurple sticky top-[100px] z-40">
       <Edges
-        className="flex flex-row items-center justify-between py-[22px]"
+        className="relative flex flex-row items-center py-[22px]"
         size="lg"
       >
-        <div className="flex flex-row relative">
+        <div className="flex flex-row relative overflow-x-auto scrollbar-hide pr-[60px] lg:pr-[160px]" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
           {activeNav >= 0 && (
             <AnimatePresence>
               <motion.div
@@ -58,7 +58,7 @@ function CardsNavBar({ services, activeIndex }) {
                   height: `${buttonHeight.toString()}px`,
                   left: `${buttonLeft.toString()}px`,
                 }}
-                className="border-[1px] rounded-full border-white  px-[17px] mr-[31px] absolute z-10 "
+                className="border-[1px] rounded-full border-white  px-[17px] mr-[15px] absolute z-10 "
                 style={{
                   width: `${buttonWidth.toString()}px`,
                   height: `${buttonHeight.toString()}px`,
@@ -71,24 +71,24 @@ function CardsNavBar({ services, activeIndex }) {
           {services.map((service, index) => {
             return (
               <a
-                className="target:rounded-full target:border-[1px] z-20 mr-[31px]"
+                className="target:rounded-full target:border-[1px] z-20 mr-[15px]"
                 href={`#${service.name}`}
                 key={index}
                 ref={(ref) => {
                   refArray.current[index] = ref;
                 }}
               >
-                <p className="text-white h-[39px] px-[17px] py-0 whitespace-nowrap flex justify-center items-center ">
+                <p className="text-white h-[39px] px-[17px] py-0 whitespace-nowrap flex justify-center items-center text-[0.938rem] xl:text-[1rem] ">
                   {service?.name}
                 </p>
               </a>
             );
           })}
         </div>
-        <a href="#top">
-          <p className="text-white flex flex-row items-center">
-            <ChevronUp className="mr-[10px]" />
-            Return to top
+        <a className="absolute right-0 bg-darkPurple pl-[15px] pr-[15px]" href="#top">
+          <p className="text-white flex flex-row items-center whitespace-nowrap">
+            <ChevronUp className="lg:mr-[10px]" />
+            <span className="hidden lg:inline">Return to top</span>
           </p>
         </a>
       </Edges>
