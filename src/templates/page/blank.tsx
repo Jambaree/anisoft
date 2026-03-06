@@ -71,15 +71,6 @@ export default async function BlankPageTemplate({ data }) {
                             />
                           ) : null}
 
-                          {post?.content?.rendered ? (
-                            <div
-                              className="text-white archiveText overflow-hidden  overflow-ellipsis 	h-[55px]"
-                              dangerouslySetInnerHTML={{
-                                __html: post?.content?.rendered,
-                              }}
-                            />
-                          ) : null}
-
                           {featuredImage?.url ? (
                             <div className="relative w-full h-[220px]">
                               <Image
