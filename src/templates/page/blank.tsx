@@ -1,20 +1,23 @@
-import { getItems } from "@nextwp/core/src/api/get-items";
 import classNames from "classnames";
 import Image from "next/image";
 import { getFeaturedImage } from "@nextwp/core";
+import { getAuthHeaders } from "@nextwp/core/src/api/get-auth-headers";
 import ConditionalLink from "@/components/ConditionalLink";
 import Edges from "../../components/Edges";
 import PageHeader2 from "../../components/PageHeader2";
 
 export default async function BlankPageTemplate({ data }) {
+  const headers = getAuthHeaders();
+
   const req = await fetch(
     `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/service-type`,
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 60 }, headers }
   );
   const serviceTypes = await req.json();
 
-  const posts = await getItems({
+  const posts = await getAuthenticatedItems({
     restBase: "solutions-products",
+    headers,
   });
 
   const sections = serviceTypes
@@ -90,4 +93,50 @@ export default async function BlankPageTemplate({ data }) {
         })}
     </div>
   );
+}
+
+async function getAuthenticatedItems({
+  restBase,
+  headers,
+}: {
+  restBase: string;
+  headers?: HeadersInit;
+}) {
+  let allData: any[] = [];
+  let page = 1;
+  let morePagesAvailable = true;
+
+  while (morePagesAvailable) {
+    const params = new URLSearchParams({
+      per_page: "40",
+      page: String(page),
+      acf_format: "standard",
+      _embed: "true",
+    });
+
+    const req = await fetch(
+      `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/${restBase}?${params}`,
+      { headers }
+    );
+
+    const totalPages = req.headers.get("X-WP-TotalPages");
+    const data = await req.json();
+
+    morePagesAvailable = Boolean(
+      totalPages && page < parseInt(totalPages, 10)
+    );
+
+    for (const key in data) {
+      const path = data[key]?.link?.replace(
+        process.env.NEXT_PUBLIC_WP_URL,
+        ""
+      );
+      data[key].path = path;
+    }
+
+    allData = allData.concat(data);
+    page++;
+  }
+
+  return allData;
 }

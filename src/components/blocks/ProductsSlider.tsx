@@ -1,4 +1,5 @@
-import { getSingleItem, type WpPage } from "@nextwp/core";
+import type { WpPage } from "@nextwp/core";
+import { getAuthHeaders } from "@nextwp/core/src/api/get-auth-headers";
 import Edges from "../Edges";
 import ProductsList from "../ProductsList";
 
@@ -8,17 +9,23 @@ export async function ProductsSlider(props: {
   products: any[];
 }) {
   const { headline, tag, products } = props;
+  const headers = getAuthHeaders();
 
   const productsData: WpPage[] = [];
   await Promise.all(
     products.map(async (item) => {
-      const postItem = await getSingleItem({
-        id: item.product.ID,
-        rest_base: "solutions-products",
+      const params = new URLSearchParams({
+        acf_format: "standard",
+        _embed: "true",
       });
+      const req = await fetch(
+        `${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wp/v2/solutions-products/${item.product.ID}?${params}`,
+        { headers }
+      );
+      const postItem = await req.json();
 
-      if (postItem?.data) {
-        productsData.push({ ...item, postItem: postItem.data });
+      if (postItem?.id) {
+        productsData.push({ ...item, postItem });
       }
     })
   );
