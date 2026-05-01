@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm:*)",
+      "Bash(node:*)",
+      "Bash(xargs grep:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(npm run:*)",
+      "Bash(curl:*)",
+      "Bash(npx next:*)"
+    ]
+  }
+}
